@@ -1,0 +1,67 @@
+---
+title: "Broken Circles"
+---
+
+<!-- TODO: Perhaps we can find an article that talks about the need for collaboration or effective collaboration in data science projects and potentially look into team science protocols and ideas. -->
+
+This activity is designed to explore how working in groups can be more or less successful.
+
+## Instructions
+
+The class will divide into groups of six (6) students. Each of you will be given an envelope with 2-3 pieces of a circle. The goal of this exercise is to put these pieces together in such a way that each member of your group ends up with a complete circle. However, there are a few additional rules to keep things fun:
+
+1.  This exercise must be done in complete silence. No talking is permitted.
+2.  You may not point or signal to other players with your hands in any way.
+3.  Each player must put together their own circle. No one else may show a player how to assemble their circle or do it for them.
+4.  This is an exercise in ***giving***. You may not take a piece from another player, but you may *give* your pieces---one at a time---to any other member of your group, and members of your group may give pieces to you. As per the previous rule, you may not place a piece in another person's puzzle; players must complete their own puzzle. Instead, you are expected to hand the piece to the other player.
+
+## Getting Started
+
+Now that you know the rules, let's get started! Take the pieces out of your envelope and place them in front of you. Remember, this is a **group** task. The activity is not completed until everyone in your group has a completed circle in front of them.
+
+You have 10-minutes to make your circles. When your group has finished, raise your hand. If you have time remaining, I may ask you to find another way to put the pieces together to form different circles.
+
+## Discussion
+
+-   What do you think this game was about? What was its purpose?
+-   What did your group did that made you cooperate more successfully?
+-   What did your group did that made cooperation harder?
+-   What are some behaviors that could be implemented in the future to make cooperation easier?
+
+<!-- It is important to draw direct links between the norms and behaviors that we see because the desired behaviors we are training the students for really do need to be specific and not broad. For example. We can't just say “you need to work together”, we need to say “you work together by…” -->
+
+<!-- We need to identify the cooperative behaviors needed for paired programming.  -->
+
+<!-- - Not doing the task for another person  -->
+
+<!-- - Not just giving an answer but an explanation  -->
+
+<!-- - Providing concise sharing / description of what is being done and reasoning for why it's being done  -->
+
+<!-- We need to identify higher levels of discourse and instruct students to engage in such. For example, they need to start by discussing a strategy and agreeing on it before moving forward or getting caught in the weeds. They shouldn't just barrel through the assignment but should think about the assignment and come up with a plan. It is important to identify the goals and behaviors of the activity when it comes to cooperation because we need the behaviors to be specific and directly relevant to the goal of the group, not broad and generic. -->
+
+<!-- As we're thinking about equal participation training procedures, here are some norms we might want to focus on  -->
+
+<!-- - Say your own ideas  -->
+
+<!-- - Listen to others -->
+
+<!-- - Give everyone a chance to talk  -->
+
+<!-- - Ask others for their ideas  -->
+
+<!-- - Give reasons for your ideas and discuss any and every different idea -->
+
+<!-- When evaluating how your group is doing, think about the following questions -->
+
+<!-- - Is everyone talking?  -->
+
+<!-- - Are you listening to each other?  -->
+
+<!-- - Are you asking questions?  -->
+
+<!-- - What could you ask to find out someone's ideas?  -->
+
+<!-- - Are you giving reasons for your ideas?  -->
+
+<!-- - How do you ask for reasons from others? -->

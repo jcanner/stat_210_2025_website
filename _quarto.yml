@@ -1,0 +1,64 @@
+project:
+  type: website
+  output-dir: docs
+  render: 
+    - "*.qmd"
+    - "!/labs/student/"
+    - "!/group-activities/group-formation"
+
+website:
+  page-navigation: true
+  title: "Statistical Computing with R"
+  description: "Homepage for STAT 210 at CSUMB"
+  site-url: "https://github.com/jcanner/stat_210_2025_website"
+  repo-url: https://github.com/jcanner/stat_210_2025_website
+  repo-actions: [issue]
+
+  page-footer:
+    right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
+    left: "&copy; Copyright 2024, Allison Theobold & Judith Canner"
+    background: "#D9E3E4"
+
+  sidebar:
+    background: "#5D737E"
+    logo: "images/r-flowers.png"
+    pinned: true
+    align: center
+    tools:
+      - icon: github
+        href: https://github.com/
+        text: "GitHub organization"
+      - icon: person-fill
+        href: https://csumb.instructure.com/courses/27314
+        text: "Course Canvas Site"
+
+    style: "docked"
+    search: true
+    collapse-level: 1
+    contents:
+      - section: "Course information"
+        contents:
+          - href: course-materials/course_resources.qmd
+            text: R Resources
+      - section: "Weekly materials"
+        contents:
+          - href: weeks/week-1-r-rstudio.qmd
+            text: "Week 1, Part 1 - R & RStudio"
+      - section: "Labs"
+        contents:
+          
+   
+
+format:
+  html:
+    theme:
+      light: [cosmo, style/stat331.scss]
+      dark: [cosmo, style/stat331.scss, style/dark.scss]
+    mainfont: "Atkinson Hyperlegible"
+    code-copy: true
+    code-overflow: wrap
+    toc: true
+    linkcolor: "#5D737E"
+#    highlight-style: a11y-dark
+
+editor: visual

@@ -1,0 +1,18 @@
+---
+title: "Statistical Computing with R"
+tbl-colwidths: [5,15,30,20,20,20,20]
+---
+
+This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the semester progresses, with all changes documented here.
+
+<!-- TODO: Switch to spreadsheet for content (like Mine and Maria do) -->
+
++------+--------------+----------------------------------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+-----------+
+| Week | Date         | Topic & Preview Activities                         | Lecture Slides | Practice Activity                                                                                                                 | Lab & Challenge | Portfolio |
++======+==============+====================================================+================+===================================================================================================================================+=================+===========+
+| 1    | Friday, 1/24 | [Intro to R & RStudio](weeks/week-1-r-rstudio.qmd) |                | [Broken Circles Group Warm-up](group-activities/week-1/broken-circles.qmd "Broken Circles Group Warm-up")                         |                 |           |
+|      |              |                                                    |                |                                                                                                                                   |                 |           |
+|      |              |                                                    |                | [Creating Pair Programming Norms](/group-activities/pair-programming-norms.qmd "Creating Pair Programming Norms")                 |                 |           |
+|      |              |                                                    |                |                                                                                                                                   |                 |           |
+|      |              |                                                    |                | [Data Cleaning, Visualization Puzzle](/group-activities/week-1/data-cleaning-viz-steps.qmd "Data Cleaning, Visualization Puzzle") |                 |           |
++------+--------------+----------------------------------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------+-----------+

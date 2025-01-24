@@ -1,0 +1,334 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Statistical Computing with R",
+    "section": "",
+    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic & Preview Activities\nLecture Slides\nPractice Activity\nLab & Challenge\nPortfolio\n\n\n\n\n1\nFriday, 1/24\nIntro to R & RStudio\n\nBroken Circles Group Warm-up\nCreating Pair Programming Norms\nData Cleaning, Visualization Puzzle"
+  },
+  {
+    "objectID": "group-activities/week-1/data-cleaning-viz-steps.html#view-original-data",
+    "href": "group-activities/week-1/data-cleaning-viz-steps.html#view-original-data",
+    "title": "Master Script Data Processing",
+    "section": "View Original Data",
+    "text": "View Original Data"
+  },
+  {
+    "objectID": "group-activities/week-1/data-cleaning-viz-steps.html#filter-just-us-based-jobs",
+    "href": "group-activities/week-1/data-cleaning-viz-steps.html#filter-just-us-based-jobs",
+    "title": "Master Script Data Processing",
+    "section": "Filter Just US Based Jobs",
+    "text": "Filter Just US Based Jobs"
+  },
+  {
+    "objectID": "group-activities/week-1/data-cleaning-viz-steps.html#filter-out-entry-level-jobs-only",
+    "href": "group-activities/week-1/data-cleaning-viz-steps.html#filter-out-entry-level-jobs-only",
+    "title": "Master Script Data Processing",
+    "section": "Filter out entry level jobs only",
+    "text": "Filter out entry level jobs only"
+  },
+  {
+    "objectID": "group-activities/week-1/data-cleaning-viz-steps.html#count-of-positions-by-remote-work-and-company-size",
+    "href": "group-activities/week-1/data-cleaning-viz-steps.html#count-of-positions-by-remote-work-and-company-size",
+    "title": "Master Script Data Processing",
+    "section": "Count of positions by Remote Work and Company Size",
+    "text": "Count of positions by Remote Work and Company Size"
+  },
+  {
+    "objectID": "group-activities/week-1/data-cleaning-viz-steps.html#graph-of-remote-work-and-company-size",
+    "href": "group-activities/week-1/data-cleaning-viz-steps.html#graph-of-remote-work-and-company-size",
+    "title": "Master Script Data Processing",
+    "section": "Graph of Remote Work and Company Size",
+    "text": "Graph of Remote Work and Company Size"
+  },
+  {
+    "objectID": "group-activities/week-1/data-cleaning-viz-steps.html#group-and-calculate-average-salary-by-year",
+    "href": "group-activities/week-1/data-cleaning-viz-steps.html#group-and-calculate-average-salary-by-year",
+    "title": "Master Script Data Processing",
+    "section": "Group and Calculate Average Salary by year",
+    "text": "Group and Calculate Average Salary by year"
+  },
+  {
+    "objectID": "group-activities/week-1/base-r.html",
+    "href": "group-activities/week-1/base-r.html",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "",
+    "text": "Today you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message.\nSome advice:"
+  },
+  {
+    "objectID": "group-activities/week-1/base-r.html#part-zero-accessing-the-practice-activity",
+    "href": "group-activities/week-1/base-r.html#part-zero-accessing-the-practice-activity",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part Zero: Accessing the Practice Activity",
+    "text": "Part Zero: Accessing the Practice Activity"
+  },
+  {
+    "objectID": "group-activities/week-1/base-r.html#part-one-setup",
+    "href": "group-activities/week-1/base-r.html#part-one-setup",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part One: Setup",
+    "text": "Part One: Setup\nEach of the following R chunks will cause an error and / or do the desired task incorrectly. Find the mistake, and correct it to complete the intended action.\n\nCreate vectors containing the upper case letters, lower case letters, and some punctuation marks.\n\n\nlower_case &lt;- c(\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\",\n                \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\")\n\nupper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\" \"I\", \"J\", \"K\", \"L\", \"M\",\n                \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\")\n\npunctuation &lt;- c(\".\", \",\", \"!\", \"?\", \"'\", \"\"\", \"(\", \")\", \" \", \"-\", \";\", \":\")\n\n\nMake one long vector containing all the symbols.\n\n\nmy_symbols &lt;- cbind(lower_case, upper_case, punctuation)\n\n\nTurn the my_symbols vector into a data frame, with one column named “Symbol”.\n\n\nmy_symbols &lt;- dataframe(Symbol = my_symbols)\n\n\nFind the total number of symbols we have in our data frame.\n\n\nlen &lt;- length(my_symbols)\n\n\nCreate a new variable in your dataframe that assigns a number to each symbol.\n\n\nmy_symbols%Num &lt;- 1:len"
+  },
+  {
+    "objectID": "group-activities/week-1/base-r.html#part-two-decoding-the-secret-message.",
+    "href": "group-activities/week-1/base-r.html#part-two-decoding-the-secret-message.",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part Two: Decoding the secret message.",
+    "text": "Part Two: Decoding the secret message.\nThis chunk will load up the encoded secret message as a vector:\n\ntop_secret &lt;- read_csv(\"https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1\", \n                       col_names = FALSE)$X1\n\nBy altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, in the order given below.\n\nAdd 14 to every number.\nMultiply every number by 18, then subtract 257.\nUse the exp() function to exponentiate every number.\nSquare every number.\n\nHint: To update a vector after performing an operation, you overwrite the existing object with its updated counterpart. This looks something like this:\nx &lt;- x + 12,\nwhere the original value(s) in x have had 12 added to them, and the resulting values are put back in to the object named x.\n\n## Code to carry out steps 6-9 \n\nCheckpoint: Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. Write the code to verify that this is true for your top_secret object!\nHint: This is what is called a “relational” comparison, where you compare an object to a number and R will give you a vector of TRUEs and FALSEs based on whether the comparison is / is not met. You can then use these TRUEs and FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.\n\n# Write code to verify that there are 352 numbers with values **below** 17\n\nNext, carry out the following steps:\n\nTurn your vector of numbers into a matrix with 5 columns.\nSeparately from your top secret numbers, create a vector of all the even numbers between 1 and 382. Name it “evens”. That is, “evens” should contain 2, 4, 6, 8 …, 382.\nSubtract the “evens” vector from the first column of your secret message matrix.\nSubtract 100 from all numbers 18-24th rows of the 3rd column.\nMultiply all numbers in the 4th and 5th column by 2.\nTurn your matrix back into a vector.\n\n\n## Code to carry out steps 10-15\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. Write the code to verify that this is true for your top_secret object!\nHint: Use a relational comparison similar to what you used in the last checkpoint, but here you will need to subset values from your vector!\n\n# Write code to verify that indices 500 and beyond have values **below** 100\n\n\nTake the square root of all numbers in indices 38 to 465.\nUse the round() function to round all numbers to the nearest whole number.\nReplace all instances of the number 39 with 20.\n\nHint: Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign!\n\n# Code for steps 16-18\n\nCheckpoint: Headquarters has informed you that your final message should have 344 even numbers.\nHint: Checking for divisibility is an interesting operation that isn’t done much in R. Modulus is the operation you are interested in, where you are checking for whether the numbers are divisible by 2, with no remainder. See what you can find about modulus in R!\n\n# Code to verify how many even numbers are in your top_secret vector"
+  },
+  {
+    "objectID": "group-activities/week-1/base-r.html#part-3-the-secret-message",
+    "href": "group-activities/week-1/base-r.html#part-3-the-secret-message",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part 3: The secret message!",
+    "text": "Part 3: The secret message!\nUse your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:\n\nstringr::str_c(my_symbols$Symbol[top_secret], collapse = \"\")\n\nGoogle the first line of this message, if you do not recognize it, to see what poem it is."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "group-activities/pair-programming-norms.html",
+    "href": "group-activities/pair-programming-norms.html",
+    "title": "Pair Programming Roles",
+    "section": "",
+    "text": "During our in-class activities, you will be paired with another student. When completing the activity, you will rotate between the following roles every 2-3 minutes:"
+  },
+  {
+    "objectID": "group-activities/pair-programming-norms.html#group-norms",
+    "href": "group-activities/pair-programming-norms.html#group-norms",
+    "title": "Pair Programming Roles",
+    "section": "Group Norms",
+    "text": "Group Norms\n\nThink and work together. Do not divide the work.\nYou are smarter together.\nBe open minded.\nNo cross-talk with other groups.\nCommunicate with each other!"
+  },
+  {
+    "objectID": "group-activities/pair-programming-norms.html#completing-the-task",
+    "href": "group-activities/pair-programming-norms.html#completing-the-task",
+    "title": "Pair Programming Roles",
+    "section": "Completing the Task",
+    "text": "Completing the Task\nWorking with your partner, complete the Practice Activity in the Quarto document provided. In your roles—Coder and Developer—use the prompts below to help guide the completion of your activity.\n\n\nCoder\nI am looking for…\nI am confused by…\nI notice…\nWhat might be true is…\nWhat’s important is…\nI predict…\nThis reminds me of…\nWhat if we…\nWe could try…\nI am thinking about…\nA line of code I could write is…\n\n\n\nDeveloper\n\nDo you understand what we need to do?\nWhat’s the question we have for Dr. Theobold? Can we answer the question ourselves?\nWhat are you focusing on?\nWhat are you thinking now?\nCould you tell me more?\nWhat are you doing (or writing) now? Please elaborate.\nI can’t follow that, run that by me again.\n What other sources of information do we need?\nWhich words should we look up?\nWhat else do we need to complete this problem?"
+  },
+  {
+    "objectID": "group-activities/pair-programming-norms.html#once-youre-finished",
+    "href": "group-activities/pair-programming-norms.html#once-youre-finished",
+    "title": "Pair Programming Roles",
+    "section": "Once You’re Finished",
+    "text": "Once You’re Finished\nAt the end of the task, your group will have one completed Quarto document and one rendered HTML, containing your groups’ worked-out solutions and justifications. Everyone must take turns writing the final product (as described above) and everyone must be able to explain every line of code in your final document."
+  },
+  {
+    "objectID": "course-materials/course_resources.html",
+    "href": "course-materials/course_resources.html",
+    "title": "R Resources",
+    "section": "",
+    "text": "Tip\n\n\n\nClick on the link to access the R Cheatsheet related to a specific topic / package!\n\n\n\nWeekly R Cheatsheets\nWeek 1\n\nRStudion IDE\nQuarto\nBase R\nGit & GitHub\n\nWeek 2\n\nData Visualization with ggplot2\nData Import with readr\n\nWeek 3\n\nData Wrangling with dplyr\n\nWeek 4\n\nData Tidying with tidyr\nFactors with forcats\n\nWeek 5\n\nDates with lubridate\nStrings with stringr\nRegular Expressions\n\nWeek 7\n\nTidy Evaluation\n\nWeek 8\n\nIteration with purrr",
+    "crumbs": [
+      "Course information",
+      "R Resources"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-1/broken-circles.html",
+    "href": "group-activities/week-1/broken-circles.html",
+    "title": "Broken Circles",
+    "section": "",
+    "text": "This activity is designed to explore how working in groups can be more or less successful."
+  },
+  {
+    "objectID": "group-activities/week-1/broken-circles.html#instructions",
+    "href": "group-activities/week-1/broken-circles.html#instructions",
+    "title": "Broken Circles",
+    "section": "Instructions",
+    "text": "Instructions\nThe class will divide into groups of six (6) students. Each of you will be given an envelope with 2-3 pieces of a circle. The goal of this exercise is to put these pieces together in such a way that each member of your group ends up with a complete circle. However, there are a few additional rules to keep things fun:\n\nThis exercise must be done in complete silence. No talking is permitted.\nYou may not point or signal to other players with your hands in any way.\nEach player must put together their own circle. No one else may show a player how to assemble their circle or do it for them.\nThis is an exercise in giving. You may not take a piece from another player, but you may give your pieces—one at a time—to any other member of your group, and members of your group may give pieces to you. As per the previous rule, you may not place a piece in another person’s puzzle; players must complete their own puzzle. Instead, you are expected to hand the piece to the other player."
+  },
+  {
+    "objectID": "group-activities/week-1/broken-circles.html#getting-started",
+    "href": "group-activities/week-1/broken-circles.html#getting-started",
+    "title": "Broken Circles",
+    "section": "Getting Started",
+    "text": "Getting Started\nNow that you know the rules, let’s get started! Take the pieces out of your envelope and place them in front of you. Remember, this is a group task. The activity is not completed until everyone in your group has a completed circle in front of them.\nYou have 10-minutes to make your circles. When your group has finished, raise your hand. If you have time remaining, I may ask you to find another way to put the pieces together to form different circles."
+  },
+  {
+    "objectID": "group-activities/week-1/broken-circles.html#discussion",
+    "href": "group-activities/week-1/broken-circles.html#discussion",
+    "title": "Broken Circles",
+    "section": "Discussion",
+    "text": "Discussion\n\nWhat do you think this game was about? What was its purpose?\nWhat did your group did that made you cooperate more successfully?\nWhat did your group did that made cooperation harder?\nWhat are some behaviors that could be implemented in the future to make cooperation easier?"
+  },
+  {
+    "objectID": "weeks/week-1-r-rstudio.html",
+    "href": "weeks/week-1-r-rstudio.html",
+    "title": "Week 1, Part 1: R & RStudio",
+    "section": "",
+    "text": "For the first portion of this week’s coursework, we are going to learn about / refresh our memory on R and RStudio. This course is all about you learning skills for working with data in R, so you will need to have local installations of both R and RStudio on your computer.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 1, Part 1 - R & RStudio"
+    ]
+  },
+  {
+    "objectID": "weeks/week-1-r-rstudio.html#updating-your-version-of-r",
+    "href": "weeks/week-1-r-rstudio.html#updating-your-version-of-r",
+    "title": "Week 1, Part 1: R & RStudio",
+    "section": "1.1 Updating Your Version of R",
+    "text": "1.1 Updating Your Version of R\nIf you already have R downloaded, you need to confirm that you have the most up to date version of R. Do not ignore these instructions. If you neglect to update your version of R, you may find that updating a package will make it so your code will not run.\n\nStep 1: Open RStudio\nStep 2: At the top of the the Console it will say what version of R you are using\n\n{fig-alt = “A screenshot of what version of R should appear when you open RStudio. The version reads ‘R version 4.4.2 (2024-10-31) – ’Pile of Leaves’.”}\nIf the version is not 4.4.2 (like the image above), you need to update your version of R! The simplest way to do this is to follow the instructions below to install R.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 1, Part 1 - R & RStudio"
+    ]
+  },
+  {
+    "objectID": "weeks/week-1-r-rstudio.html#installing-r",
+    "href": "weeks/week-1-r-rstudio.html#installing-r",
+    "title": "Week 1, Part 1: R & RStudio",
+    "section": "1.2 Installing R",
+    "text": "1.2 Installing R\nDownload and install R by going to https://cloud.r-project.org/. Here, you will find three options for installing R—click on the option for your computer’s operating system.\n\n📽️ Useful Video: Installing R and RStudio - Windows\n\n\n📽️ Useful Video: Installing R and RStudio - Mac\n\n\nIf you are a Windows user:\n\nClick on “Download R for Windows”\nClick on “base”\nClick on the Download link.\nWhen you open the execution file (.exe) you will be prompted with a variety of questions about installing R. Feel free to use the default features / settings that come with R (continue to click “Ok” until the download starts).\n\n\n\n\n\n\n\nMultiple Versions of R\n\n\n\nBeware that if you had a previous version of R downloaded on your PC, that old version will not be deleted when you download the most recent version of R. We do not want to have two versions of R installed, as your computer can get confused what version of R to use. So, you need to remove the old version of R.\nTo do this you need to:\n\nNavigate to your computer’s settings\nClick on the “Apps” option on the left-hand panel\nSearch for or scroll down to R\nFind the older version of R\n\n\n\nClick on the ... on the right side\nSelect “Uninstall”\n\n\n\n\n\n\nIf you are macOS user:\n\nClick on “Download R for (Mac) OS X”\nUnder “Latest release:” click on R-X.X.X.pkg, where R-X.X.X is the version number. For example, the latest version of R as of October 31, 2024 was R-4.4.2 (Pile of Leaves).\nWhen installing, use the default features / settings that come with R (click Ok until the download starts).\n\n\n\n\n\n\n\nTroubleshooting for Macs\n\n\n\nFirst, identify which version of OSx you are running. How-to\nNext, find out which version of R your computer can run. Link\nIf this version is 3.6 or later, download the latest version that your computer can handle.\nIf this version is 3.4 or earlier, you’re going to run in to some trouble. I recommend updating your version of OSx, if you are willing. If you can’t, then you can use Posit Cloud to run R and RStudio on a free server. However, I recommend strongly against this option; your files will not be saved indefinitely, you will have limited hours to complete your work, your computing power will be limited, and you will need an internet connection at all times to do your work.\n\n\n\n\nIf you are a Linux user:\nClick on “Download R for Linux” and choose your distribution for more information on installing R for your setup.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 1, Part 1 - R & RStudio"
+    ]
+  },
+  {
+    "objectID": "weeks/week-1-r-rstudio.html#updating-your-version-of-rstudio",
+    "href": "weeks/week-1-r-rstudio.html#updating-your-version-of-rstudio",
+    "title": "Week 1, Part 1: R & RStudio",
+    "section": "2.1 Updating Your Version of RStudio",
+    "text": "2.1 Updating Your Version of RStudio\nIf you already have RStudio, you need to double check if you have the most recent version. You will not have access to the newest features for Quarto documents unless you have the most recent version of RStudio.\n\nStep 1: Open RStudio\nStep 2: Click on “Help” in the upper menu\nStep 3: Click on “Check for Updates”\n\nIf there are no updates to RStudio since you installed it, you are good to go! If you need to update RStudio, you will be sent to Posit (the parent company) to download the most recent version of RStudio desktop.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 1, Part 1 - R & RStudio"
+    ]
+  },
+  {
+    "objectID": "weeks/week-1-r-rstudio.html#installing-rstudio",
+    "href": "weeks/week-1-r-rstudio.html#installing-rstudio",
+    "title": "Week 1, Part 1: R & RStudio",
+    "section": "2.2 Installing RStudio",
+    "text": "2.2 Installing RStudio\nDownloading the most recent version of RStudio works the same way regardless of whether you’ve never downloaded RStudio before or if you just need to update your version of RStudio.\nWhen you navigate to the RStudio download page (https://rstudio.com/products/rstudio/download/), the website should automatically detect your computer’s operating system. So, you should be able to simply click the blue “Download RStudio Desktop for [insert operating system here]” button.\nClicking the button will begin installing RStudio. Once the download has completed, you will need to open the application file (on a Mac this is a .dmg file, on Windows this is an exe file).",
+    "crumbs": [
+      "Weekly materials",
+      "Week 1, Part 1 - R & RStudio"
+    ]
+  },
+  {
+    "objectID": "slides/week-1/week-1-intro-R.html",
+    "href": "slides/week-1/week-1-intro-R.html",
+    "title": "Intro to STAT 331 / 531 + Intro to R",
+    "section": "",
+    "text": "Today we will…\n\nWelcome to Stat 331 / 531: Statistical Computing in R\nIntroductions (Me + You)\nCourse Layout\nBasics of R\nGroup collaboration warm-up\nData wrangling / visualization puzzle"
+  },
+  {
+    "objectID": "slides/week-1/week-1-intro-R.html#tuesday-september-24",
+    "href": "slides/week-1/week-1-intro-R.html#tuesday-september-24",
+    "title": "Intro to STAT 331 / 531 + Intro to R",
+    "section": "",
+    "text": "Today we will…\n\nWelcome to Stat 331 / 531: Statistical Computing in R\nIntroductions (Me + You)\nCourse Layout\nBasics of R\nGroup collaboration warm-up\nData wrangling / visualization puzzle"
+  },
+  {
+    "objectID": "slides/week-1/week-1-intro-R.html#hi-im-dr.-theobold",
+    "href": "slides/week-1/week-1-intro-R.html#hi-im-dr.-theobold",
+    "title": "Intro to STAT 331 / 531 + Intro to R",
+    "section": "Hi, I’m Dr. Theobold!",
+    "text": "Hi, I’m Dr. Theobold!\n\n\n\n\nI am originally from Colorado, but went to grad school in Montana.\nMy favorite things are being outside, drinking coffee, and watching women’s basketball.\n\n\n\n\n\n\n\n\n. . .\n\n\n\n\nI love cats!\nI’ve been programming in R since 2014!\nI absolutely love teaching this course!"
+  },
+  {
+    "objectID": "slides/week-1/week-1-intro-R.html#on-a-personal-note",
+    "href": "slides/week-1/week-1-intro-R.html#on-a-personal-note",
+    "title": "Intro to STAT 331 / 531 + Intro to R",
+    "section": "On a personal note…",
+    "text": "On a personal note…\n\n\nI prefer you refer to me as “Dr. Theobold”, or “Dr. T”, or “Professor Theobold.”\nPlease don’t call me “Allison” or “Professor.”\n\n\nI use they / them pronouns. If you are not sure what this means, I’d encourage you to read more about gender identity and pronouns. 🙂"
+  },
+  {
+    "objectID": "slides/week-1/week-1-intro-R.html#our-classroom-learning-assistant",
+    "href": "slides/week-1/week-1-intro-R.html#our-classroom-learning-assistant",
+    "title": "Intro to STAT 331 / 531 + Intro to R",
+    "section": "Our Classroom Learning Assistant!",
+    "text": "Our Classroom Learning Assistant!\nWe will be joined in class by Jasmine.\n. . .\nJasmine is…\n\na forth-year Statistics major pursuing a Data Science minor,\noriginally from Irvine, CA,\nsomeone who loves sushi, hanging out with friends, watching Netflix, and working out."
+  },
+  {
+    "objectID": "slides/week-1/week-1-intro-R.html#you",
+    "href": "slides/week-1/week-1-intro-R.html#you",
+    "title": "Intro to STAT 331 / 531 + Intro to R",
+    "section": "You!",
+    "text": "You!\nI am looking forward to reading your introductions on Discord!\n\nPlease read the intros of your classmates so you can discover who you will be learning with this quarter!"
+  },
+  {
+    "objectID": "slides/week-1/week-1-intro-R.html#beginning-of-the-week",
+    "href": "slides/week-1/week-1-intro-R.html#beginning-of-the-week",
+    "title": "Intro to STAT 331 / 531 + Intro to R",
+    "section": "Beginning of the Week",
+    "text": "Beginning of the Week\n\nBefore Tuesday’s ClassDuring Class on TuesdayAfter Tuesday’s Class\n\n\n\nLook over the coursework page\nRead the required chapter(s)\nWatch the required video(s)\nComplete the Check-ins\n\n\n\n\nReview chapter content\nAsk clarifying questions\nDiscuss example analyses\nWork in pairs to complete the Practice Activity\n\n\n\n\nFinish whatever remains of the Practice Activity\nComplete any additional reading / videos / Check-ins"
+  },
+  {
+    "objectID": "slides/week-1/week-1-intro-R.html#end-of-the-week",
+    "href": "slides/week-1/week-1-intro-R.html#end-of-the-week",
+    "title": "Intro to STAT 331 / 531 + Intro to R",
+    "section": "End of the Week",
+    "text": "End of the Week\n\nDuring Class on ThursdayAfter Thursday’s Class\n\n\n\nDebrief Practice Activity\nWarm-up review\nStart Lab Assignment\n\n\n\n\nFinish remaining problems of the Lab Assignment\nComplete Challenge Assignment\n\n\n\n\n\n\n\nLabs & Challenges Due Sunday by Midnight\n\n\n\nTo keep everyone on track with the coursework, your Lab and Challenges are due by midnight every Sunday. You are permitted to request up to four (4) deadline extensions by filling out the deadline extension form."
+  },
+  {
+    "objectID": "slides/week-1/week-1-intro-R.html#data-types",
+    "href": "slides/week-1/week-1-intro-R.html#data-types",
+    "title": "Intro to STAT 331 / 531 + Intro to R",
+    "section": "Data Types",
+    "text": "Data Types\n\nA value is a basic unit of stuff that a program works with.\nValues are allowed to have different data types:\n\n. . .\n\nlogical / boolean: FALSE / TRUE or 0 / 1 values.\n\n. . .\n\ninteger: whole numbers.\n\n. . .\n\ndouble / float / numeric: decimal numbers.\n\n. . .\n\ncharacter / string - text values."
+  },
+  {
+    "objectID": "slides/week-1/week-1-intro-R.html#variables",
+    "href": "slides/week-1/week-1-intro-R.html#variables",
+    "title": "Intro to STAT 331 / 531 + Intro to R",
+    "section": "Variables",
+    "text": "Variables\n\nare names that refer to values.\n\n\n\n\nA variable is like a container that holds something - when you refer to the container, you get whatever is stored inside.\nWe assign values to variables using the syntax object_name &lt;- value.\n\nThis can be read as “object name gets value.”\n\n\n\n\n. . .\n\nmessage &lt;- \"So long and thanks for all the fish\"\nyear &lt;- 2025\nthe_answer &lt;- 42.5\nearth_demolished &lt;- FALSE"
+  },
+  {
+    "objectID": "slides/week-1/week-1-intro-R.html#data-structures",
+    "href": "slides/week-1/week-1-intro-R.html#data-structures",
+    "title": "Intro to STAT 331 / 531 + Intro to R",
+    "section": "Data Structures",
+    "text": "Data Structures\n\nHomogeneousHeterogeneous\n\n\n\nevery element has the same data type\n\n\nVector: a one-dimensional column of homogeneous data.\nMatrix: the next step after a vector - it’s a set of homogenous data arranged in a two-dimensional, rectangular format.\n\n\n\n\nelements can be of different types\n\n\nList: a one-dimensional column of heterogeneous data.\nDataframe: a two-dimensional set of heterogeneous data arranged in a rectangular format."
+  },
+  {
+    "objectID": "slides/week-1/week-1-intro-R.html#indexing",
+    "href": "slides/week-1/week-1-intro-R.html#indexing",
+    "title": "Intro to STAT 331 / 531 + Intro to R",
+    "section": "Indexing",
+    "text": "Indexing\nWe use square brackets ([]) to access elements within data structures.\n\nIn R, we start indexing from 1.\n\n\nVectorMatrixListDataframe\n\n\n\nvec[4]    # 4th element\nvec[1:3]  # first 3 elements\n\n\n\n\nmat[2, 6]  # element in row 2, col 6\nmat[ , 3]   # all elements in col 3\n\n\n\n\nli[[5]]    # 5th element\nli$elementName # all elements in \"elementName\"\n\n\n\n\ndf[1, 2]     # element in row 1, col 2\ndf[17, ]     # all elements in row 17\ndf$colName  # all elements in the col named \"colName\""
+  },
+  {
+    "objectID": "slides/week-1/week-1-intro-R.html#logic",
+    "href": "slides/week-1/week-1-intro-R.html#logic",
+    "title": "Intro to STAT 331 / 531 + Intro to R",
+    "section": "Logic",
+    "text": "Logic\nWe can combine logical statements using and, or, and not.\n\n(X AND Y) requires that both X and Y are true.\n(X OR Y) requires that one of X or Y is true.\n(NOT X) is true if X is false, and false if X is true.\n\n. . .\n\nx &lt;- c(TRUE, FALSE, TRUE, FALSE)\ny &lt;- c(TRUE, TRUE, FALSE, FALSE)\n\n\nAndOrNot\n\n\n\nx & y\n\n[1]  TRUE FALSE FALSE FALSE\n\n\n\n\n\nx | y\n\n[1]  TRUE  TRUE  TRUE FALSE\n\n\n\n\n\n!x\n\n[1] FALSE  TRUE FALSE  TRUE"
+  },
+  {
+    "objectID": "slides/week-1/week-1-intro-R.html#broken-circles",
+    "href": "slides/week-1/week-1-intro-R.html#broken-circles",
+    "title": "Intro to STAT 331 / 531 + Intro to R",
+    "section": "Broken Circles",
+    "text": "Broken Circles\n\n\n\nTo set the stage for your future group collaborations, we will complete an activity that explores how working in groups can be more / less successful.\nLet’s start by dividing the class into groups of 6 students."
+  },
+  {
+    "objectID": "slides/week-1/week-1-intro-R.html#activity-guidelines",
+    "href": "slides/week-1/week-1-intro-R.html#activity-guidelines",
+    "title": "Intro to STAT 331 / 531 + Intro to R",
+    "section": "Activity Guidelines",
+    "text": "Activity Guidelines\n\nNo talking or other noises!\nNo pointing or hand signals!\nNo taking pieces. You may only give pieces to others.\n\nYour group is finished once everyone has a complete circle."
+  },
+  {
+    "objectID": "slides/week-1/week-1-intro-R.html#discussion",
+    "href": "slides/week-1/week-1-intro-R.html#discussion",
+    "title": "Intro to STAT 331 / 531 + Intro to R",
+    "section": "Discussion",
+    "text": "Discussion\n\nWhat do you think this game was about? What was its purpose?\nWhat did your group did that made you cooperate more successfully?\nWhat did your group did that made cooperation harder?\nWhat are some behaviors that could be implemented in the future to make cooperation easier?"
+  },
+  {
+    "objectID": "slides/week-1/week-1-intro-R.html#consent-to-participate",
+    "href": "slides/week-1/week-1-intro-R.html#consent-to-participate",
+    "title": "Intro to STAT 331 / 531 + Intro to R",
+    "section": "Consent to Participate",
+    "text": "Consent to Participate\n\n\nIf you agree to participate…\n\nyou will be recorded once a week for 10-weeks while participating in pair programming to complete collaborative tasks.\nyou will complete a pre- and post-survey about your prior computing experiences and your attitudes toward data science.\n\n\n\n. . .\n\n\nYour participation in this research will not affect your course grade.\n\n. . .\n\n\n\n\n\n\nConsent Form\n\n\n\nPlease complete the consent form (https://forms.gle/oax73hoe7uRSVLYw8) by Monday, 9/30."
+  }
+]
