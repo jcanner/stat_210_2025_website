@@ -1,0 +1,45 @@
+# Thinking about Data Ethics
+
+## Data Ethics
+
+<br>
+
+<br>
+
+**What do we mean by *data ethics*?**
+
+<br>
+
+**Why do we (as statisticians, data scientists, folks working with data) need to think about *data ethics*?**
+
+## Data Ethics
+
+**What do we mean by *data ethics*?**
+
+-   The process of evaluating data collection, processing, analysis, and dissemination practices for their adverse impacts on individuals, systems, and society.
+
+. . .
+
+**Why do we (as statisticians, data scientists, folks working with data) need to think about *data ethics*?**
+
+-   We have a lot of power to declare **truth and fact**, hiding behind the *black box* of data science methods.
+
+## Data Science Oath
+
+-   I will not be ashamed to say, **“I know not,”** nor will I fail to call in my colleagues when the skills of another are needed.
+-   I will respect the **privacy** of my data subjects, for their data are not disclosed to me that the world may know.
+-   I will remember that my data are not just numbers without meaning or context, but represent **real people and situations**, and that my work may lead to unintended societal consequences, such as inequality, poverty, and disparities due to algorithmic bias.
+
+## ASA Ethical Guidelines
+
+-   The American Statistical Association’s Ethical Guidelines for Statistical Practice are intended to help statistics practitioners make decisions ethically.
+-   They aim to promote accountability by informing those who rely on statistics of the standards they should expect.
+
+. . .
+
+::: {.small}
+> Visit [Ethical Guidelines for Statistical Practice](https://www.amstat.org/your-career/ethical-guidelines-for-statistical-practice) and discuss one of the guidelines with your neighbor.
+>
+> -   What surprises you? What did you learn?
+> -   In what scenario might this come into play?
+:::
