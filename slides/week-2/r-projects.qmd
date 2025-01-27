@@ -1,0 +1,116 @@
+---
+title: "RStudio Projects"
+format: 
+  revealjs:
+    theme: [../../slides/style.scss]
+execute:
+  eval: false
+---
+
+## The Beauty of RStudio Projects
+
+::: columns
+::: {.column width="50%"}
+An **RStudio Project** is basically a "flag" planted in a certain directory.
+
+</br>
+
+::: fragment
+::: small
+When you double click an **.Rproj** file, it:
+
+1.  Opens RStudio
+
+2.  Sets the working directory to be wherever the .Rproj file lives.
+
+3.  Links to GitHub, if setup (more on that later!)
+:::
+:::
+:::
+
+::: {.column width="50%"}
+![](../images/project_flag.jpg){width="70%" fig-align="center" fig-alt="A picture with two layers. The top image is a moutain peak with a red flag at the top of the peak. The bottom image is a translucent blue cube with an R in the middle (symbolizing an RStudio Project) witht the file name 'stat331.RProj' displayed under the cube."}
+:::
+:::
+
+## RStudio Projects & Reproducibility
+
+RStudio Projects are great for **reproducibility**!
+
+You can send anyone your folder with your .Rproj file and they will be able to run your code on their computer!
+
+## Principles of Reproducibility
+
+You can to send your project to someone else, and they can jump in and start working right away.
+
+. . .
+
+This means:
+
+1.  Files are organized and well-named.
+
+2.  References to data and code work for everyone.
+
+3.  Package dependency is clear.
+
+4.  Code will run the same every time, even if data values change.
+
+5.  Analysis process is well-explained and easy to read.
+
+# Setting up an RStudio Project
+
+# Setting up an RStudio Project
+
+[From an already existing directory (a folder you already have)](https://scribehow.com/shared/Creating_a_Project_in_an_Existing_Directory__7NTs-4d2RtO1octP6rrBTQ)
+
+![](../images/existing-directory-rproj.png){fig-align="center" fig-alt="A picture of the option you would select when making a new RStudio Project for a folder that already exists on your computer. The image has a manilla folder in the background with a translucent blue cube with an R in the center in the font. The text next to the folder says 'Existing Directory' with a description saying 'Associate a project with an existing working directory'."} [\*This is what you're doing in this week's coursework!]{.small}
+
+# Setting up an RStudio Project
+
+Creating a new directory (a folder you **do not** already have)
+
+![](../images/new-directory-rproj.png){fig-align="center" fig-alt="A picture of the option you would select when making a new RStudio Project for a folder that DOES NOT already exist on your computer. The image has a translucent blue cube with an R. The text next to the cube says 'New Directory' with a description saying 'Start a project in a brand new working directory'."}
+
+[\*This is what you do when you copy the Lab assignment each week!]{.small}
+
+## Bad practice
+
+If you put something like this at the top of your .qmd file, I will set your computer on fire:
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: false
+#| label: set-wd
+
+setwd("/User/reginageorge/Desktop/R_Class/Lab_1/")
+```
+
+. . .
+
+</br>
+
+-   This directory is specific to you!
+
+-   Quarto will ignore this code when rendering!
+
+## Good practice
+
+Use the **here** package to load in your data!
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: false
+#| label: using-here
+
+read_csv(here::here("data", 
+                    "rodents.csv")
+         )
+```
+
+. . .
+
+</br>
+
+This path is *relative* to where your RStudio Project lives, which can be reproduced if you send your project to someone else.

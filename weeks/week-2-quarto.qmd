@@ -1,0 +1,190 @@
+---
+title: "Week 2: Reproducible Analyses with Quarto"
+number-sections: true
+number-depth: 2
+editor: source
+---
+
+The theme of this lesson is good management of your files and data. In part two
+of this week's coursework you will learn how to identify **folders** and
+**paths**, and create **Quarto documents**.
+
+#### 📖 Readings: 45 minutes
+
+#### 💻 Activities: 5-10 min
+
+
+# Principles of Reproducibility
+
+
+## File Management
+
+As boring as it sounds, file management is arguably one of the most important
+skills a data scientist should have. The reproducibility of a project depends
+just as much on the way in which the project was stored as the computing tools
+used. While using R and Quarto make an important step in creating a reproducible
+analysis, there are other pieces that are arguably just as important---such as 
+file management.
+
+Believe it or not, your computer has **multiple** locations\*\* where files can
+be stored. There has been a bit of a generational shift as computers have
+evolved: the "file system" metaphor itself is outdated because no one uses
+physical files anymore. 
+[This article]((https://futurism.com/the-byte/gen-z-kids-file-systems) makes the
+argument that with modern search capabilities, most people use their computers
+as a laundry hamper instead of as a nice, organized filing cabinet. However, the
+laundry hamper approach doesn't play nicely with working in R and creating
+Quarto documents.
+
+In this class, we will store files according to the 
+[Project TIER protocol](https://www.projecttier.org/tier-protocol/protocol-4-0/). 
+More specifically, you will have:
+
+-   a "Stat 210" folder in your Documents folder, containing **all** your
+materials associated with STAT 210
+-   a sub-folder for each week (e.g., Week 1, Week 2)
+-   separate folders within each week for each assignment (e.g., Practice
+Activity, Lab)
+-   a separate R Studio Project (and GitHub repository) associated with each
+assignment
+
+For example, if you come to my office for help on your lab assignment for Week
+2, I would expect your files to look like this:
+
+::: panel-tabset
+## File Storage on Windows
+
+![](images/week-1/pc-save-to-documents.png){width="50%" fig-alt="A screenshot of the folders included in the Documents on Dr. Canner's PC. The image shows six folders, including a folder titled 'STAT 210'."}
+
+I have six total folders in my Documents, one of which is a folder named "STAT 210." 
+
+![](images/week-1/pc-file-path.png){width="50%" fig-alt="A screenshot of the folders included in the Documents on Dr. Canner's PC. The image shows six folders, with the subfolder structure highlighted for the folder named 'STAT 210'."}
+
+Inside my STAT 210 folder is a sub-folder named "Week 1," which also has a sub-folder (a sub-sub-folder) named "Lab 1." You can tell what folders Lab 1 lives inside based on the information included at the top of the screen. This is called a "file path," which tells your computer where a folder / file lives on the computer. 
+
+On a PC, every file lives on the C Drive, so the "full path" to get to my Lab 1 folder would be:
+
+`C:/Users/jcanner/Documents/STAT 210/Week 1/Lab 1`
+
+## File Storage on a Mac
+
+![](images/week-1/file-save-mac.png){width="50%" fig-alt="A screenshot of the folders included in the Documents on Dr. Theobold's Mac. The image shows six folders, with the subfolder structure highlighted for the folder named 'STAT 210'."}
+
+I have six total folders in my Documents, one of which is a folder named "STAT
+210." Inside this folder is a sub-folder named "Week 1," which also has a
+sub-folder (a sub-sub-folder) named "Lab 1."
+
+On a Mac, every file lives on the hard drive (it doesn't have letters like a
+PC), so the "full path" to get to my Lab 1 folder would be:
+
+`/Users/atheobold/Documents/STAT 210/Week 1/Lab 1`
+
+:::
+
+## ✅ Check-in 1.3:  Stat 210 Folder
+
+Take a screenshot of your class directory, showing:
+
+1.  the location of your Stat 210 folder
+2.  a Week 1 sub-folder
+3.  a Lab 1 sub-sub-folder (inside the Week 1 folder)
+
+::: callout-caution
+# Your folder cannot synch with anything online! 
+
+Your STAT 210 folder **cannot** be in a folder stored on OneDrive or iCloud!
+Storing your folder in this location will cause your code to periodically not
+run and I cannot help you fix it.
+:::
+
+# Reproducible Documents
+
+Over the last ten years, science has experienced a "reproducibility" crisis.
+Meaning, a substantial portion of scientific findings were unable to be
+recreated because people didn't sufficiently document the processes they used.
+As such, a foundational aspect of scientific research is using tools which allow
+others to reproduce your findings.
+
+Enter Quarto---a dynamic document that allows us to interweave R code and
+written text in the **same** document. Gone are the days of copying and pasting
+the results of your R code into a Word document---breaking the connection
+between your analysis and your report. Quarto is here to save the day!
+
+## Downloading Quarto
+
+The software associated with Quarto is automatically downloaded with the newest
+versions of RStudio. So, if you are using the most up to date version of RStudio
+(as instructed in [Part 1 of this week's coursework](week-1-r-rstudio.qmd)), you
+should already have Quarto installed on your computer. But, let's test it out.
+
+To ensure you have Quarto installed, carry out the following process:
+
+-   Open RStudio
+-   Click on "File" (in the upper navigation bar)
+-   Select "New File" (in the dropdown options)
+-   Select "Quarto Document..." (in the dropdown option)
+
+![](images/week-1/new-quarto-doc-file.png){width="50%" fig-alt="A screenshot of the dropdown options for creating a new Quarto document. The image shows the options under the 'File' menu (in the upper option bar), the 'New File' option in the 'File' menu has been selected, opneing a popout. In the popout options, the cursor is highlighting the 'Quarto Document' option."} </br>
+
+If you have Quarto installed, you should be prompted with the following menu:
+
+![](images/week-1/new-quarto-doc.png){width="50%" fig-alt="A screenshot of the menu that should appear when you carry out the process described above. The menu is a square box with a title reading 'New Quarto Document'. On the left hand side of the box, the user can select what type of Quarto product they wish to create (Document, Presentation, or Interactive). On the right hand side, the user can control various aspects of their document, including the title, the author, the type of rendered document (HTML, PDF, or Word). At the bottom there are options to 'Create an Empty Document' (a barebones document), to 'Create' a document (with the user specified options), or 'Cancel'."}
+
+If, instead, you receive a message saying Quarto is not installed on your
+computer, you need to download Quarto: <https://quarto.org/docs/download/>
+
+## Introduction to Quarto
+
+### 📖 [Required Reading: Intro to Quarto](https://r4ds.hadley.nz/quarto.html)
+
+### HTML Documents
+
+We will exclusively use HTML documents in this course. If you are interested in
+learning more about formatting options for Quarto HTML documents, I would
+recommend checking out:
+
+-   [a discussion of the basics of formatting HTML documents in Quarto](https://quarto.org/docs/output-formats/html-basics.html)
+
+-   [the list of all HTML Ffrmatting pptions for Quarto documents](https://quarto.org/docs/reference/formats/html.html)
+
+## ✅ Check-in: 1.4 Quarto Documents
+
+**Question 1**: What are the options at the top of a Quarto document (between
+the `---` and `---` symbols) called?
+
+a)  XML
+b)  YAML
+c)  REML
+d)  TOML
+
+**Question 2**: What symbols create an R code chunk?
+
+a)  ```` ``` ````
+b)  `{r}`
+c)  ```` ```{r} ````
+d)  `` `{r}` ``
+
+**Question 3**: What symbol defines a heading?
+
+a)  `$`
+
+b)  `_`
+
+c)  `*`
+
+d)  `#`
+
+**Question 4**: When working in a Quarto document, the [visual / source]
+editor will display the raw Quarto document, whereas the [visual / source] will
+display the document as it will appear when it is rendered.
+
+**Question 5**: To produce an HTML report from your Quarto document, you need
+to click the \_\_\_\_ button.
+
+a)  Visual
+
+b)  Render
+
+c)  Render on Save
+
+d)  Save

@@ -1,0 +1,126 @@
+---
+title: "Directories & Scientific Reproducibility"
+editor: source
+format: 
+  revealjs:
+    theme: ../style.scss
+---
+
+```{r}
+#| include: false
+#| label: packages
+
+library(tidyverse)
+```
+
+# Reproducibility
+
+# Reproducibility
+
+> You should be able to send your project to someone else, and they can 
+(re)produce the same plots / tables / results you did. 
+
+## Principles of Reproducibility
+
+- **Nuts and bolts**
+  + [The documentation for a project should contain everything necessary (e.g., 
+  scripts, Quarto files) to reproduce the results.]{.small}  
+
+
+. . .
+
+- **Portability**
+  + [Any user should be able to run the scripts on their own computer or
+  workspace.]{.small}
+
+. . .
+
+- **One-click Reproducibility**
+  + [Reproducing all the computations should require (almost) nothing other than executing a single main script file.]{.small}
+
+
+# How can a script I write run on someone else's computer???
+
+# How can a script I write run on someone else's computer???
+
+[Directories!]{.larger}
+
+## What is a directory?
+
+-   A **directory** is just a fancy name for a folder.
+
+. . .
+
+-   Your **working directory** is the folder that `R` "thinks" it lives in at
+the moment.
+
+```{r}
+#| label: getwd
+#| echo: true
+#| eval: false
+#| code-line-numbers: false
+
+getwd()
+```
+
+```
+"/Users/jcanner/Documents/STAT 210/videos/week-1"
+```
+
+## Paths
+
+-   A **path** describes where a certain file or directory lives.
+
+. . .
+
+```{r}
+#| label: getwd-2
+#| echo: true
+#| eval: false
+#| code-line-numbers: false
+
+getwd()
+```
+
+```
+"/Users/jcanner/Documents/STAT 210/videos/week-1"
+```
+
+</br> 
+
+. . .
+
+This file lives on my computer in my user files (`/Users/`),
+
+. . .
+
+on my account (`/jcanner/`), 
+
+. . .
+
+in my Documents (`/Documents`), 
+
+. . .
+
+in a series of organized folders (`STAT 210/videos/week-1`). 
+
+# Managing Your Class Directory
+
+## File Management Check-in
+
+::: {.incremental}
+- Your `STAT210` folder should live in your **Documents**.
+
+- It should have a `Week1` sub-folder. 
+
+- Inside the `Week1` folder, there should be a `Lab1` sub-folder. 
+:::
+. . .
+
+::: callout-caution
+# Your folder cannot synch with anything online! 
+
+Your STAT 210 folder **cannot** be in a folder stored on Google Drive, 0OneDrive, or iCloud!
+Storing your project in this location will cause your code to periodically not
+run and I cannot help you fix it.
+:::
