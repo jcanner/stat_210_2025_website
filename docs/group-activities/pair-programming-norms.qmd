@@ -1,0 +1,129 @@
+---
+title: "Pair Programming Roles"
+editor: source
+---
+
+::: columns
+::: {.column width="40%"}
+
+</br>
+
+During our in-class activities, you will be paired with another student. When completing the activity, you will rotate between the following roles every 2-3 minutes:
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="55%"}
+![](cats-programming.jpg)
+:::
+:::
+
+::: columns
+::: {.column width="41%"}
+**Coder** -- *Proposes solution strategies*
+
+-   Reads out instructions or prompts
+-   Directs the Developer what to type in the Quarto document in RStudio
+-   Talks with Developer about ideas related to ways they could solve the
+problem.
+-   **Does not** ask the Developer how they would solve the problem. 
+-   Manages resources (e.g., cheatsheets, textbook) for aiding in solution 
+strategy. 
+-   **Does not** ask the developer what functions / tools they should use. 
+-   Revises solution strategy based on evaluation / debugging conversations 
+with the Developer. 
+-   **Does not** ask the Developer to debug the code. 
+-   Talks with the Developer about what comments to make in the Quarto document
+to help the group understand the code later. 
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="57%"}
+**Developer** -- *Evaluates solution strategy*
+
+-   Reads prompt and ensures Coder understands what the problem is asking. 
+-   If neither party understands what the problem is asking, raises hand to 
+ask a group question to Dr. Theobold. 
+-   Types the code specified by the Coder into the Quarto document in RStudio
+-   Listens carefully, asks the Coder to repeat statements if needed, or to slow
+down.
+-   Encourages the Coder to vocalize their thinking.
+-   Asks the Coder clarifying questions.
+-   Checks for accuracy by asking the solution to be restated for clarity.
+-   **Does not** give hints to the Coder for how to solve the problem. 
+-   **Does not** solve the problem themselves. 
+-   Runs the code provided by the Coder. 
+-   If code does not run or has errors, talks with Coder about how to debug
+the proposed solution strategy. 
+-   **Does not** tell the Coder how to correct an error.
+-   Once code runs, evaluates the output relative to the prompt to ensure the
+output addresses the question. 
+-   Talks with the Coder about what comments to make in the Quarto document
+to help the group understand the code later
+:::
+:::
+
+## Group Norms
+
+1.  Think and work together. Do not divide the work.
+2.  You are smarter together.
+3.  Be open minded. 
+4.  No cross-talk with other groups.
+5.  Communicate with each other! 
+
+<!-- add in norms outlined in Week 1 -->
+
+## Completing the Task
+
+Working with your partner, complete the Practice Activity in the Quarto document
+provided. In your roles---Coder and Developer---use the prompts below to help
+guide the completion of your activity.
+
+::: columns
+::: {.column width="45%"}
+**Coder**
+
+I am looking for...\
+I am confused by...\
+I notice...\
+What might be true is...\
+What’s important is...\
+I predict...\
+This reminds me of...\
+What if we...\
+We could try...\
+I am thinking about...\
+A line of code I could write is...
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="53%"}
+**Developer**
+
+<!-- Facilitator -->
+Do you understand what we need to do?  
+What's the question we have for Dr. Theobold? Can we answer the question ourselves?  
+What are you focusing on?  
+What are you thinking now?  
+Could you tell me more?  
+What are you doing (or writing) now? Please elaborate.  
+I can’t follow that, run that by me again.  
+<!-- Resource Manager -->
+What other sources of information do we need?  
+Which words should we look up?  
+What else do we need to complete this problem?  
+:::
+:::
+
+## Once You're Finished
+
+At the end of the task, your group will have one completed Quarto document and
+one rendered HTML, containing your groups’ worked-out solutions and
+justifications. **Everyone** must take turns writing the final product (as
+described above) and **everyone** must be able to explain every line of code in
+your final document.

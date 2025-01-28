@@ -2,7 +2,7 @@ project:
   type: website
   output-dir: docs
   render: 
-    - "!/weeks/"
+    - "*.qmd"
     - "!/course-materials/"
     - "!/labs/student/"
     - "!/group-activities/"
