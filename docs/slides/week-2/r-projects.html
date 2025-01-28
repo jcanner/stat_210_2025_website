@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistical Computing with R</title>
+<title>RStudio Projects – Statistical Computing with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -80,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Statistical Computing with R</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">RStudio Projects</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -94,8 +128,8 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/r-flowers.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/r-flowers.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
@@ -121,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./course-materials/course_resources.html" class="sidebar-item-text sidebar-link">
+  <a href="../../course-materials/course_resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R Resources</span></a>
   </div>
 </li>
@@ -138,20 +172,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./weeks/week-1-r-rstudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 1 - R &amp; RStudio</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./weeks/week-2-quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 2 - Quarto</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./weeks/week-3-version-control.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 3 - Version Control</span></a>
+  <a href="../../weeks/week-1-r-rstudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1, Part 1 - R &amp; RStudio</span></a>
   </div>
 </li>
       </ul>
@@ -165,15 +187,30 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-beauty-of-rstudio-projects" id="toc-the-beauty-of-rstudio-projects" class="nav-link active" data-scroll-target="#the-beauty-of-rstudio-projects">The Beauty of RStudio Projects</a></li>
+  <li><a href="#rstudio-projects-reproducibility" id="toc-rstudio-projects-reproducibility" class="nav-link" data-scroll-target="#rstudio-projects-reproducibility">RStudio Projects &amp; Reproducibility</a></li>
+  <li><a href="#principles-of-reproducibility" id="toc-principles-of-reproducibility" class="nav-link" data-scroll-target="#principles-of-reproducibility">Principles of Reproducibility</a></li>
+  <li><a href="#setting-up-an-rstudio-project" id="toc-setting-up-an-rstudio-project" class="nav-link" data-scroll-target="#setting-up-an-rstudio-project">Setting up an RStudio Project</a></li>
+  <li><a href="#setting-up-an-rstudio-project-1" id="toc-setting-up-an-rstudio-project-1" class="nav-link" data-scroll-target="#setting-up-an-rstudio-project-1">Setting up an RStudio Project</a></li>
+  <li><a href="#setting-up-an-rstudio-project-2" id="toc-setting-up-an-rstudio-project-2" class="nav-link" data-scroll-target="#setting-up-an-rstudio-project-2">Setting up an RStudio Project</a>
+  <ul class="collapse">
+  <li><a href="#bad-practice" id="toc-bad-practice" class="nav-link" data-scroll-target="#bad-practice">Bad practice</a></li>
+  <li><a href="#good-practice" id="toc-good-practice" class="nav-link" data-scroll-target="#good-practice">Good practice</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/jcanner/stat_210_2025_website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="r-projects.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Statistical Computing with R</h1>
+<h1 class="title">RStudio Projects</h1>
 </div>
 
 
@@ -190,49 +227,94 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the semester progresses, with all changes documented here.</p>
-<!-- TODO: Switch to spreadsheet for content (like Mine and Maria do) -->
-<table class="caption-top table">
-<colgroup>
-<col style="width: 5%">
-<col style="width: 15%">
-<col style="width: 30%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Week</th>
-<th>Date</th>
-<th>Topic &amp; Preview Activities</th>
-<th>Practice Activity</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>Friday, 1/24</td>
-<td><a href="./weeks/week-1-r-rstudio.html">Intro to R &amp; RStudio</a></td>
-<td><p><a href="./group-activities/week-1/broken-circles.html" title="Broken Circles Group Warm-up">Broken Circles Group Warm-up</a></p>
-<p><a href="./group-activities/pair-programming-norms.html" title="Creating Pair Programming Norms">Creating Pair Programming Norms</a></p>
-<p><a href="./group-activities/week-1/data-cleaning-viz-steps.html" title="Data Cleaning, Visualization Puzzle">Data Cleaning, Visualization Puzzle</a></p></td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>Friday, 1/31</td>
-<td><a href="./weeks/week-2-quarto.html">Intro to Quarto</a></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td><p>Friday,</p>
-<p>2/7</p></td>
-<td><a href="./weeks/week-3-version-control.html">Intro to Version Control</a></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<section id="the-beauty-of-rstudio-projects" class="level2">
+<h2 class="anchored" data-anchor-id="the-beauty-of-rstudio-projects">The Beauty of RStudio Projects</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>An <strong>RStudio Project</strong> is basically a “flag” planted in a certain directory.</p>
+<p><br></p>
+<div class="fragment">
+<div class="small">
+<p>When you double click an <strong>.Rproj</strong> file, it:</p>
+<ol type="1">
+<li><p>Opens RStudio</p></li>
+<li><p>Sets the working directory to be wherever the .Rproj file lives.</p></li>
+<li><p>Links to GitHub, if setup (more on that later!)</p></li>
+</ol>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/project_flag.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="A picture with two layers. The top image is a moutain peak with a red flag at the top of the peak. The bottom image is a translucent blue cube with an R in the middle (symbolizing an RStudio Project) witht the file name 'stat331.RProj' displayed under the cube."></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="rstudio-projects-reproducibility" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-projects-reproducibility">RStudio Projects &amp; Reproducibility</h2>
+<p>RStudio Projects are great for <strong>reproducibility</strong>!</p>
+<p>You can send anyone your folder with your .Rproj file and they will be able to run your code on their computer!</p>
+</section>
+<section id="principles-of-reproducibility" class="level2">
+<h2 class="anchored" data-anchor-id="principles-of-reproducibility">Principles of Reproducibility</h2>
+<p>You can to send your project to someone else, and they can jump in and start working right away.</p>
+<p>. . .</p>
+<p>This means:</p>
+<ol type="1">
+<li><p>Files are organized and well-named.</p></li>
+<li><p>References to data and code work for everyone.</p></li>
+<li><p>Package dependency is clear.</p></li>
+<li><p>Code will run the same every time, even if data values change.</p></li>
+<li><p>Analysis process is well-explained and easy to read.</p></li>
+</ol>
+</section>
+<section id="setting-up-an-rstudio-project" class="level1">
+<h1>Setting up an RStudio Project</h1>
+</section>
+<section id="setting-up-an-rstudio-project-1" class="level1">
+<h1>Setting up an RStudio Project</h1>
+<p><a href="https://scribehow.com/shared/Creating_a_Project_in_an_Existing_Directory__7NTs-4d2RtO1octP6rrBTQ">From an already existing directory (a folder you already have)</a></p>
+<p><img src="../images/existing-directory-rproj.png" class="img-fluid quarto-figure quarto-figure-center" alt="A picture of the option you would select when making a new RStudio Project for a folder that already exists on your computer. The image has a manilla folder in the background with a translucent blue cube with an R in the center in the font. The text next to the folder says 'Existing Directory' with a description saying 'Associate a project with an existing working directory'."> <span class="small">*This is what you’re doing in this week’s coursework!</span></p>
+</section>
+<section id="setting-up-an-rstudio-project-2" class="level1">
+<h1>Setting up an RStudio Project</h1>
+<p>Creating a new directory (a folder you <strong>do not</strong> already have)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/new-directory-rproj.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="A picture of the option you would select when making a new RStudio Project for a folder that DOES NOT already exist on your computer. The image has a translucent blue cube with an R. The text next to the cube says 'New Directory' with a description saying 'Start a project in a brand new working directory'."></p>
+</figure>
+</div>
+<p><span class="small">*This is what you do when you copy the Lab assignment each week!</span></p>
+<section id="bad-practice" class="level2">
+<h2 class="anchored" data-anchor-id="bad-practice">Bad practice</h2>
+<p>If you put something like this at the top of your .qmd file, I will set your computer on fire:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/User/reginageorge/Desktop/R_Class/Lab_1/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>. . .</p>
+<p><br></p>
+<ul>
+<li><p>This directory is specific to you!</p></li>
+<li><p>Quarto will ignore this code when rendering!</p></li>
+</ul>
+</section>
+<section id="good-practice" class="level2">
+<h2 class="anchored" data-anchor-id="good-practice">Good practice</h2>
+<p>Use the <strong>here</strong> package to load in your data!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"rodents.csv"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>         )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>. . .</p>
+<p><br></p>
+<p>This path is <em>relative</em> to where your RStudio Project lives, which can be reproduced if you send your project to someone else.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -807,7 +889,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/jcanner/stat_210_2025_website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jcanner/stat_210_2025_website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

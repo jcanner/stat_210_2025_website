@@ -1,5 +1,5 @@
 ---
-title: "Week 1, Part 3: Version Control with Git and GitHub"
+title: "Week 3: Version Control with Git and GitHub"
 execute:
   warning: false
   message: false
@@ -19,8 +19,6 @@ library(tidyverse)
 ```
 
 #### 📖 Reading: 60-75 minutes
-
-#### 📽️  Videos: 0 minute(s)
 
 #### ✅ Check-ins: 4
 
@@ -104,14 +102,14 @@ frequently.
 :::
 
 
-### ✅ Check-in 1.6:  Install Git
+### ✅ Check-in 1: Install Git
 
-We will be working with Git/GitHub every week for the next 10 weeks, starting 
+We will be working with Git/GitHub every week for the rest of the semester, starting 
 this week! To be prepared for class, follow the instructions in the above
 reading to install Git onto your computer. 
 
 <!-- Change to a screenshot they need to submit -->
-Once you have installed Git, tell me "yes" in the Canvas Quiz.
+
 
 # GitHub
 
@@ -139,15 +137,13 @@ from another backup. You don't want to take chances.]
 
 ### 📖 Required Reading: [Register for a GitHub Account](https://happygitwithr.com/github-acct)
 
-### ✅ Check-in 1.7 Register for a GitHub Account
+### ✅ Check-in: Register for a GitHub Account
 
 Follow the instructions in [Registering a GitHub Account](https://happygitwithr.com/github-acct.html) to create a **free**
-GitHub account.
-
-Copy and paste the link to your GitHub profile into the Canvas quiz. 
+GitHub account. **I RECOMMEND USING YOUR PERSONAL PROFESSIONAL EMAIL**, for example "jane.doe@gmail.com". You lose access to your CSUMB account after graduation, so using a personal account will insure GitHub account longevity.  
 
 + Your GitHub profile link should look like -- https://github.com/USERNAME
-+ Here is mine! [https://github.com/atheobold](https://github.com/atheobold)
++ Here is mine! [https://github.com/jcanner](https://github.com/jcanner)
 
 ::: {.callout-tip}
 # (Optional) Register for the Student Developer Pack 
@@ -195,11 +191,10 @@ use_git_config(user.name = "Jane Doe",
                user.email = "jane@example.org")
 ```
 
-### ✅ Check-in  1.8: Introduce Yourself to git
+### ✅ Check-in: Introduce Yourself to git
 
 Follow the instructions for introducing yourself to git by running the code 
-in your console. Once you've run the code, take a screenshot of the output in 
-your console. 
+in your console. **Contact your instructor if you have issues.** 
 
 # Connecting Git, GitHub, and RStudio
 
@@ -224,12 +219,12 @@ NOT an acceptable credential when talking to GitHub as a Git server.
 We're not using SSH, so feel free to skip that section!
 :::
 
-### ✅ Check-in 1.9: PAT
+### ✅ Check-in: PAT
 
 Follow the instructions for setting up your own personal access token. When
 selecting an expiration either choose one of the options that will allow your
-PAT to last the entire quarter (90 days, No expiration, or use Custom and input
-a date after the end of the quarter). 
+PAT to last the entire semester (90 days, No expiration, or use Custom and input
+a date after the end of the semester). 
 
 ```{r}
 #| label: PAT
@@ -252,8 +247,8 @@ usethis::git_sitrep()
 
 ```
 ── Git global (user) 
-• Name: 'Allison Theobold'
-• Email: 'atheobol@calpoly.edu'
+• Name: 'Judith Canner'
+• Email: 'jcanner@csumb.edu'
 • Global (user-level) gitignore file: '~/.gitignore'
 • Vaccinated: FALSE
 ℹ See `?git_vaccinate` to learn more
@@ -263,9 +258,9 @@ usethis::git_sitrep()
 ── GitHub user 
 • Default GitHub host: 'https://github.com'
 • Personal access token for 'https://github.com': '<discovered>'
-• GitHub user: 'atheobold'
+• GitHub user: 'jcanner'
 • Token scopes: 'admin:org, admin:public_key, delete:packages, delete_repo, gist, notifications, repo, user, workflow, write:packages'
-• Email(s): 'atheobol@calpoly.edu (primary)', 'theobold.allison970@gmail.com', '12439090+atheobold@users.noreply.github.com'
+• Email(s): 'jcanner@csumb.edu'
 ℹ No active usethis project
 ```
 

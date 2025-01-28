@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 1, Part 1: R &amp; RStudio – Statistical Computing with R</title>
+<title>Week 3: Version Control with Git and GitHub – Statistical Computing with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -63,7 +83,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../course-materials/course_resources.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +134,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week-1-r-rstudio.html">Weekly materials</a></li><li class="breadcrumb-item"><a href="../weeks/week-1-r-rstudio.html">Week 1, Part 1 - R &amp; RStudio</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Week 3: Version Control with Git and GitHub</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -164,16 +183,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Weekly materials</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-1-r-rstudio.html" class="sidebar-item-text sidebar-link active">
+  <a href="../weeks/week-1-r-rstudio.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 1, Part 1 - R &amp; RStudio</span></a>
   </div>
 </li>
@@ -193,50 +212,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#step-1-installing-r" id="toc-step-1-installing-r" class="nav-link active" data-scroll-target="#step-1-installing-r"><span class="header-section-number">1</span> Step 1: Installing <code>R</code></a>
+  <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives"><span class="header-section-number">0.1</span> Objectives</a></li>
+  <li><a href="#what-is-version-control" id="toc-what-is-version-control" class="nav-link" data-scroll-target="#what-is-version-control"><span class="header-section-number">1</span> What is Version Control?</a>
   <ul class="collapse">
-  <li><a href="#updating-your-version-of-r" id="toc-updating-your-version-of-r" class="nav-link" data-scroll-target="#updating-your-version-of-r"><span class="header-section-number">1.1</span> Updating Your Version of R</a></li>
-  <li><a href="#installing-r" id="toc-installing-r" class="nav-link" data-scroll-target="#installing-r"><span class="header-section-number">1.2</span> Installing R</a>
+  <li><a href="#required-reading-big-picture" id="toc-required-reading-big-picture" class="nav-link" data-scroll-target="#required-reading-big-picture">📖 Required Reading: Big Picture</a></li>
+  </ul></li>
+  <li><a href="#git" id="toc-git" class="nav-link" data-scroll-target="#git"><span class="header-section-number">2</span> Git</a>
   <ul class="collapse">
-  <li><a href="#useful-video-installing-r-and-rstudio---windows" id="toc-useful-video-installing-r-and-rstudio---windows" class="nav-link" data-scroll-target="#useful-video-installing-r-and-rstudio---windows">📽️ Useful Video: Installing R and RStudio - Windows</a></li>
-  <li><a href="#useful-video-installing-r-and-rstudio---mac" id="toc-useful-video-installing-r-and-rstudio---mac" class="nav-link" data-scroll-target="#useful-video-installing-r-and-rstudio---mac">📽️ Useful Video: Installing R and RStudio - Mac</a></li>
-  <li><a href="#if-you-are-a-windows-user" id="toc-if-you-are-a-windows-user" class="nav-link" data-scroll-target="#if-you-are-a-windows-user">If you are a <em>Windows</em> user:</a></li>
-  <li><a href="#if-you-are-macos-user" id="toc-if-you-are-macos-user" class="nav-link" data-scroll-target="#if-you-are-macos-user">If you are <em>macOS</em> user:</a></li>
-  <li><a href="#if-you-are-a-linux-user" id="toc-if-you-are-a-linux-user" class="nav-link" data-scroll-target="#if-you-are-a-linux-user">If you are a <em>Linux</em> user:</a></li>
+  <li><a href="#git-basics" id="toc-git-basics" class="nav-link" data-scroll-target="#git-basics">Git Basics</a></li>
+  <li><a href="#check-in-1-install-git" id="toc-check-in-1-install-git" class="nav-link" data-scroll-target="#check-in-1-install-git">✅ Check-in 1: Install Git</a></li>
   </ul></li>
-  </ul></li>
-  <li><a href="#step-2-install-rstudio" id="toc-step-2-install-rstudio" class="nav-link" data-scroll-target="#step-2-install-rstudio"><span class="header-section-number">2</span> Step 2: Install RStudio</a>
+  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github"><span class="header-section-number">3</span> GitHub</a>
   <ul class="collapse">
-  <li><a href="#updating-your-version-of-rstudio" id="toc-updating-your-version-of-rstudio" class="nav-link" data-scroll-target="#updating-your-version-of-rstudio"><span class="header-section-number">2.1</span> Updating Your Version of RStudio</a></li>
-  <li><a href="#installing-rstudio" id="toc-installing-rstudio" class="nav-link" data-scroll-target="#installing-rstudio"><span class="header-section-number">2.2</span> Installing RStudio</a></li>
+  <li><a href="#required-reading-register-for-a-github-account" id="toc-required-reading-register-for-a-github-account" class="nav-link" data-scroll-target="#required-reading-register-for-a-github-account">📖 Required Reading: Register for a GitHub Account</a></li>
+  <li><a href="#check-in-register-for-a-github-account" id="toc-check-in-register-for-a-github-account" class="nav-link" data-scroll-target="#check-in-register-for-a-github-account">✅ Check-in: Register for a GitHub Account</a></li>
   </ul></li>
-  <li><a href="#lets-start-working-in-r" id="toc-lets-start-working-in-r" class="nav-link" data-scroll-target="#lets-start-working-in-r"><span class="header-section-number">3</span> Let’s start working in <code>R</code>! 🥳</a></li>
-  <li><a href="#introduction-to-r" id="toc-introduction-to-r" class="nav-link" data-scroll-target="#introduction-to-r"><span class="header-section-number">4</span> Introduction to R</a>
+  <li><a href="#introducing-yourself-to-git" id="toc-introducing-yourself-to-git" class="nav-link" data-scroll-target="#introducing-yourself-to-git"><span class="header-section-number">4</span> Introducing Yourself to Git</a>
   <ul class="collapse">
-  <li><a href="#required-reading-basics-of-r" id="toc-required-reading-basics-of-r" class="nav-link" data-scroll-target="#required-reading-basics-of-r">📖 Required Reading: Basics of R</a></li>
-  <li><a href="#required-tutorial-r-programming-basics" id="toc-required-tutorial-r-programming-basics" class="nav-link" data-scroll-target="#required-tutorial-r-programming-basics">💻 Required Tutorial: R Programming Basics</a></li>
+  <li><a href="#required-reading-introduce-yourself-to-git" id="toc-required-reading-introduce-yourself-to-git" class="nav-link" data-scroll-target="#required-reading-introduce-yourself-to-git">📖 Required Reading: Introduce Yourself to Git</a></li>
+  <li><a href="#check-in-introduce-yourself-to-git" id="toc-check-in-introduce-yourself-to-git" class="nav-link" data-scroll-target="#check-in-introduce-yourself-to-git">✅ Check-in: Introduce Yourself to git</a></li>
   </ul></li>
-  <li><a href="#introduction-to-rstudio" id="toc-introduction-to-rstudio" class="nav-link" data-scroll-target="#introduction-to-rstudio"><span class="header-section-number">5</span> Introduction to RStudio</a>
+  <li><a href="#connecting-git-github-and-rstudio" id="toc-connecting-git-github-and-rstudio" class="nav-link" data-scroll-target="#connecting-git-github-and-rstudio"><span class="header-section-number">5</span> Connecting Git, GitHub, and RStudio</a>
   <ul class="collapse">
-  <li><a href="#optional-reading-a-tour-of-rstudio" id="toc-optional-reading-a-tour-of-rstudio" class="nav-link" data-scroll-target="#optional-reading-a-tour-of-rstudio">📖 Optional Reading: A tour of RStudio</a></li>
-  <li><a href="#navigating-rstudio" id="toc-navigating-rstudio" class="nav-link" data-scroll-target="#navigating-rstudio">Navigating RStudio</a></li>
-  <li><a href="#exploring-the-panes" id="toc-exploring-the-panes" class="nav-link" data-scroll-target="#exploring-the-panes">Exploring the Panes</a></li>
+  <li><a href="#required-reading-personal-access-tokens-for-https" id="toc-required-reading-personal-access-tokens-for-https" class="nav-link" data-scroll-target="#required-reading-personal-access-tokens-for-https">📖 Required Reading: Personal Access Tokens for HTTPS</a></li>
+  <li><a href="#check-in-pat" id="toc-check-in-pat" class="nav-link" data-scroll-target="#check-in-pat">✅ Check-in: PAT</a></li>
   </ul></li>
-  <li><a href="#installing-packages" id="toc-installing-packages" class="nav-link" data-scroll-target="#installing-packages"><span class="header-section-number">6</span> Installing Packages</a>
+  <li><a href="#getting-started-with-github" id="toc-getting-started-with-github" class="nav-link" data-scroll-target="#getting-started-with-github"><span class="header-section-number">6</span> Getting Started with GitHub</a></li>
+  <li><a href="#learn-more" id="toc-learn-more" class="nav-link" data-scroll-target="#learn-more"><span class="header-section-number">7</span> Learn More</a>
   <ul class="collapse">
-  <li><a href="#required-video-installing-r-packages-4-minutes" id="toc-required-video-installing-r-packages-4-minutes" class="nav-link" data-scroll-target="#required-video-installing-r-packages-4-minutes">📽️ Required Video: Installing R Packages (4 minutes)</a></li>
-  <li><a href="#install-update-the-tidyverse" id="toc-install-update-the-tidyverse" class="nav-link" data-scroll-target="#install-update-the-tidyverse">Install / Update the <strong>tidyverse</strong></a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
-  <li><a href="#check-in-introduction-to-r-rstudio" id="toc-check-in-introduction-to-r-rstudio" class="nav-link" data-scroll-target="#check-in-introduction-to-r-rstudio"><span class="header-section-number">7</span> ✅ Check-in : Introduction to R &amp; RStudio</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jcanner/stat_210_2025_website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week-1-r-rstudio.html">Weekly materials</a></li><li class="breadcrumb-item"><a href="../weeks/week-1-r-rstudio.html">Week 1, Part 1 - R &amp; RStudio</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 1, Part 1: R &amp; RStudio</h1>
+<h1 class="title">Week 3: Version Control with Git and GitHub</h1>
 </div>
 
 
@@ -253,84 +267,78 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>For the first portion of this week’s coursework, we are going to learn about / refresh our memory on R and RStudio. This course is all about you learning skills for working with data in R, so you will need to have <strong>local</strong> installations of both R and RStudio on your computer.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Cannot Install R or RStudio
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If for any reason you cannot download R or RStudio onto your laptop, please let me know as soon as possible so we can figure something out.</p>
-</div>
-</div>
-<hr>
-<section id="step-1-installing-r" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Step 1: Installing <code>R</code></h1>
-<p>As mentioned above, you will need to have local installations of both R (the software) and RStudio (the interface for working in R). <strong>Do not skip this step if you already have both R and RStudio installed on your computer</strong>, as you need to ensure you are using the most up to date version of R and RStudio.</p>
-<section id="updating-your-version-of-r" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="updating-your-version-of-r"><span class="header-section-number">1.1</span> Updating Your Version of R</h2>
-<p>If you already have <code>R</code> downloaded, you need to confirm that you have the most up to date version of <code>R</code>. <strong>Do not ignore these instructions.</strong> If you neglect to update your version of R, you may find that updating a package will make it so your code will not run.</p>
-<ul>
-<li>Step 1: Open RStudio</li>
-<li>Step 2: At the top of the the Console it will say what version of R you are using</li>
-</ul>
-<p><img src="images/week-1/r-version.png" class="img-fluid">{fig-alt = “A screenshot of what version of R should appear when you open RStudio. The version reads ‘R version 4.4.2 (2024-10-31) – ’Pile of Leaves’.”}</p>
-<p>If the version <strong>is not</strong> 4.4.2 (like the image above), you need to update your version of R! The simplest way to do this is to follow the instructions below to install R.</p>
+<section id="reading-60-75-minutes" class="level4">
+<h4 class="anchored" data-anchor-id="reading-60-75-minutes">📖 Reading: 60-75 minutes</h4>
 </section>
-<section id="installing-r" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="installing-r"><span class="header-section-number">1.2</span> Installing R</h2>
-<p>Download and install R by going to <a href="https://cloud.r-project.org/" class="uri">https://cloud.r-project.org/</a>. Here, you will find three options for installing R—click on the option for your computer’s operating system.</p>
-<section id="useful-video-installing-r-and-rstudio---windows" class="level3">
-<h3 class="anchored" data-anchor-id="useful-video-installing-r-and-rstudio---windows">📽️ <a href="https://youtu.be/n8kP7c_QbLA?si=gUyTqtQDO4v6VlZE">Useful Video: Installing R and RStudio - Windows</a></h3>
+<section id="check-ins-4" class="level4">
+<h4 class="anchored" data-anchor-id="check-ins-4">✅ Check-ins: 4</h4>
 </section>
-<section id="useful-video-installing-r-and-rstudio---mac" class="level3">
-<h3 class="anchored" data-anchor-id="useful-video-installing-r-and-rstudio---mac">📽️ <a href="http://youtu.be/tXZDoMlXfTE?hd=1">Useful Video: Installing R and RStudio - Mac</a></h3>
+<section id="objectives" class="level2" data-number="0.1">
+<h2 data-number="0.1" class="anchored" data-anchor-id="objectives"><span class="header-section-number">0.1</span> Objectives</h2>
+<p>Most of this section is either heavily inspired by Happy Git and Github for the UseR <span class="citation" data-cites="bryanHappyGitGitHub2021">(<a href="#ref-bryanHappyGitGitHub2021" role="doc-biblioref">Bryan, Hester, and The Stat 545 TAs 2021</a>)</span> or directly links to that book.</p>
+<ul>
+<li>Recognize the benefits of using version control to improve your coding practices and workflow.</li>
+<li>Identify git / GitHub as a version control platform (and helper).</li>
+<li>Install git onto your computer and register for a GitHub account</li>
+<li>Start applying version control practices to your workflow.</li>
+</ul>
 </section>
-<section id="if-you-are-a-windows-user" class="level3">
-<h3 class="anchored" data-anchor-id="if-you-are-a-windows-user">If you are a <em>Windows</em> user:</h3>
-<ul>
-<li><p>Click on “Download R for Windows”</p></li>
-<li><p>Click on “base”</p></li>
-<li><p>Click on the Download link.</p></li>
-<li><p>When you open the execution file (<code>.exe</code>) you will be prompted with a variety of questions about installing R. Feel free to use the default features / settings that come with R (continue to click “Ok” until the download starts).</p></li>
-</ul>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="what-is-version-control" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> What is Version Control?</h1>
+<p>Version control is a system that (1) allows you to store your files in the cloud, (2) track change in those files over time, and (3) share your files with others.</p>
+<section id="required-reading-big-picture" class="level3">
+<h3 class="anchored" data-anchor-id="required-reading-big-picture">📖 Required Reading: <a href="https://happygitwithr.com/big-picture">Big Picture</a></h3>
+</section>
+</section>
+<section id="git" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Git</h1>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Git is a <strong>version control system</strong> - a structured way for tracking changes to files over the course of a project that may also make it easy to have multiple people working on the same files at the same time. Git manages a collection of files in a structured way—like “track changes” in Microsoft Word or version history in Google Docs, but much more powerful.</p>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:55%;">
+<p><img src="https://www.phdcomics.com/comics/archive/phd101212s.gif" class="img-fluid" style="width:50.0%" alt=""></p>
 </div>
-<div class="callout-title-container flex-fill">
-Multiple Versions of R
 </div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Beware that if you had a previous version of R downloaded on your PC, that old version will not be deleted when you download the most recent version of R. We do not want to have two versions of R installed, as your computer can get confused what version of R to use. So, you need to remove the old version of R.</p>
-<p>To do this you need to:</p>
-<ul>
-<li>Navigate to your computer’s settings</li>
-<li>Click on the “Apps” option on the left-hand panel</li>
-<li>Search for or scroll down to R</li>
-<li>Find the older version of R</li>
-</ul>
-<p><img src="images/week-1/multiple-versions-of-r.png" class="img-fluid" alt="A screenshot of a PC with two different versions of R installed---version 4.3.1 and version 4.4.1."></p>
-<ul>
-<li>Click on the <code>...</code> on the right side</li>
-<li>Select “Uninstall”</li>
-</ul>
-<p><img src="images/week-1/uninstall-old-r-version.png" class="img-fluid" alt="A screenshot of selecting the (...) option to uninstall the older version of R."></p>
+<p>If you are working alone, you will benefit from adopting version control because it removes the need to add <code>_final.qmd</code> or <code>_final_finalforreal.qmd</code> to the end of your file names. However, most of us work in collaboration with other people (or will have to work with others eventually), so one of the goals of this program is to teach you how to use git because it is a useful tool that will make you a better collaborator.</p>
+<p>In data science programming, we use git for a similar, but slightly different purpose. We use it to keep track of changes not only to code files, but to data files, figures, reports, and other essential bits of information.</p>
+<section id="git-basics" class="level3">
+<h3 class="anchored" data-anchor-id="git-basics">Git Basics</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Git tracks changes to each file that it is told to monitor, and as the files change, you provide short labels describing what the changes were and why they exist (called “<strong>commits</strong>”). The log of these changes (along with the file history) is called your <strong>commit history</strong>.</p>
+<p>When writing papers, this means you can cut material out freely, so long as the paper is being tracked by git—you can always go back and get that paragraph you cut out if you need to. You also don’t have to rename files—you can confidently save over your old files, so long as you remember to commit frequently.</p>
+<section id="required-reading-install-git" class="level3">
+<h3 class="anchored" data-anchor-id="required-reading-install-git">📖 Required Reading: <a href="https://happygitwithr.com/install-git">Install Git</a></h3>
+</section>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:45%;">
+<p><img src="images/week-1/git.png" class="img-fluid" alt="Person 1: 'This is GIT. It tracks collaborative work on projects through a beautiful distributed graph theory tree model'. Person 2: 'Cool, How do we use it?' Person 1: 'No Idea. Just memorize these shell commands and type them to sync up. If you get errors, save your work elsewhere, delete the project, and download a fresh copy.'"></p>
 </div>
 </div>
 </section>
-<section id="if-you-are-macos-user" class="level3">
-<h3 class="anchored" data-anchor-id="if-you-are-macos-user">If you are <em>macOS</em> user:</h3>
+<section id="check-in-1-install-git" class="level3">
+<h3 class="anchored" data-anchor-id="check-in-1-install-git">✅ Check-in 1: Install Git</h3>
+<p>We will be working with Git/GitHub every week for the rest of the semester, starting this week! To be prepared for class, follow the instructions in the above reading to install Git onto your computer.</p>
+<!-- Change to a screenshot they need to submit -->
+</section>
+</section>
+<section id="github" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> GitHub</h1>
+<p>Git by itself is nice enough, but where git really becomes amazing is when you combine it with GitHub—an online service that makes it easy to use git across many computers, share information with collaborators, publish to the web, and more. Git is great, but GitHub is … essential.</p>
+<p>Similar to the differences between R and RStudio, git is a program that runs on your machine which includes a language for monitoring changes to specific files (similar to a programming language like R). GitHub is a website that hosts people’s git repositories (similar to a IDE like RStudio). You can use git without GitHub (like using R without RStudio), but you can’t use GitHub without git.</p>
+<p>If you want, you can hook git up to GitHub, and make a copy of your local git repository that lives in the cloud. Then, if you configure things correctly, your local repository will talk to GitHub without too much trouble. Using Github with git allows you to <strong>easily make a cloud backup of your important code</strong>, so that even if your computer suddenly catches on fire, all your important code files exist somewhere else. Any data you don’t have in three different places is data you don’t care about.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<section id="required-reading-register-for-a-github-account" class="level3">
+<h3 class="anchored" data-anchor-id="required-reading-register-for-a-github-account">📖 Required Reading: <a href="https://happygitwithr.com/github-acct">Register for a GitHub Account</a></h3>
+</section>
+<section id="check-in-register-for-a-github-account" class="level3">
+<h3 class="anchored" data-anchor-id="check-in-register-for-a-github-account">✅ Check-in: Register for a GitHub Account</h3>
+<p>Follow the instructions in <a href="https://happygitwithr.com/github-acct.html">Registering a GitHub Account</a> to create a <strong>free</strong> GitHub account. <strong>I RECOMMEND USING YOUR PERSONAL PROFESSIONAL EMAIL</strong>, for example “jane.doe@gmail.com”. You lose access to your CSUMB account after graduation, so using a personal account will insure GitHub account longevity.</p>
 <ul>
-<li><p>Click on “Download R for (Mac) OS X”</p></li>
-<li><p>Under “Latest release:” click on R-X.X.X.pkg, where R-X.X.X is the version number. For example, the latest version of R as of October 31, 2024 was R-4.4.2 (Pile of Leaves).</p></li>
-<li><p>When installing, use the default features / settings that come with R (click Ok until the download starts).</p></li>
+<li>Your GitHub profile link should look like – https://github.com/USERNAME</li>
+<li>Here is mine! <a href="https://github.com/jcanner">https://github.com/jcanner</a></li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -338,226 +346,171 @@ Multiple Versions of R
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Troubleshooting for Macs
+(Optional) Register for the Student Developer Pack
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>First, identify which version of OSx you are running. <a href="https://support.apple.com/en-us/HT201260">How-to</a></p>
-<p>Next, find out which version of <code>R</code> your computer can run. <a href="https://cran.r-project.org/bin/macosx/">Link</a></p>
-<p>If this version is 3.6 or later, download the latest version that your computer can handle.</p>
-<p>If this version is 3.4 or earlier, you’re going to run in to some trouble. I recommend updating your version of OSx, if you are willing. If you can’t, then you can use <a href="https://posit.cloud/">Posit Cloud</a> to run <code>R</code> and RStudio on a free server. However, I recommend strongly against this option; your files will not be saved indefinitely, you will have limited hours to complete your work, your computing power will be limited, and you will need an internet connection at all times to do your work.</p>
+<p>I would highly recommend checking out <a href="https://education.github.com/">GitHub Education</a> and signing up for the <a href="https://education.github.com/pack">GitHub Student Developer Pack</a>. Signing up gets you unlimited private repositories among other perks.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Save your login information!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Make sure you remember your username and password so you don’t have to try to hack into your own account during class this week.</p>
+<p>Write your information down somewhere safe.</p>
 </div>
 </div>
 </section>
-<section id="if-you-are-a-linux-user" class="level3">
-<h3 class="anchored" data-anchor-id="if-you-are-a-linux-user">If you are a <em>Linux</em> user:</h3>
-<p>Click on “Download R for Linux” and choose your distribution for more information on installing <code>R</code> for your setup.</p>
+</section>
+<section id="introducing-yourself-to-git" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Introducing Yourself to Git</h1>
+<p>Now that you have git downloaded and have a GitHub account, it is time to introduce yourself to git!</p>
+<section id="required-reading-introduce-yourself-to-git" class="level3">
+<h3 class="anchored" data-anchor-id="required-reading-introduce-yourself-to-git">📖 Required Reading: <a href="https://happygitwithr.com/hello-git">Introduce Yourself to Git</a></h3>
+<p>Rather than using the terminal on your computer (like they do in the chapter above), let’s get familiar with the <strong>usethis</strong> package in R.</p>
+<ol type="1">
+<li>Open RStudio.</li>
+<li>Run the following code <strong>in your console</strong> (bottom left), substituting your name for <code>"Jane Doe"</code> and the email associated with your GitHub account with <code>"jane@example.org"</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"usethis"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usethis)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Change this to use your name and your GitHub email address! </span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"Jane Doe"</span>, </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">user.email =</span> <span class="st">"jane@example.org"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="check-in-introduce-yourself-to-git" class="level3">
+<h3 class="anchored" data-anchor-id="check-in-introduce-yourself-to-git">✅ Check-in: Introduce Yourself to git</h3>
+<p>Follow the instructions for introducing yourself to git by running the code in your console. <strong>Contact your instructor if you have issues.</strong></p>
 </section>
 </section>
-</section>
-<section id="step-2-install-rstudio" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Step 2: Install RStudio</h1>
-<p>RStudio is an Integrated Development Environment (IDE) for <code>R</code>. What does that mean? Well, if you think of <code>R</code> as a language, which it is, you can think of RStudio as a program that helps you write and work in the language. Back in the dark ages, people wrote programs in text editors and then used the command line to compile those programs and run them. RStudio makes programming in <code>R</code> much easier and this course requires you to use it!</p>
-<section id="updating-your-version-of-rstudio" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="updating-your-version-of-rstudio"><span class="header-section-number">2.1</span> Updating Your Version of RStudio</h2>
-<p>If you already have RStudio, you need to double check if you have the most recent version. You <strong>will not</strong> have access to the newest features for Quarto documents unless you have the most recent version of RStudio.</p>
-<ul>
-<li>Step 1: Open RStudio</li>
-<li>Step 2: Click on “Help” in the upper menu</li>
-<li>Step 3: Click on “Check for Updates”</li>
-</ul>
-<p>If there are no updates to RStudio since you installed it, you are good to go! If you need to update RStudio, you will be sent to Posit (the parent company) to download the most recent version of RStudio desktop.</p>
-</section>
-<section id="installing-rstudio" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="installing-rstudio"><span class="header-section-number">2.2</span> Installing RStudio</h2>
-<p>Downloading the most recent version of RStudio works the same way regardless of whether you’ve never downloaded RStudio before or if you just need to update your version of RStudio.</p>
-<p>When you navigate to the RStudio download page (<a href="https://rstudio.com/products/rstudio/download/" class="uri">https://rstudio.com/products/rstudio/download/</a>), the website should automatically detect your computer’s operating system. So, you should be able to simply click the blue “Download RStudio Desktop for [insert operating system here]” button.</p>
-<p>Clicking the button will begin installing RStudio. Once the download has completed, you will need to open the application file (on a Mac this is a <code>.dmg</code> file, on Windows this is an <code>exe</code> file).</p>
-<hr>
-</section>
-</section>
-<section id="lets-start-working-in-r" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Let’s start working in <code>R</code>! 🥳</h1>
-<p><img src="images/week-1/typing_R.gif" class="img-fluid" alt="A video of Hadley Wickham (author of many R packages) pretending to type and saying 'just typing R code'."></p>
-</section>
-<section id="introduction-to-r" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Introduction to R</h1>
-<p>R is a statistical programming language. Unlike more general-purpose languages, R is optimized for working with data and doing statistics. R was created by Ross Ihaka and Robert Gentleman in 1993 (hence “R”) and was formally released by the <strong>R Core Group</strong> in 1997 (a group of 20-ish volunteers who are the <em>only</em> people who can change the base (built-in) functionality of <code>R</code>). If you want to build an independent, standalone graphical interface, or run a web server, R is probably not the ideal language to use (you might want C / Python or PHP / Python, respectively). If you want to vacuum up a bunch of data, fit several regression models, and then compare the models, R is a great option and will be faster than working in a more general-purpose language like C or base Python.</p>
-<p>In general, R is…</p>
-<ul>
-<li>vector-based</li>
-<li>1 indexed (start counting 1, 2, 3, …)</li>
-<li>a scripting language (R code does not have to be compiled before it is run)</li>
-</ul>
-<p>One thing to know about <code>R</code> is that it is <strong>open-source</strong>. This means that no company owns <code>R</code> (like there is for <em>SAS</em> or <em>Matlab</em>) and that developers cannot charge for the use of their R software. This does not mean that all of your code needs to be public (you can keep your code private), but it is important to be a good open-source citizen by sharing your code publicly when possible (later we will learn about <em>GitHub</em>), contributing to public projects and packages, creating your own packages, and using <code>R</code> for ethical and respectful projects.</p>
-<section id="required-reading-basics-of-r" class="level3">
-<h3 class="anchored" data-anchor-id="required-reading-basics-of-r">📖 <a href="https://r4ds.hadley.nz/workflow-basics">Required Reading: Basics of R</a></h3>
+<section id="connecting-git-github-and-rstudio" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Connecting Git, GitHub, and RStudio</h1>
+<p>In order to interact with a remote Git server (e.g., GitHub), we need to include our credentials. The credentials proves to GitHub who we are and that we are allowed to do what we are trying to do. There are a few ways to setup your credential, but we will specifically be using <strong>P</strong>ersonal <strong>A</strong>ccess <strong>T</strong>okens or PATs.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+No support for username &amp; password credentials
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let it be known that the password that you use to login to GitHub’s website is NOT an acceptable credential when talking to GitHub as a Git server.</p>
+</div>
+</div>
+<section id="required-reading-personal-access-tokens-for-https" class="level3">
+<h3 class="anchored" data-anchor-id="required-reading-personal-access-tokens-for-https">📖 Required Reading: <a href="https://happygitwithr.com/hello-git">Personal Access Tokens for HTTPS</a></h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-The History of <code>R</code>
+Skip Section 9.2
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you would like to learn more about the history of R, here is an <a href="https://bookdown.org/rdpeng/rprogdatascience/history-and-overview-of-r.html">excellent article written by Roger Peng</a>.</p>
+<p>We’re not using SSH, so feel free to skip that section!</p>
 </div>
 </div>
 </section>
-<section id="required-tutorial-r-programming-basics" class="level3">
-<h3 class="anchored" data-anchor-id="required-tutorial-r-programming-basics">💻 <a href="https://r-primers.andrewheiss.com/basics/02-programming-basics">Required Tutorial: R Programming Basics</a></h3>
+<section id="check-in-pat" class="level3">
+<h3 class="anchored" data-anchor-id="check-in-pat">✅ Check-in: PAT</h3>
+<p>Follow the instructions for setting up your own personal access token. When selecting an expiration either choose one of the options that will allow your PAT to last the entire semester (90 days, No expiration, or use Custom and input a date after the end of the semester).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once you’ve completed this process, run the following code <strong>in your console</strong> and take a screenshot of the output you get. I’ve included the output I get when I run this, so you have an idea of how your output should look.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">git_sitrep</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>── Git global (user) 
+• Name: 'Judith Canner'
+• Email: 'jcanner@csumb.edu'
+• Global (user-level) gitignore file: '~/.gitignore'
+• Vaccinated: FALSE
+ℹ See `?git_vaccinate` to learn more
+• Default Git protocol: 'https'
+• Default initial branch name: 'main'
+
+── GitHub user 
+• Default GitHub host: 'https://github.com'
+• Personal access token for 'https://github.com': '&lt;discovered&gt;'
+• GitHub user: 'jcanner'
+• Token scopes: 'admin:org, admin:public_key, delete:packages, delete_repo, gist, notifications, repo, user, workflow, write:packages'
+• Email(s): 'jcanner@csumb.edu'
+ℹ No active usethis project</code></pre>
+</section>
+</section>
+<section id="getting-started-with-github" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Getting Started with GitHub</h1>
+<p>Now you are setup and ready to get started working with GitHub and RStudio for this week’s lab!</p>
+</section>
+<section id="learn-more" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Learn More</h1>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Programming in R
+Extra Resources
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This tutorial gives you an overview of the foundations that make up the R programming language, including:</p>
 <ul>
-<li>functions and their arguments</li>
-<li>accessing help files</li>
-<li>making code comments</li>
-<li>object types (e.g., vectors, lists, )</li>
-<li>data types (e.g., numeric, integer, double, character)</li>
-<li>R’s package system</li>
+<li><p><a href="https://guides.github.com/activities/hello-world/">Git “Hello World” Tutorial on GitHub</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=SWYqp7iY_Tc">Crash course on git</a> (30 minute YouTube video) <span class="citation" data-cites="traversymediaGitGitHubCrash2017">(<a href="#ref-traversymediaGitGitHubCrash2017" role="doc-biblioref">Traversy Media 2017</a>)</span></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=BCQHnlnPusY&amp;list=PLRqwX-V7Uu6ZF9C0YMKuns9sLDzK6zoiV">Git and GitHub for poets</a> YouTube playlist (this is supposed to be the best introduction to Git out there…) <span class="citation" data-cites="thecodingtrainIntroductionGitGitHub2016">(<a href="#ref-thecodingtrainIntroductionGitGitHub2016" role="doc-biblioref">The Coding Train 2016</a>)</span></p></li>
+<li><p><a href="https://dev.to/erikaheidi/stage-commit-push-a-git-story-comic-a37">More advanced git concepts, in comic form</a>, by Erika Heidi <span class="citation" data-cites="ericaheidiStageCommitPush2020">(<a href="#ref-ericaheidiStageCommitPush2020" role="doc-biblioref">Erica Heidi 2020</a>)</span></p></li>
+<li><p><a href="https://towardsdatascience.com/a-quick-guide-to-using-command-line-terminal-96815b97b955">A quick guide to the command line (Terminal)</a> <span class="citation" data-cites="weiQuickGuideUsing2019">(<a href="#ref-weiQuickGuideUsing2019" role="doc-biblioref">Wei 2019</a>)</span></p></li>
 </ul>
 </div>
 </div>
-</section>
-</section>
-<section id="introduction-to-rstudio" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Introduction to RStudio</h1>
-<section id="optional-reading-a-tour-of-rstudio" class="level3">
-<h3 class="anchored" data-anchor-id="optional-reading-a-tour-of-rstudio">📖 <a href="https://rladiessydney.org/courses/ryouwithme/01-basicbasics-1/">Optional Reading: A tour of RStudio</a></h3>
-<ul>
-<li><a href="https://github.com/rstudio/cheatsheets/blob/main/rstudio-ide.pdf">Click Here</a> to download a “cheatsheet” (easy reference page) for navigating the RStudio IDE.</li>
-</ul>
-</section>
-<section id="navigating-rstudio" class="level3">
-<h3 class="anchored" data-anchor-id="navigating-rstudio">Navigating RStudio</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/week-1/Rstudio-important-buttons.png" class="img-fluid figure-img"></p>
-<figcaption>The RStudio window will look something like this.</figcaption>
-</figure>
-</div>
-</section>
-<section id="exploring-the-panes" class="level3">
-<h3 class="anchored" data-anchor-id="exploring-the-panes">Exploring the Panes</h3>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Top-left</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Top-right</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Bottom-left</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Bottom-right</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>Includes the text editor. This is where you’ll do most of your work.</p>
-<p><img src="images/week-1/Rstudio-editor-pane-buttons.png" class="img-fluid"></p>
-<p>The logo on the script file indicates the file type. When an R file is open, there are Run and Source buttons on the top which allow you to run selected lines of code (Run) or source (run) the entire file. Code line numbers are provided on the left (this is a handy way to see where in the code the errors occur), and you can see line:character numbers at the bottom left. At the bottom right, there is another indicator of what type of file Rstudio thinks this is.</p>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>In the top right, you’ll find the environment, history, and connections tabs. The environment tab shows you the objects available in R (variables, data files, etc.), the history tab shows you what code you’ve run recently, and the connections tab is useful for setting up database connections.</p>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<p>On the bottom left is the console. There are also other tabs to give you a terminal (command line) prompt, and a jobs tab to monitor progress of long-running jobs. In this class we’ll primarily use the console tab.</p>
-<p><img src="images/week-1/Rstudio-terminal-R.png" class="img-fluid"></p>
-</div>
-<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<p>On the bottom right, there are a set of tabs:</p>
-<ul>
-<li><strong>files</strong> (to give you an idea of where you are working, and what files are present),</li>
-</ul>
-<p><img src="images/week-1/Rstudio-file-tab.png" class="img-fluid"></p>
-<ul>
-<li><p><strong>plots</strong> (which will be self-explanatory),</p></li>
-<li><p><strong>packages</strong> (which extensions to R are installed and loaded),</p></li>
-</ul>
-<p><img src="images/week-1/Rstudio-packages-tab.png" class="img-fluid"></p>
-<ul>
-<li>the <strong>help</strong> tab (where documentation will show up), and</li>
-</ul>
-<p><img src="images/week-1/Rstudio-help-tab.png" class="img-fluid"></p>
-<ul>
-<li>the <strong>viewer</strong> window, which is used for interactive graphics or previewing HTML documents.</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="installing-packages" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Installing Packages</h1>
-<section id="required-video-installing-r-packages-4-minutes" class="level3">
-<h3 class="anchored" data-anchor-id="required-video-installing-r-packages-4-minutes">📽️ <a href="http://youtu.be/tXZDoMlXfTE?hd=1">Required Video: Installing R Packages (4 minutes)</a></h3>
-</section>
-<section id="install-update-the-tidyverse" class="level3">
-<h3 class="anchored" data-anchor-id="install-update-the-tidyverse">Install / Update the <strong>tidyverse</strong></h3>
-<p>Now that you have the hang of working in RStudio, let’s install / update the packages we will use in the course. In this course, we will make heavy use of the <strong>tidyverse</strong> suite of packages.</p>
-<p>If you <strong>have not</strong> used the tidyverse before, type the following into your <strong>console</strong> or use the drop down menu in the <strong>Packages</strong> tab (as seen in the video above):</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>If you <strong>have</strong> used the tidyverse before, you only need to update packages.<br>
-Type the following into your console:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidyverse_update</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Then follow the instructions that print out to update a few of your tidyverse packages.</p>
-</section>
-</section>
-<section id="check-in-introduction-to-r-rstudio" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> ✅ Check-in : Introduction to R &amp; RStudio</h1>
-<p><strong>Question 1:</strong> What does it mean for R to be <strong>“open-source”</strong>?</p>
-<ol type="a">
-<li>Users are required to share all the code they write.</li>
-<li>Private companies must pay the <em>R Core Group</em> to use R.</li>
-<li>Developers cannot charge for the use of their R software.</li>
-<li>Anyone can change the base functionality of R.</li>
-</ol>
-<p><strong>Question 2:</strong> How often do you need to install a package on your computer?</p>
-<ol type="a">
-<li>Every time you restart R.</li>
-<li>Only once. Afterwards, R can find the package on your hard drive when it needs to.</li>
-<li>Never, as long as you are connected to the internet.</li>
-<li>Every time you restart your computer.</li>
-</ol>
-<p><strong>Question 3:</strong> What is the tidyverse?</p>
-<ol type="a">
-<li>A word processing program for R.</li>
-<li>An alternate universe where everyone is an R programmer.</li>
-<li>A collection of packages that work well together and provide tools for common data science tasks.</li>
-<li>A code style that reads like poetry.</li>
-</ol>
-<p><strong>Question 4</strong>: New objects in R are created using which symbol(s)?</p>
-<ol type="a">
-<li><code>==</code></li>
-<li><code>&lt;-</code></li>
-<li><code>-&gt;</code></li>
-<li><code>=</code></li>
-</ol>
-<p><strong>Question 5</strong>: A code comment in R is declared using what symbol?</p>
-<ol type="a">
-<li><code>#</code></li>
-<li><code>|</code></li>
-<li><code>&amp;</code></li>
-<li><code>!</code></li>
-</ol>
-<p><strong>Question 6</strong>: Which of the following object names is an example of “snake case”?</p>
-<ol type="a">
-<li><code>data.only.february</code></li>
-<li><code>dataOnlyFebruary</code></li>
-<li><code>data_only_february</code></li>
-<li><code>Data_only.FEBRUARY</code></li>
-</ol>
+<section id="references" class="level3 unnumbered">
+
+
 
 
 </section>
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-bryanHappyGitGitHub2021" class="csl-entry" role="listitem">
+Bryan, Jenny, Jim Hester, and The Stat 545 TAs. 2021. <em>Happy <span>Git</span> and <span>GitHub</span> for the <span class="nocase">useR</span></em>. <a href="https://happygitwithr.com/">https://happygitwithr.com/</a>.
+</div>
+<div id="ref-ericaheidiStageCommitPush2020" class="csl-entry" role="listitem">
+Erica Heidi. 2020. <span>“Stage. <span>Commit</span>. <span>Push</span>. <span>A</span> <span>Git</span> <span>Story</span> (<span>Comic</span>).”</span> <em>DEV Community</em>. <a href="https://dev.to/erikaheidi/stage-commit-push-a-git-story-comic-a37">https://dev.to/erikaheidi/stage-commit-push-a-git-story-comic-a37</a>.
+</div>
+<div id="ref-thecodingtrainIntroductionGitGitHub2016" class="csl-entry" role="listitem">
+The Coding Train. 2016. <span>“Introduction: <span>Git</span> and <span>GitHub</span> for <span>Poets</span>.”</span> <a href="https://www.youtube.com/watch?v=BCQHnlnPusY">https://www.youtube.com/watch?v=BCQHnlnPusY</a>.
+</div>
+<div id="ref-traversymediaGitGitHubCrash2017" class="csl-entry" role="listitem">
+Traversy Media. 2017. <em>Git &amp; <span>GitHub</span> <span>Crash</span> <span>Course</span> <span>For</span> <span>Beginners</span></em>. <a href="https://www.youtube.com/watch?v=SWYqp7iY_Tc">https://www.youtube.com/watch?v=SWYqp7iY_Tc</a>.
+</div>
+<div id="ref-weiQuickGuideUsing2019" class="csl-entry" role="listitem">
+Wei, Jerry. 2019. <span>“A <span>Quick</span> <span>Guide</span> to <span>Using</span> <span>Command</span> <span>Line</span> (<span>Terminal</span>).”</span> <em>Towards Data Science</em>. <a href="https://towardsdatascience.com/a-quick-guide-to-using-command-line-terminal-96815b97b955">https://towardsdatascience.com/a-quick-guide-to-using-command-line-terminal-96815b97b955</a>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Yes, I’m aware that this sounds paranoid. It’s been a very rare occasion that I’ve needed to restore something from another backup. You don’t want to take chances.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1122,15 +1075,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../course-materials/course_resources.html" class="pagination-link" aria-label="R Resources">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">R Resources</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

@@ -2,9 +2,10 @@ project:
   type: website
   output-dir: docs
   render: 
-    - "*.qmd"
+    - "!/weeks/"
+    - "!/course-materials/"
     - "!/labs/student/"
-    - "!/group-activities/group-formation"
+    - "!/group-activities/"
 
 website:
   page-navigation: true
@@ -43,7 +44,11 @@ website:
       - section: "Weekly materials"
         contents:
           - href: weeks/week-1-r-rstudio.qmd
-            text: "Week 1, Part 1 - R & RStudio"
+            text: "Week 1 - R & RStudio"
+          - href: weeks/week-2-quarto.qmd
+            text: "Week 2 - Quarto"
+          - href: weeks/week-3-version-control.qmd
+            text: "Week 3 - Version Control"
       - section: "Labs"
         contents:
           

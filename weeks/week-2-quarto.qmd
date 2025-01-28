@@ -29,7 +29,8 @@ file management.
 Believe it or not, your computer has **multiple** locations\*\* where files can
 be stored. There has been a bit of a generational shift as computers have
 evolved: the "file system" metaphor itself is outdated because no one uses
-physical files anymore. 
+physical files anymore.  
+
 [This article]((https://futurism.com/the-byte/gen-z-kids-file-systems) makes the
 argument that with modern search capabilities, most people use their computers
 as a laundry hamper instead of as a nice, organized filing cabinet. However, the
@@ -54,13 +55,13 @@ For example, if you come to my office for help on your lab assignment for Week
 ::: panel-tabset
 ## File Storage on Windows
 
-![](images/week-1/pc-save-to-documents.png){width="50%" fig-alt="A screenshot of the folders included in the Documents on Dr. Canner's PC. The image shows six folders, including a folder titled 'STAT 210'."}
+![](images/week-1/pc-save-to-documents.png){width="50%" fig-alt="A screenshot of the folders included in the Documents on a PC. The image shows six folders, including a folder titled 'STAT 311'."}
 
-I have six total folders in my Documents, one of which is a folder named "STAT 210." 
+This computer has six total folders in my Documents, one of which is a folder named "STAT 311." You should have one that is called "STAT 210" or something similar.   
 
-![](images/week-1/pc-file-path.png){width="50%" fig-alt="A screenshot of the folders included in the Documents on Dr. Canner's PC. The image shows six folders, with the subfolder structure highlighted for the folder named 'STAT 210'."}
+![](images/week-1/pc-file-path.png){width="50%" fig-alt="A screenshot of the folders included in the Documents on a PC. The image shows six folders, with the subfolder structure highlighted for the folder named 'STAT 331'."}
 
-Inside my STAT 210 folder is a sub-folder named "Week 1," which also has a sub-folder (a sub-sub-folder) named "Lab 1." You can tell what folders Lab 1 lives inside based on the information included at the top of the screen. This is called a "file path," which tells your computer where a folder / file lives on the computer. 
+Inside my STAT course folder is a sub-folder named "Week 1," which also has a sub-folder (a sub-sub-folder) named "Lab 1." You can tell what folders Lab 1 lives inside based on the information included at the top of the screen. This is called a "file path," which tells your computer where a folder / file lives on the computer. 
 
 On a PC, every file lives on the C Drive, so the "full path" to get to my Lab 1 folder would be:
 
@@ -68,31 +69,31 @@ On a PC, every file lives on the C Drive, so the "full path" to get to my Lab 1 
 
 ## File Storage on a Mac
 
-![](images/week-1/file-save-mac.png){width="50%" fig-alt="A screenshot of the folders included in the Documents on Dr. Theobold's Mac. The image shows six folders, with the subfolder structure highlighted for the folder named 'STAT 210'."}
+![](images/week-1/file-save-mac.png){width="50%" fig-alt="A screenshot of the folders included in the Documents on a Mac. The image shows six folders, with the subfolder structure highlighted for the folder named 'STAT 331'."}
 
-I have six total folders in my Documents, one of which is a folder named "STAT
-210." Inside this folder is a sub-folder named "Week 1," which also has a
+On this Mac, there are six total folders in my Documents, one of which is a folder named "STAT
+331." Inside this folder is a sub-folder named "Week 1," which also has a
 sub-folder (a sub-sub-folder) named "Lab 1."
 
 On a Mac, every file lives on the hard drive (it doesn't have letters like a
-PC), so the "full path" to get to my Lab 1 folder would be:
+PC), so the "full path" to get to my Lab 1 folder on a Mac would be:
 
-`/Users/atheobold/Documents/STAT 210/Week 1/Lab 1`
+`/Users/jcanner/Documents/STAT 210/Week 1/Lab 1`
 
 :::
 
-## ✅ Check-in 1.3:  Stat 210 Folder
+## ✅ Check-in: STAT 210 Folder
 
-Take a screenshot of your class directory, showing:
+Check that your class directory is set up with: 
 
-1.  the location of your Stat 210 folder
+1.  the location of your Stat 210 folder 
 2.  a Week 1 sub-folder
 3.  a Lab 1 sub-sub-folder (inside the Week 1 folder)
 
 ::: callout-caution
-# Your folder cannot synch with anything online! 
+# Your folder cannot sync with anything online! 
 
-Your STAT 210 folder **cannot** be in a folder stored on OneDrive or iCloud!
+Your STAT 210 folder **cannot** be in a folder stored on GoogleDrive, OneDrive, or iCloud!
 Storing your folder in this location will cause your code to periodically not
 run and I cannot help you fix it.
 :::
@@ -147,7 +148,7 @@ recommend checking out:
 
 -   [the list of all HTML Ffrmatting pptions for Quarto documents](https://quarto.org/docs/reference/formats/html.html)
 
-## ✅ Check-in: 1.4 Quarto Documents
+## ✅ Check-in: Quarto Documents
 
 **Question 1**: What are the options at the top of a Quarto document (between
 the `---` and `---` symbols) called?

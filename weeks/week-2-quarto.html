@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistical Computing with R</title>
+<title>Week 2: Reproducible Analyses with Quarto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,157 +23,29 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
+<script src="week-2-quarto_files/libs/clipboard/clipboard.min.js"></script>
+<script src="week-2-quarto_files/libs/quarto-html/quarto.js"></script>
+<script src="week-2-quarto_files/libs/quarto-html/popper.min.js"></script>
+<script src="week-2-quarto_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="week-2-quarto_files/libs/quarto-html/anchor.min.js"></script>
+<link href="week-2-quarto_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="week-2-quarto_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="week-2-quarto_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="week-2-quarto_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="week-2-quarto_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
 
-<body class="nav-sidebar docked">
+<body class="fullcontent">
 
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Statistical Computing with R</li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/r-flowers.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
-      <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
-    <a href="https://csumb.instructure.com/courses/27314" title="Course Canvas Site" class="quarto-navigation-tool px-1" aria-label="Course Canvas Site"><i class="bi bi-person-fill"></i></a>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-</div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
- <span class="menu-text">Course information</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./course-materials/course_resources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R Resources</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
- <span class="menu-text">Weekly materials</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./weeks/week-1-r-rstudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 1 - R &amp; RStudio</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./weeks/week-2-quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 2 - Quarto</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./weeks/week-3-version-control.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 3 - Version Control</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Labs</span></span>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
-<!-- main -->
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Statistical Computing with R</h1>
+<h1 class="title">Week 2: Reproducible Analyses with Quarto</h1>
 </div>
 
 
@@ -190,51 +62,140 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the semester progresses, with all changes documented here.</p>
-<!-- TODO: Switch to spreadsheet for content (like Mine and Maria do) -->
-<table class="caption-top table">
-<colgroup>
-<col style="width: 5%">
-<col style="width: 15%">
-<col style="width: 30%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Week</th>
-<th>Date</th>
-<th>Topic &amp; Preview Activities</th>
-<th>Practice Activity</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>Friday, 1/24</td>
-<td><a href="./weeks/week-1-r-rstudio.html">Intro to R &amp; RStudio</a></td>
-<td><p><a href="./group-activities/week-1/broken-circles.html" title="Broken Circles Group Warm-up">Broken Circles Group Warm-up</a></p>
-<p><a href="./group-activities/pair-programming-norms.html" title="Creating Pair Programming Norms">Creating Pair Programming Norms</a></p>
-<p><a href="./group-activities/week-1/data-cleaning-viz-steps.html" title="Data Cleaning, Visualization Puzzle">Data Cleaning, Visualization Puzzle</a></p></td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>Friday, 1/31</td>
-<td><a href="./weeks/week-2-quarto.html">Intro to Quarto</a></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td><p>Friday,</p>
-<p>2/7</p></td>
-<td><a href="./weeks/week-3-version-control.html">Intro to Version Control</a></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<p>The theme of this lesson is good management of your files and data. In part two of this week’s coursework you will learn how to identify <strong>folders</strong> and <strong>paths</strong>, and create <strong>Quarto documents</strong>.</p>
+<section id="readings-45-minutes" class="level4">
+<h4 class="anchored" data-anchor-id="readings-45-minutes">📖 Readings: 45 minutes</h4>
+</section>
+<section id="activities-5-10-min" class="level4">
+<h4 class="anchored" data-anchor-id="activities-5-10-min">💻 Activities: 5-10 min</h4>
+</section>
+<section id="principles-of-reproducibility" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Principles of Reproducibility</h1>
+<section id="file-management" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="file-management"><span class="header-section-number">1.1</span> File Management</h2>
+<p>As boring as it sounds, file management is arguably one of the most important skills a data scientist should have. The reproducibility of a project depends just as much on the way in which the project was stored as the computing tools used. While using R and Quarto make an important step in creating a reproducible analysis, there are other pieces that are arguably just as important—such as file management.</p>
+<p>Believe it or not, your computer has <strong>multiple</strong> locations** where files can be stored. There has been a bit of a generational shift as computers have evolved: the “file system” metaphor itself is outdated because no one uses physical files anymore.</p>
+<p>[This article]((https://futurism.com/the-byte/gen-z-kids-file-systems) makes the argument that with modern search capabilities, most people use their computers as a laundry hamper instead of as a nice, organized filing cabinet. However, the laundry hamper approach doesn’t play nicely with working in R and creating Quarto documents.</p>
+<p>In this class, we will store files according to the <a href="https://www.projecttier.org/tier-protocol/protocol-4-0/">Project TIER protocol</a>. More specifically, you will have:</p>
+<ul>
+<li>a “Stat 210” folder in your Documents folder, containing <strong>all</strong> your materials associated with STAT 210</li>
+<li>a sub-folder for each week (e.g., Week 1, Week 2)</li>
+<li>separate folders within each week for each assignment (e.g., Practice Activity, Lab)</li>
+<li>a separate R Studio Project (and GitHub repository) associated with each assignment</li>
+</ul>
+<p>For example, if you come to my office for help on your lab assignment for Week 2, I would expect your files to look like this:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">File Storage on Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">File Storage on a Mac</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><img src="images/week-1/pc-save-to-documents.png" class="img-fluid" style="width:50.0%" alt="A screenshot of the folders included in the Documents on a PC. The image shows six folders, including a folder titled 'STAT 311'."></p>
+<p>This computer has six total folders in my Documents, one of which is a folder named “STAT 311.” You should have one that is called “STAT 210” or something similar.</p>
+<p><img src="images/week-1/pc-file-path.png" class="img-fluid" style="width:50.0%" alt="A screenshot of the folders included in the Documents on a PC. The image shows six folders, with the subfolder structure highlighted for the folder named 'STAT 331'."></p>
+<p>Inside my STAT course folder is a sub-folder named “Week 1,” which also has a sub-folder (a sub-sub-folder) named “Lab 1.” You can tell what folders Lab 1 lives inside based on the information included at the top of the screen. This is called a “file path,” which tells your computer where a folder / file lives on the computer.</p>
+<p>On a PC, every file lives on the C Drive, so the “full path” to get to my Lab 1 folder would be:</p>
+<p><code>C:/Users/jcanner/Documents/STAT 210/Week 1/Lab 1</code></p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><img src="images/week-1/file-save-mac.png" class="img-fluid" style="width:50.0%" alt="A screenshot of the folders included in the Documents on a Mac. The image shows six folders, with the subfolder structure highlighted for the folder named 'STAT 331'."></p>
+<p>On this Mac, there are six total folders in my Documents, one of which is a folder named “STAT 331.” Inside this folder is a sub-folder named “Week 1,” which also has a sub-folder (a sub-sub-folder) named “Lab 1.”</p>
+<p>On a Mac, every file lives on the hard drive (it doesn’t have letters like a PC), so the “full path” to get to my Lab 1 folder on a Mac would be:</p>
+<p><code>/Users/jcanner/Documents/STAT 210/Week 1/Lab 1</code></p>
+</div>
+</div>
+</div>
+</section>
+<section id="check-in-stat-210-folder" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="check-in-stat-210-folder"><span class="header-section-number">1.2</span> ✅ Check-in: STAT 210 Folder</h2>
+<p>Check that your class directory is set up with:</p>
+<ol type="1">
+<li>the location of your Stat 210 folder</li>
+<li>a Week 1 sub-folder</li>
+<li>a Lab 1 sub-sub-folder (inside the Week 1 folder)</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your folder cannot sync with anything online!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Your STAT 210 folder <strong>cannot</strong> be in a folder stored on GoogleDrive, OneDrive, or iCloud! Storing your folder in this location will cause your code to periodically not run and I cannot help you fix it.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="reproducible-documents" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Reproducible Documents</h1>
+<p>Over the last ten years, science has experienced a “reproducibility” crisis. Meaning, a substantial portion of scientific findings were unable to be recreated because people didn’t sufficiently document the processes they used. As such, a foundational aspect of scientific research is using tools which allow others to reproduce your findings.</p>
+<p>Enter Quarto—a dynamic document that allows us to interweave R code and written text in the <strong>same</strong> document. Gone are the days of copying and pasting the results of your R code into a Word document—breaking the connection between your analysis and your report. Quarto is here to save the day!</p>
+<section id="downloading-quarto" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="downloading-quarto"><span class="header-section-number">2.1</span> Downloading Quarto</h2>
+<p>The software associated with Quarto is automatically downloaded with the newest versions of RStudio. So, if you are using the most up to date version of RStudio (as instructed in <a href="week-1-r-rstudio.qmd">Part 1 of this week’s coursework</a>), you should already have Quarto installed on your computer. But, let’s test it out.</p>
+<p>To ensure you have Quarto installed, carry out the following process:</p>
+<ul>
+<li>Open RStudio</li>
+<li>Click on “File” (in the upper navigation bar)</li>
+<li>Select “New File” (in the dropdown options)</li>
+<li>Select “Quarto Document…” (in the dropdown option)</li>
+</ul>
+<p><img src="images/week-1/new-quarto-doc-file.png" class="img-fluid" style="width:50.0%" alt="A screenshot of the dropdown options for creating a new Quarto document. The image shows the options under the 'File' menu (in the upper option bar), the 'New File' option in the 'File' menu has been selected, opneing a popout. In the popout options, the cursor is highlighting the 'Quarto Document' option."> <br></p>
+<p>If you have Quarto installed, you should be prompted with the following menu:</p>
+<p><img src="images/week-1/new-quarto-doc.png" class="img-fluid" style="width:50.0%" alt="A screenshot of the menu that should appear when you carry out the process described above. The menu is a square box with a title reading 'New Quarto Document'. On the left hand side of the box, the user can select what type of Quarto product they wish to create (Document, Presentation, or Interactive). On the right hand side, the user can control various aspects of their document, including the title, the author, the type of rendered document (HTML, PDF, or Word). At the bottom there are options to 'Create an Empty Document' (a barebones document), to 'Create' a document (with the user specified options), or 'Cancel'."></p>
+<p>If, instead, you receive a message saying Quarto is not installed on your computer, you need to download Quarto: <a href="https://quarto.org/docs/download/" class="uri">https://quarto.org/docs/download/</a></p>
+</section>
+<section id="introduction-to-quarto" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="introduction-to-quarto"><span class="header-section-number">2.2</span> Introduction to Quarto</h2>
+<section id="required-reading-intro-to-quarto" class="level3">
+<h3 class="anchored" data-anchor-id="required-reading-intro-to-quarto">📖 <a href="https://r4ds.hadley.nz/quarto.html">Required Reading: Intro to Quarto</a></h3>
+</section>
+<section id="html-documents" class="level3">
+<h3 class="anchored" data-anchor-id="html-documents">HTML Documents</h3>
+<p>We will exclusively use HTML documents in this course. If you are interested in learning more about formatting options for Quarto HTML documents, I would recommend checking out:</p>
+<ul>
+<li><p><a href="https://quarto.org/docs/output-formats/html-basics.html">a discussion of the basics of formatting HTML documents in Quarto</a></p></li>
+<li><p><a href="https://quarto.org/docs/reference/formats/html.html">the list of all HTML Ffrmatting pptions for Quarto documents</a></p></li>
+</ul>
+</section>
+</section>
+<section id="check-in-quarto-documents" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="check-in-quarto-documents"><span class="header-section-number">2.3</span> ✅ Check-in: Quarto Documents</h2>
+<p><strong>Question 1</strong>: What are the options at the top of a Quarto document (between the <code>---</code> and <code>---</code> symbols) called?</p>
+<ol type="a">
+<li>XML</li>
+<li>YAML</li>
+<li>REML</li>
+<li>TOML</li>
+</ol>
+<p><strong>Question 2</strong>: What symbols create an R code chunk?</p>
+<ol type="a">
+<li><code>```</code></li>
+<li><code>{r}</code></li>
+<li><code>```{r}</code></li>
+<li><code>`{r}`</code></li>
+</ol>
+<p><strong>Question 3</strong>: What symbol defines a heading?</p>
+<ol type="a">
+<li><p><code>$</code></p></li>
+<li><p><code>_</code></p></li>
+<li><p><code>*</code></p></li>
+<li><p><code>#</code></p></li>
+</ol>
+<p><strong>Question 4</strong>: When working in a Quarto document, the [visual / source] editor will display the raw Quarto document, whereas the [visual / source] will display the document as it will appear when it is rendered.</p>
+<p><strong>Question 5</strong>: To produce an HTML report from your Quarto document, you need to click the ____ button.</p>
+<ol type="a">
+<li><p>Visual</p></li>
+<li><p>Render</p></li>
+<li><p>Render on Save</p></li>
+<li><p>Save</p></li>
+</ol>
+</section>
+</section>
 
-
-
-</main> <!-- /main -->
+</main>
+<!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -255,150 +216,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -471,7 +288,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/github\.com\/jcanner\/stat_210_2025_website");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -800,19 +617,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-<p>© Copyright 2024, Allison Theobold &amp; Judith Canner</p>
-</div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/jcanner/stat_210_2025_website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
-    <div class="nav-footer-right">
-<p>This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</p>
-</div>
-  </div>
-</footer>
 
 
 
