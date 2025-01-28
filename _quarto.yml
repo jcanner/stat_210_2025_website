@@ -3,15 +3,15 @@ project:
   output-dir: docs
   render: 
     - "*.qmd"
-    - "!/course-materials/"
     - "!/labs/student/"
-    - "!/group-activities/"
+    - "!/videos/"
+    - "!/slides/"
 
 website:
   page-navigation: true
   title: "Statistical Computing with R"
   description: "Homepage for STAT 210 at CSUMB"
-  site-url: "https://github.com/jcanner/stat_210_2025_website"
+  site-url: "https://jcanner.github.io/stat_210_2025_website"
   repo-url: https://github.com/jcanner/stat_210_2025_website
   repo-actions: [issue]
 

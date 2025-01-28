@@ -165,7 +165,7 @@
     "text": "For the first portion of this week’s coursework, we are going to learn about / refresh our memory on R and RStudio. This course is all about you learning skills for working with data in R, so you will need to have local installations of both R and RStudio on your computer.",
     "crumbs": [
       "Weekly materials",
-      "Week 1, Part 1 - R & RStudio"
+      "Week 1 - R & RStudio"
     ]
   },
   {
@@ -176,7 +176,7 @@
     "text": "1.1 Updating Your Version of R\nIf you already have R downloaded, you need to confirm that you have the most up to date version of R. Do not ignore these instructions. If you neglect to update your version of R, you may find that updating a package will make it so your code will not run.\n\nStep 1: Open RStudio\nStep 2: At the top of the the Console it will say what version of R you are using\n\n{fig-alt = “A screenshot of what version of R should appear when you open RStudio. The version reads ‘R version 4.4.2 (2024-10-31) – ’Pile of Leaves’.”}\nIf the version is not 4.4.2 (like the image above), you need to update your version of R! The simplest way to do this is to follow the instructions below to install R.",
     "crumbs": [
       "Weekly materials",
-      "Week 1, Part 1 - R & RStudio"
+      "Week 1 - R & RStudio"
     ]
   },
   {
@@ -187,7 +187,7 @@
     "text": "1.2 Installing R\nDownload and install R by going to https://cloud.r-project.org/. Here, you will find three options for installing R—click on the option for your computer’s operating system.\n\n📽️ Useful Video: Installing R and RStudio - Windows\n\n\n📽️ Useful Video: Installing R and RStudio - Mac\n\n\nIf you are a Windows user:\n\nClick on “Download R for Windows”\nClick on “base”\nClick on the Download link.\nWhen you open the execution file (.exe) you will be prompted with a variety of questions about installing R. Feel free to use the default features / settings that come with R (continue to click “Ok” until the download starts).\n\n\n\n\n\n\n\nMultiple Versions of R\n\n\n\nBeware that if you had a previous version of R downloaded on your PC, that old version will not be deleted when you download the most recent version of R. We do not want to have two versions of R installed, as your computer can get confused what version of R to use. So, you need to remove the old version of R.\nTo do this you need to:\n\nNavigate to your computer’s settings\nClick on the “Apps” option on the left-hand panel\nSearch for or scroll down to R\nFind the older version of R\n\n\n\nClick on the ... on the right side\nSelect “Uninstall”\n\n\n\n\n\n\nIf you are macOS user:\n\nClick on “Download R for (Mac) OS X”\nUnder “Latest release:” click on R-X.X.X.pkg, where R-X.X.X is the version number. For example, the latest version of R as of October 31, 2024 was R-4.4.2 (Pile of Leaves).\nWhen installing, use the default features / settings that come with R (click Ok until the download starts).\n\n\n\n\n\n\n\nTroubleshooting for Macs\n\n\n\nFirst, identify which version of OSx you are running. How-to\nNext, find out which version of R your computer can run. Link\nIf this version is 3.6 or later, download the latest version that your computer can handle.\nIf this version is 3.4 or earlier, you’re going to run in to some trouble. I recommend updating your version of OSx, if you are willing. If you can’t, then you can use Posit Cloud to run R and RStudio on a free server. However, I recommend strongly against this option; your files will not be saved indefinitely, you will have limited hours to complete your work, your computing power will be limited, and you will need an internet connection at all times to do your work.\n\n\n\n\nIf you are a Linux user:\nClick on “Download R for Linux” and choose your distribution for more information on installing R for your setup.",
     "crumbs": [
       "Weekly materials",
-      "Week 1, Part 1 - R & RStudio"
+      "Week 1 - R & RStudio"
     ]
   },
   {
@@ -198,7 +198,7 @@
     "text": "2.1 Updating Your Version of RStudio\nIf you already have RStudio, you need to double check if you have the most recent version. You will not have access to the newest features for Quarto documents unless you have the most recent version of RStudio.\n\nStep 1: Open RStudio\nStep 2: Click on “Help” in the upper menu\nStep 3: Click on “Check for Updates”\n\nIf there are no updates to RStudio since you installed it, you are good to go! If you need to update RStudio, you will be sent to Posit (the parent company) to download the most recent version of RStudio desktop.",
     "crumbs": [
       "Weekly materials",
-      "Week 1, Part 1 - R & RStudio"
+      "Week 1 - R & RStudio"
     ]
   },
   {
@@ -209,7 +209,7 @@
     "text": "2.2 Installing RStudio\nDownloading the most recent version of RStudio works the same way regardless of whether you’ve never downloaded RStudio before or if you just need to update your version of RStudio.\nWhen you navigate to the RStudio download page (https://rstudio.com/products/rstudio/download/), the website should automatically detect your computer’s operating system. So, you should be able to simply click the blue “Download RStudio Desktop for [insert operating system here]” button.\nClicking the button will begin installing RStudio. Once the download has completed, you will need to open the application file (on a Mac this is a .dmg file, on Windows this is an exe file).",
     "crumbs": [
       "Weekly materials",
-      "Week 1, Part 1 - R & RStudio"
+      "Week 1 - R & RStudio"
     ]
   },
   {
@@ -330,5 +330,93 @@
     "title": "Intro to STAT 331 / 531 + Intro to R",
     "section": "Consent to Participate",
     "text": "Consent to Participate\n\n\nIf you agree to participate…\n\nyou will be recorded once a week for 10-weeks while participating in pair programming to complete collaborative tasks.\nyou will complete a pre- and post-survey about your prior computing experiences and your attitudes toward data science.\n\n\n\n. . .\n\n\nYour participation in this research will not affect your course grade.\n\n. . .\n\n\n\n\n\n\nConsent Form\n\n\n\nPlease complete the consent form (https://forms.gle/oax73hoe7uRSVLYw8) by Monday, 9/30."
+  },
+  {
+    "objectID": "weeks/week-2-quarto.html",
+    "href": "weeks/week-2-quarto.html",
+    "title": "Week 2: Reproducible Analyses with Quarto",
+    "section": "",
+    "text": "The theme of this lesson is good management of your files and data. In part two of this week’s coursework you will learn how to identify folders and paths, and create Quarto documents.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 2 - Quarto"
+    ]
+  },
+  {
+    "objectID": "weeks/week-2-quarto.html#file-management",
+    "href": "weeks/week-2-quarto.html#file-management",
+    "title": "Week 2: Reproducible Analyses with Quarto",
+    "section": "1.1 File Management",
+    "text": "1.1 File Management\nAs boring as it sounds, file management is arguably one of the most important skills a data scientist should have. The reproducibility of a project depends just as much on the way in which the project was stored as the computing tools used. While using R and Quarto make an important step in creating a reproducible analysis, there are other pieces that are arguably just as important—such as file management.\nBelieve it or not, your computer has multiple locations** where files can be stored. There has been a bit of a generational shift as computers have evolved: the “file system” metaphor itself is outdated because no one uses physical files anymore.\n[This article]((https://futurism.com/the-byte/gen-z-kids-file-systems) makes the argument that with modern search capabilities, most people use their computers as a laundry hamper instead of as a nice, organized filing cabinet. However, the laundry hamper approach doesn’t play nicely with working in R and creating Quarto documents.\nIn this class, we will store files according to the Project TIER protocol. More specifically, you will have:\n\na “Stat 210” folder in your Documents folder, containing all your materials associated with STAT 210\na sub-folder for each week (e.g., Week 1, Week 2)\nseparate folders within each week for each assignment (e.g., Practice Activity, Lab)\na separate R Studio Project (and GitHub repository) associated with each assignment\n\nFor example, if you come to my office for help on your lab assignment for Week 2, I would expect your files to look like this:\n\nFile Storage on WindowsFile Storage on a Mac\n\n\n\nThis computer has six total folders in my Documents, one of which is a folder named “STAT 311.” You should have one that is called “STAT 210” or something similar.\n\nInside my STAT course folder is a sub-folder named “Week 1,” which also has a sub-folder (a sub-sub-folder) named “Lab 1.” You can tell what folders Lab 1 lives inside based on the information included at the top of the screen. This is called a “file path,” which tells your computer where a folder / file lives on the computer.\nOn a PC, every file lives on the C Drive, so the “full path” to get to my Lab 1 folder would be:\nC:/Users/jcanner/Documents/STAT 210/Week 1/Lab 1\n\n\n\nOn this Mac, there are six total folders in my Documents, one of which is a folder named “STAT 331.” Inside this folder is a sub-folder named “Week 1,” which also has a sub-folder (a sub-sub-folder) named “Lab 1.”\nOn a Mac, every file lives on the hard drive (it doesn’t have letters like a PC), so the “full path” to get to my Lab 1 folder on a Mac would be:\n/Users/jcanner/Documents/STAT 210/Week 1/Lab 1",
+    "crumbs": [
+      "Weekly materials",
+      "Week 2 - Quarto"
+    ]
+  },
+  {
+    "objectID": "weeks/week-2-quarto.html#check-in-stat-210-folder",
+    "href": "weeks/week-2-quarto.html#check-in-stat-210-folder",
+    "title": "Week 2: Reproducible Analyses with Quarto",
+    "section": "1.2 ✅ Check-in: STAT 210 Folder",
+    "text": "1.2 ✅ Check-in: STAT 210 Folder\nCheck that your class directory is set up with:\n\nthe location of your Stat 210 folder\na Week 1 sub-folder\na Lab 1 sub-sub-folder (inside the Week 1 folder)\n\n\n\n\n\n\n\nYour folder cannot sync with anything online!\n\n\n\nYour STAT 210 folder cannot be in a folder stored on GoogleDrive, OneDrive, or iCloud! Storing your folder in this location will cause your code to periodically not run and I cannot help you fix it.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 2 - Quarto"
+    ]
+  },
+  {
+    "objectID": "weeks/week-2-quarto.html#downloading-quarto",
+    "href": "weeks/week-2-quarto.html#downloading-quarto",
+    "title": "Week 2: Reproducible Analyses with Quarto",
+    "section": "2.1 Downloading Quarto",
+    "text": "2.1 Downloading Quarto\nThe software associated with Quarto is automatically downloaded with the newest versions of RStudio. So, if you are using the most up to date version of RStudio (as instructed in Part 1 of this week’s coursework), you should already have Quarto installed on your computer. But, let’s test it out.\nTo ensure you have Quarto installed, carry out the following process:\n\nOpen RStudio\nClick on “File” (in the upper navigation bar)\nSelect “New File” (in the dropdown options)\nSelect “Quarto Document…” (in the dropdown option)\n\n \nIf you have Quarto installed, you should be prompted with the following menu:\n\nIf, instead, you receive a message saying Quarto is not installed on your computer, you need to download Quarto: https://quarto.org/docs/download/",
+    "crumbs": [
+      "Weekly materials",
+      "Week 2 - Quarto"
+    ]
+  },
+  {
+    "objectID": "weeks/week-2-quarto.html#introduction-to-quarto",
+    "href": "weeks/week-2-quarto.html#introduction-to-quarto",
+    "title": "Week 2: Reproducible Analyses with Quarto",
+    "section": "2.2 Introduction to Quarto",
+    "text": "2.2 Introduction to Quarto\n\n📖 Required Reading: Intro to Quarto\n\n\nHTML Documents\nWe will exclusively use HTML documents in this course. If you are interested in learning more about formatting options for Quarto HTML documents, I would recommend checking out:\n\na discussion of the basics of formatting HTML documents in Quarto\nthe list of all HTML Ffrmatting pptions for Quarto documents",
+    "crumbs": [
+      "Weekly materials",
+      "Week 2 - Quarto"
+    ]
+  },
+  {
+    "objectID": "weeks/week-2-quarto.html#check-in-quarto-documents",
+    "href": "weeks/week-2-quarto.html#check-in-quarto-documents",
+    "title": "Week 2: Reproducible Analyses with Quarto",
+    "section": "2.3 ✅ Check-in: Quarto Documents",
+    "text": "2.3 ✅ Check-in: Quarto Documents\nQuestion 1: What are the options at the top of a Quarto document (between the --- and --- symbols) called?\n\nXML\nYAML\nREML\nTOML\n\nQuestion 2: What symbols create an R code chunk?\n\n```\n{r}\n```{r}\n`{r}`\n\nQuestion 3: What symbol defines a heading?\n\n$\n_\n*\n#\n\nQuestion 4: When working in a Quarto document, the [visual / source] editor will display the raw Quarto document, whereas the [visual / source] will display the document as it will appear when it is rendered.\nQuestion 5: To produce an HTML report from your Quarto document, you need to click the ____ button.\n\nVisual\nRender\nRender on Save\nSave",
+    "crumbs": [
+      "Weekly materials",
+      "Week 2 - Quarto"
+    ]
+  },
+  {
+    "objectID": "weeks/week-3-version-control.html#objectives",
+    "href": "weeks/week-3-version-control.html#objectives",
+    "title": "Week 3: Version Control with Git and GitHub",
+    "section": "0.1 Objectives",
+    "text": "0.1 Objectives\nMost of this section is either heavily inspired by Happy Git and Github for the UseR (Bryan, Hester, and The Stat 545 TAs 2021) or directly links to that book.\n\nRecognize the benefits of using version control to improve your coding practices and workflow.\nIdentify git / GitHub as a version control platform (and helper).\nInstall git onto your computer and register for a GitHub account\nStart applying version control practices to your workflow.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 3 - Version Control"
+    ]
+  },
+  {
+    "objectID": "weeks/week-3-version-control.html#footnotes",
+    "href": "weeks/week-3-version-control.html#footnotes",
+    "title": "Week 3: Version Control with Git and GitHub",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nYes, I’m aware that this sounds paranoid. It’s been a very rare occasion that I’ve needed to restore something from another backup. You don’t want to take chances.↩︎",
+    "crumbs": [
+      "Weekly materials",
+      "Week 3 - Version Control"
+    ]
   }
 ]
