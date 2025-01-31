@@ -11,7 +11,7 @@ website:
   page-navigation: true
   title: "Statistical Computing with R"
   description: "Homepage for STAT 210 at CSUMB"
-  site-url: "https://github.com/jcanner/stat_210_2025_website"
+  site-url: "https://github.com/jcanner/stat_210_2025_website/docs"
   repo-url: https://github.com/jcanner/stat_210_2025_website
   repo-actions: [issue]
 
@@ -39,8 +39,12 @@ website:
     contents:
       - section: "Course information"
         contents:
+          - href: index.qmd
+            text: "Weekly Schedule"
           - href: course-materials/course_resources.qmd
-            text: R Resources
+            text: "R Resources"
+          - href: group-activities/pair-programming-norms.qmd
+            text: "Pair Programming Norms"
       - section: "Weekly materials"
         contents:
           - href: weeks/week-1-r-rstudio.qmd

@@ -15,7 +15,7 @@ During our in-class activities, you will be paired with another student. When co
 :::
 
 ::: {.column width="55%"}
-![](cats-programming.jpg)
+![](../weeks/images/cat_programmer.png)      
 :::
 :::
 
@@ -46,7 +46,7 @@ to help the group understand the code later.
 
 -   Reads prompt and ensures Coder understands what the problem is asking. 
 -   If neither party understands what the problem is asking, raises hand to 
-ask a group question to Dr. Theobold. 
+ask a group question to Dr. Canner. 
 -   Types the code specified by the Coder into the Quarto document in RStudio
 -   Listens carefully, asks the Coder to repeat statements if needed, or to slow
 down.
@@ -107,7 +107,7 @@ A line of code I could write is...
 
 <!-- Facilitator -->
 Do you understand what we need to do?  
-What's the question we have for Dr. Theobold? Can we answer the question ourselves?  
+What's the question we have for Dr. Canner? Can we answer the question ourselves?  
 What are you focusing on?  
 What are you thinking now?  
 Could you tell me more?  

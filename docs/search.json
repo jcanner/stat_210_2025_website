@@ -4,7 +4,11 @@
     "href": "index.html",
     "title": "Statistical Computing with R",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic & Preview Activities\nPractice Activity\n\n\n\n\n1\nFriday, 1/24\nIntro to R & RStudio\nBroken Circles Group Warm-up\nCreating Pair Programming Norms\nData Cleaning, Visualization Puzzle\n\n\n2\nFriday, 1/31\nIntro to Quarto\n\n\n\n3\nFriday, 2/7\nIntro to Version Control"
+    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic & Preview Activities\nPractice Activity\n\n\n\n\n1\nFriday, 1/24\nIntro to R & RStudio\nBroken Circles Group Warm-up\nCreating Pair Programming Norms\nData Cleaning, Visualization Puzzle\n\n\n2\nFriday, 1/31\nIntro to Quarto\nPair Activity 1: Secret Code\n\n\n3\nFriday, 2/7\nIntro to Version Control",
+    "crumbs": [
+      "Course information",
+      "Weekly Schedule"
+    ]
   },
   {
     "objectID": "group-activities/week-1/data-cleaning-viz-steps.html#view-original-data",
@@ -95,28 +99,44 @@
     "href": "group-activities/pair-programming-norms.html",
     "title": "Pair Programming Roles",
     "section": "",
-    "text": "During our in-class activities, you will be paired with another student. When completing the activity, you will rotate between the following roles every 2-3 minutes:"
+    "text": "During our in-class activities, you will be paired with another student. When completing the activity, you will rotate between the following roles every 2-3 minutes:",
+    "crumbs": [
+      "Course information",
+      "Pair Programming Norms"
+    ]
   },
   {
     "objectID": "group-activities/pair-programming-norms.html#group-norms",
     "href": "group-activities/pair-programming-norms.html#group-norms",
     "title": "Pair Programming Roles",
     "section": "Group Norms",
-    "text": "Group Norms\n\nThink and work together. Do not divide the work.\nYou are smarter together.\nBe open minded.\nNo cross-talk with other groups.\nCommunicate with each other!"
+    "text": "Group Norms\n\nThink and work together. Do not divide the work.\nYou are smarter together.\nBe open minded.\nNo cross-talk with other groups.\nCommunicate with each other!",
+    "crumbs": [
+      "Course information",
+      "Pair Programming Norms"
+    ]
   },
   {
     "objectID": "group-activities/pair-programming-norms.html#completing-the-task",
     "href": "group-activities/pair-programming-norms.html#completing-the-task",
     "title": "Pair Programming Roles",
     "section": "Completing the Task",
-    "text": "Completing the Task\nWorking with your partner, complete the Practice Activity in the Quarto document provided. In your roles—Coder and Developer—use the prompts below to help guide the completion of your activity.\n\n\nCoder\nI am looking for…\nI am confused by…\nI notice…\nWhat might be true is…\nWhat’s important is…\nI predict…\nThis reminds me of…\nWhat if we…\nWe could try…\nI am thinking about…\nA line of code I could write is…\n\n\n\nDeveloper\n\nDo you understand what we need to do?\nWhat’s the question we have for Dr. Theobold? Can we answer the question ourselves?\nWhat are you focusing on?\nWhat are you thinking now?\nCould you tell me more?\nWhat are you doing (or writing) now? Please elaborate.\nI can’t follow that, run that by me again.\n What other sources of information do we need?\nWhich words should we look up?\nWhat else do we need to complete this problem?"
+    "text": "Completing the Task\nWorking with your partner, complete the Practice Activity in the Quarto document provided. In your roles—Coder and Developer—use the prompts below to help guide the completion of your activity.\n\n\nCoder\nI am looking for…\nI am confused by…\nI notice…\nWhat might be true is…\nWhat’s important is…\nI predict…\nThis reminds me of…\nWhat if we…\nWe could try…\nI am thinking about…\nA line of code I could write is…\n\n\n\nDeveloper\n\nDo you understand what we need to do?\nWhat’s the question we have for Dr. Canner? Can we answer the question ourselves?\nWhat are you focusing on?\nWhat are you thinking now?\nCould you tell me more?\nWhat are you doing (or writing) now? Please elaborate.\nI can’t follow that, run that by me again.\n What other sources of information do we need?\nWhich words should we look up?\nWhat else do we need to complete this problem?",
+    "crumbs": [
+      "Course information",
+      "Pair Programming Norms"
+    ]
   },
   {
     "objectID": "group-activities/pair-programming-norms.html#once-youre-finished",
     "href": "group-activities/pair-programming-norms.html#once-youre-finished",
     "title": "Pair Programming Roles",
     "section": "Once You’re Finished",
-    "text": "Once You’re Finished\nAt the end of the task, your group will have one completed Quarto document and one rendered HTML, containing your groups’ worked-out solutions and justifications. Everyone must take turns writing the final product (as described above) and everyone must be able to explain every line of code in your final document."
+    "text": "Once You’re Finished\nAt the end of the task, your group will have one completed Quarto document and one rendered HTML, containing your groups’ worked-out solutions and justifications. Everyone must take turns writing the final product (as described above) and everyone must be able to explain every line of code in your final document.",
+    "crumbs": [
+      "Course information",
+      "Pair Programming Norms"
+    ]
   },
   {
     "objectID": "course-materials/course_resources.html",
@@ -418,5 +438,96 @@
       "Weekly materials",
       "Week 3 - Version Control"
     ]
+  },
+  {
+    "objectID": "group-activities/week-2/pa1-base-r.html",
+    "href": "group-activities/week-2/pa1-base-r.html",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "",
+    "text": "Today you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message.\nThis task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.\nSome advice:"
+  },
+  {
+    "objectID": "group-activities/week-2/pa1-base-r.html#groupwork-protocols",
+    "href": "group-activities/week-2/pa1-base-r.html#groupwork-protocols",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Groupwork Protocols",
+    "text": "Groupwork Protocols\nDuring the Practice Activity, you and your partner will alternate between two roles—Developer and Coder.\nWhen you are the Developer, you will type into the Quarto document in RStudio. However, you do not type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.\nWhen you are the Coder, you are responsible for reading the instructions / prompts and directing the Developer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Developer to debug the code you specified. Once the code runs, you are expected to collaborate with the Developer to write code comments that describe the actions taken by your code.\n\nGroup Norms\nRemember, your group is expected to adhere to the following norms:\n\nThink and work together. Do not divide the work.\nYou are smarter together.\nNo cross-talk with other groups."
+  },
+  {
+    "objectID": "group-activities/week-2/pa1-base-r.html#part-zero-accessing-the-practice-activity",
+    "href": "group-activities/week-2/pa1-base-r.html#part-zero-accessing-the-practice-activity",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part Zero: Accessing the Practice Activity",
+    "text": "Part Zero: Accessing the Practice Activity\n\nTo access the activity and get it ready to share:\n\nLog into your CSUMB R Server Account.\n\nChoose one partner (with the closest upcoming birthday) to create an R Project called “pa-1-intro-quarto”.\n\nUpload the pa1-base-r.qmd into the project folder.\n\nShare the project with the other partner, go to File &gt; Share Project &gt; Type partner’s username &gt; Click Add\n\n\n\nFor each code chunk, add a #| label: and a #comment describing what the code chunk is doing. Be sure to check that all spacing is appropriate as well!"
+  },
+  {
+    "objectID": "group-activities/week-2/pa1-base-r.html#part-one-setup",
+    "href": "group-activities/week-2/pa1-base-r.html#part-one-setup",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part One: Setup",
+    "text": "Part One: Setup\nEach of the following R chunks will cause an error and / or do the desired task incorrectly. Find the mistake, and correct it to complete the intended action.\n\nCreate vectors containing the upper case letters, lower case letters, and some punctuation marks. add a label that indicate this code chunk creates the vectors of letters and punctuation.\n\n\nlower_case &lt;- c(\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\",\n                \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\")\n\nupper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\" \"I\", \"J\", \"K\", \"L\", \"M\",\n                \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\")\n\npunctuation &lt;- c(\".\", \",\", \"!\", \"?\", \"'\", '\"', \"(\", \")\", \" \", \"-\", \";\", \":\")\n\n\nMake one long vector containing all the symbols.\n\n\nmy_symbols &lt;- (lower_case, upper_case, punctuation)\n\n\nTurn the my_symbols vector into a data frame, with one column named “symbol”.\n\n\nmy_symbols &lt;- dataframe(symbol = my_symbols)\n\n\nFind the total number of symbols we have in our data frame.\n\n\nlen &lt;- length(my_Symbols)\n\n\nCreate a new variable in your dataframe that assigns a number to each symbol.\n\n\nmy_symbols%Num &lt;- 1:len"
+  },
+  {
+    "objectID": "group-activities/week-2/pa1-base-r.html#part-two-decoding-the-secret-message.",
+    "href": "group-activities/week-2/pa1-base-r.html#part-two-decoding-the-secret-message.",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part Two: Decoding the secret message.",
+    "text": "Part Two: Decoding the secret message.\nThis chunk will load up the encoded secret message as a vector:\n\ntop_secret &lt;- read_csv(\"https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1\", \n                       col_names = FALSE)$X1\n\nBy altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, in the order given below.\n\nAdd 14 to every number.\n\n\nts6 &lt;- top_secret ___________\n\n\nMultiply every number by 18, then subtract 257.\n\n\nts7 &lt;- ts6___________\n\n\nUse the exp() function to exponentiate every number.\n\n\nts8 &lt;- ____(ts7)\n\n\nSquare every number.\n\n\nts9 &lt;- \n\nCheckpoint: Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. Write the code to verify that this is true for your top_secret object!\nHint: This is what is called a “relational” comparison, where you compare an object to a number and R will give you a vector of TRUEs and FALSEs based on whether the comparison is / is not met. You can then use these TRUEs and FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.\n\n# Write code to verify that there are 352 numbers with values **below** 17\n\n___(ts9 &lt; 17)\n\n\nHint: To update an object after performing an operation, you overwrite the existing object with its updated counterpart. This looks something like this:\nx &lt;- x + 12,\nwhere the original value(s) in x have had 12 added to them, and the resulting values are put back in to the object named x. Be careful with this - if you do something wrong you will need to rerun the previous code chunks to reset everything! Fortunately, the grey arrow pointing down to the green line in each code chunk runs all previous code chunks again.\nNext, carry out the following steps:\n\nTurn your vector of numbers into a matrix with 5 columns.\n\n\nts_mat &lt;- _____(ts9, ncol = ____) \n\n\nSeparately from your top secret numbers, create a vector of all the even numbers between 1 and 382. Name it “evens”. That is, “evens” should contain 2, 4, 6, 8 …, 382.\n\n\nevens &lt;- seq(from = __ , to = __ , by = __)\n\n\nSubtract the “evens” vector from the first column of your secret message matrix.\n\n\nts_mat[, 1] &lt;- ts_mat[, ___] - evens\n\n\nSubtract 100 from all numbers 18-24th rows of the 3rd column.\n\n\nts_mat[18:24, 3] &lt;- ts_mat[____, ____] - ____\n\n\nMultiply all numbers in the 4th and 5th column by 2.\n\n\nts_mat[, __:__] &lt;- \n\n\nTurn your matrix back into a vector.\n\n\nts_vec &lt;- ________(ts_mat)\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. Write the code to verify that this is true for your top_secret object!\nHint: Use a relational comparison similar to what you used in the last checkpoint, but here you will need to subset values from your vector!\n\n# Write code to verify that indices 500 and beyond have values **below** 100\n___(ts_vec[____:____] &gt;= ____)\n\n\n\nTake the square root of all numbers in indices 38 to 465.\n\n\nts_vec[___:___] &lt;- ____(ts_vec[38:465])\n\n\nUse the round() function to round all numbers to the nearest whole number.\n\n\nts_vec &lt;- \n\n\nReplace all instances of the number 39 with 20. Hint: Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign\n\n\nts_vec[ts_vec == ___ ] &lt;- \n\nCheckpoint: Headquarters has informed you that your final message should have 344 even numbers.\nHint: Checking for divisibility is an interesting operation that isn’t done much in R. Modulus is the operation you are interested in, where you are checking for whether the numbers are divisible by 2, with no remainder. See what you can find about modulus in R!\n\n# Code to verify how many even numbers are in your top_secret vector\n\n___(ts_vec %% 2 == 0)"
+  },
+  {
+    "objectID": "group-activities/week-2/pa1-base-r.html#part-3-the-secret-message",
+    "href": "group-activities/week-2/pa1-base-r.html#part-3-the-secret-message",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part 3: The secret message!",
+    "text": "Part 3: The secret message!\nUse your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:\n\nstringr::str_c(my_symbols$symbol[ts_vec], collapse = \"\")\n\nGoogle the first line of this message, if you do not recognize it, to see what poem it is."
+  },
+  {
+    "objectID": "group-activities/week-2/pa1-base-r.html#part-4-wrap-up",
+    "href": "group-activities/week-2/pa1-base-r.html#part-4-wrap-up",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part 4: Wrap up",
+    "text": "Part 4: Wrap up\nThe last step is to make each code chunk hidden, even though it runs by modifying the YAML. Once knit, Export the project and submit with your “quiz” for the week. Note that each person should be submit a copy."
+  },
+  {
+    "objectID": "group-activities/week-2/pa1-base-r-solution.html",
+    "href": "group-activities/week-2/pa1-base-r-solution.html",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "",
+    "text": "Today you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message.\nThis task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.\nSome advice:"
+  },
+  {
+    "objectID": "group-activities/week-2/pa1-base-r-solution.html#groupwork-protocols",
+    "href": "group-activities/week-2/pa1-base-r-solution.html#groupwork-protocols",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Groupwork Protocols",
+    "text": "Groupwork Protocols\nDuring the Practice Activity, you and your partner will alternate between two roles—Developer and Coder.\nWhen you are the Developer, you will type into the Quarto document in RStudio. However, you do not type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.\nWhen you are the Coder, you are responsible for reading the instructions / prompts and directing the Developer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Developer to debug the code you specified. Once the code runs, you are expected to collaborate with the Developer to write code comments that describe the actions taken by your code.\n\nGroup Norms\nRemember, your group is expected to adhere to the following norms:\n\nThink and work together. Do not divide the work.\nYou are smarter together.\nNo cross-talk with other groups."
+  },
+  {
+    "objectID": "group-activities/week-2/pa1-base-r-solution.html#part-zero-accessing-the-practice-activity",
+    "href": "group-activities/week-2/pa1-base-r-solution.html#part-zero-accessing-the-practice-activity",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part Zero: Accessing the Practice Activity",
+    "text": "Part Zero: Accessing the Practice Activity\n\nTo access the activity and get it ready to share:\n\nLog into your CSUMB R Server Account.\n\nChoose one partner (with the closest upcoming birthday) to create an R Project called “pa-1-intro-quarto”.\n\nUpload the pa1-base-r.qmd into the project folder.\n\nShare the project with the other partner, go to File &gt; Share Project &gt; Type partner’s username &gt; Click Add"
+  },
+  {
+    "objectID": "group-activities/week-2/pa1-base-r-solution.html#part-one-setup",
+    "href": "group-activities/week-2/pa1-base-r-solution.html#part-one-setup",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part One: Setup",
+    "text": "Part One: Setup\nEach of the following R chunks will cause an error and / or do the desired task incorrectly. Find the mistake, and correct it to complete the intended action.\n\nCreate vectors containing the upper case letters, lower case letters, and some punctuation marks.\n\n\nlower_case &lt;- c(\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\",\n                \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\")\n\nupper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\", \"I\", \"J\", \"K\", \"L\", \"M\",\n                \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\")\n\npunctuation &lt;- c(\".\", \",\", \"!\", \"?\", \"'\", '\"', \"(\", \")\", \" \", \"-\", \";\", \":\")\n\n\nMake one long vector containing all the symbols.\n\n\nmy_symbols &lt;- c(lower_case, upper_case, punctuation)\n\n\nTurn the my_symbols vector into a data frame, with one column named “symbol”.\n\n\nmy_symbols &lt;- data.frame(symbol = my_symbols)\n\n\nFind the total number of symbols we have in our data frame.\n\n\nlen &lt;- length(my_symbols$symbol)\n\n\nCreate a new variable in your dataframe that assigns a number to each symbol.\n\n\nmy_symbols$num &lt;- 1:len"
+  },
+  {
+    "objectID": "group-activities/week-2/pa1-base-r-solution.html#part-two-decoding-the-secret-message.",
+    "href": "group-activities/week-2/pa1-base-r-solution.html#part-two-decoding-the-secret-message.",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part Two: Decoding the secret message.",
+    "text": "Part Two: Decoding the secret message.\nThis chunk will load up the encoded secret message as a vector:\n\nlibrary(readr)\ntop_secret &lt;- read_csv(\"https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1\", \n                       col_names = FALSE)$X1\n\nBy altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, in the order given below.\n\nAdd 14 to every number.\nMultiply every number by 18, then subtract 257.\nUse the exp() function to exponentiate every number.\nSquare every number.\n\nHint: To update a vector after performing an operation, you overwrite the existing object with its updated counterpart. This looks something like this:\nx &lt;- x + 12,\nwhere the original value(s) in x have had 12 added to them, and the resulting values are put back in to the object named x.\n\n## Code to carry out steps 6-9 \n\nts6 &lt;- top_secret + 14\nts7 &lt;- ts6*18 - 257\nts8 &lt;- exp(ts7)\nts9 &lt;- ts8^2\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. Write the code to verify that this is true for your top_secret object!\nHint: This is what is called a “relational” comparison, where you compare an object to a number and R will give you a vector of TRUEs and FALSEs based on whether the comparison is / is not met. You can then use these TRUEs and FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.\n\n# Write code to verify that there are 352 numbers with values **below** 17\nsum(ts9 &lt; 17)\n\nNext, carry out the following steps:\n\nTurn your vector of numbers into a matrix with 5 columns.\nSeparately from your top secret numbers, create a vector of all the even numbers between 1 and 382. Name it “evens”. That is, “evens” should contain 2, 4, 6, 8 …, 382.\nSubtract the “evens” vector from the first column of your secret message matrix.\nSubtract 100 from all numbers 18-24th rows of the 3rd column.\nMultiply all numbers in the 4th and 5th column by 2.\nTurn your matrix back into a vector.\n\n\n## Code to carry out steps 10-15\n\nts_mat &lt;- matrix(ts9, ncol = 5)\nevens &lt;- seq(2,382, by = 2)\nts_mat[,1] &lt;- ts_mat[,1] - evens\nts_mat[18:24, 3] &lt;- ts_mat[18:24, 3] - 100\nts_mat[, 4:5] &lt;- ts_mat[, 4:5]*2\nts_vec &lt;- as.vector(ts_mat)\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. Write the code to verify that this is true for your top_secret object!\nHint: Use a relational comparison similar to what you used in the last checkpoint, but here you will need to subset values from your vector!\n\n# Write code to verify that indices 500 and beyond have values **below** 100\nsum(ts_vec[500:955] &gt;= 100)\n\n\nTake the square root of all numbers in indices 38 to 465.\nUse the round() function to round all numbers to the nearest whole number.\nReplace all instances of the number 39 with 20.\n\nHint: Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign!\n\n# Code for steps 16-18\nts_vec[38:465] &lt;- sqrt(ts_vec[38:465])\nts_vec &lt;- round(ts_vec)\nts_vec[ts_vec == 39] &lt;- 20\n\nCheckpoint: Headquarters has informed you that your final message should have 344 even numbers.\nHint: Checking for divisibility is an interesting operation that isn’t done much in R. Modulus is the operation you are interested in, where you are checking for whether the numbers are divisible by 2, with no remainder. See what you can find about modulus in R!\n\n# Code to verify how many even numbers are in your top_secret vector\n\nsum(ts_vec %% 2 == 0)"
+  },
+  {
+    "objectID": "group-activities/week-2/pa1-base-r-solution.html#part-3-the-secret-message",
+    "href": "group-activities/week-2/pa1-base-r-solution.html#part-3-the-secret-message",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part 3: The secret message!",
+    "text": "Part 3: The secret message!\nUse your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:\n\nstringr::str_c(my_symbols$symbol[ts_vec], collapse = \"\")\n\nGoogle the first line of this message, if you do not recognize it, to see what poem it is."
   }
 ]
