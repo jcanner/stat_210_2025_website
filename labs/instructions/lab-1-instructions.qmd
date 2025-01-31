@@ -15,11 +15,14 @@ execute:
 ## Step 1: Make a New Project in RStudio
 Either under File, or in the top right corner where the current project name is, select
 
-![Screenshot of new project option in RStudio under the project name in RStudio](images/create-new-project.png)
+![Screenshot of new project option in RStudio under the project name in RStudio](images/create-new-project.png)  
+
+
 ## Step 2: Choose New Project
 For now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.  
 
 ![Image of New Project Wizard in RStudio where students should select New Project](images/choose-new-project.png)
+
 
 ## Step 3: Choose a New Directory
 For this week, you will create a **New Directory**. Once we start using GitHub and Git, we may choose Version Control as our option.
