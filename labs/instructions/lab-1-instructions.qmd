@@ -10,16 +10,37 @@ execute:
   echo: false
 ---
 
-# Part One: Workflow for GitHub
+# Part One: Workflow for Lab Setup
 
-## Step 1: Making a Copy from GitHub Classroom
+## Step 1: Make a New Project in RStudio
+Either under File, or in the top right corner where the current project name is, select
+
+![Screenshot of new project option in RStudio under the project name in RStudio](images/create-new-project.png)
+## Step 2: Choose New Project
+For now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.  
+
+![Image of New Project Wizard in RStudio where students should select New Project](images/choose-new-project.png)
+
+## Step 3: Choose a New Directory
+For this week, you will create a **New Directory**. Once we start using GitHub and Git, we may choose Version Control as our option.
 
 
+![Image of New Project Wizard with options for New Directory, Existing Director, and Version Control](images/choose-new-directory.png)
 
-## Step 6: Let's get started working with Quarto!
+## Step 4: Choose the File Name and Location 
+Now set up your file name (for the folder and `.Rproj` file) and the best subdirectory for your Lab 1. This should be a nested folder within your "STAT 210" Folder on your hard drive (Documents), with the "lab" sub-folder, and "week-2" sub-sub-folder. 
 
-Now that you've added your name, go ahead and get started with the rest of the 
-lab! 
+Use the file format `your-name-lab-1`
+
+![Create New Project window of New Project Wizard in RStudio that allows for specification of Directory Name and File Location](images/set-directory-name-location.png)
+
+## Step 6: Download the `lab-1-student.qmd`
+
+Now download the lab file into your new project folder on your computer. Rename the file so that it reads `lab-1-your-name.qmd` with your first and last name.  
+
+You can download it here: [Lab 1](../student/lab-1-student.qmd)
+
+The file should appear in your project folder under your Files tab in the lower right pane. Click it to open it up. Now that you are all set up, go ahead and get started with the rest of the lab! 
 
 # Part Two: Exploring Quarto Documents
 
@@ -162,48 +183,41 @@ select "Code Chunk", and finally select "R".
 4.  Manually add the code chunk by typing ```` ```{r} ````. Make sure to close
 your code chunk with ```` ``` ````.
 
-## Conducting a t-test for Two Independent Samples
+## Creating a More Complex Plot
 
-In this section, we are going to conduct a two-sample independent t-test to 
-compare tooth length between the two supplement methods in the `ToothGrowth` 
-dataset. I have outlined the null and alternative hypotheses we will be testing:
+In this section, we are to create a new plot that you will place in the created code chunk.  
 
-$H_0$: The treatment mean tooth length for the OJ supplement delivery method 
-**is the same** as the treatment mean tooth length for the VC supplement 
-delivery method.
 
-$H_A$: The treatment mean tooth length for the OJ supplement delivery method
-**is different** from the treatment mean tooth length for the VC supplement 
-delivery method.
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+#| eval: false
+#| label: new-plot-tooth-growth-data
+  
+ToothGrowth %>% 
+  mutate(dose = as.factor(dose)) %>% 
+  ggplot(mapping = aes(x = dose, y = len, fill = supp)) +
+  geom_boxplot() +
+  labs(x = "Dose of Supplement (mg/day)", 
+       y = "Length of Teeth (mm)",
+       fill = "Supplement Type")
 
-While a second course in statistics is a pre-requisite for this class, you may 
-want to go [here](https://openintro-ims.netlify.app/inference-two-means) for a 
-refresher on conducting two-sample independent t-tests.
+```
 
 Carry out the following steps:
 
-**Question 10** -- Using the `t.test()` function, write code to carry out the
-analysis. You can assume unequal variances and a two-sided alternative.
+**Question 10** -- In the new code chunk, add the code for the graph. Be sure to include a code chunk label.
 
-::: callout-tip
-# Function Documentation
-
-Look up the help documentation for `t.test()` for directions on how your inputs
-should look. Hint: specifically look at the examples at the bottom for comparing
-`extra` across groups in the `sleep` dataset.
-:::
-
-**Question 11** -- Run your code chunk to obtain the output for your statistical
-test.
+**Question 11** -- Run your code chunk to obtain the output for your new graph.  
 
 **Question 12** -- Create a numbered list containing:
 
--   Your conclusion (in the context of these data) based on the p-value.
--   An interpretation of the confidence interval (make sure to read what 
-confidence level is used by default).
+-   Your conclusions (in the context of these data) based on the graph.  
+-   A recommendation for how I should get my guinea pig's teeth (odontoblasts) to grow more.  
 
 **Question 13** -- Create another section header, describing the contents of
-this section.
+this section before the graph and list.
 
 ## Render Your Document
 
@@ -226,6 +240,7 @@ You will notice that there is auto-generated text that is unrelated to the work
 that you completed. It is always a good idea to delete this extra text!
 
 # Challenge 1: Styling your Quarto Document
+Remember that Challenge sections are optional, but they are good for your learning - especially if you are already a proficient R coder!
 
 You can find a list of every option you can use to format an HTML document [here](https://quarto.org/docs/output-formats/html-basics.html) and [here](https://quarto.org/docs/reference/cells/cells-knitr.html). Further, [here](https://quarto.org/docs/output-formats/html-themes.html) are lists of 
 different themes you can specify in your YAML to produce differently styled
@@ -252,9 +267,6 @@ than making a bunch of big changes and then realizing something is wrong.
 ## Turn it in!
 
 Open the .html file on your computer to make sure it looks as you expected. Then
-upload the rendered (.html extension) document to Canvas!
+upload the rendered (.html extension) document to Canvas and the zipped project file as two separate uploads.!
 
-> You'll be doing this same process for all your future Lab Assignments. Each of
-> these will involve a Quarto file. Some weeks, I may have a template for you to
-> copy like you had here, while other weeks you will generate your own Quarto
-> file from scratch.
+> You'll be doing this same process for all your future Lab Assignments but after next week you will submit a GitHub link instead of the rendered document. Each of these will involve a Quarto file. Some weeks, I may have a template for you to copy like you had here, while other weeks you will generate your own Quarto file from scratch.

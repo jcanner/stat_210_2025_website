@@ -557,5 +557,148 @@
     "title": "Expert Designer",
     "section": "Discussion",
     "text": "Discussion\n\nWhat do you think this game was about? What was its purpose?\nWhat did your group did that made you cooperate more successfully?\nWhat did your group did that made cooperation harder?\nWhat are some behaviors that could be implemented in the future to make cooperation easier?"
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html",
+    "href": "labs/instructions/lab-1-instructions.html",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "",
+    "text": "Either under File, or in the top right corner where the current project name is, select\n ## Step 2: Choose New Project For now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.\n\n\n\nImage of New Project Wizard in RStudio where students should select New Project\n\n\n\n\n\nFor this week, you will create a New Directory. Once we start using GitHub and Git, we may choose Version Control as our option.\n\n\n\nImage of New Project Wizard with options for New Directory, Existing Director, and Version Control\n\n\n\n\n\nNow set up your file name (for the folder and .Rproj file) and the best subdirectory for your Lab 1. This should be a nested folder within your “STAT 210” Folder on your hard drive (Documents), with the “lab” sub-folder, and “week-2” sub-sub-folder.\nUse the file format your-name-lab-1\n\n\n\nCreate New Project window of New Project Wizard in RStudio that allows for specification of Directory Name and File Location\n\n\n\n\n\nNow download the lab file into your new project folder on your computer. Rename the file so that it reads lab-1-your-name.qmd with your first and last name.\nYou can download it here: Lab 1\nThe file should appear in your project folder under your Files tab in the lower right pane. Click it to open it up. Now that you are all set up, go ahead and get started with the rest of the lab!",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html#step-1-make-a-new-project-in-rstudio",
+    "href": "labs/instructions/lab-1-instructions.html#step-1-make-a-new-project-in-rstudio",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "",
+    "text": "Either under File, or in the top right corner where the current project name is, select\n ## Step 2: Choose New Project For now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.\n\n\n\nImage of New Project Wizard in RStudio where students should select New Project",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html#step-3-choose-a-new-directory",
+    "href": "labs/instructions/lab-1-instructions.html#step-3-choose-a-new-directory",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "",
+    "text": "For this week, you will create a New Directory. Once we start using GitHub and Git, we may choose Version Control as our option.\n\n\n\nImage of New Project Wizard with options for New Directory, Existing Director, and Version Control",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html#step-4-choose-the-file-name-and-location",
+    "href": "labs/instructions/lab-1-instructions.html#step-4-choose-the-file-name-and-location",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "",
+    "text": "Now set up your file name (for the folder and .Rproj file) and the best subdirectory for your Lab 1. This should be a nested folder within your “STAT 210” Folder on your hard drive (Documents), with the “lab” sub-folder, and “week-2” sub-sub-folder.\nUse the file format your-name-lab-1\n\n\n\nCreate New Project window of New Project Wizard in RStudio that allows for specification of Directory Name and File Location",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html#step-6-download-the-lab-1-student.qmd",
+    "href": "labs/instructions/lab-1-instructions.html#step-6-download-the-lab-1-student.qmd",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "",
+    "text": "Now download the lab file into your new project folder on your computer. Rename the file so that it reads lab-1-your-name.qmd with your first and last name.\nYou can download it here: Lab 1\nThe file should appear in your project folder under your Files tab in the lower right pane. Click it to open it up. Now that you are all set up, go ahead and get started with the rest of the lab!",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html#specifying-global-execute-options",
+    "href": "labs/instructions/lab-1-instructions.html#specifying-global-execute-options",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "2.1 Specifying Global Execute Options",
+    "text": "2.1 Specifying Global Execute Options\nExecution options specify how the R code in your Quarto document should be displayed. This guide provides descriptions on the options you can specify in a document’s execution.\nTo start, your YAML should look something like this:\n---\ntitle: \"Lab 1: Introduction to Quarto\"\nauthor: \"Your name goes here!\"\ndate: \"Insert the date here!\"\nformat: html\nself-contained: true\neditor: source\n---\nQuestion 1 – Add your name and the date to the YAML.\nQuestion 2 – Add an execute line to your YAML that includes the following options, (1) your source code is always output on the page, and (2) your document will render even if there are errors.",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html#running-the-provided-code",
+    "href": "labs/instructions/lab-1-instructions.html#running-the-provided-code",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "2.2 Running the Provided Code",
+    "text": "2.2 Running the Provided Code\nNext, click on the “Play” button on the right of the first auto-populated code chunk. Alternatively, you can highlight (or simply put your cursor on the line of) the code you want to run and hit ctrl + Enter (for PCs) or ⌘ + Enter (for Macs).\nYou should see the code appear in the console, as well as the result of the code (2). Keep in mind the [1] before the 2 is vector notation. This means the result is a vector of length 1, whose first element is 2.\nQuestion 3 – Let’s spice this code up a bit. Delete 1 + 1 from the code chunk and paste in the following code:\n\n# Load a dataset into the R Environment.\ndata(ToothGrowth)\n\n# Look at the summary of the variables in the dataset.\nsummary(ToothGrowth)\n\nNow run this code. You should see a six-number summary of the variables len and dose included in the ToothGrowth dataset, as well as the frequency of the levels contained in the supp variable. Further, if you inspect the Environment tab, the ToothGrowth dataset should appear. You can click on the dataset name (not the blue play button!) to look at the data.\n\nCheck the Data Documentation\nQuestion 4 – In your console (not in the Quarto document), type ?ToothGrowth (or alternatively help(ToothGrowth)). Use the information that pops up in the Help pane in RStudio to fill in the blanks below.\nThis dataset investigates the effect of __________ on tooth growth in _________________.\nThe two supplement delivery methods include OJ (______________) and VC (_______________).\nToothGrowth is a data frame with ____ observations and ____ variables.\nQuestion 5 – Before the code chunk, change the “Running the Provided Code” section header to a header that better describes the contents of this section (e.g., Tooth Growth Dataset).",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html#creating-a-plot",
+    "href": "labs/instructions/lab-1-instructions.html#creating-a-plot",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "2.3 Creating a Plot",
+    "text": "2.3 Creating a Plot\nYour second code chunk is just as boring as your first, so let’s spice it up!\nQuestion 6 – Replace the plot(pressure) code with the following (we will talk about graphics next week!):\n\nlibrary(tidyverse)\n\nggplot(data = ToothGrowth, \n       mapping = aes(x = supp, y = len)) +\n  geom_boxplot() +\n  labs(x = \"Supplement\", y = \"Length of Teeth (mm)\")\n\nToothGrowth %&gt;% \n  mutate(dose = as.factor(dose)) %&gt;% \n  ggplot(mapping = aes(x = dose, y = len)) +\n  geom_boxplot() +\n  labs(x = \"Dose of Supplement (mg/day)\", y = \"Length of Teeth (mm)\")\n\nNow, run this code chunk! You should see two side-by-side boxplots, one plot comparing tooth length between the two supplement delivery methods and one plot comparing tooth length between the three different dosages uses.\nQuestion 7 – Read over the Quarto documentation on figure options and add an option (#|) to the above code chunk to make the figures print side-by-side (i.e., in one row) in the rendered HTML file.\nQuestion 8 – Specify in the code chunk options that these boxplots should be center aligned.\nQuestion 9 – Specify a figure caption for the boxplots (using a code-chunk option).",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html#inserting-a-new-code-chunk",
+    "href": "labs/instructions/lab-1-instructions.html#inserting-a-new-code-chunk",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "2.4 Inserting a New Code Chunk",
+    "text": "2.4 Inserting a New Code Chunk\nNavigate to the last sentence of your the Quarto document. We’re now going to insert a new R code chunk at the bottom of the document.\nThere are four different ways to do this:\n\nType ctrl + alt + i (on a PC) or ⌘ + ⌥ + i (on a Mac).\nClick on the  symbol. This should automatically default to R code, but if you have a Python compiler on your computer, you might need to select “R” from the options.\nIf you are using the Visual editor, click on the “Insert” button, then select “Code Chunk”, and finally select “R”.\nManually add the code chunk by typing ```{r}. Make sure to close your code chunk with ```.",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html#creating-a-more-complex-plot",
+    "href": "labs/instructions/lab-1-instructions.html#creating-a-more-complex-plot",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "2.5 Creating a More Complex Plot",
+    "text": "2.5 Creating a More Complex Plot\nIn this section, we are to create a new plot that you will place in the created code chunk.\n\nToothGrowth %&gt;% \n  mutate(dose = as.factor(dose)) %&gt;% \n  ggplot(mapping = aes(x = dose, y = len, fill = supp)) +\n  geom_boxplot() +\n  labs(x = \"Dose of Supplement (mg/day)\", \n       y = \"Length of Teeth (mm)\",\n       fill = \"Supplement Type\")\n\nCarry out the following steps:\nQuestion 10 – In the new code chunk, add the code for the graph. Be sure to include a code chunk label.\nQuestion 11 – Run your code chunk to obtain the output for your new graph.\nQuestion 12 – Create a numbered list containing:\n\nYour conclusions (in the context of these data) based on the graph.\n\nA recommendation for how I should get my guinea pig’s teeth (odontoblasts) to grow more.\n\nQuestion 13 – Create another section header, describing the contents of this section before the graph and list.",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html#render-your-document",
+    "href": "labs/instructions/lab-1-instructions.html#render-your-document",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "2.6 Render Your Document",
+    "text": "2.6 Render Your Document\nRender your document as an html file. Use the “Render” button (the blue arrow!) at the top of your screen.\nIf you run into trouble rendering your document, try restarting R and running your code chunks in order, and see if you can find the problem.\nAnother common issue is deleting the tick marks (```) that surround your code chunks. If you notice that the code chunks are not showing a “Play” button (), or that they are not highlighted in gray, double check your tick marks!\nRecall we included error: true in our YAML execution options. This means that your document will still render even if there are errors. Make sure you are double checking your work!\nYou will notice that there is auto-generated text that is unrelated to the work that you completed. It is always a good idea to delete this extra text!",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html#render-again",
+    "href": "labs/instructions/lab-1-instructions.html#render-again",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "3.1 Render again!",
+    "text": "3.1 Render again!\nNotice that when you render the document, all of the code reruns again, producing the same output as before, but with your changes—this is called reproducibility!\nYou should render often while completing your practice activities and lab assignments. Make small changes, then make sure the file still renders rather than making a bunch of big changes and then realizing something is wrong.",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html#turn-it-in",
+    "href": "labs/instructions/lab-1-instructions.html#turn-it-in",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "3.2 Turn it in!",
+    "text": "3.2 Turn it in!\nOpen the .html file on your computer to make sure it looks as you expected. Then upload the rendered (.html extension) document to Canvas and the zipped project file as two separate uploads.!\n\nYou’ll be doing this same process for all your future Lab Assignments but after next week you will submit a GitHub link instead of the rendered document. Each of these will involve a Quarto file. Some weeks, I may have a template for you to copy like you had here, while other weeks you will generate your own Quarto file from scratch.",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
   }
 ]

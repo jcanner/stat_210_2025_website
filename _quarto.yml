@@ -4,7 +4,7 @@ project:
   render: 
     - "*.qmd"
     - "!/labs/student/"
-    - "!/labs/not-assigned"
+    - "!/labs/not-assigned/"
     - "!/videos/"
     - "!/slides/"
 
@@ -56,6 +56,8 @@ website:
             text: "Week 3 - Version Control"
       - section: "Labs"
         contents:
+          - href: labs/instructions/lab-1-instructions.qmd
+            text: "Lab 1 & Challenge 1 Instructions"
           
    
 

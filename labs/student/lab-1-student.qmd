@@ -2,13 +2,11 @@
 title: "Lab 1: Introduction to Quarto"
 author: "Your name here!"
 format: html
+self-contained: true
 editor: source
-embed-resources: true
 ---
 
-# Part 1: Getting Set Up
-
-
+**Throughout the document you are expected to abide by the CSUMB R Style Guide - this includes adding comments and labels to add R chunks, adhering to appropriate spacing, and naming systems**
 
 # Part Two: Exploring Quarto Documents
 
@@ -27,15 +25,13 @@ document will render even if there are errors.
 ## Running the Provided Code
 
 ```{r}
-#| eval: false
-#| echo: true
 #| label: practicing-running-code
 
 1 + 1
 ```
 
 **Question 3** -- Let's spice this code up a bit. Delete `1 + 1` from the code
-chunk and paste in the code provided in the Lab 1 instructions. 
+chunk and paste in the code provided in the Lab 1 instructions. Change the code chunk lable to something more descriptive.  
 
 ### Check the Data Documentation
 
@@ -51,14 +47,13 @@ pops up in the *Help* pane in RStudio to fill in the blanks below.
 
 **Question 5** -- *Before* the code chunk, change the "Running the Provided
 Code" section header to a header that better describes the contents of this
-section (e.g., Tooth Growth Dataset).
+section and data (e.g., Tooth Growth Dataset).
 
 ## Creating a Plot
 
-**Question 6** -- Replace the `plot(pressure)` code with the code provided in the Lab 1 instructions.
+**Question 6** -- Replace the `plot(pressure)` code with the code provided in the Lab 1 instructions. Change the code chunk label to be more descriptive.  
 
 ```{r}
-#| echo: true
 #| label: creating-a-plot
 
 plot(pressure)
@@ -78,3 +73,4 @@ should be **center aligned**.
 **Question 9** -- Specify a **figure caption** for the boxplots (using a
 code-chunk option).
 
+Continue with the rest of the lab based on the provided instructions.  
