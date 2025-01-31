@@ -1,0 +1,366 @@
+---
+title: "STAT 210 - Intro to R"
+format: 
+  revealjs:
+    theme: [../style.scss, simple]
+editor: source
+---
+
+# R Basics
+
+## Data Types
+
+-   A **value** is a basic unit of stuff that a program works with.
+
+-   Values are allowed to have different *data types*:
+
+. . .
+
+1.  **logical / boolean**: FALSE / TRUE or 0 / 1 values.
+
+. . .
+
+2.  **integer**: whole numbers.
+
+. . .
+
+3.  **double / float / numeric**: decimal numbers.
+
+. . .
+
+4.  **character / string** - text values.
+
+## Variables
+
+> are names that refer to values.
+
+::: incremental
+::: small
+-   A variable is like a container that holds something - when you refer to the container, you get whatever is stored inside.
+
+-   We assign values to variables using the syntax `object_name <- value`.
+
+    -   This can be read as “object name gets value.”
+:::
+:::
+
+. . .
+
+```{r}
+#| echo: true
+#| label: example-object-creation
+#| code-line-numbers: false
+
+message <- "So long and thanks for all the fish"
+year <- 2025
+the_answer <- 42.5
+earth_demolished <- FALSE
+```
+
+## Data Structures
+
+::: panel-tabset
+## Homogeneous
+
+> every element has the same data type
+
+-   **Vector**: a one-dimensional column of homogeneous data.
+
+-   **Matrix**: the next step after a vector - it’s a set of homogenous data arranged in a two-dimensional, rectangular format.
+
+## Heterogeneous
+
+> elements can be of different types
+
+-   **List**: a one-dimensional column of heterogeneous data.
+
+-   **Dataframe**: a two-dimensional set of heterogeneous data arranged in a rectangular format.
+
+:::
+
+
+
+## Indexing
+
+We use **square brackets** (`[]`) to access elements within data structures.
+
+-   In R, we start indexing from 1.
+
+::: {.panel-tabset}
+
+## Vector
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+#| label: vector-elements
+
+vec[4]    # 4th element
+vec[1:3]  # first 3 elements
+```
+
+## Matrix
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+#| label: matrix-elements
+
+mat[2, 6]  # element in row 2, col 6
+mat[ , 3]   # all elements in col 3
+```
+
+## List
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+#| label: list-elements
+
+li[[5]]    # 5th element
+li$elementName # all elements in "elementName"
+```
+
+
+## Dataframe
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+#| label: df-elements
+
+df[1, 2]     # element in row 1, col 2
+df[17, ]     # all elements in row 17
+df$colName  # all elements in the col named "colName"
+```
+
+:::
+
+## Logic
+
+We can combine logical statements using and, or, and not.
+
+-   (X AND Y) requires that **both** X and Y are true.
+
+-   (X OR Y) requires that **one** of X or Y is true.
+
+-   (NOT X) is true if X is false, and false if X is true.
+
+. . .
+
+```{r}
+#| echo: true
+#| label: logic-test
+#| code-line-numbers: false
+
+x <- c(TRUE, FALSE, TRUE, FALSE)
+y <- c(TRUE, TRUE, FALSE, FALSE)
+```
+
+::: {.panel-tabset}
+## And
+
+```{r}
+#| echo: true
+#| label: and
+x & y
+```
+
+## Or 
+
+```{r}
+#| echo: true
+#| label: or
+x | y
+```
+
+## Not 
+```{r}
+#| echo: true
+#| label: not
+
+!x
+```
+:::
+
+# Scripts + Notebooks
+
+## Scripts
+
+-   **Scripts** (`File > New File > R Script`) are files of code that are meant to be run on their own.
+
+. . .
+
+-   Scripts can be run in RStudio by clicking the `Run` button at the top of the editor window when the script is open.
+
+-   You can also run code interactively in a script by:
+
+    -   highlighting lines of code and hitting run.
+
+    -   placing your cursor on a line of code and hitting run.
+
+    -   placing your cursor on a line of code and hitting `ctrl + enter` or `command + enter`.
+
+## Notebooks
+
+Notebooks are an implementation of **literate programming**.
+
+-   They allow you to integrate code, output, text, images, etc. into a single document.
+
+-   E.g.,
+
+    -   **Quarto notebook**
+    -   R Markdown notebook
+    -   Jupyter notebook
+
+We love notebooks because they help us produce a reproducible analysis! 
+
+## What is Markdown?
+
+**Markdown** is a *markup language*.
+
+It uses special symbols and formatting to make pretty documents.
+
+. . .
+
+-   \*italics\* -- makes italics
+-   \*\*bold\*\* -- makes bold text
+-   \# -- makes headers
+-   \![ ]( ) -- includes images or HTML links
+-   < > -- embeds URLs
+
+. . .
+
+Markdown files have the **.md** extension.
+
+## What is Quarto?
+
+Quarto **unifies** and **extends** the R Markdown ecosystem.
+
+```{r}
+#| echo: false
+#| out-width: "50%"
+#| fig-align: center
+#| fig-alt: "The image displays a collection of hexagonal logos representing different R packages that are part of the R Markdown ecosystem. The logos from top to bottom, left to right, are: Xaringan, Distill, Blogdown, RMarkdown, Bookdown, Flexdashboard, Knitr, Rticles, RSConnect. These logos are arranged in a hexagonal shape, visually emphasizing the interconnected nature of these tools in the R Markdown ecosystem."
+knitr::include_graphics("images/rmd_ecosystem.png")
+```
+
+Quarto files have the **.qmd** extension.
+
+## Highlights of Quarto
+
+-   Consistent implementation of attractive and handy features across outputs:
+
+    -   E.g., tabsets, code-folding, syntax highlighting, etc.
+
+-   More accessible defaults and better support for accessibility.
+
+-   Guardrails that are helpful when learning:
+
+    -   E.g., YAML completion, informative syntax errors, etc.
+
+-   Support for other languages like Python, Julia, Observable, and more.
+
+## Quarto Formats
+
+Quarto makes moving between outputs straightforward.
+
+-   All that needs to change between these formats is a few lines in the front matter (YAML)!
+
+::: columns
+::: {.column width="50%"}
+**Document**
+
+``` yaml
+title: "Lesson 1"
+format: html
+```
+
+**Presentation**
+
+``` yaml
+title: "Lesson 1"
+format: revealjs
+```
+:::
+
+::: {.column width="50%"}
+**Website**
+
+``` yaml
+project:
+  type: website
+
+website: 
+  navbar: 
+    left:
+      - lesson-1.qmd
+```
+:::
+:::
+
+## Quarto Components
+
+![](images/quarto_sections.jpeg){width="80%" fig-alt="The image shows a split-screen view of a Quarto document editor and the rendered output in a browser-like preview. On the left side, the code editor is displayed, and on the right side, the rendered HTML output of the document. On the left, the top section contains the front matter, which includes metadata about the document such as the title ('Hello, Quarto'), the format (HTML), and the editor (set to visual mode). Below this, there is an R code chunk where R packages are loaded (specifically, 'tidyverse' and 'palmerpenguins'). This section is marked with `{r`} at the beginning of the code chunk, and the chunk is labeled 'load-packages.' Some options, like 'include: false', are present to prevent this code from appearing in the final rendered output. Following the code is Markdown content, which includes text descriptions and headings such as 'Meet Quarto' and 'Meet the Penguins'. There are also inline code elements and hyperlinks, like a link to the Palmer Penguins dataset. On the right side of the image, the rendered output is displayed, showing formatted text and visuals. The title 'Hello, Quarto' is shown as a heading, followed by a description of Quarto and a section discussing penguins. A link to the Palmer Penguins dataset is included, along with a colorful illustration of three penguins representing different species (Chinstrap, Gentoo, and Adélie). Below this text, a plot is displayed, showing the relationship between flipper length and bill length for these penguin species. This image highlights how Quarto documents combine code, Markdown, and front matter to create a dynamic and executable report."}
+
+. . .
+
+**How does Quarto know that a section of text should be interpreted as R code?**
+
+## R Code Options in Quarto
+
+**R code chunk** options are included at the top of each code chunk, prefaced with a `#|` (hashpipe).
+
+-   These options control how the following code is run and reported in the final Quarto document.
+-   Some R code options can also be included in the front matter (YAML) which would be applied globally to the entire document.
+
+## R Code Options in Quarto
+
+<center>![](images/code_options.png){fig-alt="The image displays a table with two columns: 'Option' and 'Description.' It lists various options that can be used in code chunks within Quarto documents, along with their descriptions.The first option is 'eval,' which evaluates the code chunk. If 'false,' it only echoes the code into the output without executing it. The second option is 'echo,' which includes the source code in the output. Next is 'output,' which includes the results of executing the code in the output. The possible values for this option are 'true,' 'false,' or 'asis.' If set to 'asis,' the output will be in raw markdown and won't have any of Quarto's standard enclosing markdown. The 'warning' option includes warnings in the output. Lastly, the 'error' option includes errors in the output. It notes that enabling this option means errors while executing the code won't halt the document's processing."}</center>
+
+## Chunk Option Completion in Quarto
+
+<center>![](images/quarto_yaml_completion.png){fig-alt="The image demonstrates three different aspects of YAML code completion and diagnostics in Quarto. At the top, under the heading 'YAML completion for fields,' there is a code editor where the user is typing the beginning of an R chunk ('{r'). As they begin typing '#| e', a code completion menu appears suggesting YAML fields such as 'eval', 'echo', 'external', and 'error', among others. The highlighted field is `eval`, and a description in a yellow box appears, explaining that this option evaluates the code chunk, or, if set to 'false', it only echoes the code into the output. In the middle, under the heading 'YAML completion for options,' the code editor shows the 'eval' field typed out as '#| eval:'. As the user begins entering a value, a dropdown suggests the options 'true' and 'false' for the field, representing valid boolean options. At the bottom, under the heading 'YAML diagnostics for errors,' there is an example of an incorrect entry. The user has written '#| eval: FALSE' (with uppercase 'FALSE'), which leads to a red error indicator in the editor. A tooltip appears, pointing out the mistake and suggesting that the value should be lowercase 'false' instead. The image showcases how Quarto assists users with code completion, option suggestions, and real-time error diagnostics in the YAML section of code chunks."}</center>
+
+## Rendering your Quarto Document
+
+To take your *.qmd* file and make it look pretty, you have to **render** it.
+
+<center>
+
+![](images/render.png){fig-alt="The image shows the toolbar from an RStudio or Quarto editor interface. At the top, it displays the filename 'hello.qmd' (indicating a Quarto Markdown file). There are several options visible in the toolbar, and a specific button labeled 'Render' is highlighted with a pink outline. This 'Render' button is used to generate the final output (such as HTML, PDF, or other formats) based on the Quarto document. Additionally, there is an option for 'Render on Save,' which allows automatic rendering whenever the document is saved. The toolbar also includes options for adjusting the view between 'Source' and 'Visual' modes, formatting tools, inserting content, and running code chunks. The image emphasizes the 'Render' function, which is essential for compiling and viewing the Quarto document's output."}
+
+![](images/render_on_save.png){fig-alt="The image shows a toolbar from an RStudio or Quarto editor interface, similar to the previous one. At the top, the filename 'hello.qmd' is displayed, indicating the file being worked on is a Quarto Markdown document. In this image, the 'Render on Save' option is highlighted with a pink outline, indicating that it is selected or being emphasized. This feature automatically triggers rendering of the document every time it is saved, which is useful for seeing updates to the output in real-time without manually pressing the 'Render' button. In addition to the 'Render on Save' option, the toolbar also includes the 'Render' button, formatting tools, and options for switching between 'Source' and 'Visual' editing modes. Other options for running code chunks, adjusting formatting, and inserting elements are also visible, but the main focus here is on the 'Render on Save' functionality."}
+
+</center>
+
+## Rendering your Quarto Document
+
+Quarto CLI (command line interface) orchestrates each step of rendering:
+
+1.  Process the executable code chunks with either `knitr` or `jupyter`.
+2.  Convert the resulting Markdown file to the desired output.
+
+![](images/horst_qmd_render_schema.png){fig-alt="A diagram of the proecess of rendering a Quarto document. First the qmd is passed to knitr or jupyter, then it is passed to markdown, finally it's passed to pandoc, resulting in a PDF, Word, or HTML output file." width="50%" fig-align="center"}
+
+
+## Rendering your Quarto Document
+
+When you click **Render**:
+
+::: {.incremental}
+::: {.small}
+1.    Your file is saved.
+2.    The R code written in your *.qmd* file gets run **in order**.
+
+  -   It starts from scratch, even if you previously ran some of the code in RStudio.
+3.    A new file is created.
+
+  -   If your Quarto file is called "Lab1.qmd", then a file called "Lab1.html" will be created.
+  -   This will be saved in the same folder as "Lab1.qmd".
+:::
+:::

@@ -6,7 +6,6 @@ project:
     - "!/labs/student/"
     - "!/labs/not-assigned/"
     - "!/videos/"
-    - "!/slides/"
 
 website:
   page-navigation: true
