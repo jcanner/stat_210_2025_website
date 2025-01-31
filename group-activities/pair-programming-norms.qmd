@@ -15,7 +15,7 @@ During our in-class activities, you will be paired with another student. When co
 :::
 
 ::: {.column width="55%"}
-![](../weeks/images/cat_programmer.png)      
+![](cats-programming.jpg)      
 :::
 :::
 

@@ -1,0 +1,115 @@
+---
+title: "Lab 8: Searching for Places to `map()`"
+author: "Your name here!"
+format: html
+editor: source
+embed-resources: true
+---
+
+```{r}
+#| label: pacakges
+
+library(tidyverse)
+```
+
+For this week's lab, we will be revisiting questions from previous lab
+assignments, with the purpose of using functions from the `map()` family to 
+iterate over certain tasks. To do this, we will need to load in the data from 
+Lab 2, Lab 3, and Lab 7. I've included **all** three datasets in the `data`
+folder, so all you need to do is read them in. 🙃 
+
+```{r}
+#| label: read-in-old-data
+
+# Data from Lab 2
+surveys <- read_csv(here::here("data", "surveys.csv"))
+
+# Data from Lab 3
+evals <- read_csv(here::here("data", "teacher_evals.csv")) |> 
+  rename(sex = gender)
+
+# Data from Lab 7
+fish <- read_csv(here::here("data", "BlackfootFish.csv"))
+```
+
+## Lab 2
+
+First up, we're going to revisit Question 3 from Lab 2. This question asked:
+
+> What are the data types of the variables in this dataset?
+
+**1. Using `map_chr()`, produce a nicely formatted table of the data type of each variable in the `surveys` dataset.** Specifically, the table should have 15 columns, one for
+each variable, with the datatype of that variable immediately below it's name. 
+
+```{r}
+#| label: map-data-types-of-surveys
+
+
+```
+
+## Lab 3
+
+Now, were on to Lab 3 where we will revisit two questions. 
+
+In the original version of Lab 3, Question 5 asked you to:
+
+> Change data types in whichever way you see fit (e.g., is the instructor ID
+> really a numeric data type?)
+
+**2. Using `map_at()`, convert the `teacher_id`, `weekday`, `academic_degree`, `seniority`, and `gender` columns to factors.** Hint: You will need to use `bind_cols()` to transform the 
+list output back into a data frame. 
+
+```{r}
+#| label: map-to-mutate-columns
+
+
+```
+
+Next up, we're going revisit Question 7 which asked:
+> What are the demographics of the instructors in this study? Investigate the
+> variables `academic_degree`, `seniority`, and `sex` and summarize your
+> findings in ~3 complete sentences.
+
+Many people created **multiple** tables of counts for each of these
+demographics, but in this exercise we are going to create **one** table with 
+every demographic.
+
+**3. Using `pivot_longer()` and `pivot_wider()`, recreate the table below.** 
+
+![](images/lab-8-table-to-recreate.png)
+
+::: {.callout-tip}
+I'm using the `sen_level` classification from Challenge 3
+
+- `"junior"` = `seniority` is 4 or less (inclusive)
+- `"senior"` = `seniority` is more than 4 
+:::
+
+```{r}
+#| label: double-pivot-for-summary-table
+
+
+```
+
+::: {.callout-tip}
+If you are interested in exploring my table fomatting, I specifically used the 
+`kable()` function from the **knitr** package to first get an HTML table. Then
+I styled that table using the `kable_styling()` function from the **kableExtra**
+package. 
+:::
+
+## Lab 7
+
+For our last problem, we will revisit a question from the most recent lab. 
+Question 1 asked you to use `across()` to make a table which summarized: 
+
+> What variable(s) have missing values present?  
+> How many observations have missing values?
+
+**4. Using `map_int()`, produce a nicely formatted table of the number of missing values for each variable in the `fish` data.** 
+
+```{r}
+#| label: map-missing-values-of-fish
+
+
+```

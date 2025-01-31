@@ -1,0 +1,69 @@
+---
+title: "Lab 5: Murder in SQL City"
+subtitle: "`join` + `filter` + `stringr` + `ludridate`"
+author: "Your name here!"
+format: html
+editor: source
+embed-resources: true
+---
+
+For this lab, you will be joining and filtering related datasets to solve a murder mystery!
+
+## Instructions
+
+Northwestern University's Knight Lab wanted to help sharpen users' database skills, so they created a murder mystery. Can you solve this crime in SQL City??
+
+The relational data you will be working with contains tables with different pieces of information pertinent to the crime - people, social media check-ins, driver's licenses, crime scene reports, police interviews, and more!
+
+![Database schema](https://mystery.knightlab.com/schema.png)
+
+Solve the murder mystery, showing **all of your work in this document**. Your document and code must be well organized, easy to follow, and reproducible.
+
++ Use headers and written descriptions to indicate what you are doing.
++ Use `dplyr` verbs and `join` functions rather than just looking through the tables manually.
++ Use good code formatting practices.
++ Comment your code.
++ Cite any external sources you use to solve the mystery.
+
+### Tips 
+
+You may find the `pull()` function handy for displaying each clue as you go along.
+
+
+## Access the Data
+
+This code chunk will read in all of the tables of data for you. Don't modify or remove this!
+
+```{r}
+#| message: false
+#| warning: false
+#| label: read-in-data
+
+library(tidyverse)
+
+# If purrr is not detected, install the package
+if (!"purrr" %in% installed.packages()) install.packages("purrr")
+
+source("https://raw.githubusercontent.com/atheobold/groupworthy-data-science/main/labs/instructions/lab-5-setup.R")
+```
+
+## Solve the Crime
+
+### Crime Scene Report
+
+Detective Wickham reaches out to you...
+
+> A crime has taken place and I need your help! There was a murder in SQL City sometime on January 15, 2018. Could you retrieve the crime scene report from the police department’s database and follow the clues to find the person responsible for the murder?!
+
+```{r}
+#| label: inspecting-crime-scene-report
+
+```
+
+
+**Follow the evidence to the person responsible for the murder, building a report as you go.**
+Hint: Make sure you check for interviews with any suspects!
+
+## And the final suspect is...
+
+*put the name of the person responsible for the murder here.*

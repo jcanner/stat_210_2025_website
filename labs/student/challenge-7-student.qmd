@@ -1,0 +1,79 @@
+---
+title: "Challenge 7: Incorporating Multiple Inputs"
+subtitle: "Functions + Fish"
+author: "Your name here!"
+format: html
+editor: source
+embed-resources: true
+---
+
+```{r}
+#| label: setup
+
+
+```
+
+## Condition Index
+
+A frequently used measurement for fish health is a condition index [(Wikipedia article)](https://en.wikipedia.org/wiki/Condition_index_in_fish). The following
+simple equation can be used to calculate the approximate condition index of a
+fish:
+
+$$\text{condition index} = \frac{weight}{length^3} \times 100$$
+
+**1. There are specific units required for the calculation of a condition index -- length must be in centimeters and weight must be in grams. The weight data for the Blackfoot River fish were collected in grams; the length data were collected in millimeters. Transform the length data to the correct units.**
+
+```{r}
+#| label: transform-data-to-have-correct-units
+
+```
+
+**2. Collecting data of this sort can be very messy! Write a function that will replace unlikely `length` and `weight` measurements with `NA`. Your function should accept at least three inputs:**
+
++ **a vector of measurements,**
++ **the minimum reasonable value,**
++ **the maximum reasonable value.**
+
+**If a value falls outside these bounds, you should replace it with an `NA`.**
+
+::: callout-tip
+If you are struggling with the structure of your function, I would suggest reading the [Mutating Function](https://r4ds.hadley.nz/functions.html#mutate-functions) from R4DS.
+:::
+
+```{r}
+#| label: function-to-change-impossible-measurements-to-NA
+
+```
+
+**3. After consulting the [Montana Record Table](https://fwp.mt.gov/fish/anglingData/records) for the four species of trout included in these data, I have conjectured that it is unlikely to have measurements for fish below 5 cm and above 80 cm in length or below 10 g and above 4,000 g in weight. Use your function to modify the `length` and `weight` columns of the `fish` dataset based on my cutoffs.**
+
+```{r}
+#| label: modify-impossible-values-of-length-weight
+
+```
+
+**3. Write a function to calculate the condition index of a fish, given inputs of weight and length.**
+
+::: callout-warning
+Consider whether you will write a function that works with vectors (accepting
+vectors as inputs) or a function that works with data frames (accepting a 
+dataset and variable names as inputs)!
+:::
+
+```{r}
+#| label: condition-function
+
+```
+
+**4. Make a thoughtful visualization of how fish conditions have varied over the duration of this study.**
+
+::: callout-warning
+### To be thoughtful...
+
+... you need to use at least a third variable!
+:::
+
+```{r}
+#| label: condition-indices-over-time
+
+```

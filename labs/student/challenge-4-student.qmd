@@ -1,0 +1,17 @@
+---
+title: "Challenge 4: Open-Ended Analysis"
+author: "Your name here!"
+format: html
+editor: source
+embed-resources: true
+---
+
+**Investigate the full-time median price for childcare in a center-based setting versus the full-time median price for childcare in a family (in-home) setting in California. Pay close attention to the different developmental stages. Support your answer with one table of summary statistics and one visualization.**
+
++ Aim for about 150-300 words.
+  + You should (1) introduce the data and the topic you are investigating, (2) discuss your table and plot, and (3) conclude.
++ This should read like a mini-report!
+for readability.
++ Don't just have a summary table or plot show up "out of the blue" -- make sure
+to build up to them with text, describe what they show, and provide captions.
+

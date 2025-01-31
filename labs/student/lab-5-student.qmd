@@ -1,0 +1,145 @@
+---
+title: "Lab 5: Factors in Visualizations"
+author: "Your name here!"
+format: html
+editor: source
+embed-resources: true
+---
+
+This lab comes from the plotting "best practices" that I've learned over the years. The main inspiration is [Will Chase's 2020 RStudio Conference Presentation](https://www.youtube.com/watch?v=h5cTacaWE6I) -- Glamour of Graphics.
+
+# Revisiting Rodents
+
+We will be working with the `survey.csv` data from Lab 2: Exploring Rodents with ggplot2. 
+
++ Where did you save this data file?
++ Copy the data from your Lab 2 repository into this week's repository! 
++ You might want to remind yourself what is contained in this data set.
+
+```{r}
+#| label: setup
+# load in your packages and data here!
+
+```
+
+## Revisiting Side-by-Side Boxplots
+
+Let's start with the side-by-side boxplots you created in Lab 2 to visualize the
+distribution of weight within each species (not species ID!).
+
+```{r}
+#| label: revisiting-old-boxplot
+
+surveys |> 
+  ggplot(mapping = aes(x = weight,
+                       y = species)
+         ) + 
+  geom_jitter(color = "steelblue",
+              alpha = 0.05) + 
+  geom_boxplot(alpha = 0.2,
+               outlier.shape = NA) 
+```
+
+As you should expect with a character variable, the boxplots go in **alphabetical order**. This looks rather jumbled, so let's put our factor skills to work!
+
+**1. Reorder the boxplots so the weights go in descending order.**  
+*You are required to use functions from `forcats` to complete this task.*
+
+**2. Now that you've reordered, let's fix our axis labels and title. Make sure your labels contain important information (e.g., units). Let's take Will Chase's advice and incorporate the y-axis label into the plot title--make your title fun!**
+
+
+## Time-Series Plot
+
+This is a new section, meaning you will create a **new** plot. In other words, 
+this is not a continuation of the boxplot from above.
+
+This week, we are focusing on learning skills related to dates, but we have yet
+to make a very common type of plot -- the time-series plot. We'll use this plot
+to motivate a second type of factor reordering!
+
+**3. Create a visualization of how weights vary for each genus over the duration of the study.**. 
+*Hint: What variables do you need and what are their variable types? What aesthetic would it make sense to map each variable to? Avoid using facets.*
+
+```{r}
+#| label: time-series-plot-of-weights-by-genera
+
+```
+
+Alright, there are a lot of measurements over time! Let's use our `dplyr` skills
+to summarize each year and plot the summaries.
+
+**4. Calculate and plot the mean weight for each year (for each genus).**
+
+```{r}
+#| label: plot-of-mean-weight-over-time
+
+```
+
+This should look much less busy! However, you should notice that the legend
+still goes in alphabetical order.
+
+**5. Reorder the legend line colors so the weights go in descending order.**  
+*You are required to use functions from `forcats` to complete this task.*
+
+<!-- No need to generate a new code chunk, simply modify the previous code chunk! -->
+
+**6. Now that you've reordered the lines, look at your labels and title. Let's give the legend, axes, and plot new titles *and* move the y-axis label to the top of the plot.**
+
+<!-- No need to generate a new code chunk, simply modify the previous code chunk! -->
+
+## Caputures over the Week
+
+For our final exploration, we will consider the number of rodents captured
+throughout the week -- transitioning to visualizations of categorical variables.
+
+**Your plots _should not_ make people tilt their heads to read it! Be mindful in choosing which variable goes on which axis and if / how you use axis labels.**
+
+**7. Create a visualization of the number of rodents captured each day of the week.**
+
+```{r}
+#| label: day-of-week-captures
+
+```
+
+As you might have expected, the ordering of the days of the week is not what we
+would like.
+
+**8. Change the order of the day of the week to go Monday through Sunday.**  
+*You can choose to keep the days named as they are (e.g., Mon, Sun), or you can choose to rename the days to their full names (e.g., Monday, Sunday).* 
+
+```{r}
+#| label: day-of-week-captures-reordered-days
+
+```
+
+It should be very clear that there are more rodents captured on the weekend than
+during the week. But, let's explore if this is still the case if we use a
+"Weekday" / "Weekend" classification system instead.
+
+**10. Collapse Monday through Friday into a `"Weekday"` level, and collapse Saturday and Sunday into a `"Weekend"` level. Plot the number of rodents captured between the two groups.**
+
+```{r}
+#| label: weekday-vs-weekend-captures
+
+```
+
+# Challenge 5 -- Getting Creative
+
+Find one of your favorite pieces of graphical artwork. You are welcome to choose
+whatever medium you want (e.g., paintings, digital art, photography, graffiti), 
+the only requirement is the art you pick needs to have **colors**. 
+
+Once you've found your artwork, upload the image to this color
+picker app: <https://imagecolorpicker.com/> The app should give you a palette 
+with 10 colors selected from the image, but you can also manually click on any
+location in the plot and get the color. 
+
+Now that you have a set of colors, use the [`scale_color_manual()`](https://ggplot2.tidyverse.org/reference/scale_manual.html)
+function to
+incorporate the colors from this artwork into the plots you made for Lab 5. 
+
+**Include the image of the artwork you chose here:**  
+*Hint: you will need to save the image in your repository!*
+
+**Include a description of _why_ you chose this artwork:**
+

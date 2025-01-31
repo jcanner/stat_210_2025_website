@@ -1,0 +1,198 @@
+---
+title: "Lab 7: Functions + Fish"
+author: "Your name here!"
+format: html
+editor: source
+embed-resources: true
+---
+
+The goal of this lab is learn more about exploring missing data and writing
+modular code.
+
+```{r}
+#| label: setup
+
+
+```
+
+## The Data
+
+This lab's data concerns mark-recapture data on four species of trout from the
+Blackfoot River outside of Helena, Montana. These four species are
+**rainbow trout (RBT)**, **westslope cutthroat trout (WCT)**, **bull trout**,
+and **brown trout**.
+
+Mark-recapture is a common method used by ecologists to estimate a population's
+size when it is impossible to conduct a census (count every animal). This method
+works by *tagging* animals with a tracking device so that scientists can track
+their movement and presence.
+
+## Data Exploration
+
+The measurements of each captured fish were taken by a biologist on a raft in
+the river. The lack of a laboratory setting opens the door to the possibility of
+measurement errors.
+
+**1. Let's look for missing values in the dataset. Output ONE table that answers BOTH of the following questions:**
+
++ **How many observations have missing values?**
++ **What variable(s) have missing values present?**
+
+::: callout-tip
+# You should use `across()`!
+:::
+
+```{r}
+#| label: find-missing-values
+
+```
+
+**2. Create ONE thoughtful visualization that explores the frequency of missing values across the different years, sections, and trips.**
+
+```{r}
+#| label: visual-of-missing-values-over-time
+
+```
+
+## Rescaling the Data
+
+If I wanted to rescale every quantitative variable in my dataset so that they
+only have values between 0 and 1, I could use this formula:
+
+</br>
+
+$$y_{scaled} = \frac{y_i - min\{y_1, y_2,..., y_n\}}{max\{y_1, y_2,..., y_n\} 
+- min\{y_1, y_2,..., y_n\}}$$
+
+</br>
+
+I might write the following `R` code to carry out the rescaling procedure for the `length` and `weight` columns of the `BlackfoorFish` data:
+
+```{r}
+#| echo: true
+#| eval: false
+
+fish <- fish |> 
+  mutate(length = (length - min(length, na.rm = TRUE)) / 
+           (max(length, na.rm = TRUE) - min(length, na.rm = TRUE)), 
+         weight = (weight - min(weight, na.rm = TRUE)) / 
+           (max(weight, na.rm = TRUE) - min(length, na.rm = TRUE)))
+```
+
+This process of duplicating an action multiple times can make it difficult to
+understand the intent of the process. *Additionally, it can make it very difficult to spot mistakes.*
+
+**3. What is the mistake I made in the above rescaling code?**
+
+
+When you find yourself copy-pasting lines of code, it's time to write a
+function, instead!
+
+**4. Transform the repeated process above into a `rescale_01()` function. Your function should...**
+
++ **... take a single vector as input.**
++ **... return the rescaled vector.**
+
+```{r}
+#| label: write-rescale-function
+
+```
+
+::: callout-tip
+# Efficiency 
+
+Think about the efficiency of the function you wrote. Are you calling the
+**same** function multiple times? You might want to look into the `range()` 
+function. 
+:::
+
+**5. Let's incorporate some input validation into your function. Modify your previous code so that the function stops if ...**
+
++ **... the input vector is not numeric.**
++ **... the length of the input vector is not greater than 1.**
+
+::: callout-tip
+# Modify Previous Code
+
+Do not create a new code chunk here -- simply add these stops to your function
+above!
+:::
+
+## Test Your Function
+
+**6. Run the code below to test your function. Verify that the maximum of your rescaled vector is 1 and the minimum is 0!**
+
+```{r}
+#| label: verify-rescale-function
+
+x <- c(1:25, NA)
+
+rescaled <- rescale_01(x)
+min(rescaled, na.rm = TRUE)
+max(rescaled, na.rm = TRUE)
+```
+
+Next, let's test the function on the `length` column of the `BlackfootFish` data.
+
+**7. The code below makes a histogram of the original values of `length`. Add a plot of the rescaled values of `length`. Output your plots side-by-side, so the reader can confirm the only aspect that has changed is the scale.**
+
+::: callout-warning
+This will require you to call your `rescale_01()` function within a `mutate()`
+statement in order to create a `length_scaled` variable.
+:::
+
+```{r}
+#| label: compare-original-with-rescaled-lengths
+
+fish |>  
+  ggplot(aes(x = length)) + 
+  geom_histogram(binwidth = 45) +
+  labs(x = "Original Values of Fish Length (mm)") +
+  scale_y_continuous(limits = c(0,4000))
+
+# Code for Q7 plot.
+
+```
+
+::: callout-tip
+1. Set the y-axis limits for both plots to go from 0 to 4000 to allow for direct comparison across plots.
+
+2. Pay attention to `binwidth`!
+
+3. Use a Quarto code chunk option to put the plots side-by-side.
+:::
+
+## Use Variables within a Dataset
+
+Suppose you would like for your `rescale()` function to perform operations on a **variable within a dataset**. Ideally, your function would take in a data
+frame and a variable name as inputs and return a data frame where the variable
+has been rescaled.
+
+**8. Create a `rescale_column()` function that accepts two arguments:**
+
++ **a dataframe**
++ **the name(s) of the variable(s) to be rescaled**
+
+**The body of the function should call the original `rescale_01()` function you wrote previously. Your solution MUST use one of the `rlang` options from class.**
+
+::: callout-tip
+If you are struggling with this task, I recommend looking back over the 
+[data frame functions](https://r4ds.hadley.nz/functions.html#data-frame-functions)
+section of R for Data Science!
+:::
+
+```{r}
+#| label: rescale-data-frame-function
+
+```
+
+**9. Use your `rescale_column()` function to rescale *both* the `length` and `weight` columns.**
+
+::: callout-warning
+I expect that you carry out this process by calling the `rescale_column()` function only ONE time!
+:::
+
+```{r}
+#| label: rescale-two-columns
+
+```

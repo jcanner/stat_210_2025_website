@@ -1,0 +1,155 @@
+---
+title: "Lab 5: Factors in Visualizations"
+format: 
+  html:
+    self-contained: true
+    code-tools: true
+    toc: true
+    number-sections: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+This lab comes from the plotting "best practices" that I've learned over the years. The main inspiration is [Will Chase's 2020 RStudio Conference Presentation](https://www.youtube.com/watch?v=h5cTacaWE6I) -- Glamour of Graphics.
+
+::: column-margin
+![](images/glamour-of-graphics.png){fig-alt="This is a mock magazine cover titled 'Glamour of Graphics,' featuring a man with a light beard and short hair wearing a colorful plaid button-up shirt. He stands in front of a white background with vibrant pink, yellow, and orange text. The main headlines include topics related to data visualization, such as 'Your Ultimate Guide to Sexy Charts,' and promises like 'Take Your Charts From Drab to Fab!' A prominent yellow bubble on the cover highlights the idea of rebooting instant graphics with tips to refresh charts. Other subheadings focus on graphic design tips, such as 'The Ten Cardinal Sins of Graph Design and How You Can Avoid Them.' The magazine also teases insights from Hadley Wickham, a well-known figure in the data visualization field, revealing why he'll never change the default ggplot theme. There are also mentions of 'spicing things up in the boardroom' and '12 design secrets that you deserve,' indicating that the content will offer creative and professional data visualization advice."}
+:::
+
+# Revisiting Rodents
+
+We will be working with the `survey.csv` data from [Lab 2: Exploring Rodents with ggplot2](lab-2-instructions.qmd)
+
++ Where did you save this data file?
++ You might want to remind yourself what is contained in this data set.
+
+```{r}
+#| label: setup
+#| echo: false
+
+library(tidyverse)
+library(lubridate)
+
+# fix the file path for your file folder structure
+surveys <- read_csv(here::here("labs", 
+                               "instructions", 
+                               "data", 
+                               "surveys.csv")
+                    )
+```
+
+## Revisiting Side-by-Side Boxplots
+
+Let's start with the side-by-side boxplots you created in Lab 2 to visualize the distribution of weight within each species (not species ID!).
+
+```{r}
+#| eval: true
+surveys |> 
+  ggplot(mapping = aes(x = weight,
+                       y = species)) + 
+  geom_jitter(color = "steelblue",
+              alpha = 0.05) + 
+  geom_boxplot(alpha = 0.2,
+               outlier.shape = NA) 
+```
+
+As you should expect with a character variable, the boxplots go in **alphabetical order**. This looks rather jumbled, so let's put our factor skills to work!
+
+**1. Reorder the boxplots so the weights go in descending order.**
+
+::: callout-caution
+You are required to use functions from `forcats` to complete this task.
+:::
+
+**2. Now that you've reordered, let's fix our axis labels and title. Make sure your labels contain important information (e.g., units). Let's take Will Chase's advice and incorporate the y-axis label into the plot title--make your title fun!**
+
+## Time-Series Plot
+
+::: callout-warning
+This is a new section, meaning you will create a **new** plot. In other words, this is not a continuation of the boxplot from above.
+:::
+
+This week, we are focusing on learning skills related to dates, but we have yet to make a very common type of plot -- the time-series plot. We'll use this plot to motivate a second type of factor reordering!
+
+**3. Create a visualization of how weights vary for each genus over the duration of the study.**
+
+::: callout-tip
+What variables do you need and what are their variable types? What aesthetic would it make sense to map each variable to? Sketch it out first!
+
+**Avoid using faceting here.**
+:::
+
+Alright, there are a lot of measurements over time! Let's use our `dplyr` skills to summarize each year and plot the summaries.
+
+**4. Calculate and plot the mean weight for each year (for each genus).**
+
+This should look much less busy! However, you should notice that the legend still goes in alphabetical order.
+
+**5. Reorder the legend line colors so the weights go in descending order.**
+
+::: callout-caution
+You are required to use functions from `forcats` to complete this task.
+:::
+
+**6. Now that you've reordered the lines, look at your labels and title. Let's give the legend, axes, and plot new titles *and* move the y-axis label to the top of the plot.**
+
+## Caputures over the Week
+
+For our final exploration, we will consider the number of rodents captured
+throughout the week -- transitioning to visualizations of categorical variables.
+
+::: callout-warning
+Your plots **should not** make people tilt their heads to read it! Be mindful in
+choosing which variable goes on which axis and if / how you use axis labels.
+:::
+
+**7. Create a visualization of the number of rodents captured each day of the week.**
+
+As you might have expected, the ordering of the days of the week is not what we
+would like.
+
+**8. Change the order of the day of the week to go Monday through Sunday.**
+
+::: callout-note
+You can choose to keep the days named as they are (e.g., Mon, Sun), or you can
+choose to rename the days to their full names (e.g., Monday, Sunday).
+:::
+
+It should be very clear that there are more rodents captured on the weekend than
+during the week. But, let's explore if this is still the case if we use a
+"Weekday" / "Weekend" classification system instead.
+
+**10. Collapse Monday through Friday into a `"Weekday"` level, and collapse Saturday and Sunday into a `"Weekend"` level. Plot the number of rodents captured between the two groups.**
+
+# Challenge 5 -- Getting Creative
+
+Find one of your favorite pieces of graphical artwork. You are welcome to choose
+whatever medium you want (e.g., paintings, digital art, photography, graffiti), 
+the only requirement is the art you pick needs to have **colors**. 
+
+::: column-margin
+![](images/rothko.jpg){fig-alt="This painting by Mark Rothko features a large rectangular composition divided into horizontal bands of color. The background is a soft, glowing yellow that frames the central color blocks. At the top of the painting is a thin, deep red band, followed by a slightly wider dark maroon or purple layer. Below that is a much larger area of deep, almost black color, absorbing much of the visual weight. Near the bottom, there is a section of muted greenish-gray, blending with subtle hints of brown and rust tones. The edges of the color fields are soft and slightly blurred, giving the painting a hazy, contemplative quality. Rothko’s signature style of abstract expressionism is evident in the way these colors interact and create a sense of depth and emotional resonance."}
+:::
+
+Once you've found your artwork, upload the image to this color
+picker app: <https://imagecolorpicker.com/> 
+
+The app should give you a palette with 10 colors selected from the image, but
+you can also manually click on any location in the plot and get the color. 
+
+Now that you have a set of colors, use the [`scale_color_manual()`](https://ggplot2.tidyverse.org/reference/scale_manual.html)
+function to
+incorporate the colors from this artwork into the plots you made for Lab 5. 
+
+**Include the image of the artwork you chose here:**   
+
+::: {.callout-tip}
+# You will need to save the image in your repository!
+:::
+
+**Include a description of _why_ you chose this artwork:**
+

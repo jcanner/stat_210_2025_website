@@ -4,6 +4,7 @@ project:
   render: 
     - "*.qmd"
     - "!/labs/student/"
+    - "!/labs/not-assigned"
     - "!/videos/"
     - "!/slides/"
 

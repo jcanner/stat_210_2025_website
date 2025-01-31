@@ -1,0 +1,78 @@
+---
+title: "Challenge 9: Formatting Nice Tables"
+format: 
+  html:
+    self-contained: true
+    code-tools: true
+    toc: true
+    number-sections: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+For this Challenge you will explore how to generate nice looking tables for HTML
+documents, by applying the skills to your tables from Lab 8 and Lab 9. 
+
+```{r}
+#| include: false
+#| label: setup
+
+library(tidyverse)
+```
+
+There are many packages for
+generating tables, but I prefer the `kable()` function from the **knitr**
+package for *simple* tables and the `gt()` function from the **DT** package for
+*more sophisticated* tables.
+
+I would recommend you think of tables no different from the visualizations
+you've been making. We want **all** aspects of our tables to be clear to the
+reader, so the comparisons we want them to make are straightforward. Tables are
+also a great avenue to display creativity! In fact, there is a yearly [RStudio table contest](https://www.rstudio.com/blog/rstudio-table-contest-2022/), and [here](https://community.rstudio.com/c/table-gallery/64) is a gallery of the
+award winning tables!
+
+**For simple tables**
+
+-   the `kable()` function from the **knitr** package for *simple* tables
+-   the `gt()` function from the **gt** package
+
+**For more sophisticated tables**
+
+-   styling functions from the **kableExtra** package (e.g., `kable_styling()`, `kable_classic()`)
+-   add-on functions from the **gt** package (e.g., `cols_label()`, `tab_header()`, `fmt_percent()`)
+
+**For interactive tables**
+
+-   the `datatable()` function from the **DT** package
+
+## Part 1 -- Formatting Basic Tables
+
+Use the `kable()` function from the [kable package](https://bookdown.org/yihui/rmarkdown-cookbook/kable.html) to create nice, basic HTML tables for [**every**]{.underline} table in **Lab 8**.
+
+::: callout-warning
+Similar to axis labels in visualizations, **every** column name in a table
+should describe what it contains. For example, a column of `n` is less
+explanatory than `Frequency of Babies`.
+:::
+
+## Part 2 - Formatting Nicer Tables
+
+Spice up **at least one** of your tables from Lab 9 using functions from the 
+[gt package](https://gt.rstudio.com/). 
+
+Some ideas on how to "spice up" a table:
+
+-   change the font and / or font size
+-   add a title / subtitle to the table
+-   add striping and / or cell borders to the table
+-   create custom formatting of columns
+
+::: {.callout-tip}
+Luckily, the gt package has an easy function for changing proportions to 
+percentages (`fmt_percent()`) that you might want to use for your table from 
+Question 2. 
+:::

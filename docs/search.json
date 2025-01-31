@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Statistical Computing with R",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic & Preview Activities\nPractice Activity\n\n\n\n\n1\nFriday, 1/24\nIntro to R & RStudio\nBroken Circles Group Warm-up\nCreating Pair Programming Norms\nData Cleaning, Visualization Puzzle\n\n\n2\nFriday, 1/31\nIntro to Quarto\nPair Activity 1: Secret Code\n\n\n3\nFriday, 2/7\nIntro to Version Control",
+    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic & Preview Activities\nPractice Activity\n\n\n\n\n1\nFriday, 1/24\nIntro to R & RStudio\nBroken Circles Group Warm-up\nCreating Pair Programming Norms\nData Cleaning, Visualization Puzzle\n\n\n2\nFriday, 1/31\nIntro to Quarto\nExpert Designer\nPair Activity 1: Secret Code\n\n\n3\nFriday, 2/7\nIntro to Version Control",
     "crumbs": [
       "Course information",
       "Weekly Schedule"
@@ -529,5 +529,33 @@
     "title": "Practice Activity 1: Find the Mistakes",
     "section": "Part 3: The secret message!",
     "text": "Part 3: The secret message!\nUse your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:\n\nstringr::str_c(my_symbols$symbol[ts_vec], collapse = \"\")\n\nGoogle the first line of this message, if you do not recognize it, to see what poem it is."
+  },
+  {
+    "objectID": "group-activities/week-2/expert-designer.html",
+    "href": "group-activities/week-2/expert-designer.html",
+    "title": "Expert Designer",
+    "section": "",
+    "text": "This activity is designed to simulate the environment in which you will be working for the weekly Practice Activities."
+  },
+  {
+    "objectID": "group-activities/week-2/expert-designer.html#instructions-roles-rules",
+    "href": "group-activities/week-2/expert-designer.html#instructions-roles-rules",
+    "title": "Expert Designer",
+    "section": "Instructions, Roles, & Rules",
+    "text": "Instructions, Roles, & Rules\nGet into groups of four (4) students. Similar to last week’s Broken Circles activity, each of you has an envelope containing different shapes.\n\nDesigner\nIn this activity, one person in your group will take on the role of the “designer,” two members will be the “players,” and one person will be the “observer.” The designer uses every shape in the envelope to create a design that is not shared with anyone else. The designer is then tasked with instructing the players how to replicate the design they created, but there are some rules.\n\nThe designer cannot touch the players shapes.\nThe designer cannot tell the players how to assemble the shapes into the correct design.\nThe designer can respond to questions posed by the players.\n\n\n\nPlayers\n“Players” are tasked with solving the design made by the “designer.” Players can pose questions to the designer to uncover their design. Once an player believes they have figured out the design, the designer should check their solution. If the designer says the solution is correct, then the player can assist the designer in answering questions posed by the other players.\n\n\nObserver\nThe “observer” is tasked with monitoring the interactions between the designer and the players. Specifically, the observer should check off the number of times they see two behaviors occurring, (1) explaining by telling how, and (2) everybody helps. The observer should have a scoring sheet to tally the number of times they see each behavior."
+  },
+  {
+    "objectID": "group-activities/week-2/expert-designer.html#getting-started",
+    "href": "group-activities/week-2/expert-designer.html#getting-started",
+    "title": "Expert Designer",
+    "section": "Getting Started",
+    "text": "Getting Started\nChoose one person in your group to be the first designer. Carry out the process described above until every observer has correctly identified the design. You will have 10-minutes to complete this task.\nOnce you have completed this task, if there is still time remaining your group should choose a new designer and repeat the process."
+  },
+  {
+    "objectID": "group-activities/week-2/expert-designer.html#discussion",
+    "href": "group-activities/week-2/expert-designer.html#discussion",
+    "title": "Expert Designer",
+    "section": "Discussion",
+    "text": "Discussion\n\nWhat do you think this game was about? What was its purpose?\nWhat did your group did that made you cooperate more successfully?\nWhat did your group did that made cooperation harder?\nWhat are some behaviors that could be implemented in the future to make cooperation easier?"
   }
 ]
