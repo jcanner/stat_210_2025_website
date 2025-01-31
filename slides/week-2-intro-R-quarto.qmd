@@ -187,6 +187,325 @@ x | y
 ```
 :::
 
+
+# Syntax Errors
+
+## Did you leave off a parenthesis?
+
+</br>
+
+seq[(]{style="background-color: #ffff7f"}from = 1, to = 10, by = 1
+
+```{r}
+#| echo: true
+#| error: true
+#| code-line-numbers: false
+seq(from = 1, to = 10, by = 1
+```
+
+. . .
+
+</br>
+
+```{r}
+#| echo: true
+#| code-line-numbers: false
+seq(from = 1, to = 10, by = 1)
+```
+
+## Did you leave off a comma?
+
+</br>
+
+seq(from = 1, to = 10 [by]{style="background-color:#ffff7f"} = 1)
+
+```{r}
+#| echo: true
+#| error: true
+#| code-line-numbers: false
+seq(from = 1, to = 10 by = 1)
+```
+
+. . .
+
+</br>
+
+```{r}
+#| echo: true
+#| code-line-numbers: false
+seq(from = 1, to = 10, by = 1)
+```
+
+## Are you using the right function name?
+
+</br>
+
+[sequence]{style="background-color:#ffff7f"}(from = 1, to = 10, by = 1)
+
+```{r}
+#| echo: true
+#| error: true
+#| code-line-numbers: false
+sequence(from = 1, to = 10, by = 1)
+```
+
+. . .
+
+</br>
+
+```{r}
+#| echo: true
+#| code-line-numbers: false
+
+seq(from = 1, to = 10, by = 1)
+```
+
+# Object Type Errors
+
+## Are you using the right *input* that the function expects?
+
+</br>
+
+sqrt(["1"]{style="background-color:#ffff7f"})
+
+```{r}
+#| echo: true
+#| error: true
+#| code-line-numbers: false
+
+sqrt("1")
+```
+
+. . .
+
+</br>
+
+```{r}
+#| echo: true
+#| code-line-numbers: false
+
+sqrt(1)
+```
+
+## Are you expecting the right *output* of the function?
+
+</br>
+
+my_obj[(5)]{style="background-color:#ffff7f"}
+
+```{r}
+#| echo: true
+#| error: true
+#| code-line-numbers: false
+
+my_obj <- seq(from = 1, to = 10, by = 1)
+
+my_obj(5)
+```
+
+. . .
+
+</br>
+
+```{r}
+#| echo: true
+#| code-line-numbers: false
+
+my_obj[5]
+```
+
+# Errors + Warnings + Messages
+
+## Messages
+
+Just because you see scary red text, this does **not** mean something went wrong! This is just R communicating with you.
+
+. . .
+
+</br>
+
+For example, you will often see:
+
+```{r}
+#| echo: true
+#| message: true
+#| warning: true
+#| code-line-numbers: false
+
+library(lme4)
+```
+
+## Warnings
+
+Often, R will give you a **warning**.
+
+-   This means that your code *did* run...
+
+-   ...but you probably want to make sure it succeeded.
+
+. . .
+
+</br>
+
+::::::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| warning: true
+#| code-line-numbers: false
+
+my_vec <- c("a", "b", "c")
+
+my_new_vec <- as.integer(my_vec)
+```
+:::
+
+::: {.column width="5%"}
+:::
+
+:::: {.column width="45%"}
+::: fragment
+**Does this look right?**
+
+```{r}
+#| echo: true
+#| code-line-numbers: false
+
+my_new_vec
+```
+:::
+::::
+:::::::
+
+## Errors
+
+If the word **Error** appears in your message from R, then you have a problem.
+
+This means your code **could not run**!
+
+. . .
+
+</br>
+
+```{r}
+#| echo: true
+#| error: true
+#| code-line-numbers: false
+my_vec <- c("a", "b", "c")
+
+my_new_vec <- my_vec + 1
+```
+
+# Parlez-vous ERROR?
+
+## **R** says...
+
+> Error: Object `some_obj` not found.
+
+. . .
+
+It *probably* means...
+
+> You haven't run the code to create `some_obj` OR you have a typo in the name!
+
+. . .
+
+</br>
+
+```{r}
+#| echo: true
+#| error: true
+#| code-line-numbers: false
+some_ojb <- 1:10
+
+mean(some_obj)
+```
+
+## **R** says...
+
+> Error: Object of type 'closure' is not subsettable.
+
+. . .
+
+It *probably* means...
+
+> Oops, you tried to use square brackets on a function.
+
+. . .
+
+</br>
+
+```{r}
+#| echo: true
+#| error: true
+#| code-line-numbers: false
+
+mean[1, 2]
+```
+
+## **R** says...
+
+> Error: Non-numeric argument to binary operator.
+
+. . .
+
+It *probably* means...
+
+> You tried to do math on data that isn't numeric.
+
+. . .
+
+</br>
+
+```{r}
+#| echo: true
+#| error: true
+#| code-line-numbers: false
+"a" + 2
+```
+
+## What if none of these solved my error?
+
+1.  Look at the help file for the function! (e.g., `?group_by`)
+
+2.  When all else fails, Google your error message or ask ChatGPT!
+
+-   Leave out the specifics.
+
+-   Include the name(s) of the function(s) you are using.
+
+## Try it...
+
+**What's wrong here?**
+
+```{r}
+#| echo: true
+#| error: true
+#| code-line-numbers: false
+
+matrix(
+  c("a", "b", "c", "d"), 
+  num_row = 2
+  )
+```
+
+. . .
+
+</br>
+
+The documentation says...
+
+```         
+matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE,
+       dimnames = NULL)
+```
+
+
+
+
+
+
+
 # Scripts + Notebooks
 
 ## Scripts
