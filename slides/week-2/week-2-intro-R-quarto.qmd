@@ -2,7 +2,7 @@
 title: "STAT 210 - Intro to R"
 format: 
   revealjs:
-    theme: [../style.scss, simple]
+    theme: [simple]
 editor: source
 ---
 

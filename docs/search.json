@@ -700,5 +700,222 @@
       "Labs",
       "Lab 1 & Challenge 1 Instructions"
     ]
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#data-types",
+    "href": "slides/week-2-intro-R-quarto.html#data-types",
+    "title": "STAT 210 - Intro to R",
+    "section": "Data Types",
+    "text": "Data Types\n\nA value is a basic unit of stuff that a program works with.\nValues are allowed to have different data types:\n\n\n\nlogical / boolean: FALSE / TRUE or 0 / 1 values.\n\n\n\n\ninteger: whole numbers.\n\n\n\n\ndouble / float / numeric: decimal numbers.\n\n\n\n\ncharacter / string - text values."
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#variables",
+    "href": "slides/week-2-intro-R-quarto.html#variables",
+    "title": "STAT 210 - Intro to R",
+    "section": "Variables",
+    "text": "Variables\n\nare names that refer to values.\n\n\n\n\nA variable is like a container that holds something - when you refer to the container, you get whatever is stored inside.\nWe assign values to variables using the syntax object_name &lt;- value.\n\nThis can be read as “object name gets value.”\n\n\n\n\n\n\nmessage &lt;- \"So long and thanks for all the fish\"\nyear &lt;- 2025\nthe_answer &lt;- 42.5\nearth_demolished &lt;- FALSE"
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#data-structures",
+    "href": "slides/week-2-intro-R-quarto.html#data-structures",
+    "title": "STAT 210 - Intro to R",
+    "section": "Data Structures",
+    "text": "Data Structures\n\nHomogeneousHeterogeneous\n\n\n\nevery element has the same data type\n\n\nVector: a one-dimensional column of homogeneous data.\nMatrix: the next step after a vector - it’s a set of homogenous data arranged in a two-dimensional, rectangular format.\n\n\n\n\nelements can be of different types\n\n\nList: a one-dimensional column of heterogeneous data.\nDataframe: a two-dimensional set of heterogeneous data arranged in a rectangular format."
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#indexing",
+    "href": "slides/week-2-intro-R-quarto.html#indexing",
+    "title": "STAT 210 - Intro to R",
+    "section": "Indexing",
+    "text": "Indexing\nWe use square brackets ([]) to access elements within data structures.\n\nIn R, we start indexing from 1.\n\n\nVectorMatrixListDataframe\n\n\n\nvec[4]    # 4th element\nvec[1:3]  # first 3 elements\n\n\n\n\nmat[2, 6]  # element in row 2, col 6\nmat[ , 3]   # all elements in col 3\n\n\n\n\nli[[5]]    # 5th element\nli$elementName # all elements in \"elementName\"\n\n\n\n\ndf[1, 2]     # element in row 1, col 2\ndf[17, ]     # all elements in row 17\ndf$colName  # all elements in the col named \"colName\""
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#logic",
+    "href": "slides/week-2-intro-R-quarto.html#logic",
+    "title": "STAT 210 - Intro to R",
+    "section": "Logic",
+    "text": "Logic\nWe can combine logical statements using and, or, and not.\n\n(X AND Y) requires that both X and Y are true.\n(X OR Y) requires that one of X or Y is true.\n(NOT X) is true if X is false, and false if X is true.\n\n\n\nx &lt;- c(TRUE, FALSE, TRUE, FALSE)\ny &lt;- c(TRUE, TRUE, FALSE, FALSE)\n\n\nAndOrNot\n\n\n\nx & y\n\n[1]  TRUE FALSE FALSE FALSE\n\n\n\n\n\nx | y\n\n[1]  TRUE  TRUE  TRUE FALSE\n\n\n\n\n\n!x\n\n[1] FALSE  TRUE FALSE  TRUE"
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#did-you-leave-off-a-parenthesis",
+    "href": "slides/week-2-intro-R-quarto.html#did-you-leave-off-a-parenthesis",
+    "title": "STAT 210 - Intro to R",
+    "section": "Did you leave off a parenthesis?",
+    "text": "Did you leave off a parenthesis?\n\nseq(from = 1, to = 10, by = 1\n\nseq(from = 1, to = 10, by = 1\n\nError in parse(text = input): &lt;text&gt;:2:0: unexpected end of input\n1: seq(from = 1, to = 10, by = 1\n   ^\n\n\n\n\n\nseq(from = 1, to = 10, by = 1)\n\n [1]  1  2  3  4  5  6  7  8  9 10"
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#did-you-leave-off-a-comma",
+    "href": "slides/week-2-intro-R-quarto.html#did-you-leave-off-a-comma",
+    "title": "STAT 210 - Intro to R",
+    "section": "Did you leave off a comma?",
+    "text": "Did you leave off a comma?\n\nseq(from = 1, to = 10 by = 1)\n\nseq(from = 1, to = 10 by = 1)\n\nError in parse(text = input): &lt;text&gt;:1:23: unexpected symbol\n1: seq(from = 1, to = 10 by\n                          ^\n\n\n\n\n\nseq(from = 1, to = 10, by = 1)\n\n [1]  1  2  3  4  5  6  7  8  9 10"
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#are-you-using-the-right-function-name",
+    "href": "slides/week-2-intro-R-quarto.html#are-you-using-the-right-function-name",
+    "title": "STAT 210 - Intro to R",
+    "section": "Are you using the right function name?",
+    "text": "Are you using the right function name?\n\nsequence(from = 1, to = 10, by = 1)\n\nsequence(from = 1, to = 10, by = 1)\n\nError in sequence.default(from = 1, to = 10, by = 1): argument \"nvec\" is missing, with no default\n\n\n\n\n\nseq(from = 1, to = 10, by = 1)\n\n [1]  1  2  3  4  5  6  7  8  9 10"
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#are-you-using-the-right-input-that-the-function-expects",
+    "href": "slides/week-2-intro-R-quarto.html#are-you-using-the-right-input-that-the-function-expects",
+    "title": "STAT 210 - Intro to R",
+    "section": "Are you using the right input that the function expects?",
+    "text": "Are you using the right input that the function expects?\n\nsqrt(“1”)\n\nsqrt(\"1\")\n\nError in sqrt(\"1\"): non-numeric argument to mathematical function\n\n\n\n\n\nsqrt(1)\n\n[1] 1"
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#are-you-expecting-the-right-output-of-the-function",
+    "href": "slides/week-2-intro-R-quarto.html#are-you-expecting-the-right-output-of-the-function",
+    "title": "STAT 210 - Intro to R",
+    "section": "Are you expecting the right output of the function?",
+    "text": "Are you expecting the right output of the function?\n\nmy_obj(5)\n\nmy_obj &lt;- seq(from = 1, to = 10, by = 1)\n\nmy_obj(5)\n\nError in my_obj(5): could not find function \"my_obj\"\n\n\n\n\n\nmy_obj[5]\n\n[1] 5"
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#messages",
+    "href": "slides/week-2-intro-R-quarto.html#messages",
+    "title": "STAT 210 - Intro to R",
+    "section": "Messages",
+    "text": "Messages\nJust because you see scary red text, this does not mean something went wrong! This is just R communicating with you.\n\n\nFor example, you will often see:\n\nlibrary(lme4)\n\nLoading required package: Matrix"
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#warnings",
+    "href": "slides/week-2-intro-R-quarto.html#warnings",
+    "title": "STAT 210 - Intro to R",
+    "section": "Warnings",
+    "text": "Warnings\nOften, R will give you a warning.\n\nThis means that your code did run…\n…but you probably want to make sure it succeeded.\n\n\n\n\n\n\nmy_vec &lt;- c(\"a\", \"b\", \"c\")\n\nmy_new_vec &lt;- as.integer(my_vec)\n\nWarning: NAs introduced by coercion\n\n\n\n\n\n\nDoes this look right?\n\nmy_new_vec\n\n[1] NA NA NA"
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#errors",
+    "href": "slides/week-2-intro-R-quarto.html#errors",
+    "title": "STAT 210 - Intro to R",
+    "section": "Errors",
+    "text": "Errors\nIf the word Error appears in your message from R, then you have a problem.\nThis means your code could not run!\n\n\n\nmy_vec &lt;- c(\"a\", \"b\", \"c\")\n\nmy_new_vec &lt;- my_vec + 1\n\nError in my_vec + 1: non-numeric argument to binary operator"
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#r-says",
+    "href": "slides/week-2-intro-R-quarto.html#r-says",
+    "title": "STAT 210 - Intro to R",
+    "section": "R says…",
+    "text": "R says…\n\nError: Object some_obj not found.\n\n\nIt probably means…\n\nYou haven’t run the code to create some_obj OR you have a typo in the name!\n\n\n\n\n\nsome_ojb &lt;- 1:10\n\nmean(some_obj)\n\nError in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'mean': object 'some_obj' not found"
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#r-says-1",
+    "href": "slides/week-2-intro-R-quarto.html#r-says-1",
+    "title": "STAT 210 - Intro to R",
+    "section": "R says…",
+    "text": "R says…\n\nError: Object of type ‘closure’ is not subsettable.\n\n\nIt probably means…\n\nOops, you tried to use square brackets on a function.\n\n\n\n\n\nmean[1, 2]\n\nError in mean[1, 2]: object of type 'closure' is not subsettable"
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#r-says-2",
+    "href": "slides/week-2-intro-R-quarto.html#r-says-2",
+    "title": "STAT 210 - Intro to R",
+    "section": "R says…",
+    "text": "R says…\n\nError: Non-numeric argument to binary operator.\n\n\nIt probably means…\n\nYou tried to do math on data that isn’t numeric.\n\n\n\n\n\n\"a\" + 2\n\nError in \"a\" + 2: non-numeric argument to binary operator"
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#what-if-none-of-these-solved-my-error",
+    "href": "slides/week-2-intro-R-quarto.html#what-if-none-of-these-solved-my-error",
+    "title": "STAT 210 - Intro to R",
+    "section": "What if none of these solved my error?",
+    "text": "What if none of these solved my error?\n\nLook at the help file for the function! (e.g., ?group_by)\nWhen all else fails, Google your error message or ask ChatGPT!\n\n\nLeave out the specifics.\nInclude the name(s) of the function(s) you are using."
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#try-it",
+    "href": "slides/week-2-intro-R-quarto.html#try-it",
+    "title": "STAT 210 - Intro to R",
+    "section": "Try it…",
+    "text": "Try it…\nWhat’s wrong here?\n\nmatrix(\n  c(\"a\", \"b\", \"c\", \"d\"), \n  num_row = 2\n  )\n\nError in matrix(c(\"a\", \"b\", \"c\", \"d\"), num_row = 2): unused argument (num_row = 2)\n\n\n\n\nThe documentation says…\nmatrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE,\n       dimnames = NULL)"
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#scripts",
+    "href": "slides/week-2-intro-R-quarto.html#scripts",
+    "title": "STAT 210 - Intro to R",
+    "section": "Scripts",
+    "text": "Scripts\n\nScripts (File &gt; New File &gt; R Script) are files of code that are meant to be run on their own.\n\n\n\nScripts can be run in RStudio by clicking the Run button at the top of the editor window when the script is open.\nYou can also run code interactively in a script by:\n\nhighlighting lines of code and hitting run.\nplacing your cursor on a line of code and hitting run.\nplacing your cursor on a line of code and hitting ctrl + enter or command + enter."
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#notebooks",
+    "href": "slides/week-2-intro-R-quarto.html#notebooks",
+    "title": "STAT 210 - Intro to R",
+    "section": "Notebooks",
+    "text": "Notebooks\nNotebooks are an implementation of literate programming.\n\nThey allow you to integrate code, output, text, images, etc. into a single document.\nE.g.,\n\nQuarto notebook\nR Markdown notebook\nJupyter notebook\n\n\nWe love notebooks because they help us produce a reproducible analysis!"
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#what-is-markdown",
+    "href": "slides/week-2-intro-R-quarto.html#what-is-markdown",
+    "title": "STAT 210 - Intro to R",
+    "section": "What is Markdown?",
+    "text": "What is Markdown?\nMarkdown is a markup language.\nIt uses special symbols and formatting to make pretty documents.\n\n\n*italics* – makes italics\n**bold** – makes bold text\n# – makes headers\n! – includes images or HTML links\n&lt; &gt; – embeds URLs\n\n\n\nMarkdown files have the .md extension."
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#what-is-quarto",
+    "href": "slides/week-2-intro-R-quarto.html#what-is-quarto",
+    "title": "STAT 210 - Intro to R",
+    "section": "What is Quarto?",
+    "text": "What is Quarto?\nQuarto unifies and extends the R Markdown ecosystem.\n\nQuarto files have the .qmd extension."
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#highlights-of-quarto",
+    "href": "slides/week-2-intro-R-quarto.html#highlights-of-quarto",
+    "title": "STAT 210 - Intro to R",
+    "section": "Highlights of Quarto",
+    "text": "Highlights of Quarto\n\nConsistent implementation of attractive and handy features across outputs:\n\nE.g., tabsets, code-folding, syntax highlighting, etc.\n\nMore accessible defaults and better support for accessibility.\nGuardrails that are helpful when learning:\n\nE.g., YAML completion, informative syntax errors, etc.\n\nSupport for other languages like Python, Julia, Observable, and more."
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#quarto-formats",
+    "href": "slides/week-2-intro-R-quarto.html#quarto-formats",
+    "title": "STAT 210 - Intro to R",
+    "section": "Quarto Formats",
+    "text": "Quarto Formats\nQuarto makes moving between outputs straightforward.\n\nAll that needs to change between these formats is a few lines in the front matter (YAML)!\n\n\n\nDocument\ntitle: \"Lesson 1\"\nformat: html\nPresentation\ntitle: \"Lesson 1\"\nformat: revealjs\n\nWebsite\nproject:\n  type: website\n\nwebsite: \n  navbar: \n    left:\n      - lesson-1.qmd"
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#quarto-components",
+    "href": "slides/week-2-intro-R-quarto.html#quarto-components",
+    "title": "STAT 210 - Intro to R",
+    "section": "Quarto Components",
+    "text": "Quarto Components\n\n\nHow does Quarto know that a section of text should be interpreted as R code?"
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#r-code-options-in-quarto",
+    "href": "slides/week-2-intro-R-quarto.html#r-code-options-in-quarto",
+    "title": "STAT 210 - Intro to R",
+    "section": "R Code Options in Quarto",
+    "text": "R Code Options in Quarto\nR code chunk options are included at the top of each code chunk, prefaced with a #| (hashpipe).\n\nThese options control how the following code is run and reported in the final Quarto document.\nSome R code options can also be included in the front matter (YAML) which would be applied globally to the entire document."
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#r-code-options-in-quarto-1",
+    "href": "slides/week-2-intro-R-quarto.html#r-code-options-in-quarto-1",
+    "title": "STAT 210 - Intro to R",
+    "section": "R Code Options in Quarto",
+    "text": "R Code Options in Quarto"
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#chunk-option-completion-in-quarto",
+    "href": "slides/week-2-intro-R-quarto.html#chunk-option-completion-in-quarto",
+    "title": "STAT 210 - Intro to R",
+    "section": "Chunk Option Completion in Quarto",
+    "text": "Chunk Option Completion in Quarto"
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#rendering-your-quarto-document",
+    "href": "slides/week-2-intro-R-quarto.html#rendering-your-quarto-document",
+    "title": "STAT 210 - Intro to R",
+    "section": "Rendering your Quarto Document",
+    "text": "Rendering your Quarto Document\nTo take your .qmd file and make it look pretty, you have to render it."
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#rendering-your-quarto-document-1",
+    "href": "slides/week-2-intro-R-quarto.html#rendering-your-quarto-document-1",
+    "title": "STAT 210 - Intro to R",
+    "section": "Rendering your Quarto Document",
+    "text": "Rendering your Quarto Document\nQuarto CLI (command line interface) orchestrates each step of rendering:\n\nProcess the executable code chunks with either knitr or jupyter.\nConvert the resulting Markdown file to the desired output."
+  },
+  {
+    "objectID": "slides/week-2-intro-R-quarto.html#rendering-your-quarto-document-2",
+    "href": "slides/week-2-intro-R-quarto.html#rendering-your-quarto-document-2",
+    "title": "STAT 210 - Intro to R",
+    "section": "Rendering your Quarto Document",
+    "text": "Rendering your Quarto Document\nWhen you click Render:\n\n\n\nYour file is saved.\nThe R code written in your .qmd file gets run in order.\n\n\nIt starts from scratch, even if you previously ran some of the code in RStudio.\n\n\nA new file is created.\n\n\nIf your Quarto file is called “Lab1.qmd”, then a file called “Lab1.html” will be created.\nThis will be saved in the same folder as “Lab1.qmd”."
   }
 ]

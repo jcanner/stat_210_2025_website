@@ -1,0 +1,300 @@
+---
+title: "Scripts, Notebooks & Version Control"
+format: 
+  revealjs:
+    theme: [../style.scss, simple]
+    auto-stretch: false
+editor: source
+---
+
+```{r setup}
+#| include: false
+#| message: false
+library(tidyverse)
+library(liver)
+data(cereal)
+```
+
+
+# Version Control
+
+# Version Control
+
+> A process of **tracking changes** to a file or set of files over time so that
+you can **recall specific versions later**.
+
+
+## Git vs GitHub
+
+:::: columns
+::: column
+
+```{r}
+#| fig-align: center
+#| out-width: 50%
+#| fig-alt: "The image is the official logo for Git, a version control system. It consists of a diamond-shaped orange symbol with white lines inside that resemble a branching structure, symbolizing version control and branching in Git. Next to the symbol is the word 'Git' written in bold, black lowercase letters. The logo visually represents Git's core function of managing changes in code through branching and merging."
+
+knitr::include_graphics("https://bornsql.ca/wp-content/uploads/2022/03/Git-Logo-2Color.png") 
+```
+
++ A system for version control that manages a collection of files in a structured way.
++ Uses the command line or a GUI.
++ Git is local.
+
+:::
+::: column
+
+
+:::
+::::
+
+
+## Git vs GitHub
+
+:::: columns
+::: column
+
+![](https://bornsql.ca/wp-content/uploads/2022/03/Git-Logo-2Color.png){fig-align="center" width="50%" fig-alt="git's logo, a red diamond, with two 'branches', one large branch and one smaller branch stemming from the main branch."}
+
++ A system for version control that manages a collection of files in a structured way.
++ Uses the command line or a GUI.
++ Git is local.
+
+:::
+::: column
+
+![](https://pngimg.com/d/github_PNG65.png){fig-align="center" width="60%" fig-alt="GitHub's logo, a black circle, with the outline of a cat in white. The cat seems to have a snake-like tail."}
+
++ A cloud-based service that lets you use git across many computers.
++ Basic services are free, advanced services are paid (like RStudio!). 
++ GitHub is remote.
+
+:::
+::::
+
+
+## Why Learn GitHub?
+
+1. GitHub provides a structured way for tracking changes to files over the course of a project.
+  + *Think Google Docs or Dropbox history, but more structured and powerful!*
+
+2. GitHub makes it easy to have multiple people working on the same files at the same time.
+
+3. You can host a URL of fun things (like the class text, these slides, the course website, etc.) with [GitHub pages](https://pages.github.com/).
+
+
+## Git Repositories
+
+Git is based on **repositories**.
+
+:::: {.columns}
+::: {.column width="80%"}
+
++ Think of a repository (**repo**) as a directory (folder) for a single project.
+  + This directory will likely contain code, documentation, data, to do lists, etc. associated with the project.
+  + You can link a local repo with a remote copy.
+
+:::
+::: {.column width="20%"}
+
+![](https://miro.medium.com/max/512/1*w07Er4gPg8H2Ew-P0HhxNA.png){fig-align="center" fig-alt="A red file folder, with the git logo on it (one large branch with one smaller branch stemming off of it)."}
+
+
+
+:::
+::::
+
+<!-- ## `.gitignore` -->
+
+<!-- Sometimes there are files that you **do not** want to track. -->
+
+<!-- + A `.gitignore` file specifies the files that git should intentionally ignore. -->
+<!-- + Often these are machine generated files (e.g., `/bin`, `.DS_Store`) or files/directories that you do not want to be shared (e.g., `solutions/`). -->
+<!-- + **We want to ignore `.Rproj` files!** -->
+
+
+# Actions in Git
+
+## Cloning a Repo
+
+:::: columns
+::: column
+
+<bR>
+
+Create an exact copy of a remote repo on your local machine.
+
+:::
+::: column
+![](images/git_clone_diagram.png){fig-align="center" fig-alt="A diagram of the process of cloning a repository. At the top of the picture, there is a cloud (representing the internet), with a pink box labeled 'remote' symbolizing the remote GitHub repository. There is a down arrow connecting the cloud to a laptop, mimicking the process of cloning a remote repository onto a local computer. The laptop has a greeen box labeled 'local' symbolizing the local copy of the remote GitHub repository." width="50%"}
+:::
+::::
+
+
+## Committing Changes
+
+Tell git you have made changes you want to add to the repo.
+
++ Also provide a *commit message* -- a short label describing what the changes are and why they exist.
+
+:::: {.columns}
+::: {.column width="60%"}
+
+The red line is a change we commit (add) to the repo.
+
+:::
+::: {.column width="40%"}
+
+![](images/git-commit.png){fig-align="center" fig-alt="A diagram of the process of committing changes that were made to a document. On the left is a document with four lines of text. The third line is colored red, to symbolize where a change was made, while the other lines are colored black. There is a right arrow connecting the document to a laptop, with the phrase 'git commit' printed above the arrow. The arrow terminates at a green box labeled 'local' on the laptop, symbolizing committing changes made to the document to the local repository."}
+
+:::
+::::
+
+. . .
+
+The log of these changes is called your *commit history*.
+
++ You can always go back to old copies!
+
+
+
+## Commit Tips
+
++ Use short, but informative commit messages.
++ Commit small blocks of changes -- commit every time you accomplish a small task (e.g., one problem in the lab). 
+  + You’ll have a set of bite-sized changes (with description) to serve as a record of what you’ve done.
+  + With frequent commits, its easier to find the issue if / when you mess up!
+
+
+## Pushing Changes
+
+:::: columns
+::: column
+
+<br>
+
+Update the copy of your repo on GitHub so it has the most recent changes you’ve made on your machine.
+
+:::
+::: column
+
+![](images/git_push_diagram.png){fig-align="center" width="75%" fig-alt="A diagram of the process of pushing local changes to the remote repository. There is a laptop with a green box labeled 'local' symbolizing the local copy of the GitHub repository. Above the laptop is cloud with a pink box labeled 'remote' symbolizing the remote GitHub repository (that lives on the internet). There is an arrow pointing from the laptop to the cloud with the phrase 'git push' next to the arrow, symbolizing the action of pushing the local changes (that have been committed) up to the remote repository."}
+:::
+::::
+
+
+## Pulling Changes
+
+:::: columns
+::: column
+
+<br>
+
+Update the local copy of your repo (the copy on your computer) with the version on GitHub.
+
+:::
+::: column
+
+![](images/git_pull_diagram.png){fig-align="center" fig-alt="A diagram of the process of pulling from the remote repository to update the local repository. There is a laptop with a green box labeled 'local' symbolizing the local copy of the GitHub repository. Above the laptop is cloud with a pink box labeled 'remote' symbolizing the remote GitHub repository (that lives on the internet). There is an arrow pointing from the cloud to the laptop with the phrase 'git pull' next to the arrow, symbolizing the action of pull the changes that exist on the remote repository (possibly from a different computer) to update the local repository." width="75%"}
+:::
+::::
+
+
+## Workflow
+
+**When you have an existing local repo:**
+
+::: incremental
+1. Pull the repo to make sure you have the most up to date version (especially if you are working on different computers).
+2. Make some changes locally.
+3. Commit the changes to git.
+4. Push your changes to GitHub.
+:::
+
+# Connect GitHub to RStudio
+
+## Previous Steps
+
+You were asked to complete the following steps **before** coming to class today:
+
+1. Create a GitHub account
+2. Introduce yourself to git (in RStudio)
+3. Generate a Personal Access Token (PAT)
+4. Store your PAT in RStudio
+
+## Verifying Your Connection
+
+::: columns
+::: {.column width="45%"}
+Open RStudio and run the following code in your console (lower left pane):
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="50%"}
+</br>
+
+```{r}
+#| label: sit-rep
+#| echo: true
+#| eval: false
+#| code-line-numbers: false
+
+usethis::git_sitrep()
+
+```
+:::
+:::
+
+. . .
+
+You should see something like:
+
+::: {.small}
+```
+── GitHub user 
+• Default GitHub host: 'https://github.com'
+• Personal access token for 'https://github.com': '<discovered>'
+• GitHub user: 'atheobold'
+• Token scopes: 'admin:org, admin:public_key, delete:packages, delete_repo, gist, notifications, repo, user, workflow, write:packages'
+• Email(s): 'atheobol@calpoly.edu (primary)', 'theobold.allison970@gmail.com', '12439090+atheobold@users.noreply.github.com'
+ℹ No active usethis project
+```
+:::
+
+. . .
+
+If that is not the case, Dr. Theobold will help you troubleshoot in 5-minutes!
+
+# Accessing Lab 1 
+
+# Accessing Lab 1 
+
+Here are step by step directions: [Copying the Lab Assignment with GitHub Classroom in 11 Steps](https://scribehow.com/shared/Copying_the_Lab_Assignment_with_GitHub_Classroom__jKUfxzJUQjOQ2lqJy2UPoQ)
+
+</br>
+
+::: {.small}
+Step 1: Open the [Lab 1 assignment on GitHub Classroom](https://classroom.github.com/a/j-bckA7U)
+
+Step 2: Open your Lab 1 repository
+
+Step 3: Clone the repository to your computer
+:::
+
+## Once You've Cloned the Repo
+
+Step 4: Open the `lab-1.qmd` file
+
+Step 5: Change your name 
+
+Step 6: Commit your change (with a nice message!)
+
+Step 7: Push your change
+
+# [Lab 1 & Challenge 1 Instructions](../../labs/instructions/lab-1-instructions.qmd)
+
+::: {.midi}
+*I would highly recommend having these pulled up alongside RStudio while you work! 
+:::
