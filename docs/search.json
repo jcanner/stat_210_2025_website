@@ -563,7 +563,7 @@
     "href": "labs/instructions/lab-1-instructions.html",
     "title": "Lab 1: Introduction to Quarto",
     "section": "",
-    "text": "Either under File, or in the top right corner where the current project name is, select\n ## Step 2: Choose New Project For now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.\n\n\n\nImage of New Project Wizard in RStudio where students should select New Project\n\n\n\n\n\nFor this week, you will create a New Directory. Once we start using GitHub and Git, we may choose Version Control as our option.\n\n\n\nImage of New Project Wizard with options for New Directory, Existing Director, and Version Control\n\n\n\n\n\nNow set up your file name (for the folder and .Rproj file) and the best subdirectory for your Lab 1. This should be a nested folder within your “STAT 210” Folder on your hard drive (Documents), with the “lab” sub-folder, and “week-2” sub-sub-folder.\nUse the file format your-name-lab-1\n\n\n\nCreate New Project window of New Project Wizard in RStudio that allows for specification of Directory Name and File Location\n\n\n\n\n\nNow download the lab file into your new project folder on your computer. Rename the file so that it reads lab-1-your-name.qmd with your first and last name.\nYou can download it here: Lab 1\nThe file should appear in your project folder under your Files tab in the lower right pane. Click it to open it up. Now that you are all set up, go ahead and get started with the rest of the lab!",
+    "text": "Either under File, or in the top right corner where the current project name is, select\n\n\n\n\nFor now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.\n\n\n\n\nFor this week, you will create a New Directory. Once we start using GitHub and Git, we may choose Version Control as our option.\n\n\n\n\nNow set up your file name (for the folder and .Rproj file) and the best subdirectory for your Lab 1. This should be a nested folder within your “STAT 210” Folder on your hard drive (Documents), with the “lab” sub-folder, and “week-2” sub-sub-folder.\nUse the file format your-name-lab-1\n\n\n\n\nNow download the lab file into your new project folder on your computer. Rename the file so that it reads lab-1-your-name.qmd with your first and last name.\nYou can download it here: Lab 1\nThe file should appear in your project folder under your Files tab in the lower right pane. Click it to open it up. Now that you are all set up, go ahead and get started with the rest of the lab!",
     "crumbs": [
       "Labs",
       "Lab 1 & Challenge 1 Instructions"
@@ -574,7 +574,7 @@
     "href": "labs/instructions/lab-1-instructions.html#step-1-make-a-new-project-in-rstudio",
     "title": "Lab 1: Introduction to Quarto",
     "section": "",
-    "text": "Either under File, or in the top right corner where the current project name is, select\n ## Step 2: Choose New Project For now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.\n\n\n\nImage of New Project Wizard in RStudio where students should select New Project",
+    "text": "Either under File, or in the top right corner where the current project name is, select",
     "crumbs": [
       "Labs",
       "Lab 1 & Challenge 1 Instructions"
@@ -585,7 +585,7 @@
     "href": "labs/instructions/lab-1-instructions.html#step-3-choose-a-new-directory",
     "title": "Lab 1: Introduction to Quarto",
     "section": "",
-    "text": "For this week, you will create a New Directory. Once we start using GitHub and Git, we may choose Version Control as our option.\n\n\n\nImage of New Project Wizard with options for New Directory, Existing Director, and Version Control",
+    "text": "For this week, you will create a New Directory. Once we start using GitHub and Git, we may choose Version Control as our option.",
     "crumbs": [
       "Labs",
       "Lab 1 & Challenge 1 Instructions"
@@ -596,7 +596,7 @@
     "href": "labs/instructions/lab-1-instructions.html#step-4-choose-the-file-name-and-location",
     "title": "Lab 1: Introduction to Quarto",
     "section": "",
-    "text": "Now set up your file name (for the folder and .Rproj file) and the best subdirectory for your Lab 1. This should be a nested folder within your “STAT 210” Folder on your hard drive (Documents), with the “lab” sub-folder, and “week-2” sub-sub-folder.\nUse the file format your-name-lab-1\n\n\n\nCreate New Project window of New Project Wizard in RStudio that allows for specification of Directory Name and File Location",
+    "text": "Now set up your file name (for the folder and .Rproj file) and the best subdirectory for your Lab 1. This should be a nested folder within your “STAT 210” Folder on your hard drive (Documents), with the “lab” sub-folder, and “week-2” sub-sub-folder.\nUse the file format your-name-lab-1",
     "crumbs": [
       "Labs",
       "Lab 1 & Challenge 1 Instructions"
@@ -917,5 +917,16 @@
     "title": "STAT 210 - Intro to R",
     "section": "Rendering your Quarto Document",
     "text": "Rendering your Quarto Document\nWhen you click Render:\n\n\n\nYour file is saved.\nThe R code written in your .qmd file gets run in order.\n\n\nIt starts from scratch, even if you previously ran some of the code in RStudio.\n\n\nA new file is created.\n\n\nIf your Quarto file is called “Lab1.qmd”, then a file called “Lab1.html” will be created.\nThis will be saved in the same folder as “Lab1.qmd”."
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html#step-2-choose-new-project",
+    "href": "labs/instructions/lab-1-instructions.html#step-2-choose-new-project",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "",
+    "text": "For now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
   }
 ]
