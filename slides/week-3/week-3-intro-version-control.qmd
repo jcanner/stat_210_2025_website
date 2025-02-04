@@ -1,10 +1,11 @@
 ---
-title: "Scripts, Notebooks & Version Control"
+title: "Version Control"
 format: 
   revealjs:
     theme: [../style.scss, simple]
     auto-stretch: false
 editor: source
+embed-resources: true
 ---
 
 ```{r setup}
@@ -16,7 +17,7 @@ data(cereal)
 ```
 
 
-# Version Control
+
 
 # Version Control
 
@@ -256,45 +257,15 @@ You should see something like:
 ── GitHub user 
 • Default GitHub host: 'https://github.com'
 • Personal access token for 'https://github.com': '<discovered>'
-• GitHub user: 'atheobold'
+• GitHub user: 'jcanner'
 • Token scopes: 'admin:org, admin:public_key, delete:packages, delete_repo, gist, notifications, repo, user, workflow, write:packages'
-• Email(s): 'atheobol@calpoly.edu (primary)', 'theobold.allison970@gmail.com', '12439090+atheobold@users.noreply.github.com'
+• Email(s): 'jcanner@csumbedu'
+12439090+jcanner@users.noreply.github.com'
 ℹ No active usethis project
 ```
 :::
 
 . . .
 
-If that is not the case, Dr. Theobold will help you troubleshoot in 5-minutes!
+If that is not the case, Dr. Canner will help you troubleshoot in 5-minutes!
 
-# Accessing Lab 1 
-
-# Accessing Lab 1 
-
-Here are step by step directions: [Copying the Lab Assignment with GitHub Classroom in 11 Steps](https://scribehow.com/shared/Copying_the_Lab_Assignment_with_GitHub_Classroom__jKUfxzJUQjOQ2lqJy2UPoQ)
-
-</br>
-
-::: {.small}
-Step 1: Open the [Lab 1 assignment on GitHub Classroom](https://classroom.github.com/a/j-bckA7U)
-
-Step 2: Open your Lab 1 repository
-
-Step 3: Clone the repository to your computer
-:::
-
-## Once You've Cloned the Repo
-
-Step 4: Open the `lab-1.qmd` file
-
-Step 5: Change your name 
-
-Step 6: Commit your change (with a nice message!)
-
-Step 7: Push your change
-
-# [Lab 1 & Challenge 1 Instructions](../../labs/instructions/lab-1-instructions.qmd)
-
-::: {.midi}
-*I would highly recommend having these pulled up alongside RStudio while you work! 
-:::
