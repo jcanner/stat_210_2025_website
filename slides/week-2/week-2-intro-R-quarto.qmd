@@ -1,9 +1,11 @@
 ---
-title: "STAT 210 - Intro to R"
+title: "Intro to R"
 format: 
   revealjs:
-    theme: [simple]
+    theme: [../style.scss, simple]
+    auto-stretch: false
 editor: source
+embed-resources: true
 ---
 
 # R Basics
