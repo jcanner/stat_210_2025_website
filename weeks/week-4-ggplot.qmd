@@ -1,0 +1,279 @@
+---
+title: "Introduction to ggplot2"
+format: html
+number-sections: true
+number-depth: 2
+bibliography: references.bib
+editor: source
+execute: 
+  echo: true
+  eval: false
+  include: true
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(flair)
+```
+
+> The greatest possibilities of visual display lie in vividness and inescapability of the intended message. A visual display can stop your mental flow in its tracks and make you think. A visual display can force you to notice what you never expected to see. ("Why, that scatter diagram has a hole in the middle!") -- John Tukey, [Data Based Graphics: Visual Display in the Decades to Come](https://projecteuclid.org/euclid.ss/1177012101)
+
+#### `r emo::ji("book")` Readings: 45 minutes
+
+#### `r emo::ji("computer")` Activities: 45-60 minutes
+
+-   You'll be working through a series of tutorials helping you practice making plots with ggplot.
+
+#### `r emo::ji("check")` Check-ins: 8 questions broken out by sections
+
+## Learning Objectives
+
+-   Describe charts using the grammar of graphics
+-   Create layered graphics that highlight multiple aspects of the data
+-   Evaluate existing charts and develop new versions that improve accessibility and readability
+
+## Loading in the **ggplot2** Package
+
+In this class, we're going to use the `ggplot2` package to create graphics in R. This package is already installed as part of the `tidyverse`, but can be installed:
+
+```{r}
+install.packages("ggplot2") #only needs to happen once - Do not include in Quarto documents!
+```
+
+and/or loaded:
+
+```{r}
+library("ggplot2")
+
+# alternatively
+library("tidyverse") # (my preference!)
+```
+
+::: column-margin
+![Building a masterpiece, by Allison Horst](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/ggplot2_masterpiece.png)
+:::
+
+# Data Visualization with **ggplot2**
+
+This coursework will walk you through the different sections of Chapter One and Nine in *R for Data Science*.
+
+`r emo::ji("book")` [Required Reading: Data Visualization](https://r4ds.hadley.nz/data-visualize).
+
+
+## The Grammar of Graphics
+
+The grammar of graphics is an approach first introduced in Leland Wilkinson's book [@grammar]. Unlike other graphics classification schemes, the grammar of graphics makes an attempt to describe how the data set itself relates to the components of the chart.
+
+This has a few advantages:
+
+1.  It's relatively easy to represent the same data set with different types of plots (and to find their strengths and weaknesses)
+2.  Grammar leads to a concise description of the plot and its contents
+3.  We can add layers to modify the graphics, each with their own basic grammar (just like we combine sentences and clauses to build a rich, descriptive paragraph)
+
+![A pyramid view of the major components of the grammar of graphics, with data as the base, aesthetics building on data, scales building on aesthetics, geometric objects, statistics, facets, and the coordinate system at the top of the pyramid. Source: [@sarkarComprehensiveGuideGrammar2018]](images/week-2/grammar-pyramid.png){fig-alt="A pyramid view of the major components of the grammar of graphics, with data as the base, aesthetics building on data, scales building on aesthetics, geometric objects, statistics, facets, and the coordinate system at the top of the pyramid."}  
+
+
+
+## Making Your First ggplot
+
+
+### `r emo::ji("check")` Check-in
+
+**Question 1** -- What specifically does the code `ggplot(data = mpg)` do?
+
+-   Creates a blank plot
+-   Makes a scatterplot of the first two variables in the `mpg` dataset
+-   Creates a ggplot with the `mpg` dataset
+
+## Aesthetics
+
+`r emo::ji("book")` [Required Reading: Layers - Aesthetic Mappings](https://r4ds.hadley.nz/layers#aesthetic-mappings).
+
+### `r emo::ji("check")` Check-in
+
+```{r}
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy), color = "blue")
+```
+
+**Question 2:** What aesthetics does this plot contain?
+
+-   x
+-   y
+-   color
+-   data
+
+**Question 3:** Which of the following changes would set the color of the points
+to be blue?
+
+```{r}
+#| eval: false
+#| label: color-by-cylinder
+
+## Option A
+ggplot(data = mpg) +
+geom_point(
+  mapping = aes(x = displ, 
+                y = hwy, 
+                color = blue)
+  )
+
+## Option B
+ggplot(data = mpg) +
+geom_point(
+  mapping = aes(x = displ, 
+                y = hwy), 
+  color = "blue"
+  )
+
+## Option C
+ggplot(data = mpg, 
+       mapping = aes(color = "blue")
+       ) +
+geom_point(
+  mapping = aes(x = displ, 
+                y = hwy)
+  )
+```
+
+## geoms
+
+### What type of chart to use?
+
+It can be hard to know what type of chart to use for a particular type of data. I recommend figuring out what you want to show first, and then thinking about how to show that data with an appropriate plot type. Consider the following factors:
+
+-   What type of variable is `x`? Categorical? Continuous? Discrete?
+
+-   What type of variable is `y`?
+
+-   How many observations do I have for each `x` / `y` variable?
+
+-   Are there any important moderating variables?
+
+-   Do I have data that might be best shown in small multiples? E.g. a categorical moderating variable and a lot of data, where the categorical variable might be important for showing different features of the data?
+
+Once you've thought through this, take a look through catalogs like the [R Graph Gallery](https://r-graph-gallery.com/) to see what visualizations match your data and use-case.
+
+`r emo::ji("book")` [Required Reading: Layers - Geometric Objects](https://r4ds.hadley.nz/layers#sec-geometric-objects).
+
+`r emo::ji("computer")` Required Tutorials
+
+-   [Bar Charts](https://r-primers.andrewheiss.com/visualize-data/02-bar-charts/)
+-   [Histograms](https://r-primers.andrewheiss.com/visualize-data/03-histograms/)
+-   [Scatterplots](https://r-primers.andrewheiss.com/visualize-data/03-histograms/)
+-   [Line Plots](https://r-primers.andrewheiss.com/visualize-data/06-line-graphs/)
+
+### `r emo::ji("check")` Check-in
+
+**Question 4:** Match each plot with the `geom_XXX()` function used to create it!
+
+::: columns
+::: {.column width="50%"}
+-   Line Chart
+-   Boxplot
+-   Histogram
+-   Area Chart
+:::
+
+::: {.column width="50"}
+-   `geom_boxplot()`
+-   `geom_point()`
+-   `geom_hist()`
+-   `geom_bar()`
+-   `geom_smooth()`
+-   `geom_point()`
+-   `geom_area()`
+-   `geom_line()`
+-   `geom_histogram()`
+:::
+:::
+
+## Getting a Bit Fancier
+
+In this section we dig a bit deeper into how we can make our code more efficient and other ways we can add additional variables to our plots.
+
+### Global vs. local aesthetics
+
+The aesthetic mappings that are defined in `ggplot()` are the *global level* aesthetics, that is they are inherited by each of the subsequent `geom_` layers of the plot. However, each `geom_` function in `ggplot2` can also take its own mapping arguments, which allows for aesthetic mappings at the *local level* that are combined with those inherited from the global level.  
+
+### `r emo::ji("check")` Check-in
+
+**Question 5:** Match the code to the type of aesthetics that are being used:
+
+::: columns
+::: {.column width="20%"}
+
+</br>
+
+**Global**
+
+</br>
+</br>
+
+**Local**
+:::
+
+::: {.column width="80%"}
+```{r}        
+#| eval: false
+#| label: global-aesthetics
+
+ggplot(data = mpg, 
+       mapping = aes(x = mpg, y = hwy)
+       ) + 
+  geom_point()
+```
+
+```{r}
+#| eval: false
+#| label: local-aesthetics
+
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = mpg, y = hwy))
+```
+:::
+:::
+
+## Facets
+
+`r emo::ji("book")` [Required Reading: Layers - Facets](https://r4ds.hadley.nz/layers#facets).
+
+## Data transformations
+
+`r emo::ji("book")` [Required Reading: Layers - Statistical Transformations](https://r4ds.hadley.nz/layers#statistical-transformations).
+
+## Changing the positions of bars
+
+`r emo::ji("book")` [Required Reading: Layers - Position Adjustments](https://r4ds.hadley.nz/layers#position-adjustments).
+
+### `r emo::ji("check")` Check-in
+
+**Question 6:** What arguments for `geom_jitter()` control the amount of jittering?
+
+-   width
+-   height
+-   stat
+-   position
+-   na.rm
+-   show.legend
+-   data
+-   mapping
+
+</br>
+
+## Plot Customizations
+
+`r emo::ji("book")` [Required Reading: Communication](https://r4ds.hadley.nz/communication)
+
+<!-- `r emo::ji("play button")` [Required Video: Axis labels, color themes, and legends, oh my! (7 minutes)](http://somup.com/crffFDbHiU) -->
+
+### `r emo::ji("check")` Check-in
+
+**Question 7:** What can the `labs()` function do? Select all that apply.
+
+-   Customize the x-axis label
+-   Customize the y-axis label
+-   Customize the legend label
+-   Customize the plot title
+-   Add a caption to the plot

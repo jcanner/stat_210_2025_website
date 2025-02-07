@@ -53,7 +53,9 @@ website:
             text: "Week 2 - Quarto"
           - href: weeks/week-3-version-control.qmd
             text: "Week 3 - Version Control"
-      - section: "Labs"
+          - href: weeks/week-4-ggplot.qmd
+            text: "Week 4 - Data Visualization"
+      - section: "Labs" 
         contents:
           - href: labs/instructions/lab-1-instructions.qmd
             text: "Lab 1 & Challenge 1 Instructions"

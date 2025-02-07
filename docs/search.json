@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Statistical Computing with R",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic & Preview Activities\nPractice Activity\n\n\n\n\n1\nFriday, 1/24\nIntro to R & RStudio\nBroken Circles Group Warm-up\nCreating Pair Programming Norms\nData Cleaning, Visualization Puzzle\n\n\n2\nFriday, 1/31\nIntro to Quarto\nExpert Designer\nPair Activity 1: Secret Code\n\n\n3\nFriday, 2/7\nIntro to Version Control",
+    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic & Preview Activities\nPractice Activity\n\n\n\n\n1\nFriday, 1/24\nIntro to R & RStudio\nBroken Circles Group Warm-up\nCreating Pair Programming Norms\nData Cleaning, Visualization Puzzle\n\n\n2\nFriday, 1/31\nIntro to Quarto\nPair Activity 1: Secret Code\n\n\n3\nFriday, 2/7\nIntro to Version Control\nExpert Designer\nPair Activity 2: Secret Code Revisited\n\n\n4\nFriday, 2/14\nIntro to Data Visualization",
     "crumbs": [
       "Course information",
       "Weekly Schedule"
@@ -927,6 +927,138 @@
     "crumbs": [
       "Labs",
       "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4-ggplot.html",
+    "href": "weeks/week-4-ggplot.html",
+    "title": "Introduction to ggplot",
+    "section": "",
+    "text": "The greatest possibilities of visual display lie in vividness and inescapability of the intended message. A visual display can stop your mental flow in its tracks and make you think. A visual display can force you to notice what you never expected to see. (“Why, that scatter diagram has a hole in the middle!”) – John Tukey, Data Based Graphics: Visual Display in the Decades to Come",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4-ggplot.html#learning-objectives",
+    "href": "weeks/week-4-ggplot.html#learning-objectives",
+    "title": "Introduction to ggplot",
+    "section": "0.1 Learning Objectives",
+    "text": "0.1 Learning Objectives\n\nDescribe charts using the grammar of graphics\nCreate layered graphics that highlight multiple aspects of the data\nEvaluate existing charts and develop new versions that improve accessibility and readability",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4-ggplot.html#loading-in-the-ggplot2-package",
+    "href": "weeks/week-4-ggplot.html#loading-in-the-ggplot2-package",
+    "title": "Introduction to ggplot",
+    "section": "0.2 Loading in the ggplot2 Package",
+    "text": "0.2 Loading in the ggplot2 Package\nIn this class, we’re going to use the ggplot2 package to create graphics in R. This package is already installed as part of the tidyverse, but can be installed:\n\ninstall.packages(\"ggplot2\") #only needs to happen once - Do not include in Quarto documents!\n\nand/or loaded:\n\nlibrary(\"ggplot2\")\n\n# alternatively\nlibrary(\"tidyverse\") # (my preference!)\n\n\n\n\n\n\nBuilding a masterpiece, by Allison Horst",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4-ggplot.html#the-grammar-of-graphics",
+    "href": "weeks/week-4-ggplot.html#the-grammar-of-graphics",
+    "title": "Introduction to ggplot",
+    "section": "1.1 The Grammar of Graphics",
+    "text": "1.1 The Grammar of Graphics\nThe grammar of graphics is an approach first introduced in Leland Wilkinson’s book (Wilkinson 2005). Unlike other graphics classification schemes, the grammar of graphics makes an attempt to describe how the data set itself relates to the components of the chart.\nThis has a few advantages:\n\nIt’s relatively easy to represent the same data set with different types of plots (and to find their strengths and weaknesses)\nGrammar leads to a concise description of the plot and its contents\nWe can add layers to modify the graphics, each with their own basic grammar (just like we combine sentences and clauses to build a rich, descriptive paragraph)\n\n\n\n\nA pyramid view of the major components of the grammar of graphics, with data as the base, aesthetics building on data, scales building on aesthetics, geometric objects, statistics, facets, and the coordinate system at the top of the pyramid. Source: (Sarkar 2018)",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4-ggplot.html#making-your-first-ggplot",
+    "href": "weeks/week-4-ggplot.html#making-your-first-ggplot",
+    "title": "Introduction to ggplot",
+    "section": "1.2 Making Your First ggplot",
+    "text": "1.2 Making Your First ggplot\n\n✅ Check-in\nQuestion 1 – What specifically does the code ggplot(data = mpg) do?\n\nCreates a blank plot\nMakes a scatterplot of the first two variables in the mpg dataset\nCreates a ggplot with the mpg dataset",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4-ggplot.html#aesthetics",
+    "href": "weeks/week-4-ggplot.html#aesthetics",
+    "title": "Introduction to ggplot",
+    "section": "1.3 Aesthetics",
+    "text": "1.3 Aesthetics\n📖 Required Reading: Layers - Aesthetic Mappings.\n\n✅ Check-in\n\nggplot(data = mpg) +\n  geom_point(mapping = aes(x = displ, y = hwy), color = \"blue\")\n\nQuestion 2: What aesthetics does this plot contain?\n\nx\ny\ncolor\ndata\n\nQuestion 3: Which of the following changes would set the color of the points to be blue?\n\n## Option A\nggplot(data = mpg) +\ngeom_point(\n  mapping = aes(x = displ, \n                y = hwy, \n                color = blue)\n  )\n\n## Option B\nggplot(data = mpg) +\ngeom_point(\n  mapping = aes(x = displ, \n                y = hwy), \n  color = \"blue\"\n  )\n\n## Option C\nggplot(data = mpg, \n       mapping = aes(color = \"blue\")\n       ) +\ngeom_point(\n  mapping = aes(x = displ, \n                y = hwy)\n  )",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4-ggplot.html#geoms",
+    "href": "weeks/week-4-ggplot.html#geoms",
+    "title": "Introduction to ggplot",
+    "section": "1.4 geoms",
+    "text": "1.4 geoms\n\nWhat type of chart to use?\nIt can be hard to know what type of chart to use for a particular type of data. I recommend figuring out what you want to show first, and then thinking about how to show that data with an appropriate plot type. Consider the following factors:\n\nWhat type of variable is x? Categorical? Continuous? Discrete?\nWhat type of variable is y?\nHow many observations do I have for each x / y variable?\nAre there any important moderating variables?\nDo I have data that might be best shown in small multiples? E.g. a categorical moderating variable and a lot of data, where the categorical variable might be important for showing different features of the data?\n\nOnce you’ve thought through this, take a look through catalogs like the R Graph Gallery to see what visualizations match your data and use-case.\n📖 Required Reading: Layers - Geometric Objects.\n💻 Required Tutorials\n\nBar Charts\nHistograms\nScatterplots\nLine Plots\n\n\n\n✅ Check-in\nQuestion 4: Match each plot with the geom_XXX() function used to create it!\n\n\n\nLine Chart\nBoxplot\nHistogram\nArea Chart\n\n\n\ngeom_boxplot()\ngeom_point()\ngeom_hist()\ngeom_bar()\ngeom_smooth()\ngeom_point()\ngeom_area()\ngeom_line()\ngeom_histogram()",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4-ggplot.html#getting-a-bit-fancier",
+    "href": "weeks/week-4-ggplot.html#getting-a-bit-fancier",
+    "title": "Introduction to ggplot",
+    "section": "1.5 Getting a Bit Fancier",
+    "text": "1.5 Getting a Bit Fancier\nIn this section we dig a bit deeper into how we can make our code more efficient and other ways we can add additional variables to our plots.\n\nGlobal vs. local aesthetics\nThe aesthetic mappings that are defined in ggplot() are the global level aesthetics, that is they are inherited by each of the subsequent geom_ layers of the plot. However, each geom_ function in ggplot2 can also take its own mapping arguments, which allows for aesthetic mappings at the local level that are combined with those inherited from the global level.\n\n\n✅ Check-in\nQuestion 5: Match the code to the type of aesthetics that are being used:\n\n\n\nGlobal\n \nLocal\n\n\nggplot(data = mpg, \n       mapping = aes(x = mpg, y = hwy)\n       ) + \n  geom_point()\n\n\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = mpg, y = hwy))",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4-ggplot.html#facets",
+    "href": "weeks/week-4-ggplot.html#facets",
+    "title": "Introduction to ggplot",
+    "section": "1.6 Facets",
+    "text": "1.6 Facets\n📖 Required Reading: Layers - Facets.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4-ggplot.html#data-transformations",
+    "href": "weeks/week-4-ggplot.html#data-transformations",
+    "title": "Introduction to ggplot",
+    "section": "1.7 Data transformations",
+    "text": "1.7 Data transformations\n📖 Required Reading: Layers - Statistical Transformations.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4-ggplot.html#changing-the-positions-of-bars",
+    "href": "weeks/week-4-ggplot.html#changing-the-positions-of-bars",
+    "title": "Introduction to ggplot",
+    "section": "1.8 Changing the positions of bars",
+    "text": "1.8 Changing the positions of bars\n📖 Required Reading: Layers - Position Adjustments.\n\n✅ Check-in\nQuestion 6: What arguments for geom_jitter() control the amount of jittering?\n\nwidth\nheight\nstat\nposition\nna.rm\nshow.legend\ndata\nmapping",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4-ggplot.html#plot-customizations",
+    "href": "weeks/week-4-ggplot.html#plot-customizations",
+    "title": "Introduction to ggplot",
+    "section": "1.9 Plot Customizations",
+    "text": "1.9 Plot Customizations\n📖 Required Reading: Communication\n\n\n✅ Check-in\nQuestion 7: What can the labs() function do? Select all that apply.\n\nCustomize the x-axis label\nCustomize the y-axis label\nCustomize the legend label\nCustomize the plot title\nAdd a caption to the plot",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
     ]
   }
 ]
