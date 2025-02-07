@@ -54,16 +54,13 @@ To access the activity and get it ready to share:
 
 <!-- Developer (typing and listening to instructions from the Coder!) -->
 
-
-
 **For each code chunk, add a `#| label:` and a `#comment` describing what the code chunk is doing. Be sure to check that all spacing is appropriate as well!**
-
 
 ## Part One: Setup
 
 Each of the following R chunks will cause an error and / or do the desired task incorrectly. Find the mistake, and correct it to complete the intended action.
 
-1.  Create vectors containing the upper case letters, lower case letters, and some punctuation marks. add a label that indicate this code chunk creates the vectors of letters and punctuation.  
+1.  Create vectors containing the upper case letters, lower case letters, and some punctuation marks. add a label that indicate this code chunk creates the vectors of letters and punctuation.
 
 ```{r}
 
@@ -101,9 +98,7 @@ len <- length(my_Symbols)
 my_symbols%Num <- 1:len
 ```
 
-
 <!-- Change roles (Developer becomes Coder)! -->
-
 
 ## Part Two: Decoding the secret message.
 
@@ -126,7 +121,6 @@ ts6 <- top_secret ___________
 
 ```
 
-
 7.  Multiply every number by 18, then subtract 257.
 
 ```{r}
@@ -135,20 +129,17 @@ ts7 <- ts6___________
 
 ```
 
-
 8.  Use the `exp()` function to exponentiate every number.
 
 ```{r}
 ts8 <- ____(ts7)
 ```
 
-
 9.  Square every number.
 
 ```{r}
 ts9 <- 
 ```
-
 
 **Checkpoint:** Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. Write the code to verify that this is true for your `top_secret` object!
 
@@ -161,15 +152,13 @@ ___(ts9 < 17)
 
 ```
 
-
 <!-- Change roles (Developer becomes Coder)! -->
 
 **Hint:** To update an object after performing an operation, you *overwrite* the existing object with its updated counterpart. This looks something like this:
 
 `x <- x + 12`,
 
-where the original value(s) in `x` have had 12 added to them, and the resulting values are put back in to the object named `x`.  Be careful with this - if you do something wrong you will need to rerun the previous code chunks to reset everything! Fortunately, the grey arrow pointing down to the green line in each code chunk runs all previous code chunks again.
-
+where the original value(s) in `x` have had 12 added to them, and the resulting values are put back in to the object named `x`. Be careful with this - if you do something wrong you will need to rerun the previous code chunks to reset everything! Fortunately, the grey arrow pointing down to the green line in each code chunk runs all previous code chunks again.
 
 Next, carry out the following steps:
 
@@ -179,13 +168,11 @@ Next, carry out the following steps:
 ts_mat <- _____(ts9, ncol = ____) 
 ```
 
-
 11. Separately from your top secret numbers, create a vector of all the even numbers between 1 and 382. Name it "evens". That is, "evens" should contain 2, 4, 6, 8 ..., 382.
 
 ```{r}
 evens <- seq(from = __ , to = __ , by = __)
 ```
-
 
 12. Subtract the "evens" vector from the first column of your secret message matrix.
 
@@ -199,13 +186,11 @@ ts_mat[, 1] <- ts_mat[, ___] - evens
 ts_mat[18:24, 3] <- ts_mat[____, ____] - ____
 ```
 
-
 14. Multiply all numbers in the 4th and 5th column by 2.
 
 ```{r}
 ts_mat[, __:__] <- 
 ```
-
 
 15. Turn your matrix back into a vector.
 
@@ -222,9 +207,7 @@ ts_vec <- ________(ts_mat)
 ___(ts_vec[____:____] >= ____)
 ```
 
-
 <!-- Change roles (Developer becomes Coder)! -->
-
 
 16. Take the square root of all numbers in indices 38 to 465.
 
@@ -232,21 +215,17 @@ ___(ts_vec[____:____] >= ____)
 ts_vec[___:___] <- ____(ts_vec[38:465])
 ```
 
-
 17. Use the `round()` function to round all numbers to the nearest whole number.
 
 ```{r}
 ts_vec <- 
 ```
 
-
-18. Replace all instances of the number 39 with 20.
-*Hint:* Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign
+18. Replace all instances of the number 39 with 20. *Hint:* Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign
 
 ```{r}
 ts_vec[ts_vec == ___ ] <- 
 ```
-
 
 **Checkpoint:** Headquarters has informed you that your final message should have 344 even numbers.
 
@@ -259,10 +238,7 @@ ___(ts_vec %% 2 == 0)
 
 ```
 
-
-
 <!-- Change roles (Developer becomes Coder)! -->
-
 
 ## Part 3: The secret message!
 
@@ -276,4 +252,4 @@ Google the first line of this message, if you do not recognize it, to see what p
 
 ## Part 4: Wrap up
 
-The last step is to make each code chunk hidden, even though it runs by modifying the YAML. Once knit, Export the project and submit with your "quiz" for the week. Note that each person should be submit a copy.  
+The last step is to make each code chunk hidden, even though it runs by modifying the YAML. Once knit, Export the project and submit with your "quiz" for the week. Note that each person should be submit a copy.

@@ -1,7 +1,7 @@
 ---
-title: "Practice Activity 1: Find the Mistakes"
+title: "Practice Activity 2: Modernizing the Process"
 format: html
-editor: visual
+editor: source
 execute: 
   echo: true
   eval: false
@@ -13,15 +13,10 @@ execute:
 library(tidyverse)
 ```
 
-Today you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message.
+Today you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message using the `tidyverse`. First thing is to include the package in a setup chunk above!  
 
 ***This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.***
 
-Some advice:
-
--   Google can be your friend! If an error is confusing, copy it into Google and see what other people are saying. BUT only Google if you and your partner cannot determine the solution. Google is the last resort.
-
--   Just because there is no error message doesn't mean everything went smoothly! Use the **console** (lower left pane) to check each step and make sure you have accomplished what you wanted to accomplish.
 
 ## Groupwork Protocols
 
@@ -41,7 +36,7 @@ Remember, your group is expected to adhere to the following norms:
 
 ## Part Zero: Accessing the Practice Activity
 
-<!-- This is a Quarto Comment - if you highlight any markdown text and pre CTRL+Shift+C it will make it a comment which can only be seen in the un-rendered Quarto document-->
+<!-- This is a Quarto Comment - if you highlight any markdown text and press CTRL+Shift+C it will make it a comment which can only be seen in the un-rendered Quarto document-->
 
 To access the activity and get it ready to share:
 
@@ -54,13 +49,17 @@ To access the activity and get it ready to share:
 
 <!-- Developer (typing and listening to instructions from the Coder!) -->
 
+**For each code chunk, add a `#| label:` and a `#comment` describing what the code chunk is doing. Be sure to check that all spacing is appropriate as well!**
+
 ## Part One: Setup
 
 Each of the following R chunks will cause an error and / or do the desired task incorrectly. Find the mistake, and correct it to complete the intended action.
 
-1.  Create vectors containing the upper case letters, lower case letters, and some punctuation marks.
+1.  Create vectors containing the upper case letters, lower case letters, and some punctuation marks. add a label that indicate this code chunk creates the vectors of letters and punctuation.
 
 ```{r}
+#| label: create-vectors
+
 lower_case <- c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
                 "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
 
@@ -71,64 +70,64 @@ punctuation <- c(".", ",", "!", "?", "'", '"', "(", ")", " ", "-", ";", ":")
 
 ```
 
+Using the above, we can complete the following 5 steps within a few lines of code using the `tidyverse`.
+
 2.  Make **one** long **vector** containing all the symbols.
-
-```{r}
-my_symbols <- c(lower_case, upper_case, punctuation)
-```
-
 3.  Turn the `my_symbols` vector into a data frame, with one column named "symbol".
-
-```{r}
-my_symbols <- data.frame(symbol = my_symbols)
-```
-
 4.  Find the total number of symbols we have in our data frame.
-
-```{r}
-len <- length(my_symbols$symbol)
-```
-
 5.  Create a new variable in your dataframe that assigns a number to each symbol.
 
+
 ```{r}
-my_symbols$num <- 1:len
+#| label: add-label-1
+# add comment here
+
+my_symbols <- tibble(symbols = c(lower_case, 
+                                 upper_case, 
+                                 punctuation)) |> 
+              mutate(num = row_number()) 
 ```
+
+
+
+
+
+<!-- Developer Stage your Changes, Commit, and Push to the Git Repository-->
+<!-- Now change roles (Developer becomes Coder) and the new Developer should PULL down the repository to make changes  -->
 
 ## Part Two: Decoding the secret message.
 
 This chunk will load up the encoded secret message as a vector:
 
 ```{r}
+#| label: read-in-top-secret
+#extracts the code from a dropbox file and pulls out generic first vector X1
 library(readr)
 top_secret <- read_csv("https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1", 
                        col_names = FALSE)$X1
 
 ```
 
-By altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, **in the order given** below.
+By altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, **in the order given** below, but replace all of this mess with the tidyverse code below.
 
 6.  Add 14 to every number.
-
 7.  Multiply every number by 18, then subtract 257.
-
 8.  Use the `exp()` function to exponentiate every number.
-
 9.  Square every number.
 
-**Hint:** To update a vector after performing an operation, you *overwrite* the existing object with its updated counterpart. This looks something like this:
-
-`x <- x + 12`,
-
-where the original value(s) in `x` have had 12 added to them, and the resulting values are put back in to the object named `x`.
-
 ```{r}
-## Code to carry out steps 6-9 
+#| label: add-label-2
+#add comment here
+#there are several ways to do this, the way below doesn't overwrite any column so you "don't lose work"
 
-ts6 <- top_secret + 14
-ts7 <- ts6*18 - 257
-ts8 <- exp(ts7)
-ts9 <- ts8^2
+code_break <- top_secret |> 
+  as_tibble() |> 
+  mutate(step6 = top_secret + 14,
+         step7 = step6*18 - 257,
+         step8 = exp(step7),
+         step9 = step8^2)
+
+head(code_break) #see the first few lines here
 
 ```
 
@@ -137,35 +136,57 @@ ts9 <- ts8^2
 *Hint:* This is what is called a "relational" comparison, where you compare an object to a number and R will give you a vector of TRUEs and FALSEs based on whether the comparison is / is not met. You can then use these TRUEs and FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.
 
 ```{r}
-# Write code to verify that there are 352 numbers with values **below** 17
-sum(ts9 < 17)
+#| label: add-label-3
+#add comment here
+
+code_break |> 
+  summarize(total = sum(step9 < 17))
 
 ```
+
+<!-- Developer Stage your Changes, Commit, and Push to the Git Repository-->
+<!-- Now change roles (Developer becomes Coder) and the new Developer should PULL down the repository to make changes on their computer -->
 
 Next, carry out the following steps:
 
 10. Turn your vector of numbers into a matrix with 5 columns.
 
+```{r}
+#| label: add-label-4
+#add comment here
+code_matrix <- code_break |> 
+  pull(step9) |> 
+  matrix(ncol = 5) |> 
+  as_tibble(column_name = TRUE) |> 
+  mutate(id = row_number())
+  
+```
+
 11. Separately from your top secret numbers, create a vector of all the even numbers between 1 and 382. Name it "evens". That is, "evens" should contain 2, 4, 6, 8 ..., 382.
 
+```{r}
+#| label: add-label-5
+#add comment here
+evens <- seq(from = 2, to = 382, by = 2)
+```
+
 12. Subtract the "evens" vector from the first column of your secret message matrix.
-
 13. Subtract 100 from all numbers 18-24th rows of the 3rd column.
-
 14. Multiply all numbers in the 4th and 5th column by 2.
-
 15. Turn your matrix back into a vector.
 
 ```{r}
-## Code to carry out steps 10-15
-
-ts_mat <- matrix(ts9, ncol = 5)
-evens <- seq(2,382, by = 2)
-ts_mat[,1] <- ts_mat[,1] - evens
-ts_mat[18:24, 3] <- ts_mat[18:24, 3] - 100
-ts_mat[, 4:5] <- ts_mat[, 4:5]*2
-ts_vec <- as.vector(ts_mat)
-
+#| label: add-label-6
+#add comment here
+code_vector <- code_matrix |> 
+  mutate(V1 = V1 - evens) |> 
+  mutate(V3 = if_else(id %in% 18:24, V3 - 100, V3)) |> 
+  mutate(V4 = V4*2, 
+         V5 = V5*2) |> 
+  select(-id) |> 
+  pivot_longer(V1:V5, names_to = "column", values_to = "code") |> 
+  arrange(column) |> 
+  mutate(id = row_number())
 ```
 
 **Checkpoint:** Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. Write the code to verify that this is true for your `top_secret` object!
@@ -173,45 +194,56 @@ ts_vec <- as.vector(ts_mat)
 *Hint:* Use a relational comparison similar to what you used in the last checkpoint, but here you will need to subset values from your vector!
 
 ```{r}
-# Write code to verify that indices 500 and beyond have values **below** 100
-sum(ts_vec[500:955] >= 100)
-
+#| label: add-label-7
+#code to verify that indices 500 and beyond have values **below** 100
+code_vector |> 
+  summarize(beyond = sum(if_else(id %in% 500:max(id) >= 100, TRUE, FALSE))) 
 ```
+
+<!-- Change roles (Developer becomes Coder)! -->
 
 16. Take the square root of all numbers in indices 38 to 465.
-
 17. Use the `round()` function to round all numbers to the nearest whole number.
-
-18. Replace all instances of the number 39 with 20.
-
-*Hint:* Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign!
+18. Replace all instances of the number 39 with 20. *Hint:* Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign
 
 ```{r}
-# Code for steps 16-18
-ts_vec[38:465] <- sqrt(ts_vec[38:465])
-ts_vec <- round(ts_vec)
-ts_vec[ts_vec == 39] <- 20
+#| label: add-label-8
+#add comment here
+code_vector_update <- code_vector |> 
+  mutate(code = if_else(id %in% 38:465, sqrt(code), code)) |> 
+  mutate(code = round(code, digits = 0)) |> 
+  mutate(code = if_else(code == 39, 20, code))
 ```
+
+
 
 **Checkpoint:** Headquarters has informed you that your final message should have 344 even numbers.
 
 *Hint:* Checking for divisibility is an interesting operation that isn't done much in R. Modulus is the operation you are interested in, where you are checking for whether the numbers are divisible by 2, with no remainder. See what you can find about modulus in R!
 
 ```{r}
+#| label: add-label-9
 # Code to verify how many even numbers are in your top_secret vector
 
-sum(ts_vec %% 2 == 0)
-
-
+code_vector_update |> 
+  summarize(even = sum(code %% 2 == 0))
 
 ```
+
+<!-- Change roles (Developer becomes Coder)! -->
 
 ## Part 3: The secret message!
 
 Use your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:
 
-```{r, eval = FALSE}
-stringr::str_c(my_symbols$symbol[ts_vec], collapse = "")
+```{r}
+#| label: add-label-10
+# add comment here
+code_vector_update |> 
+  left_join(my_symbols, by = c("code" = "num")) |> 
+  pull(symbols) |> 
+  stringr::str_c(collapse = "")
 ```
 
 Google the first line of this message, if you do not recognize it, to see what poem it is.
+

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Practice Activity 1: Find the Mistakes – Statistical Computing with R</title>
+<title>Practice Activity 2: Version Control – Statistical Computing with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Practice Activity 1: Find the Mistakes</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Practice Activity 2: Version Control</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -243,6 +243,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#part-one-setup" id="toc-part-one-setup" class="nav-link" data-scroll-target="#part-one-setup">Part One: Setup</a></li>
   <li><a href="#part-two-decoding-the-secret-message." id="toc-part-two-decoding-the-secret-message." class="nav-link" data-scroll-target="#part-two-decoding-the-secret-message.">Part Two: Decoding the secret message.</a></li>
   <li><a href="#part-3-the-secret-message" id="toc-part-3-the-secret-message" class="nav-link" data-scroll-target="#part-3-the-secret-message">Part 3: The secret message!</a></li>
+  <li><a href="#part-4-wrap-up" id="toc-part-4-wrap-up" class="nav-link" data-scroll-target="#part-4-wrap-up">Part 4: Wrap up</a></li>
+  <li><a href="#part-5-preview-the-tidyverse" id="toc-part-5-preview-the-tidyverse" class="nav-link" data-scroll-target="#part-5-preview-the-tidyverse">Part 5: Preview the <code>tidyverse</code></a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jcanner/stat_210_2025_website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -251,7 +253,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Practice Activity 1: Find the Mistakes</h1>
+<h1 class="title">Practice Activity 2: Version Control</h1>
 </div>
 
 
@@ -292,25 +294,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="part-zero-accessing-the-practice-activity" class="level2">
 <h2 class="anchored" data-anchor-id="part-zero-accessing-the-practice-activity">Part Zero: Accessing the Practice Activity</h2>
-<!-- This is a Quarto Comment - if you highlight any markdown text and pre CTRL+Shift+C it will make it a comment which can only be seen in the un-rendered Quarto document-->
+<!-- This is a Quarto Comment - if you highlight any markdown text and press CTRL+Shift+C it will make it a comment which can only be seen in the un-rendered Quarto document-->
 <p>To access the activity and get it ready to share:</p>
 <ol type="1">
-<li>Log into your <a href="https://rstudio.otterstat.org/">CSUMB R Server Account</a>.<br>
+<li>The Developer (partner with first name alphabetically) should create a GitHub repo called “pa-2-code-breaking”.<br>
 </li>
-<li>Choose one partner (with the closest upcoming birthday) to create an R Project called “pa-1-intro-quarto”.<br>
+<li>To the description add “Peer Activity 2 with NAME1 and NAME 2” and check to add a README file and Create the Repository.<br>
 </li>
-<li>Upload the <code>pa1-base-r.qmd</code> into the project folder.<br>
+<li>Under Settings, go to Collaborators, the Add people and search for your partner by username or email.<br>
 </li>
-<li>Share the project with the other partner, go to File &gt; Share Project &gt; Type partner’s username &gt; Click Add</li>
+<li>The partner should then log into GitHub and accept the invitation. Now you both should be able to push/pull to the same repository.<br>
+</li>
+<li>The Developer should then create a Version Control R Project on their computer and then download the <code>pa2-base-r-vc.qmd</code> (on Canvas) file into the folder on your computer.<br>
+</li>
+<li>Test you connection by staging, committing, and pushing the new file (.Rproj and .qmd) to the GitHub Repository.</li>
 </ol>
-<!-- Partner with the closest upcoming birthday starts as the... -->
+<p>Now you are ready to start!</p>
+<!-- Partner with the first name alphabetically starts as the... -->
 <!-- Developer (typing and listening to instructions from the Coder!) -->
+<p><strong>For each code chunk, add a <code>#| label:</code> and a <code>#comment</code> describing what the code chunk is doing. Be sure to check that all spacing is appropriate as well!</strong></p>
 </section>
 <section id="part-one-setup" class="level2">
 <h2 class="anchored" data-anchor-id="part-one-setup">Part One: Setup</h2>
-<p>Each of the following R chunks will cause an error and / or do the desired task incorrectly. Find the mistake, and correct it to complete the intended action.</p>
+<p>Each of the following R chunks will cause an error and / or do the desired task incorrectly. The correct code is on the PA2 Activity on the webpage, please copy the correct code into each code chunk and add a label and comment.</p>
 <ol type="1">
-<li>Create vectors containing the upper case letters, lower case letters, and some punctuation marks.</li>
+<li>Create vectors containing the upper case letters, lower case letters, and some punctuation marks. add a label that indicate this code chunk creates the vectors of letters and punctuation.</li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>lower_case <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>, <span class="st">"f"</span>, <span class="st">"g"</span>, <span class="st">"h"</span>, <span class="st">"i"</span>, <span class="st">"j"</span>, <span class="st">"k"</span>, <span class="st">"l"</span>, <span class="st">"m"</span>,</span>
@@ -345,6 +353,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>my_symbols<span class="sc">$</span>num <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span>len</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<!-- Change roles (Developer becomes Coder)! -->
 </section>
 <section id="part-two-decoding-the-secret-message." class="level2">
 <h2 class="anchored" data-anchor-id="part-two-decoding-the-secret-message.">Part Two: Decoding the secret message.</h2>
@@ -356,80 +365,126 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>By altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, <strong>in the order given</strong> below.</p>
 <ol start="6" type="1">
-<li><p>Add 14 to every number.</p></li>
-<li><p>Multiply every number by 18, then subtract 257.</p></li>
-<li><p>Use the <code>exp()</code> function to exponentiate every number.</p></li>
-<li><p>Square every number.</p></li>
+<li>Add 14 to every number.</li>
 </ol>
-<p><strong>Hint:</strong> To update a vector after performing an operation, you <em>overwrite</em> the existing object with its updated counterpart. This looks something like this:</p>
-<p><code>x &lt;- x + 12</code>,</p>
-<p>where the original value(s) in <code>x</code> have had 12 added to them, and the resulting values are put back in to the object named <code>x</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Code to carry out steps 6-9 </span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>ts6 <span class="ot">&lt;-</span> top_secret <span class="sc">+</span> <span class="dv">14</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>ts7 <span class="ot">&lt;-</span> ts6<span class="sc">*</span><span class="dv">18</span> <span class="sc">-</span> <span class="dv">257</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>ts8 <span class="ot">&lt;-</span> <span class="fu">exp</span>(ts7)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>ts9 <span class="ot">&lt;-</span> ts8<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ts6 <span class="ot">&lt;-</span> top_secret <span class="sc">+</span> <span class="dv">14</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="7" type="1">
+<li>Multiply every number by 18, then subtract 257.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ts7 <span class="ot">&lt;-</span> ts6<span class="sc">*</span><span class="dv">18</span> <span class="sc">-</span> <span class="dv">257</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="8" type="1">
+<li>Use the <code>exp()</code> function to exponentiate every number.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ts8 <span class="ot">&lt;-</span> <span class="fu">exp</span>(ts7)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="9" type="1">
+<li>Square every number.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ts9 <span class="ot">&lt;-</span> ts8<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Checkpoint:</strong> Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. Write the code to verify that this is true for your <code>top_secret</code> object!</p>
 <p><em>Hint:</em> This is what is called a “relational” comparison, where you compare an object to a number and R will give you a vector of TRUEs and FALSEs based on whether the comparison is / is not met. You can then use these TRUEs and FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write code to verify that there are 352 numbers with values **below** 17</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(ts9 <span class="sc">&lt;</span> <span class="dv">17</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write code to verify that there are 352 numbers with values **below** 17</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(ts9 <span class="sc">&lt;</span> <span class="dv">17</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<!-- Change roles (Developer becomes Coder)! -->
+<p><strong>Hint:</strong> To update an object after performing an operation, you <em>overwrite</em> the existing object with its updated counterpart. This looks something like this:</p>
+<p><code>x &lt;- x + 12</code>,</p>
+<p>where the original value(s) in <code>x</code> have had 12 added to them, and the resulting values are put back in to the object named <code>x</code>. Be careful with this - if you do something wrong you will need to rerun the previous code chunks to reset everything! Fortunately, the grey arrow pointing down to the green line in each code chunk runs all previous code chunks again.</p>
 <p>Next, carry out the following steps:</p>
 <ol start="10" type="1">
-<li><p>Turn your vector of numbers into a matrix with 5 columns.</p></li>
-<li><p>Separately from your top secret numbers, create a vector of all the even numbers between 1 and 382. Name it “evens”. That is, “evens” should contain 2, 4, 6, 8 …, 382.</p></li>
-<li><p>Subtract the “evens” vector from the first column of your secret message matrix.</p></li>
-<li><p>Subtract 100 from all numbers 18-24th rows of the 3rd column.</p></li>
-<li><p>Multiply all numbers in the 4th and 5th column by 2.</p></li>
-<li><p>Turn your matrix back into a vector.</p></li>
+<li>Turn your vector of numbers into a matrix with 5 columns.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Code to carry out steps 10-15</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>ts_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(ts9, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>evens <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">2</span>,<span class="dv">382</span>, <span class="at">by =</span> <span class="dv">2</span>)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>ts_mat[,<span class="dv">1</span>] <span class="ot">&lt;-</span> ts_mat[,<span class="dv">1</span>] <span class="sc">-</span> evens</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>ts_mat[<span class="dv">18</span><span class="sc">:</span><span class="dv">24</span>, <span class="dv">3</span>] <span class="ot">&lt;-</span> ts_mat[<span class="dv">18</span><span class="sc">:</span><span class="dv">24</span>, <span class="dv">3</span>] <span class="sc">-</span> <span class="dv">100</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>ts_mat[, <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>] <span class="ot">&lt;-</span> ts_mat[, <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>]<span class="sc">*</span><span class="dv">2</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>ts_vec <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(ts_mat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ts_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(ts9, <span class="at">ncol =</span> <span class="dv">5</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="11" type="1">
+<li>Separately from your top secret numbers, create a vector of all the even numbers between 1 and 382. Name it “evens”. That is, “evens” should contain 2, 4, 6, 8 …, 382.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>evens <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">2</span>, <span class="at">to =</span> <span class="dv">382</span>, <span class="at">by =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="12" type="1">
+<li>Subtract the “evens” vector from the first column of your secret message matrix.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>ts_mat[, <span class="dv">1</span>] <span class="ot">&lt;-</span> ts_mat[, <span class="dv">1</span>] <span class="sc">-</span> evens</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="13" type="1">
+<li>Subtract 100 from all numbers 18-24th rows of the 3rd column.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>ts_mat[<span class="dv">18</span><span class="sc">:</span><span class="dv">24</span>, <span class="dv">3</span>] <span class="ot">&lt;-</span> ts_mat[<span class="dv">18</span><span class="sc">:</span><span class="dv">24</span>, <span class="dv">3</span>] <span class="sc">-</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="14" type="1">
+<li>Multiply all numbers in the 4th and 5th column by 2.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ts_mat[, <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>] <span class="ot">&lt;-</span> ts_mat[, <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>]<span class="sc">*</span><span class="dv">2</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="15" type="1">
+<li>Turn your matrix back into a vector.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>ts_vec <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(ts_mat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Checkpoint:</strong> Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. Write the code to verify that this is true for your <code>top_secret</code> object!</p>
 <p><em>Hint:</em> Use a relational comparison similar to what you used in the last checkpoint, but here you will need to subset values from your vector!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write code to verify that indices 500 and beyond have values **below** 100</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(ts_vec[<span class="dv">500</span><span class="sc">:</span><span class="dv">955</span>] <span class="sc">&gt;=</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write code to verify that indices 500 and beyond have values **below** 100</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(ts_vec[<span class="dv">500</span><span class="sc">:</span><span class="dv">955</span>] <span class="sc">&gt;=</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<!-- Change roles (Developer becomes Coder)! -->
 <ol start="16" type="1">
-<li><p>Take the square root of all numbers in indices 38 to 465.</p></li>
-<li><p>Use the <code>round()</code> function to round all numbers to the nearest whole number.</p></li>
-<li><p>Replace all instances of the number 39 with 20.</p></li>
+<li>Take the square root of all numbers in indices 38 to 465.</li>
 </ol>
-<p><em>Hint:</em> Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for steps 16-18</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>ts_vec[<span class="dv">38</span><span class="sc">:</span><span class="dv">465</span>] <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(ts_vec[<span class="dv">38</span><span class="sc">:</span><span class="dv">465</span>])</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>ts_vec <span class="ot">&lt;-</span> <span class="fu">round</span>(ts_vec)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>ts_vec[ts_vec <span class="sc">==</span> <span class="dv">39</span>] <span class="ot">&lt;-</span> <span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>ts_vec[<span class="dv">38</span><span class="sc">:</span><span class="dv">465</span>] <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(ts_vec[<span class="dv">38</span><span class="sc">:</span><span class="dv">465</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="17" type="1">
+<li>Use the <code>round()</code> function to round all numbers to the nearest whole number.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>ts_vec <span class="ot">&lt;-</span> <span class="fu">round</span>(ts_vec, <span class="at">digits =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="18" type="1">
+<li>Replace all instances of the number 39 with 20. <em>Hint:</em> Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>ts_vec[ts_vec <span class="sc">==</span> <span class="dv">39</span> ] <span class="ot">&lt;-</span> <span class="dv">20</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Checkpoint:</strong> Headquarters has informed you that your final message should have 344 even numbers.</p>
 <p><em>Hint:</em> Checking for divisibility is an interesting operation that isn’t done much in R. Modulus is the operation you are interested in, where you are checking for whether the numbers are divisible by 2, with no remainder. See what you can find about modulus in R!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code to verify how many even numbers are in your top_secret vector</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(ts_vec <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code to verify how many even numbers are in your top_secret vector</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(ts_vec <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<!-- Change roles (Developer becomes Coder)! -->
 </section>
 <section id="part-3-the-secret-message" class="level2">
 <h2 class="anchored" data-anchor-id="part-3-the-secret-message">Part 3: The secret message!</h2>
 <p>Use your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>stringr<span class="sc">::</span><span class="fu">str_c</span>(my_symbols<span class="sc">$</span>symbol[ts_vec], <span class="at">collapse =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>stringr<span class="sc">::</span><span class="fu">str_c</span>(my_symbols<span class="sc">$</span>symbol[ts_vec], <span class="at">collapse =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Google the first line of this message, if you do not recognize it, to see what poem it is.</p>
+</section>
+<section id="part-4-wrap-up" class="level2">
+<h2 class="anchored" data-anchor-id="part-4-wrap-up">Part 4: Wrap up</h2>
+<p>The last step is to make each code chunk hidden, even though it runs by modifying the YAML. Once knit, Export the project and submit with your “quiz” for the week. Note that each person should be submit a copy.</p>
+</section>
+<section id="part-5-preview-the-tidyverse" class="level1">
+<h1>Part 5: Preview the <code>tidyverse</code></h1>
+<p>If you want to see what the above code would look like done completely in the <code>tidyverse</code> you can check out the <a href="../../group-activities/week-3/pa2-vc-intro-tidy-solution.html">PA 2: Modernizing the Process</a>. You will notice that in some cases the <code>tidyverse</code> is much easier to understand and is more efficient (less code) while in other cases <code>base</code> R is more efficient. We are always trying to find the best tool and somethings that is a <code>tidyverse</code> tool and other times it will be a <code>base</code> tool.</p>
 
 
 </section>
