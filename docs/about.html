@@ -155,14 +155,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./course-materials/course-overview.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weekly Schedule</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./course-materials/course_resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R Resources</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./group-activities/pair-programming-norms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pair Programming Norms</span></a>
   </div>
 </li>
       </ul>
@@ -179,14 +185,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./weeks/week-1-r-rstudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 1, Part 1 - R &amp; RStudio</span></a>
+ <span class="menu-text">Week 1 - R &amp; RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./weeks/week-2-quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2 - Quarto</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./weeks/week-3-version-control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3 - Version Control</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./weeks/week-4-ggplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4 - Data Visualization</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Labs</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Labs</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs/instructions/lab-1-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 1 &amp; Challenge 1 Instructions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs/instructions/lab-2-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 2 Instructions</span></a>
+  </div>
+</li>
+      </ul>
   </li>
     </ul>
     </div>
@@ -465,7 +508,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/github\.com\/jcanner\/stat_210_2025_website");
+      var filterRegex = new RegExp("https:\/\/github\.com\/jcanner\/stat_210_2025_website\/docs");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

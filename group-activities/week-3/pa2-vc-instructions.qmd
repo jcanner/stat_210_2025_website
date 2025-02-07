@@ -258,6 +258,6 @@ Google the first line of this message, if you do not recognize it, to see what p
 
 The last step is to make each code chunk hidden, even though it runs by modifying the YAML. Once knit, Export the project and submit with your "quiz" for the week. Note that each person should be submit a copy.
 
-# Part 5: Preview the `tidyverse`  
+## Part 5: Preview the `tidyverse`  
 If you want to see what the above code would look like done completely in the `tidyverse` you can check out the [PA 2: Modernizing the Process](pa2-vc-intro-tidy-solution.qmd). You will notice that in some cases the `tidyverse` is much easier to understand and is more efficient (less code) while in other cases `base` R is more efficient. We are always trying to find the best tool and somethings that is a `tidyverse` tool and other times it will be a `base` tool.  
 

@@ -59,7 +59,8 @@ website:
         contents:
           - href: labs/instructions/lab-1-instructions.qmd
             text: "Lab 1 & Challenge 1 Instructions"
-          
+          - href: labs/instructions/lab-2-instructions.qmd
+            text: "Lab 2 Instructions"          
    
 
 format:

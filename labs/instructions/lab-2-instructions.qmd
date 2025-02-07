@@ -1,0 +1,88 @@
+---
+title: "Lab 2: Getting Started on your Portfolio"
+author: "Instructions"
+format: html
+number-sections: true
+number-depth: 2
+editor: source
+code-block-background: true
+execute:
+  echo: true
+  eval: false
+---
+
+# Part One: Workflow for Lab Setup
+
+## Step 1: Make a New Project in RStudio
+Either under File, or in the top right corner where the current project name is, select
+
+![](images/create-new-project.png){fig-alt="Screenshot of new project option in RStudio under the project name in RStudio"}  
+
+## Step 2: Choose a New Directory
+For this week, you will create a **New Directory**. 
+
+
+![](images/choose-new-directory.png){fig-alt="Image of New Project Wizard with options for New Directory, Existing Director, and Version Control"}
+
+
+## Step 3: Choose Quarto Website
+Instead of `New Project`, choose `Quarto Website`
+
+![](images/choose-new-project.png){fig-alt="Image of New Project Wizard in RStudio where students should select Quarto Website"}
+
+
+Set up your directory name (it should be `your-name-portfolio` or something similar) and saved in a location that is **NOT** on a cloud service (e.g. iCloud or Google Drive).  Be sure to check `Create a git repository`and `Open in a new session`. Create the Project.
+
+![](images/create-quarto-website.png){fig-alt="Image of New Project Wizard in RStudio where students set their directory name"}
+
+Now you have your website!!
+
+
+
+## Step 4: Render your Website
+In the pane at the top right corner there should be a tab that say `Build`. Under `Build` there is an option to `Render Website`, go ahead an click that and it will render the generic website.  
+
+![](images/render-website.png){fig-alt="Image of top right pane which under Build and Select Render Website"}
+
+Here is roughly what the page will look like.  
+
+![](images/rendered-website.png){fig-alt="Image of rendered website"}
+
+
+# Part Two: Connecting to GitHub
+You may have realized that you didn't use Version Control to connect this project to a GitHub repository so let's do that.  
+
+It is pretty straightforward. Simply run the following in the `Console`:
+
+```{r}
+usethis::use_github()
+```
+
+Note, if you didn't select `Create a git repository` when you created the website you may need to run `usethis:use_git()` first.  The above code should generate a repository and push the website contents to GitHub.
+
+![](images/output-usethis-github.png){fig-alt="Output from using usethis::use_github()"}
+
+## Step 4: Publish Your Website
+
+
+
+
+
+
+
+## Render again!
+
+Notice that when you render the document, all of the code reruns again, 
+producing the same output as before, but with your changes---this is called 
+reproducibility!
+
+You should render **often** while completing your practice activities and lab
+assignments. Make small changes, then make sure the file still renders rather 
+than making a bunch of big changes and then realizing something is wrong.
+
+## Turn it in!
+
+Open the .html file on your computer to make sure it looks as you expected. Then
+upload the rendered (.html extension) document to Canvas and the zipped project file as two separate uploads.!
+
+> You'll be doing this same process for all your future Lab Assignments but after next week you will submit a GitHub link instead of the rendered document. Each of these will involve a Quarto file. Some weeks, I may have a template for you to copy like you had here, while other weeks you will generate your own Quarto file from scratch.

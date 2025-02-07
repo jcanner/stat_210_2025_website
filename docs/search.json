@@ -1,14 +1,45 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Statistical Computing with R",
+    "objectID": "group-activities/week-3/pa2-vc-intro-tidy-solution.html",
+    "href": "group-activities/week-3/pa2-vc-intro-tidy-solution.html",
+    "title": "Practice Activity 2: Modernizing the Process",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic & Preview Activities\nPractice Activity\n\n\n\n\n1\nFriday, 1/24\nIntro to R & RStudio\nBroken Circles Group Warm-up\nCreating Pair Programming Norms\nData Cleaning, Visualization Puzzle\n\n\n2\nFriday, 1/31\nIntro to Quarto\nPair Activity 1: Secret Code\n\n\n3\nFriday, 2/7\nIntro to Version Control\nExpert Designer\nPair Activity 2: Secret Code Revisited\n\n\n4\nFriday, 2/14\nIntro to Data Visualization",
-    "crumbs": [
-      "Course information",
-      "Weekly Schedule"
-    ]
+    "text": "Today you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message using the tidyverse. First thing is to include the package in a setup chunk above!\nThis task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group."
+  },
+  {
+    "objectID": "group-activities/week-3/pa2-vc-intro-tidy-solution.html#groupwork-protocols",
+    "href": "group-activities/week-3/pa2-vc-intro-tidy-solution.html#groupwork-protocols",
+    "title": "Practice Activity 2: Modernizing the Process",
+    "section": "Groupwork Protocols",
+    "text": "Groupwork Protocols\nDuring the Practice Activity, you and your partner will alternate between two roles—Developer and Coder.\nWhen you are the Developer, you will type into the Quarto document in RStudio. However, you do not type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.\nWhen you are the Coder, you are responsible for reading the instructions / prompts and directing the Developer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Developer to debug the code you specified. Once the code runs, you are expected to collaborate with the Developer to write code comments that describe the actions taken by your code.\n\nGroup Norms\nRemember, your group is expected to adhere to the following norms:\n\nThink and work together. Do not divide the work.\nYou are smarter together.\nNo cross-talk with other groups."
+  },
+  {
+    "objectID": "group-activities/week-3/pa2-vc-intro-tidy-solution.html#part-zero-accessing-the-practice-activity",
+    "href": "group-activities/week-3/pa2-vc-intro-tidy-solution.html#part-zero-accessing-the-practice-activity",
+    "title": "Practice Activity 2: Modernizing the Process",
+    "section": "Part Zero: Accessing the Practice Activity",
+    "text": "Part Zero: Accessing the Practice Activity\n\nTo access the activity and get it ready to share:\n\nLog into your CSUMB R Server Account.\n\nChoose one partner (with the closest upcoming birthday) to create an R Project called “pa-1-intro-quarto”.\n\nUpload the pa1-base-r.qmd into the project folder.\n\nShare the project with the other partner, go to File &gt; Share Project &gt; Type partner’s username &gt; Click Add\n\n\n\nFor each code chunk, add a #| label: and a #comment describing what the code chunk is doing. Be sure to check that all spacing is appropriate as well!"
+  },
+  {
+    "objectID": "group-activities/week-3/pa2-vc-intro-tidy-solution.html#part-one-setup",
+    "href": "group-activities/week-3/pa2-vc-intro-tidy-solution.html#part-one-setup",
+    "title": "Practice Activity 2: Modernizing the Process",
+    "section": "Part One: Setup",
+    "text": "Part One: Setup\nEach of the following R chunks will cause an error and / or do the desired task incorrectly. Find the mistake, and correct it to complete the intended action.\n\nCreate vectors containing the upper case letters, lower case letters, and some punctuation marks. add a label that indicate this code chunk creates the vectors of letters and punctuation.\n\n\nlower_case &lt;- c(\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\",\n                \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\")\n\nupper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\", \"I\", \"J\", \"K\", \"L\", \"M\",\n                \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\")\n\npunctuation &lt;- c(\".\", \",\", \"!\", \"?\", \"'\", '\"', \"(\", \")\", \" \", \"-\", \";\", \":\")\n\nUsing the above, we can complete the following 5 steps within a few lines of code using the tidyverse.\n\nMake one long vector containing all the symbols.\nTurn the my_symbols vector into a data frame, with one column named “symbol”.\nFind the total number of symbols we have in our data frame.\nCreate a new variable in your dataframe that assigns a number to each symbol.\n\n\n# add comment here\n\nmy_symbols &lt;- tibble(symbols = c(lower_case, \n                                 upper_case, \n                                 punctuation)) |&gt; \n              mutate(num = row_number())"
+  },
+  {
+    "objectID": "group-activities/week-3/pa2-vc-intro-tidy-solution.html#part-two-decoding-the-secret-message.",
+    "href": "group-activities/week-3/pa2-vc-intro-tidy-solution.html#part-two-decoding-the-secret-message.",
+    "title": "Practice Activity 2: Modernizing the Process",
+    "section": "Part Two: Decoding the secret message.",
+    "text": "Part Two: Decoding the secret message.\nThis chunk will load up the encoded secret message as a vector:\n\n#extracts the code from a dropbox file and pulls out generic first vector X1\nlibrary(readr)\ntop_secret &lt;- read_csv(\"https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1\", \n                       col_names = FALSE)$X1\n\nBy altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, in the order given below, but replace all of this mess with the tidyverse code below.\n\nAdd 14 to every number.\nMultiply every number by 18, then subtract 257.\nUse the exp() function to exponentiate every number.\nSquare every number.\n\n\n#add comment here\n#there are several ways to do this, the way below doesn't overwrite any column so you \"don't lose work\"\n\ncode_break &lt;- top_secret |&gt; \n  as_tibble() |&gt; \n  mutate(step6 = top_secret + 14,\n         step7 = step6*18 - 257,\n         step8 = exp(step7),\n         step9 = step8^2)\n\nhead(code_break) #see the first few lines here\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. Write the code to verify that this is true for your top_secret object!\nHint: This is what is called a “relational” comparison, where you compare an object to a number and R will give you a vector of TRUEs and FALSEs based on whether the comparison is / is not met. You can then use these TRUEs and FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.\n\n#add comment here\n\ncode_break |&gt; \n  summarize(total = sum(step9 &lt; 17))\n\n\n\nNext, carry out the following steps:\n\nTurn your vector of numbers into a matrix with 5 columns.\n\n\n#add comment here\ncode_matrix &lt;- code_break |&gt; \n  pull(step9) |&gt; \n  matrix(ncol = 5) |&gt; \n  as_tibble(column_name = TRUE) |&gt; \n  mutate(id = row_number())\n\n\nSeparately from your top secret numbers, create a vector of all the even numbers between 1 and 382. Name it “evens”. That is, “evens” should contain 2, 4, 6, 8 …, 382.\n\n\n#add comment here\nevens &lt;- seq(from = 2, to = 382, by = 2)\n\n\nSubtract the “evens” vector from the first column of your secret message matrix.\nSubtract 100 from all numbers 18-24th rows of the 3rd column.\nMultiply all numbers in the 4th and 5th column by 2.\nTurn your matrix back into a vector.\n\n\n#add comment here\ncode_vector &lt;- code_matrix |&gt; \n  mutate(V1 = V1 - evens) |&gt; \n  mutate(V3 = if_else(id %in% 18:24, V3 - 100, V3)) |&gt; \n  mutate(V4 = V4*2, \n         V5 = V5*2) |&gt; \n  select(-id) |&gt; \n  pivot_longer(V1:V5, names_to = \"column\", values_to = \"code\") |&gt; \n  arrange(column) |&gt; \n  mutate(id = row_number())\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. Write the code to verify that this is true for your top_secret object!\nHint: Use a relational comparison similar to what you used in the last checkpoint, but here you will need to subset values from your vector!\n\n#code to verify that indices 500 and beyond have values **below** 100\ncode_vector |&gt; \n  summarize(beyond = sum(if_else(id %in% 500:max(id) &gt;= 100, TRUE, FALSE))) \n\n\n\nTake the square root of all numbers in indices 38 to 465.\nUse the round() function to round all numbers to the nearest whole number.\nReplace all instances of the number 39 with 20. Hint: Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign\n\n\n#add comment here\ncode_vector_update &lt;- code_vector |&gt; \n  mutate(code = if_else(id %in% 38:465, sqrt(code), code)) |&gt; \n  mutate(code = round(code, digits = 0)) |&gt; \n  mutate(code = if_else(code == 39, 20, code))\n\nCheckpoint: Headquarters has informed you that your final message should have 344 even numbers.\nHint: Checking for divisibility is an interesting operation that isn’t done much in R. Modulus is the operation you are interested in, where you are checking for whether the numbers are divisible by 2, with no remainder. See what you can find about modulus in R!\n\n# Code to verify how many even numbers are in your top_secret vector\n\ncode_vector_update |&gt; \n  summarize(even = sum(code %% 2 == 0))"
+  },
+  {
+    "objectID": "group-activities/week-3/pa2-vc-intro-tidy-solution.html#part-3-the-secret-message",
+    "href": "group-activities/week-3/pa2-vc-intro-tidy-solution.html#part-3-the-secret-message",
+    "title": "Practice Activity 2: Modernizing the Process",
+    "section": "Part 3: The secret message!",
+    "text": "Part 3: The secret message!\nUse your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:\n\n# add comment here\ncode_vector_update |&gt; \n  left_join(my_symbols, by = c(\"code\" = \"num\")) |&gt; \n  pull(symbols) |&gt; \n  stringr::str_c(collapse = \"\")\n\nGoogle the first line of this message, if you do not recognize it, to see what poem it is."
   },
   {
     "objectID": "group-activities/week-1/data-cleaning-viz-steps.html#view-original-data",
@@ -53,46 +84,373 @@
     "text": "Group and Calculate Average Salary by year"
   },
   {
-    "objectID": "group-activities/week-1/base-r.html",
-    "href": "group-activities/week-1/base-r.html",
-    "title": "Practice Activity 1: Find the Mistakes",
+    "objectID": "weeks/week-4-ggplot.html",
+    "href": "weeks/week-4-ggplot.html",
+    "title": "Introduction to ggplot2",
     "section": "",
-    "text": "Today you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message.\nSome advice:"
+    "text": "The greatest possibilities of visual display lie in vividness and inescapability of the intended message. A visual display can stop your mental flow in its tracks and make you think. A visual display can force you to notice what you never expected to see. (“Why, that scatter diagram has a hole in the middle!”) – John Tukey, Data Based Graphics: Visual Display in the Decades to Come",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
   },
   {
-    "objectID": "group-activities/week-1/base-r.html#part-zero-accessing-the-practice-activity",
-    "href": "group-activities/week-1/base-r.html#part-zero-accessing-the-practice-activity",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "Part Zero: Accessing the Practice Activity",
-    "text": "Part Zero: Accessing the Practice Activity"
+    "objectID": "weeks/week-4-ggplot.html#learning-objectives",
+    "href": "weeks/week-4-ggplot.html#learning-objectives",
+    "title": "Introduction to ggplot2",
+    "section": "0.1 Learning Objectives",
+    "text": "0.1 Learning Objectives\n\nDescribe charts using the grammar of graphics\nCreate layered graphics that highlight multiple aspects of the data\nEvaluate existing charts and develop new versions that improve accessibility and readability",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
   },
   {
-    "objectID": "group-activities/week-1/base-r.html#part-one-setup",
-    "href": "group-activities/week-1/base-r.html#part-one-setup",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "Part One: Setup",
-    "text": "Part One: Setup\nEach of the following R chunks will cause an error and / or do the desired task incorrectly. Find the mistake, and correct it to complete the intended action.\n\nCreate vectors containing the upper case letters, lower case letters, and some punctuation marks.\n\n\nlower_case &lt;- c(\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\",\n                \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\")\n\nupper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\" \"I\", \"J\", \"K\", \"L\", \"M\",\n                \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\")\n\npunctuation &lt;- c(\".\", \",\", \"!\", \"?\", \"'\", \"\"\", \"(\", \")\", \" \", \"-\", \";\", \":\")\n\n\nMake one long vector containing all the symbols.\n\n\nmy_symbols &lt;- cbind(lower_case, upper_case, punctuation)\n\n\nTurn the my_symbols vector into a data frame, with one column named “Symbol”.\n\n\nmy_symbols &lt;- dataframe(Symbol = my_symbols)\n\n\nFind the total number of symbols we have in our data frame.\n\n\nlen &lt;- length(my_symbols)\n\n\nCreate a new variable in your dataframe that assigns a number to each symbol.\n\n\nmy_symbols%Num &lt;- 1:len"
+    "objectID": "weeks/week-4-ggplot.html#loading-in-the-ggplot2-package",
+    "href": "weeks/week-4-ggplot.html#loading-in-the-ggplot2-package",
+    "title": "Introduction to ggplot2",
+    "section": "0.2 Loading in the ggplot2 Package",
+    "text": "0.2 Loading in the ggplot2 Package\nIn this class, we’re going to use the ggplot2 package to create graphics in R. This package is already installed as part of the tidyverse, but can be installed:\n\ninstall.packages(\"ggplot2\") #only needs to happen once - Do not include in Quarto documents!\n\nand/or loaded:\n\nlibrary(\"ggplot2\")\n\n# alternatively\nlibrary(\"tidyverse\") # (my preference!)\n\n\n\n\n\n\nBuilding a masterpiece, by Allison Horst",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
   },
   {
-    "objectID": "group-activities/week-1/base-r.html#part-two-decoding-the-secret-message.",
-    "href": "group-activities/week-1/base-r.html#part-two-decoding-the-secret-message.",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "Part Two: Decoding the secret message.",
-    "text": "Part Two: Decoding the secret message.\nThis chunk will load up the encoded secret message as a vector:\n\ntop_secret &lt;- read_csv(\"https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1\", \n                       col_names = FALSE)$X1\n\nBy altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, in the order given below.\n\nAdd 14 to every number.\nMultiply every number by 18, then subtract 257.\nUse the exp() function to exponentiate every number.\nSquare every number.\n\nHint: To update a vector after performing an operation, you overwrite the existing object with its updated counterpart. This looks something like this:\nx &lt;- x + 12,\nwhere the original value(s) in x have had 12 added to them, and the resulting values are put back in to the object named x.\n\n## Code to carry out steps 6-9 \n\nCheckpoint: Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. Write the code to verify that this is true for your top_secret object!\nHint: This is what is called a “relational” comparison, where you compare an object to a number and R will give you a vector of TRUEs and FALSEs based on whether the comparison is / is not met. You can then use these TRUEs and FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.\n\n# Write code to verify that there are 352 numbers with values **below** 17\n\nNext, carry out the following steps:\n\nTurn your vector of numbers into a matrix with 5 columns.\nSeparately from your top secret numbers, create a vector of all the even numbers between 1 and 382. Name it “evens”. That is, “evens” should contain 2, 4, 6, 8 …, 382.\nSubtract the “evens” vector from the first column of your secret message matrix.\nSubtract 100 from all numbers 18-24th rows of the 3rd column.\nMultiply all numbers in the 4th and 5th column by 2.\nTurn your matrix back into a vector.\n\n\n## Code to carry out steps 10-15\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. Write the code to verify that this is true for your top_secret object!\nHint: Use a relational comparison similar to what you used in the last checkpoint, but here you will need to subset values from your vector!\n\n# Write code to verify that indices 500 and beyond have values **below** 100\n\n\nTake the square root of all numbers in indices 38 to 465.\nUse the round() function to round all numbers to the nearest whole number.\nReplace all instances of the number 39 with 20.\n\nHint: Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign!\n\n# Code for steps 16-18\n\nCheckpoint: Headquarters has informed you that your final message should have 344 even numbers.\nHint: Checking for divisibility is an interesting operation that isn’t done much in R. Modulus is the operation you are interested in, where you are checking for whether the numbers are divisible by 2, with no remainder. See what you can find about modulus in R!\n\n# Code to verify how many even numbers are in your top_secret vector"
+    "objectID": "weeks/week-4-ggplot.html#the-grammar-of-graphics",
+    "href": "weeks/week-4-ggplot.html#the-grammar-of-graphics",
+    "title": "Introduction to ggplot2",
+    "section": "1.1 The Grammar of Graphics",
+    "text": "1.1 The Grammar of Graphics\nThe grammar of graphics is an approach first introduced in Leland Wilkinson’s book (Wilkinson 2005). Unlike other graphics classification schemes, the grammar of graphics makes an attempt to describe how the data set itself relates to the components of the chart.\nThis has a few advantages:\n\nIt’s relatively easy to represent the same data set with different types of plots (and to find their strengths and weaknesses)\nGrammar leads to a concise description of the plot and its contents\nWe can add layers to modify the graphics, each with their own basic grammar (just like we combine sentences and clauses to build a rich, descriptive paragraph)\n\n\n\n\nA pyramid view of the major components of the grammar of graphics, with data as the base, aesthetics building on data, scales building on aesthetics, geometric objects, statistics, facets, and the coordinate system at the top of the pyramid. Source: (Sarkar 2018)",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
   },
   {
-    "objectID": "group-activities/week-1/base-r.html#part-3-the-secret-message",
-    "href": "group-activities/week-1/base-r.html#part-3-the-secret-message",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "Part 3: The secret message!",
-    "text": "Part 3: The secret message!\nUse your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:\n\nstringr::str_c(my_symbols$Symbol[top_secret], collapse = \"\")\n\nGoogle the first line of this message, if you do not recognize it, to see what poem it is."
+    "objectID": "weeks/week-4-ggplot.html#making-your-first-ggplot",
+    "href": "weeks/week-4-ggplot.html#making-your-first-ggplot",
+    "title": "Introduction to ggplot2",
+    "section": "1.2 Making Your First ggplot",
+    "text": "1.2 Making Your First ggplot\n\n✅ Check-in\nQuestion 1 – What specifically does the code ggplot(data = mpg) do?\n\nCreates a blank plot\nMakes a scatterplot of the first two variables in the mpg dataset\nCreates a ggplot with the mpg dataset",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "weeks/week-4-ggplot.html#aesthetics",
+    "href": "weeks/week-4-ggplot.html#aesthetics",
+    "title": "Introduction to ggplot2",
+    "section": "1.3 Aesthetics",
+    "text": "1.3 Aesthetics\n📖 Required Reading: Layers - Aesthetic Mappings.\n\n✅ Check-in\n\nggplot(data = mpg) +\n  geom_point(mapping = aes(x = displ, y = hwy), color = \"blue\")\n\nQuestion 2: What aesthetics does this plot contain?\n\nx\ny\ncolor\ndata\n\nQuestion 3: Which of the following changes would set the color of the points to be blue?\n\n## Option A\nggplot(data = mpg) +\ngeom_point(\n  mapping = aes(x = displ, \n                y = hwy, \n                color = blue)\n  )\n\n## Option B\nggplot(data = mpg) +\ngeom_point(\n  mapping = aes(x = displ, \n                y = hwy), \n  color = \"blue\"\n  )\n\n## Option C\nggplot(data = mpg, \n       mapping = aes(color = \"blue\")\n       ) +\ngeom_point(\n  mapping = aes(x = displ, \n                y = hwy)\n  )",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4-ggplot.html#geoms",
+    "href": "weeks/week-4-ggplot.html#geoms",
+    "title": "Introduction to ggplot2",
+    "section": "1.4 geoms",
+    "text": "1.4 geoms\n\nWhat type of chart to use?\nIt can be hard to know what type of chart to use for a particular type of data. I recommend figuring out what you want to show first, and then thinking about how to show that data with an appropriate plot type. Consider the following factors:\n\nWhat type of variable is x? Categorical? Continuous? Discrete?\nWhat type of variable is y?\nHow many observations do I have for each x / y variable?\nAre there any important moderating variables?\nDo I have data that might be best shown in small multiples? E.g. a categorical moderating variable and a lot of data, where the categorical variable might be important for showing different features of the data?\n\nOnce you’ve thought through this, take a look through catalogs like the R Graph Gallery to see what visualizations match your data and use-case.\n📖 Required Reading: Layers - Geometric Objects.\n💻 Required Tutorials\n\nBar Charts\nHistograms\nScatterplots\nLine Plots\n\n\n\n✅ Check-in\nQuestion 4: Match each plot with the geom_XXX() function used to create it!\n\n\n\nLine Chart\nBoxplot\nHistogram\nArea Chart\n\n\n\ngeom_boxplot()\ngeom_point()\ngeom_hist()\ngeom_bar()\ngeom_smooth()\ngeom_point()\ngeom_area()\ngeom_line()\ngeom_histogram()",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4-ggplot.html#getting-a-bit-fancier",
+    "href": "weeks/week-4-ggplot.html#getting-a-bit-fancier",
+    "title": "Introduction to ggplot2",
+    "section": "1.5 Getting a Bit Fancier",
+    "text": "1.5 Getting a Bit Fancier\nIn this section we dig a bit deeper into how we can make our code more efficient and other ways we can add additional variables to our plots.\n\nGlobal vs. local aesthetics\nThe aesthetic mappings that are defined in ggplot() are the global level aesthetics, that is they are inherited by each of the subsequent geom_ layers of the plot. However, each geom_ function in ggplot2 can also take its own mapping arguments, which allows for aesthetic mappings at the local level that are combined with those inherited from the global level.\n\n\n✅ Check-in\nQuestion 5: Match the code to the type of aesthetics that are being used:\n\n\n\nGlobal\n \nLocal\n\n\nggplot(data = mpg, \n       mapping = aes(x = mpg, y = hwy)\n       ) + \n  geom_point()\n\n\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = mpg, y = hwy))",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4-ggplot.html#facets",
+    "href": "weeks/week-4-ggplot.html#facets",
+    "title": "Introduction to ggplot2",
+    "section": "1.6 Facets",
+    "text": "1.6 Facets\n📖 Required Reading: Layers - Facets.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4-ggplot.html#data-transformations",
+    "href": "weeks/week-4-ggplot.html#data-transformations",
+    "title": "Introduction to ggplot2",
+    "section": "1.7 Data transformations",
+    "text": "1.7 Data transformations\n📖 Required Reading: Layers - Statistical Transformations.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4-ggplot.html#changing-the-positions-of-bars",
+    "href": "weeks/week-4-ggplot.html#changing-the-positions-of-bars",
+    "title": "Introduction to ggplot2",
+    "section": "1.8 Changing the positions of bars",
+    "text": "1.8 Changing the positions of bars\n📖 Required Reading: Layers - Position Adjustments.\n\n✅ Check-in\nQuestion 6: What arguments for geom_jitter() control the amount of jittering?\n\nwidth\nheight\nstat\nposition\nna.rm\nshow.legend\ndata\nmapping",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4-ggplot.html#plot-customizations",
+    "href": "weeks/week-4-ggplot.html#plot-customizations",
+    "title": "Introduction to ggplot2",
+    "section": "1.9 Plot Customizations",
+    "text": "1.9 Plot Customizations\n📖 Required Reading: Communication\n\n\n✅ Check-in\nQuestion 7: What can the labs() function do? Select all that apply.\n\nCustomize the x-axis label\nCustomize the y-axis label\nCustomize the legend label\nCustomize the plot title\nAdd a caption to the plot",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
+  },
+  {
+    "objectID": "weeks/week-1-r-rstudio.html",
+    "href": "weeks/week-1-r-rstudio.html",
+    "title": "Week 1, Part 1: R & RStudio",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "For the first portion of this week’s coursework, we are going to learn about / refresh our memory on R and RStudio. This course is all about you learning skills for working with data in R, so you will need to have local installations of both R and RStudio on your computer.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 1 - R & RStudio"
+    ]
+  },
+  {
+    "objectID": "weeks/week-1-r-rstudio.html#updating-your-version-of-r",
+    "href": "weeks/week-1-r-rstudio.html#updating-your-version-of-r",
+    "title": "Week 1, Part 1: R & RStudio",
+    "section": "1.1 Updating Your Version of R",
+    "text": "1.1 Updating Your Version of R\nIf you already have R downloaded, you need to confirm that you have the most up to date version of R. Do not ignore these instructions. If you neglect to update your version of R, you may find that updating a package will make it so your code will not run.\n\nStep 1: Open RStudio\nStep 2: At the top of the the Console it will say what version of R you are using\n\n{fig-alt = “A screenshot of what version of R should appear when you open RStudio. The version reads ‘R version 4.4.2 (2024-10-31) – ’Pile of Leaves’.”}\nIf the version is not 4.4.2 (like the image above), you need to update your version of R! The simplest way to do this is to follow the instructions below to install R.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 1 - R & RStudio"
+    ]
+  },
+  {
+    "objectID": "weeks/week-1-r-rstudio.html#installing-r",
+    "href": "weeks/week-1-r-rstudio.html#installing-r",
+    "title": "Week 1, Part 1: R & RStudio",
+    "section": "1.2 Installing R",
+    "text": "1.2 Installing R\nDownload and install R by going to https://cloud.r-project.org/. Here, you will find three options for installing R—click on the option for your computer’s operating system.\n\n📽️ Useful Video: Installing R and RStudio - Windows\n\n\n📽️ Useful Video: Installing R and RStudio - Mac\n\n\nIf you are a Windows user:\n\nClick on “Download R for Windows”\nClick on “base”\nClick on the Download link.\nWhen you open the execution file (.exe) you will be prompted with a variety of questions about installing R. Feel free to use the default features / settings that come with R (continue to click “Ok” until the download starts).\n\n\n\n\n\n\n\nMultiple Versions of R\n\n\n\nBeware that if you had a previous version of R downloaded on your PC, that old version will not be deleted when you download the most recent version of R. We do not want to have two versions of R installed, as your computer can get confused what version of R to use. So, you need to remove the old version of R.\nTo do this you need to:\n\nNavigate to your computer’s settings\nClick on the “Apps” option on the left-hand panel\nSearch for or scroll down to R\nFind the older version of R\n\n\n\nClick on the ... on the right side\nSelect “Uninstall”\n\n\n\n\n\n\nIf you are macOS user:\n\nClick on “Download R for (Mac) OS X”\nUnder “Latest release:” click on R-X.X.X.pkg, where R-X.X.X is the version number. For example, the latest version of R as of October 31, 2024 was R-4.4.2 (Pile of Leaves).\nWhen installing, use the default features / settings that come with R (click Ok until the download starts).\n\n\n\n\n\n\n\nTroubleshooting for Macs\n\n\n\nFirst, identify which version of OSx you are running. How-to\nNext, find out which version of R your computer can run. Link\nIf this version is 3.6 or later, download the latest version that your computer can handle.\nIf this version is 3.4 or earlier, you’re going to run in to some trouble. I recommend updating your version of OSx, if you are willing. If you can’t, then you can use Posit Cloud to run R and RStudio on a free server. However, I recommend strongly against this option; your files will not be saved indefinitely, you will have limited hours to complete your work, your computing power will be limited, and you will need an internet connection at all times to do your work.\n\n\n\n\nIf you are a Linux user:\nClick on “Download R for Linux” and choose your distribution for more information on installing R for your setup.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 1 - R & RStudio"
+    ]
+  },
+  {
+    "objectID": "weeks/week-1-r-rstudio.html#updating-your-version-of-rstudio",
+    "href": "weeks/week-1-r-rstudio.html#updating-your-version-of-rstudio",
+    "title": "Week 1, Part 1: R & RStudio",
+    "section": "2.1 Updating Your Version of RStudio",
+    "text": "2.1 Updating Your Version of RStudio\nIf you already have RStudio, you need to double check if you have the most recent version. You will not have access to the newest features for Quarto documents unless you have the most recent version of RStudio.\n\nStep 1: Open RStudio\nStep 2: Click on “Help” in the upper menu\nStep 3: Click on “Check for Updates”\n\nIf there are no updates to RStudio since you installed it, you are good to go! If you need to update RStudio, you will be sent to Posit (the parent company) to download the most recent version of RStudio desktop.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 1 - R & RStudio"
+    ]
+  },
+  {
+    "objectID": "weeks/week-1-r-rstudio.html#installing-rstudio",
+    "href": "weeks/week-1-r-rstudio.html#installing-rstudio",
+    "title": "Week 1, Part 1: R & RStudio",
+    "section": "2.2 Installing RStudio",
+    "text": "2.2 Installing RStudio\nDownloading the most recent version of RStudio works the same way regardless of whether you’ve never downloaded RStudio before or if you just need to update your version of RStudio.\nWhen you navigate to the RStudio download page (https://rstudio.com/products/rstudio/download/), the website should automatically detect your computer’s operating system. So, you should be able to simply click the blue “Download RStudio Desktop for [insert operating system here]” button.\nClicking the button will begin installing RStudio. Once the download has completed, you will need to open the application file (on a Mac this is a .dmg file, on Windows this is an exe file).",
+    "crumbs": [
+      "Weekly materials",
+      "Week 1 - R & RStudio"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-2-instructions.html",
+    "href": "labs/instructions/lab-2-instructions.html",
+    "title": "Lab 2: Getting Started on your Portfolio",
+    "section": "",
+    "text": "Either under File, or in the top right corner where the current project name is, select\n\n\n\n\nFor this week, you will create a New Directory.\n\n\n\n\nInstead of New Project, choose Quarto Website\n\nSet up your directory name (it should be your-name-portfolio or something similar) and saved in a location that is NOT on a cloud service (e.g. iCloud or Google Drive). Be sure to check Create a git repositoryand Open in a new session. Create the Project.\n\nNow you have your website!!\n\n\n\nIn the pane at the top right corner there should be a tab that say Build. Under Build there is an option to Render Website, go ahead an click that and it will render the generic website.\n\nHere is roughly what the page will look like.",
+    "crumbs": [
+      "Labs",
+      "Lab 2 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-2-instructions.html#step-1-make-a-new-project-in-rstudio",
+    "href": "labs/instructions/lab-2-instructions.html#step-1-make-a-new-project-in-rstudio",
+    "title": "Lab 2: Getting Started on your Portfolio",
+    "section": "",
+    "text": "Either under File, or in the top right corner where the current project name is, select",
+    "crumbs": [
+      "Labs",
+      "Lab 2 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-2-instructions.html#step-2-choose-a-new-directory",
+    "href": "labs/instructions/lab-2-instructions.html#step-2-choose-a-new-directory",
+    "title": "Lab 2: Getting Started on your Portfolio",
+    "section": "",
+    "text": "For this week, you will create a New Directory.",
+    "crumbs": [
+      "Labs",
+      "Lab 2 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-2-instructions.html#step-3-choose-quarto-website",
+    "href": "labs/instructions/lab-2-instructions.html#step-3-choose-quarto-website",
+    "title": "Lab 2: Getting Started on your Portfolio",
+    "section": "",
+    "text": "Instead of New Project, choose Quarto Website\n\nSet up your directory name (it should be your-name-portfolio or something similar) and saved in a location that is NOT on a cloud service (e.g. iCloud or Google Drive). Be sure to check Create a git repositoryand Open in a new session. Create the Project.\n\nNow you have your website!!",
+    "crumbs": [
+      "Labs",
+      "Lab 2 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-2-instructions.html#step-4-render-your-website",
+    "href": "labs/instructions/lab-2-instructions.html#step-4-render-your-website",
+    "title": "Lab 2: Getting Started on your Portfolio",
+    "section": "",
+    "text": "In the pane at the top right corner there should be a tab that say Build. Under Build there is an option to Render Website, go ahead an click that and it will render the generic website.\n\nHere is roughly what the page will look like.",
+    "crumbs": [
+      "Labs",
+      "Lab 2 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-2-instructions.html#step-4-publish-your-website",
+    "href": "labs/instructions/lab-2-instructions.html#step-4-publish-your-website",
+    "title": "Lab 2: Getting Started on your Portfolio",
+    "section": "2.1 Step 4: Publish Your Website",
+    "text": "2.1 Step 4: Publish Your Website",
+    "crumbs": [
+      "Labs",
+      "Lab 2 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-2-instructions.html#render-again",
+    "href": "labs/instructions/lab-2-instructions.html#render-again",
+    "title": "Lab 2: Getting Started on your Portfolio",
+    "section": "2.2 Render again!",
+    "text": "2.2 Render again!\nNotice that when you render the document, all of the code reruns again, producing the same output as before, but with your changes—this is called reproducibility!\nYou should render often while completing your practice activities and lab assignments. Make small changes, then make sure the file still renders rather than making a bunch of big changes and then realizing something is wrong.",
+    "crumbs": [
+      "Labs",
+      "Lab 2 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-2-instructions.html#turn-it-in",
+    "href": "labs/instructions/lab-2-instructions.html#turn-it-in",
+    "title": "Lab 2: Getting Started on your Portfolio",
+    "section": "2.3 Turn it in!",
+    "text": "2.3 Turn it in!\nOpen the .html file on your computer to make sure it looks as you expected. Then upload the rendered (.html extension) document to Canvas and the zipped project file as two separate uploads.!\n\nYou’ll be doing this same process for all your future Lab Assignments but after next week you will submit a GitHub link instead of the rendered document. Each of these will involve a Quarto file. Some weeks, I may have a template for you to copy like you had here, while other weeks you will generate your own Quarto file from scratch.",
+    "crumbs": [
+      "Labs",
+      "Lab 2 Instructions"
+    ]
+  },
+  {
+    "objectID": "weeks/week-2-quarto.html",
+    "href": "weeks/week-2-quarto.html",
+    "title": "Week 2: Reproducible Analyses with Quarto",
+    "section": "",
+    "text": "The theme of this lesson is good management of your files and data. In part two of this week’s coursework you will learn how to identify folders and paths, and create Quarto documents.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 2 - Quarto"
+    ]
+  },
+  {
+    "objectID": "weeks/week-2-quarto.html#file-management",
+    "href": "weeks/week-2-quarto.html#file-management",
+    "title": "Week 2: Reproducible Analyses with Quarto",
+    "section": "1.1 File Management",
+    "text": "1.1 File Management\nAs boring as it sounds, file management is arguably one of the most important skills a data scientist should have. The reproducibility of a project depends just as much on the way in which the project was stored as the computing tools used. While using R and Quarto make an important step in creating a reproducible analysis, there are other pieces that are arguably just as important—such as file management.\nBelieve it or not, your computer has multiple locations** where files can be stored. There has been a bit of a generational shift as computers have evolved: the “file system” metaphor itself is outdated because no one uses physical files anymore.\n[This article]((https://futurism.com/the-byte/gen-z-kids-file-systems) makes the argument that with modern search capabilities, most people use their computers as a laundry hamper instead of as a nice, organized filing cabinet. However, the laundry hamper approach doesn’t play nicely with working in R and creating Quarto documents.\nIn this class, we will store files according to the Project TIER protocol. More specifically, you will have:\n\na “Stat 210” folder in your Documents folder, containing all your materials associated with STAT 210\na sub-folder for each week (e.g., Week 1, Week 2)\nseparate folders within each week for each assignment (e.g., Practice Activity, Lab)\na separate R Studio Project (and GitHub repository) associated with each assignment\n\nFor example, if you come to my office for help on your lab assignment for Week 2, I would expect your files to look like this:\n\nFile Storage on WindowsFile Storage on a Mac\n\n\n\nThis computer has six total folders in my Documents, one of which is a folder named “STAT 311.” You should have one that is called “STAT 210” or something similar.\n\nInside my STAT course folder is a sub-folder named “Week 1,” which also has a sub-folder (a sub-sub-folder) named “Lab 1.” You can tell what folders Lab 1 lives inside based on the information included at the top of the screen. This is called a “file path,” which tells your computer where a folder / file lives on the computer.\nOn a PC, every file lives on the C Drive, so the “full path” to get to my Lab 1 folder would be:\nC:/Users/jcanner/Documents/STAT 210/Week 1/Lab 1\n\n\n\nOn this Mac, there are six total folders in my Documents, one of which is a folder named “STAT 331.” Inside this folder is a sub-folder named “Week 1,” which also has a sub-folder (a sub-sub-folder) named “Lab 1.”\nOn a Mac, every file lives on the hard drive (it doesn’t have letters like a PC), so the “full path” to get to my Lab 1 folder on a Mac would be:\n/Users/jcanner/Documents/STAT 210/Week 1/Lab 1",
+    "crumbs": [
+      "Weekly materials",
+      "Week 2 - Quarto"
+    ]
+  },
+  {
+    "objectID": "weeks/week-2-quarto.html#check-in-stat-210-folder",
+    "href": "weeks/week-2-quarto.html#check-in-stat-210-folder",
+    "title": "Week 2: Reproducible Analyses with Quarto",
+    "section": "1.2 ✅ Check-in: STAT 210 Folder",
+    "text": "1.2 ✅ Check-in: STAT 210 Folder\nCheck that your class directory is set up with:\n\nthe location of your Stat 210 folder\na Week 1 sub-folder\na Lab 1 sub-sub-folder (inside the Week 1 folder)\n\n\n\n\n\n\n\nYour folder cannot sync with anything online!\n\n\n\nYour STAT 210 folder cannot be in a folder stored on GoogleDrive, OneDrive, or iCloud! Storing your folder in this location will cause your code to periodically not run and I cannot help you fix it.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 2 - Quarto"
+    ]
+  },
+  {
+    "objectID": "weeks/week-2-quarto.html#downloading-quarto",
+    "href": "weeks/week-2-quarto.html#downloading-quarto",
+    "title": "Week 2: Reproducible Analyses with Quarto",
+    "section": "2.1 Downloading Quarto",
+    "text": "2.1 Downloading Quarto\nThe software associated with Quarto is automatically downloaded with the newest versions of RStudio. So, if you are using the most up to date version of RStudio (as instructed in Part 1 of this week’s coursework), you should already have Quarto installed on your computer. But, let’s test it out.\nTo ensure you have Quarto installed, carry out the following process:\n\nOpen RStudio\nClick on “File” (in the upper navigation bar)\nSelect “New File” (in the dropdown options)\nSelect “Quarto Document…” (in the dropdown option)\n\n \nIf you have Quarto installed, you should be prompted with the following menu:\n\nIf, instead, you receive a message saying Quarto is not installed on your computer, you need to download Quarto: https://quarto.org/docs/download/",
+    "crumbs": [
+      "Weekly materials",
+      "Week 2 - Quarto"
+    ]
+  },
+  {
+    "objectID": "weeks/week-2-quarto.html#introduction-to-quarto",
+    "href": "weeks/week-2-quarto.html#introduction-to-quarto",
+    "title": "Week 2: Reproducible Analyses with Quarto",
+    "section": "2.2 Introduction to Quarto",
+    "text": "2.2 Introduction to Quarto\n\n📖 Required Reading: Intro to Quarto\n\n\nHTML Documents\nWe will exclusively use HTML documents in this course. If you are interested in learning more about formatting options for Quarto HTML documents, I would recommend checking out:\n\na discussion of the basics of formatting HTML documents in Quarto\nthe list of all HTML Ffrmatting pptions for Quarto documents",
+    "crumbs": [
+      "Weekly materials",
+      "Week 2 - Quarto"
+    ]
+  },
+  {
+    "objectID": "weeks/week-2-quarto.html#check-in-quarto-documents",
+    "href": "weeks/week-2-quarto.html#check-in-quarto-documents",
+    "title": "Week 2: Reproducible Analyses with Quarto",
+    "section": "2.3 ✅ Check-in: Quarto Documents",
+    "text": "2.3 ✅ Check-in: Quarto Documents\nQuestion 1: What are the options at the top of a Quarto document (between the --- and --- symbols) called?\n\nXML\nYAML\nREML\nTOML\n\nQuestion 2: What symbols create an R code chunk?\n\n```\n{r}\n```{r}\n`{r}`\n\nQuestion 3: What symbol defines a heading?\n\n$\n_\n*\n#\n\nQuestion 4: When working in a Quarto document, the [visual / source] editor will display the raw Quarto document, whereas the [visual / source] will display the document as it will appear when it is rendered.\nQuestion 5: To produce an HTML report from your Quarto document, you need to click the ____ button.\n\nVisual\nRender\nRender on Save\nSave",
+    "crumbs": [
+      "Weekly materials",
+      "Week 2 - Quarto"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-2/expert-designer.html",
+    "href": "group-activities/week-2/expert-designer.html",
+    "title": "Expert Designer",
+    "section": "",
+    "text": "This activity is designed to simulate the environment in which you will be working for the weekly Practice Activities."
+  },
+  {
+    "objectID": "group-activities/week-2/expert-designer.html#instructions-roles-rules",
+    "href": "group-activities/week-2/expert-designer.html#instructions-roles-rules",
+    "title": "Expert Designer",
+    "section": "Instructions, Roles, & Rules",
+    "text": "Instructions, Roles, & Rules\nGet into groups of four (4) students. Similar to last week’s Broken Circles activity, each of you has an envelope containing different shapes.\n\nDesigner\nIn this activity, one person in your group will take on the role of the “designer,” two members will be the “players,” and one person will be the “observer.” The designer uses every shape in the envelope to create a design that is not shared with anyone else. The designer is then tasked with instructing the players how to replicate the design they created, but there are some rules.\n\nThe designer cannot touch the players shapes.\nThe designer cannot tell the players how to assemble the shapes into the correct design.\nThe designer can respond to questions posed by the players.\n\n\n\nPlayers\n“Players” are tasked with solving the design made by the “designer.” Players can pose questions to the designer to uncover their design. Once an player believes they have figured out the design, the designer should check their solution. If the designer says the solution is correct, then the player can assist the designer in answering questions posed by the other players.\n\n\nObserver\nThe “observer” is tasked with monitoring the interactions between the designer and the players. Specifically, the observer should check off the number of times they see two behaviors occurring, (1) explaining by telling how, and (2) everybody helps. The observer should have a scoring sheet to tally the number of times they see each behavior."
+  },
+  {
+    "objectID": "group-activities/week-2/expert-designer.html#getting-started",
+    "href": "group-activities/week-2/expert-designer.html#getting-started",
+    "title": "Expert Designer",
+    "section": "Getting Started",
+    "text": "Getting Started\nChoose one person in your group to be the first designer. Carry out the process described above until every observer has correctly identified the design. You will have 10-minutes to complete this task.\nOnce you have completed this task, if there is still time remaining your group should choose a new designer and repeat the process."
+  },
+  {
+    "objectID": "group-activities/week-2/expert-designer.html#discussion",
+    "href": "group-activities/week-2/expert-designer.html#discussion",
+    "title": "Expert Designer",
+    "section": "Discussion",
+    "text": "Discussion\n\nWhat do you think this game was about? What was its purpose?\nWhat did your group did that made you cooperate more successfully?\nWhat did your group did that made cooperation harder?\nWhat are some behaviors that could be implemented in the future to make cooperation easier?"
   },
   {
     "objectID": "group-activities/pair-programming-norms.html",
@@ -178,385 +536,22 @@
     "text": "Discussion\n\nWhat do you think this game was about? What was its purpose?\nWhat did your group did that made you cooperate more successfully?\nWhat did your group did that made cooperation harder?\nWhat are some behaviors that could be implemented in the future to make cooperation easier?"
   },
   {
-    "objectID": "weeks/week-1-r-rstudio.html",
-    "href": "weeks/week-1-r-rstudio.html",
-    "title": "Week 1, Part 1: R & RStudio",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Statistical Computing with R",
     "section": "",
-    "text": "For the first portion of this week’s coursework, we are going to learn about / refresh our memory on R and RStudio. This course is all about you learning skills for working with data in R, so you will need to have local installations of both R and RStudio on your computer.",
+    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic & Preview Activities\nPractice Activity\n\n\n\n\n1\nFriday, 1/24\nIntro to R & RStudio\nBroken Circles Group Warm-up\nCreating Pair Programming Norms\nData Cleaning, Visualization Puzzle\n\n\n2\nFriday, 1/31\nIntro to Quarto\nPair Activity 1: Secret Code\n\n\n3\nFriday, 2/7\nIntro to Version Control\nExpert Designer\nPair Activity 2: Secret Code Revisited\n\n\n4\nFriday, 2/14\nIntro to Data Visualization",
     "crumbs": [
-      "Weekly materials",
-      "Week 1 - R & RStudio"
+      "Course information",
+      "Weekly Schedule"
     ]
   },
   {
-    "objectID": "weeks/week-1-r-rstudio.html#updating-your-version-of-r",
-    "href": "weeks/week-1-r-rstudio.html#updating-your-version-of-r",
-    "title": "Week 1, Part 1: R & RStudio",
-    "section": "1.1 Updating Your Version of R",
-    "text": "1.1 Updating Your Version of R\nIf you already have R downloaded, you need to confirm that you have the most up to date version of R. Do not ignore these instructions. If you neglect to update your version of R, you may find that updating a package will make it so your code will not run.\n\nStep 1: Open RStudio\nStep 2: At the top of the the Console it will say what version of R you are using\n\n{fig-alt = “A screenshot of what version of R should appear when you open RStudio. The version reads ‘R version 4.4.2 (2024-10-31) – ’Pile of Leaves’.”}\nIf the version is not 4.4.2 (like the image above), you need to update your version of R! The simplest way to do this is to follow the instructions below to install R.",
-    "crumbs": [
-      "Weekly materials",
-      "Week 1 - R & RStudio"
-    ]
-  },
-  {
-    "objectID": "weeks/week-1-r-rstudio.html#installing-r",
-    "href": "weeks/week-1-r-rstudio.html#installing-r",
-    "title": "Week 1, Part 1: R & RStudio",
-    "section": "1.2 Installing R",
-    "text": "1.2 Installing R\nDownload and install R by going to https://cloud.r-project.org/. Here, you will find three options for installing R—click on the option for your computer’s operating system.\n\n📽️ Useful Video: Installing R and RStudio - Windows\n\n\n📽️ Useful Video: Installing R and RStudio - Mac\n\n\nIf you are a Windows user:\n\nClick on “Download R for Windows”\nClick on “base”\nClick on the Download link.\nWhen you open the execution file (.exe) you will be prompted with a variety of questions about installing R. Feel free to use the default features / settings that come with R (continue to click “Ok” until the download starts).\n\n\n\n\n\n\n\nMultiple Versions of R\n\n\n\nBeware that if you had a previous version of R downloaded on your PC, that old version will not be deleted when you download the most recent version of R. We do not want to have two versions of R installed, as your computer can get confused what version of R to use. So, you need to remove the old version of R.\nTo do this you need to:\n\nNavigate to your computer’s settings\nClick on the “Apps” option on the left-hand panel\nSearch for or scroll down to R\nFind the older version of R\n\n\n\nClick on the ... on the right side\nSelect “Uninstall”\n\n\n\n\n\n\nIf you are macOS user:\n\nClick on “Download R for (Mac) OS X”\nUnder “Latest release:” click on R-X.X.X.pkg, where R-X.X.X is the version number. For example, the latest version of R as of October 31, 2024 was R-4.4.2 (Pile of Leaves).\nWhen installing, use the default features / settings that come with R (click Ok until the download starts).\n\n\n\n\n\n\n\nTroubleshooting for Macs\n\n\n\nFirst, identify which version of OSx you are running. How-to\nNext, find out which version of R your computer can run. Link\nIf this version is 3.6 or later, download the latest version that your computer can handle.\nIf this version is 3.4 or earlier, you’re going to run in to some trouble. I recommend updating your version of OSx, if you are willing. If you can’t, then you can use Posit Cloud to run R and RStudio on a free server. However, I recommend strongly against this option; your files will not be saved indefinitely, you will have limited hours to complete your work, your computing power will be limited, and you will need an internet connection at all times to do your work.\n\n\n\n\nIf you are a Linux user:\nClick on “Download R for Linux” and choose your distribution for more information on installing R for your setup.",
-    "crumbs": [
-      "Weekly materials",
-      "Week 1 - R & RStudio"
-    ]
-  },
-  {
-    "objectID": "weeks/week-1-r-rstudio.html#updating-your-version-of-rstudio",
-    "href": "weeks/week-1-r-rstudio.html#updating-your-version-of-rstudio",
-    "title": "Week 1, Part 1: R & RStudio",
-    "section": "2.1 Updating Your Version of RStudio",
-    "text": "2.1 Updating Your Version of RStudio\nIf you already have RStudio, you need to double check if you have the most recent version. You will not have access to the newest features for Quarto documents unless you have the most recent version of RStudio.\n\nStep 1: Open RStudio\nStep 2: Click on “Help” in the upper menu\nStep 3: Click on “Check for Updates”\n\nIf there are no updates to RStudio since you installed it, you are good to go! If you need to update RStudio, you will be sent to Posit (the parent company) to download the most recent version of RStudio desktop.",
-    "crumbs": [
-      "Weekly materials",
-      "Week 1 - R & RStudio"
-    ]
-  },
-  {
-    "objectID": "weeks/week-1-r-rstudio.html#installing-rstudio",
-    "href": "weeks/week-1-r-rstudio.html#installing-rstudio",
-    "title": "Week 1, Part 1: R & RStudio",
-    "section": "2.2 Installing RStudio",
-    "text": "2.2 Installing RStudio\nDownloading the most recent version of RStudio works the same way regardless of whether you’ve never downloaded RStudio before or if you just need to update your version of RStudio.\nWhen you navigate to the RStudio download page (https://rstudio.com/products/rstudio/download/), the website should automatically detect your computer’s operating system. So, you should be able to simply click the blue “Download RStudio Desktop for [insert operating system here]” button.\nClicking the button will begin installing RStudio. Once the download has completed, you will need to open the application file (on a Mac this is a .dmg file, on Windows this is an exe file).",
-    "crumbs": [
-      "Weekly materials",
-      "Week 1 - R & RStudio"
-    ]
-  },
-  {
-    "objectID": "slides/week-1/week-1-intro-R.html",
-    "href": "slides/week-1/week-1-intro-R.html",
-    "title": "Intro to STAT 331 / 531 + Intro to R",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "Today we will…\n\nWelcome to Stat 331 / 531: Statistical Computing in R\nIntroductions (Me + You)\nCourse Layout\nBasics of R\nGroup collaboration warm-up\nData wrangling / visualization puzzle"
-  },
-  {
-    "objectID": "slides/week-1/week-1-intro-R.html#tuesday-september-24",
-    "href": "slides/week-1/week-1-intro-R.html#tuesday-september-24",
-    "title": "Intro to STAT 331 / 531 + Intro to R",
-    "section": "",
-    "text": "Today we will…\n\nWelcome to Stat 331 / 531: Statistical Computing in R\nIntroductions (Me + You)\nCourse Layout\nBasics of R\nGroup collaboration warm-up\nData wrangling / visualization puzzle"
-  },
-  {
-    "objectID": "slides/week-1/week-1-intro-R.html#hi-im-dr.-theobold",
-    "href": "slides/week-1/week-1-intro-R.html#hi-im-dr.-theobold",
-    "title": "Intro to STAT 331 / 531 + Intro to R",
-    "section": "Hi, I’m Dr. Theobold!",
-    "text": "Hi, I’m Dr. Theobold!\n\n\n\n\nI am originally from Colorado, but went to grad school in Montana.\nMy favorite things are being outside, drinking coffee, and watching women’s basketball.\n\n\n\n\n\n\n\n\n. . .\n\n\n\n\nI love cats!\nI’ve been programming in R since 2014!\nI absolutely love teaching this course!"
-  },
-  {
-    "objectID": "slides/week-1/week-1-intro-R.html#on-a-personal-note",
-    "href": "slides/week-1/week-1-intro-R.html#on-a-personal-note",
-    "title": "Intro to STAT 331 / 531 + Intro to R",
-    "section": "On a personal note…",
-    "text": "On a personal note…\n\n\nI prefer you refer to me as “Dr. Theobold”, or “Dr. T”, or “Professor Theobold.”\nPlease don’t call me “Allison” or “Professor.”\n\n\nI use they / them pronouns. If you are not sure what this means, I’d encourage you to read more about gender identity and pronouns. 🙂"
-  },
-  {
-    "objectID": "slides/week-1/week-1-intro-R.html#our-classroom-learning-assistant",
-    "href": "slides/week-1/week-1-intro-R.html#our-classroom-learning-assistant",
-    "title": "Intro to STAT 331 / 531 + Intro to R",
-    "section": "Our Classroom Learning Assistant!",
-    "text": "Our Classroom Learning Assistant!\nWe will be joined in class by Jasmine.\n. . .\nJasmine is…\n\na forth-year Statistics major pursuing a Data Science minor,\noriginally from Irvine, CA,\nsomeone who loves sushi, hanging out with friends, watching Netflix, and working out."
-  },
-  {
-    "objectID": "slides/week-1/week-1-intro-R.html#you",
-    "href": "slides/week-1/week-1-intro-R.html#you",
-    "title": "Intro to STAT 331 / 531 + Intro to R",
-    "section": "You!",
-    "text": "You!\nI am looking forward to reading your introductions on Discord!\n\nPlease read the intros of your classmates so you can discover who you will be learning with this quarter!"
-  },
-  {
-    "objectID": "slides/week-1/week-1-intro-R.html#beginning-of-the-week",
-    "href": "slides/week-1/week-1-intro-R.html#beginning-of-the-week",
-    "title": "Intro to STAT 331 / 531 + Intro to R",
-    "section": "Beginning of the Week",
-    "text": "Beginning of the Week\n\nBefore Tuesday’s ClassDuring Class on TuesdayAfter Tuesday’s Class\n\n\n\nLook over the coursework page\nRead the required chapter(s)\nWatch the required video(s)\nComplete the Check-ins\n\n\n\n\nReview chapter content\nAsk clarifying questions\nDiscuss example analyses\nWork in pairs to complete the Practice Activity\n\n\n\n\nFinish whatever remains of the Practice Activity\nComplete any additional reading / videos / Check-ins"
-  },
-  {
-    "objectID": "slides/week-1/week-1-intro-R.html#end-of-the-week",
-    "href": "slides/week-1/week-1-intro-R.html#end-of-the-week",
-    "title": "Intro to STAT 331 / 531 + Intro to R",
-    "section": "End of the Week",
-    "text": "End of the Week\n\nDuring Class on ThursdayAfter Thursday’s Class\n\n\n\nDebrief Practice Activity\nWarm-up review\nStart Lab Assignment\n\n\n\n\nFinish remaining problems of the Lab Assignment\nComplete Challenge Assignment\n\n\n\n\n\n\n\nLabs & Challenges Due Sunday by Midnight\n\n\n\nTo keep everyone on track with the coursework, your Lab and Challenges are due by midnight every Sunday. You are permitted to request up to four (4) deadline extensions by filling out the deadline extension form."
-  },
-  {
-    "objectID": "slides/week-1/week-1-intro-R.html#data-types",
-    "href": "slides/week-1/week-1-intro-R.html#data-types",
-    "title": "Intro to STAT 331 / 531 + Intro to R",
-    "section": "Data Types",
-    "text": "Data Types\n\nA value is a basic unit of stuff that a program works with.\nValues are allowed to have different data types:\n\n. . .\n\nlogical / boolean: FALSE / TRUE or 0 / 1 values.\n\n. . .\n\ninteger: whole numbers.\n\n. . .\n\ndouble / float / numeric: decimal numbers.\n\n. . .\n\ncharacter / string - text values."
-  },
-  {
-    "objectID": "slides/week-1/week-1-intro-R.html#variables",
-    "href": "slides/week-1/week-1-intro-R.html#variables",
-    "title": "Intro to STAT 331 / 531 + Intro to R",
-    "section": "Variables",
-    "text": "Variables\n\nare names that refer to values.\n\n\n\n\nA variable is like a container that holds something - when you refer to the container, you get whatever is stored inside.\nWe assign values to variables using the syntax object_name &lt;- value.\n\nThis can be read as “object name gets value.”\n\n\n\n\n. . .\n\nmessage &lt;- \"So long and thanks for all the fish\"\nyear &lt;- 2025\nthe_answer &lt;- 42.5\nearth_demolished &lt;- FALSE"
-  },
-  {
-    "objectID": "slides/week-1/week-1-intro-R.html#data-structures",
-    "href": "slides/week-1/week-1-intro-R.html#data-structures",
-    "title": "Intro to STAT 331 / 531 + Intro to R",
-    "section": "Data Structures",
-    "text": "Data Structures\n\nHomogeneousHeterogeneous\n\n\n\nevery element has the same data type\n\n\nVector: a one-dimensional column of homogeneous data.\nMatrix: the next step after a vector - it’s a set of homogenous data arranged in a two-dimensional, rectangular format.\n\n\n\n\nelements can be of different types\n\n\nList: a one-dimensional column of heterogeneous data.\nDataframe: a two-dimensional set of heterogeneous data arranged in a rectangular format."
-  },
-  {
-    "objectID": "slides/week-1/week-1-intro-R.html#indexing",
-    "href": "slides/week-1/week-1-intro-R.html#indexing",
-    "title": "Intro to STAT 331 / 531 + Intro to R",
-    "section": "Indexing",
-    "text": "Indexing\nWe use square brackets ([]) to access elements within data structures.\n\nIn R, we start indexing from 1.\n\n\nVectorMatrixListDataframe\n\n\n\nvec[4]    # 4th element\nvec[1:3]  # first 3 elements\n\n\n\n\nmat[2, 6]  # element in row 2, col 6\nmat[ , 3]   # all elements in col 3\n\n\n\n\nli[[5]]    # 5th element\nli$elementName # all elements in \"elementName\"\n\n\n\n\ndf[1, 2]     # element in row 1, col 2\ndf[17, ]     # all elements in row 17\ndf$colName  # all elements in the col named \"colName\""
-  },
-  {
-    "objectID": "slides/week-1/week-1-intro-R.html#logic",
-    "href": "slides/week-1/week-1-intro-R.html#logic",
-    "title": "Intro to STAT 331 / 531 + Intro to R",
-    "section": "Logic",
-    "text": "Logic\nWe can combine logical statements using and, or, and not.\n\n(X AND Y) requires that both X and Y are true.\n(X OR Y) requires that one of X or Y is true.\n(NOT X) is true if X is false, and false if X is true.\n\n. . .\n\nx &lt;- c(TRUE, FALSE, TRUE, FALSE)\ny &lt;- c(TRUE, TRUE, FALSE, FALSE)\n\n\nAndOrNot\n\n\n\nx & y\n\n[1]  TRUE FALSE FALSE FALSE\n\n\n\n\n\nx | y\n\n[1]  TRUE  TRUE  TRUE FALSE\n\n\n\n\n\n!x\n\n[1] FALSE  TRUE FALSE  TRUE"
-  },
-  {
-    "objectID": "slides/week-1/week-1-intro-R.html#broken-circles",
-    "href": "slides/week-1/week-1-intro-R.html#broken-circles",
-    "title": "Intro to STAT 331 / 531 + Intro to R",
-    "section": "Broken Circles",
-    "text": "Broken Circles\n\n\n\nTo set the stage for your future group collaborations, we will complete an activity that explores how working in groups can be more / less successful.\nLet’s start by dividing the class into groups of 6 students."
-  },
-  {
-    "objectID": "slides/week-1/week-1-intro-R.html#activity-guidelines",
-    "href": "slides/week-1/week-1-intro-R.html#activity-guidelines",
-    "title": "Intro to STAT 331 / 531 + Intro to R",
-    "section": "Activity Guidelines",
-    "text": "Activity Guidelines\n\nNo talking or other noises!\nNo pointing or hand signals!\nNo taking pieces. You may only give pieces to others.\n\nYour group is finished once everyone has a complete circle."
-  },
-  {
-    "objectID": "slides/week-1/week-1-intro-R.html#discussion",
-    "href": "slides/week-1/week-1-intro-R.html#discussion",
-    "title": "Intro to STAT 331 / 531 + Intro to R",
-    "section": "Discussion",
-    "text": "Discussion\n\nWhat do you think this game was about? What was its purpose?\nWhat did your group did that made you cooperate more successfully?\nWhat did your group did that made cooperation harder?\nWhat are some behaviors that could be implemented in the future to make cooperation easier?"
-  },
-  {
-    "objectID": "slides/week-1/week-1-intro-R.html#consent-to-participate",
-    "href": "slides/week-1/week-1-intro-R.html#consent-to-participate",
-    "title": "Intro to STAT 331 / 531 + Intro to R",
-    "section": "Consent to Participate",
-    "text": "Consent to Participate\n\n\nIf you agree to participate…\n\nyou will be recorded once a week for 10-weeks while participating in pair programming to complete collaborative tasks.\nyou will complete a pre- and post-survey about your prior computing experiences and your attitudes toward data science.\n\n\n\n. . .\n\n\nYour participation in this research will not affect your course grade.\n\n. . .\n\n\n\n\n\n\nConsent Form\n\n\n\nPlease complete the consent form (https://forms.gle/oax73hoe7uRSVLYw8) by Monday, 9/30."
-  },
-  {
-    "objectID": "weeks/week-2-quarto.html",
-    "href": "weeks/week-2-quarto.html",
-    "title": "Week 2: Reproducible Analyses with Quarto",
-    "section": "",
-    "text": "The theme of this lesson is good management of your files and data. In part two of this week’s coursework you will learn how to identify folders and paths, and create Quarto documents.",
-    "crumbs": [
-      "Weekly materials",
-      "Week 2 - Quarto"
-    ]
-  },
-  {
-    "objectID": "weeks/week-2-quarto.html#file-management",
-    "href": "weeks/week-2-quarto.html#file-management",
-    "title": "Week 2: Reproducible Analyses with Quarto",
-    "section": "1.1 File Management",
-    "text": "1.1 File Management\nAs boring as it sounds, file management is arguably one of the most important skills a data scientist should have. The reproducibility of a project depends just as much on the way in which the project was stored as the computing tools used. While using R and Quarto make an important step in creating a reproducible analysis, there are other pieces that are arguably just as important—such as file management.\nBelieve it or not, your computer has multiple locations** where files can be stored. There has been a bit of a generational shift as computers have evolved: the “file system” metaphor itself is outdated because no one uses physical files anymore.\n[This article]((https://futurism.com/the-byte/gen-z-kids-file-systems) makes the argument that with modern search capabilities, most people use their computers as a laundry hamper instead of as a nice, organized filing cabinet. However, the laundry hamper approach doesn’t play nicely with working in R and creating Quarto documents.\nIn this class, we will store files according to the Project TIER protocol. More specifically, you will have:\n\na “Stat 210” folder in your Documents folder, containing all your materials associated with STAT 210\na sub-folder for each week (e.g., Week 1, Week 2)\nseparate folders within each week for each assignment (e.g., Practice Activity, Lab)\na separate R Studio Project (and GitHub repository) associated with each assignment\n\nFor example, if you come to my office for help on your lab assignment for Week 2, I would expect your files to look like this:\n\nFile Storage on WindowsFile Storage on a Mac\n\n\n\nThis computer has six total folders in my Documents, one of which is a folder named “STAT 311.” You should have one that is called “STAT 210” or something similar.\n\nInside my STAT course folder is a sub-folder named “Week 1,” which also has a sub-folder (a sub-sub-folder) named “Lab 1.” You can tell what folders Lab 1 lives inside based on the information included at the top of the screen. This is called a “file path,” which tells your computer where a folder / file lives on the computer.\nOn a PC, every file lives on the C Drive, so the “full path” to get to my Lab 1 folder would be:\nC:/Users/jcanner/Documents/STAT 210/Week 1/Lab 1\n\n\n\nOn this Mac, there are six total folders in my Documents, one of which is a folder named “STAT 331.” Inside this folder is a sub-folder named “Week 1,” which also has a sub-folder (a sub-sub-folder) named “Lab 1.”\nOn a Mac, every file lives on the hard drive (it doesn’t have letters like a PC), so the “full path” to get to my Lab 1 folder on a Mac would be:\n/Users/jcanner/Documents/STAT 210/Week 1/Lab 1",
-    "crumbs": [
-      "Weekly materials",
-      "Week 2 - Quarto"
-    ]
-  },
-  {
-    "objectID": "weeks/week-2-quarto.html#check-in-stat-210-folder",
-    "href": "weeks/week-2-quarto.html#check-in-stat-210-folder",
-    "title": "Week 2: Reproducible Analyses with Quarto",
-    "section": "1.2 ✅ Check-in: STAT 210 Folder",
-    "text": "1.2 ✅ Check-in: STAT 210 Folder\nCheck that your class directory is set up with:\n\nthe location of your Stat 210 folder\na Week 1 sub-folder\na Lab 1 sub-sub-folder (inside the Week 1 folder)\n\n\n\n\n\n\n\nYour folder cannot sync with anything online!\n\n\n\nYour STAT 210 folder cannot be in a folder stored on GoogleDrive, OneDrive, or iCloud! Storing your folder in this location will cause your code to periodically not run and I cannot help you fix it.",
-    "crumbs": [
-      "Weekly materials",
-      "Week 2 - Quarto"
-    ]
-  },
-  {
-    "objectID": "weeks/week-2-quarto.html#downloading-quarto",
-    "href": "weeks/week-2-quarto.html#downloading-quarto",
-    "title": "Week 2: Reproducible Analyses with Quarto",
-    "section": "2.1 Downloading Quarto",
-    "text": "2.1 Downloading Quarto\nThe software associated with Quarto is automatically downloaded with the newest versions of RStudio. So, if you are using the most up to date version of RStudio (as instructed in Part 1 of this week’s coursework), you should already have Quarto installed on your computer. But, let’s test it out.\nTo ensure you have Quarto installed, carry out the following process:\n\nOpen RStudio\nClick on “File” (in the upper navigation bar)\nSelect “New File” (in the dropdown options)\nSelect “Quarto Document…” (in the dropdown option)\n\n \nIf you have Quarto installed, you should be prompted with the following menu:\n\nIf, instead, you receive a message saying Quarto is not installed on your computer, you need to download Quarto: https://quarto.org/docs/download/",
-    "crumbs": [
-      "Weekly materials",
-      "Week 2 - Quarto"
-    ]
-  },
-  {
-    "objectID": "weeks/week-2-quarto.html#introduction-to-quarto",
-    "href": "weeks/week-2-quarto.html#introduction-to-quarto",
-    "title": "Week 2: Reproducible Analyses with Quarto",
-    "section": "2.2 Introduction to Quarto",
-    "text": "2.2 Introduction to Quarto\n\n📖 Required Reading: Intro to Quarto\n\n\nHTML Documents\nWe will exclusively use HTML documents in this course. If you are interested in learning more about formatting options for Quarto HTML documents, I would recommend checking out:\n\na discussion of the basics of formatting HTML documents in Quarto\nthe list of all HTML Ffrmatting pptions for Quarto documents",
-    "crumbs": [
-      "Weekly materials",
-      "Week 2 - Quarto"
-    ]
-  },
-  {
-    "objectID": "weeks/week-2-quarto.html#check-in-quarto-documents",
-    "href": "weeks/week-2-quarto.html#check-in-quarto-documents",
-    "title": "Week 2: Reproducible Analyses with Quarto",
-    "section": "2.3 ✅ Check-in: Quarto Documents",
-    "text": "2.3 ✅ Check-in: Quarto Documents\nQuestion 1: What are the options at the top of a Quarto document (between the --- and --- symbols) called?\n\nXML\nYAML\nREML\nTOML\n\nQuestion 2: What symbols create an R code chunk?\n\n```\n{r}\n```{r}\n`{r}`\n\nQuestion 3: What symbol defines a heading?\n\n$\n_\n*\n#\n\nQuestion 4: When working in a Quarto document, the [visual / source] editor will display the raw Quarto document, whereas the [visual / source] will display the document as it will appear when it is rendered.\nQuestion 5: To produce an HTML report from your Quarto document, you need to click the ____ button.\n\nVisual\nRender\nRender on Save\nSave",
-    "crumbs": [
-      "Weekly materials",
-      "Week 2 - Quarto"
-    ]
-  },
-  {
-    "objectID": "weeks/week-3-version-control.html#objectives",
-    "href": "weeks/week-3-version-control.html#objectives",
-    "title": "Week 3: Version Control with Git and GitHub",
-    "section": "0.1 Objectives",
-    "text": "0.1 Objectives\nMost of this section is either heavily inspired by Happy Git and Github for the UseR (Bryan, Hester, and The Stat 545 TAs 2021) or directly links to that book.\n\nRecognize the benefits of using version control to improve your coding practices and workflow.\nIdentify git / GitHub as a version control platform (and helper).\nInstall git onto your computer and register for a GitHub account\nStart applying version control practices to your workflow.",
-    "crumbs": [
-      "Weekly materials",
-      "Week 3 - Version Control"
-    ]
-  },
-  {
-    "objectID": "weeks/week-3-version-control.html#footnotes",
-    "href": "weeks/week-3-version-control.html#footnotes",
-    "title": "Week 3: Version Control with Git and GitHub",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nYes, I’m aware that this sounds paranoid. It’s been a very rare occasion that I’ve needed to restore something from another backup. You don’t want to take chances.↩︎",
-    "crumbs": [
-      "Weekly materials",
-      "Week 3 - Version Control"
-    ]
-  },
-  {
-    "objectID": "group-activities/week-2/pa1-base-r.html",
-    "href": "group-activities/week-2/pa1-base-r.html",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "",
-    "text": "Today you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message.\nThis task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.\nSome advice:"
-  },
-  {
-    "objectID": "group-activities/week-2/pa1-base-r.html#groupwork-protocols",
-    "href": "group-activities/week-2/pa1-base-r.html#groupwork-protocols",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "Groupwork Protocols",
-    "text": "Groupwork Protocols\nDuring the Practice Activity, you and your partner will alternate between two roles—Developer and Coder.\nWhen you are the Developer, you will type into the Quarto document in RStudio. However, you do not type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.\nWhen you are the Coder, you are responsible for reading the instructions / prompts and directing the Developer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Developer to debug the code you specified. Once the code runs, you are expected to collaborate with the Developer to write code comments that describe the actions taken by your code.\n\nGroup Norms\nRemember, your group is expected to adhere to the following norms:\n\nThink and work together. Do not divide the work.\nYou are smarter together.\nNo cross-talk with other groups."
-  },
-  {
-    "objectID": "group-activities/week-2/pa1-base-r.html#part-zero-accessing-the-practice-activity",
-    "href": "group-activities/week-2/pa1-base-r.html#part-zero-accessing-the-practice-activity",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "Part Zero: Accessing the Practice Activity",
-    "text": "Part Zero: Accessing the Practice Activity\n\nTo access the activity and get it ready to share:\n\nLog into your CSUMB R Server Account.\n\nChoose one partner (with the closest upcoming birthday) to create an R Project called “pa-1-intro-quarto”.\n\nUpload the pa1-base-r.qmd into the project folder.\n\nShare the project with the other partner, go to File &gt; Share Project &gt; Type partner’s username &gt; Click Add\n\n\n\nFor each code chunk, add a #| label: and a #comment describing what the code chunk is doing. Be sure to check that all spacing is appropriate as well!"
-  },
-  {
-    "objectID": "group-activities/week-2/pa1-base-r.html#part-one-setup",
-    "href": "group-activities/week-2/pa1-base-r.html#part-one-setup",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "Part One: Setup",
-    "text": "Part One: Setup\nEach of the following R chunks will cause an error and / or do the desired task incorrectly. Find the mistake, and correct it to complete the intended action.\n\nCreate vectors containing the upper case letters, lower case letters, and some punctuation marks. add a label that indicate this code chunk creates the vectors of letters and punctuation.\n\n\nlower_case &lt;- c(\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\",\n                \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\")\n\nupper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\" \"I\", \"J\", \"K\", \"L\", \"M\",\n                \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\")\n\npunctuation &lt;- c(\".\", \",\", \"!\", \"?\", \"'\", '\"', \"(\", \")\", \" \", \"-\", \";\", \":\")\n\n\nMake one long vector containing all the symbols.\n\n\nmy_symbols &lt;- (lower_case, upper_case, punctuation)\n\n\nTurn the my_symbols vector into a data frame, with one column named “symbol”.\n\n\nmy_symbols &lt;- dataframe(symbol = my_symbols)\n\n\nFind the total number of symbols we have in our data frame.\n\n\nlen &lt;- length(my_Symbols)\n\n\nCreate a new variable in your dataframe that assigns a number to each symbol.\n\n\nmy_symbols%Num &lt;- 1:len"
-  },
-  {
-    "objectID": "group-activities/week-2/pa1-base-r.html#part-two-decoding-the-secret-message.",
-    "href": "group-activities/week-2/pa1-base-r.html#part-two-decoding-the-secret-message.",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "Part Two: Decoding the secret message.",
-    "text": "Part Two: Decoding the secret message.\nThis chunk will load up the encoded secret message as a vector:\n\ntop_secret &lt;- read_csv(\"https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1\", \n                       col_names = FALSE)$X1\n\nBy altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, in the order given below.\n\nAdd 14 to every number.\n\n\nts6 &lt;- top_secret ___________\n\n\nMultiply every number by 18, then subtract 257.\n\n\nts7 &lt;- ts6___________\n\n\nUse the exp() function to exponentiate every number.\n\n\nts8 &lt;- ____(ts7)\n\n\nSquare every number.\n\n\nts9 &lt;- \n\nCheckpoint: Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. Write the code to verify that this is true for your top_secret object!\nHint: This is what is called a “relational” comparison, where you compare an object to a number and R will give you a vector of TRUEs and FALSEs based on whether the comparison is / is not met. You can then use these TRUEs and FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.\n\n# Write code to verify that there are 352 numbers with values **below** 17\n\n___(ts9 &lt; 17)\n\n\nHint: To update an object after performing an operation, you overwrite the existing object with its updated counterpart. This looks something like this:\nx &lt;- x + 12,\nwhere the original value(s) in x have had 12 added to them, and the resulting values are put back in to the object named x. Be careful with this - if you do something wrong you will need to rerun the previous code chunks to reset everything! Fortunately, the grey arrow pointing down to the green line in each code chunk runs all previous code chunks again.\nNext, carry out the following steps:\n\nTurn your vector of numbers into a matrix with 5 columns.\n\n\nts_mat &lt;- _____(ts9, ncol = ____) \n\n\nSeparately from your top secret numbers, create a vector of all the even numbers between 1 and 382. Name it “evens”. That is, “evens” should contain 2, 4, 6, 8 …, 382.\n\n\nevens &lt;- seq(from = __ , to = __ , by = __)\n\n\nSubtract the “evens” vector from the first column of your secret message matrix.\n\n\nts_mat[, 1] &lt;- ts_mat[, ___] - evens\n\n\nSubtract 100 from all numbers 18-24th rows of the 3rd column.\n\n\nts_mat[18:24, 3] &lt;- ts_mat[____, ____] - ____\n\n\nMultiply all numbers in the 4th and 5th column by 2.\n\n\nts_mat[, __:__] &lt;- \n\n\nTurn your matrix back into a vector.\n\n\nts_vec &lt;- ________(ts_mat)\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. Write the code to verify that this is true for your top_secret object!\nHint: Use a relational comparison similar to what you used in the last checkpoint, but here you will need to subset values from your vector!\n\n# Write code to verify that indices 500 and beyond have values **below** 100\n___(ts_vec[____:____] &gt;= ____)\n\n\n\nTake the square root of all numbers in indices 38 to 465.\n\n\nts_vec[___:___] &lt;- ____(ts_vec[38:465])\n\n\nUse the round() function to round all numbers to the nearest whole number.\n\n\nts_vec &lt;- \n\n\nReplace all instances of the number 39 with 20. Hint: Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign\n\n\nts_vec[ts_vec == ___ ] &lt;- \n\nCheckpoint: Headquarters has informed you that your final message should have 344 even numbers.\nHint: Checking for divisibility is an interesting operation that isn’t done much in R. Modulus is the operation you are interested in, where you are checking for whether the numbers are divisible by 2, with no remainder. See what you can find about modulus in R!\n\n# Code to verify how many even numbers are in your top_secret vector\n\n___(ts_vec %% 2 == 0)"
-  },
-  {
-    "objectID": "group-activities/week-2/pa1-base-r.html#part-3-the-secret-message",
-    "href": "group-activities/week-2/pa1-base-r.html#part-3-the-secret-message",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "Part 3: The secret message!",
-    "text": "Part 3: The secret message!\nUse your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:\n\nstringr::str_c(my_symbols$symbol[ts_vec], collapse = \"\")\n\nGoogle the first line of this message, if you do not recognize it, to see what poem it is."
-  },
-  {
-    "objectID": "group-activities/week-2/pa1-base-r.html#part-4-wrap-up",
-    "href": "group-activities/week-2/pa1-base-r.html#part-4-wrap-up",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "Part 4: Wrap up",
-    "text": "Part 4: Wrap up\nThe last step is to make each code chunk hidden, even though it runs by modifying the YAML. Once knit, Export the project and submit with your “quiz” for the week. Note that each person should be submit a copy."
-  },
-  {
-    "objectID": "group-activities/week-2/pa1-base-r-solution.html",
-    "href": "group-activities/week-2/pa1-base-r-solution.html",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "",
-    "text": "Today you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message.\nThis task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.\nSome advice:"
-  },
-  {
-    "objectID": "group-activities/week-2/pa1-base-r-solution.html#groupwork-protocols",
-    "href": "group-activities/week-2/pa1-base-r-solution.html#groupwork-protocols",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "Groupwork Protocols",
-    "text": "Groupwork Protocols\nDuring the Practice Activity, you and your partner will alternate between two roles—Developer and Coder.\nWhen you are the Developer, you will type into the Quarto document in RStudio. However, you do not type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.\nWhen you are the Coder, you are responsible for reading the instructions / prompts and directing the Developer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Developer to debug the code you specified. Once the code runs, you are expected to collaborate with the Developer to write code comments that describe the actions taken by your code.\n\nGroup Norms\nRemember, your group is expected to adhere to the following norms:\n\nThink and work together. Do not divide the work.\nYou are smarter together.\nNo cross-talk with other groups."
-  },
-  {
-    "objectID": "group-activities/week-2/pa1-base-r-solution.html#part-zero-accessing-the-practice-activity",
-    "href": "group-activities/week-2/pa1-base-r-solution.html#part-zero-accessing-the-practice-activity",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "Part Zero: Accessing the Practice Activity",
-    "text": "Part Zero: Accessing the Practice Activity\n\nTo access the activity and get it ready to share:\n\nLog into your CSUMB R Server Account.\n\nChoose one partner (with the closest upcoming birthday) to create an R Project called “pa-1-intro-quarto”.\n\nUpload the pa1-base-r.qmd into the project folder.\n\nShare the project with the other partner, go to File &gt; Share Project &gt; Type partner’s username &gt; Click Add"
-  },
-  {
-    "objectID": "group-activities/week-2/pa1-base-r-solution.html#part-one-setup",
-    "href": "group-activities/week-2/pa1-base-r-solution.html#part-one-setup",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "Part One: Setup",
-    "text": "Part One: Setup\nEach of the following R chunks will cause an error and / or do the desired task incorrectly. Find the mistake, and correct it to complete the intended action.\n\nCreate vectors containing the upper case letters, lower case letters, and some punctuation marks.\n\n\nlower_case &lt;- c(\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\",\n                \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\")\n\nupper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\", \"I\", \"J\", \"K\", \"L\", \"M\",\n                \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\")\n\npunctuation &lt;- c(\".\", \",\", \"!\", \"?\", \"'\", '\"', \"(\", \")\", \" \", \"-\", \";\", \":\")\n\n\nMake one long vector containing all the symbols.\n\n\nmy_symbols &lt;- c(lower_case, upper_case, punctuation)\n\n\nTurn the my_symbols vector into a data frame, with one column named “symbol”.\n\n\nmy_symbols &lt;- data.frame(symbol = my_symbols)\n\n\nFind the total number of symbols we have in our data frame.\n\n\nlen &lt;- length(my_symbols$symbol)\n\n\nCreate a new variable in your dataframe that assigns a number to each symbol.\n\n\nmy_symbols$num &lt;- 1:len"
-  },
-  {
-    "objectID": "group-activities/week-2/pa1-base-r-solution.html#part-two-decoding-the-secret-message.",
-    "href": "group-activities/week-2/pa1-base-r-solution.html#part-two-decoding-the-secret-message.",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "Part Two: Decoding the secret message.",
-    "text": "Part Two: Decoding the secret message.\nThis chunk will load up the encoded secret message as a vector:\n\nlibrary(readr)\ntop_secret &lt;- read_csv(\"https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1\", \n                       col_names = FALSE)$X1\n\nBy altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, in the order given below.\n\nAdd 14 to every number.\nMultiply every number by 18, then subtract 257.\nUse the exp() function to exponentiate every number.\nSquare every number.\n\nHint: To update a vector after performing an operation, you overwrite the existing object with its updated counterpart. This looks something like this:\nx &lt;- x + 12,\nwhere the original value(s) in x have had 12 added to them, and the resulting values are put back in to the object named x.\n\n## Code to carry out steps 6-9 \n\nts6 &lt;- top_secret + 14\nts7 &lt;- ts6*18 - 257\nts8 &lt;- exp(ts7)\nts9 &lt;- ts8^2\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. Write the code to verify that this is true for your top_secret object!\nHint: This is what is called a “relational” comparison, where you compare an object to a number and R will give you a vector of TRUEs and FALSEs based on whether the comparison is / is not met. You can then use these TRUEs and FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.\n\n# Write code to verify that there are 352 numbers with values **below** 17\nsum(ts9 &lt; 17)\n\nNext, carry out the following steps:\n\nTurn your vector of numbers into a matrix with 5 columns.\nSeparately from your top secret numbers, create a vector of all the even numbers between 1 and 382. Name it “evens”. That is, “evens” should contain 2, 4, 6, 8 …, 382.\nSubtract the “evens” vector from the first column of your secret message matrix.\nSubtract 100 from all numbers 18-24th rows of the 3rd column.\nMultiply all numbers in the 4th and 5th column by 2.\nTurn your matrix back into a vector.\n\n\n## Code to carry out steps 10-15\n\nts_mat &lt;- matrix(ts9, ncol = 5)\nevens &lt;- seq(2,382, by = 2)\nts_mat[,1] &lt;- ts_mat[,1] - evens\nts_mat[18:24, 3] &lt;- ts_mat[18:24, 3] - 100\nts_mat[, 4:5] &lt;- ts_mat[, 4:5]*2\nts_vec &lt;- as.vector(ts_mat)\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. Write the code to verify that this is true for your top_secret object!\nHint: Use a relational comparison similar to what you used in the last checkpoint, but here you will need to subset values from your vector!\n\n# Write code to verify that indices 500 and beyond have values **below** 100\nsum(ts_vec[500:955] &gt;= 100)\n\n\nTake the square root of all numbers in indices 38 to 465.\nUse the round() function to round all numbers to the nearest whole number.\nReplace all instances of the number 39 with 20.\n\nHint: Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign!\n\n# Code for steps 16-18\nts_vec[38:465] &lt;- sqrt(ts_vec[38:465])\nts_vec &lt;- round(ts_vec)\nts_vec[ts_vec == 39] &lt;- 20\n\nCheckpoint: Headquarters has informed you that your final message should have 344 even numbers.\nHint: Checking for divisibility is an interesting operation that isn’t done much in R. Modulus is the operation you are interested in, where you are checking for whether the numbers are divisible by 2, with no remainder. See what you can find about modulus in R!\n\n# Code to verify how many even numbers are in your top_secret vector\n\nsum(ts_vec %% 2 == 0)"
-  },
-  {
-    "objectID": "group-activities/week-2/pa1-base-r-solution.html#part-3-the-secret-message",
-    "href": "group-activities/week-2/pa1-base-r-solution.html#part-3-the-secret-message",
-    "title": "Practice Activity 1: Find the Mistakes",
-    "section": "Part 3: The secret message!",
-    "text": "Part 3: The secret message!\nUse your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:\n\nstringr::str_c(my_symbols$symbol[ts_vec], collapse = \"\")\n\nGoogle the first line of this message, if you do not recognize it, to see what poem it is."
-  },
-  {
-    "objectID": "group-activities/week-2/expert-designer.html",
-    "href": "group-activities/week-2/expert-designer.html",
-    "title": "Expert Designer",
-    "section": "",
-    "text": "This activity is designed to simulate the environment in which you will be working for the weekly Practice Activities."
-  },
-  {
-    "objectID": "group-activities/week-2/expert-designer.html#instructions-roles-rules",
-    "href": "group-activities/week-2/expert-designer.html#instructions-roles-rules",
-    "title": "Expert Designer",
-    "section": "Instructions, Roles, & Rules",
-    "text": "Instructions, Roles, & Rules\nGet into groups of four (4) students. Similar to last week’s Broken Circles activity, each of you has an envelope containing different shapes.\n\nDesigner\nIn this activity, one person in your group will take on the role of the “designer,” two members will be the “players,” and one person will be the “observer.” The designer uses every shape in the envelope to create a design that is not shared with anyone else. The designer is then tasked with instructing the players how to replicate the design they created, but there are some rules.\n\nThe designer cannot touch the players shapes.\nThe designer cannot tell the players how to assemble the shapes into the correct design.\nThe designer can respond to questions posed by the players.\n\n\n\nPlayers\n“Players” are tasked with solving the design made by the “designer.” Players can pose questions to the designer to uncover their design. Once an player believes they have figured out the design, the designer should check their solution. If the designer says the solution is correct, then the player can assist the designer in answering questions posed by the other players.\n\n\nObserver\nThe “observer” is tasked with monitoring the interactions between the designer and the players. Specifically, the observer should check off the number of times they see two behaviors occurring, (1) explaining by telling how, and (2) everybody helps. The observer should have a scoring sheet to tally the number of times they see each behavior."
-  },
-  {
-    "objectID": "group-activities/week-2/expert-designer.html#getting-started",
-    "href": "group-activities/week-2/expert-designer.html#getting-started",
-    "title": "Expert Designer",
-    "section": "Getting Started",
-    "text": "Getting Started\nChoose one person in your group to be the first designer. Carry out the process described above until every observer has correctly identified the design. You will have 10-minutes to complete this task.\nOnce you have completed this task, if there is still time remaining your group should choose a new designer and repeat the process."
-  },
-  {
-    "objectID": "group-activities/week-2/expert-designer.html#discussion",
-    "href": "group-activities/week-2/expert-designer.html#discussion",
-    "title": "Expert Designer",
-    "section": "Discussion",
-    "text": "Discussion\n\nWhat do you think this game was about? What was its purpose?\nWhat did your group did that made you cooperate more successfully?\nWhat did your group did that made cooperation harder?\nWhat are some behaviors that could be implemented in the future to make cooperation easier?"
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
   },
   {
     "objectID": "labs/instructions/lab-1-instructions.html",
@@ -575,6 +570,17 @@
     "title": "Lab 1: Introduction to Quarto",
     "section": "",
     "text": "Either under File, or in the top right corner where the current project name is, select",
+    "crumbs": [
+      "Labs",
+      "Lab 1 & Challenge 1 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-1-instructions.html#step-2-choose-new-project",
+    "href": "labs/instructions/lab-1-instructions.html#step-2-choose-new-project",
+    "title": "Lab 1: Introduction to Quarto",
+    "section": "",
+    "text": "For now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.",
     "crumbs": [
       "Labs",
       "Lab 1 & Challenge 1 Instructions"
@@ -702,455 +708,117 @@
     ]
   },
   {
-    "objectID": "slides/week-2-intro-R-quarto.html#data-types",
-    "href": "slides/week-2-intro-R-quarto.html#data-types",
-    "title": "STAT 210 - Intro to R",
-    "section": "Data Types",
-    "text": "Data Types\n\nA value is a basic unit of stuff that a program works with.\nValues are allowed to have different data types:\n\n\n\nlogical / boolean: FALSE / TRUE or 0 / 1 values.\n\n\n\n\ninteger: whole numbers.\n\n\n\n\ndouble / float / numeric: decimal numbers.\n\n\n\n\ncharacter / string - text values."
+    "objectID": "weeks/week-3-version-control.html#objectives",
+    "href": "weeks/week-3-version-control.html#objectives",
+    "title": "Week 3: Version Control with Git and GitHub",
+    "section": "0.1 Objectives",
+    "text": "0.1 Objectives\nMost of this section is either heavily inspired by Happy Git and Github for the UseR (Bryan, Hester, and The Stat 545 TAs 2021) or directly links to that book.\n\nRecognize the benefits of using version control to improve your coding practices and workflow.\nIdentify git / GitHub as a version control platform (and helper).\nInstall git onto your computer and register for a GitHub account\nStart applying version control practices to your workflow.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 3 - Version Control"
+    ]
   },
   {
-    "objectID": "slides/week-2-intro-R-quarto.html#variables",
-    "href": "slides/week-2-intro-R-quarto.html#variables",
-    "title": "STAT 210 - Intro to R",
-    "section": "Variables",
-    "text": "Variables\n\nare names that refer to values.\n\n\n\n\nA variable is like a container that holds something - when you refer to the container, you get whatever is stored inside.\nWe assign values to variables using the syntax object_name &lt;- value.\n\nThis can be read as “object name gets value.”\n\n\n\n\n\n\nmessage &lt;- \"So long and thanks for all the fish\"\nyear &lt;- 2025\nthe_answer &lt;- 42.5\nearth_demolished &lt;- FALSE"
+    "objectID": "weeks/week-3-version-control.html#footnotes",
+    "href": "weeks/week-3-version-control.html#footnotes",
+    "title": "Week 3: Version Control with Git and GitHub",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nYes, I’m aware that this sounds paranoid. It’s been a very rare occasion that I’ve needed to restore something from another backup. You don’t want to take chances.↩︎",
+    "crumbs": [
+      "Weekly materials",
+      "Week 3 - Version Control"
+    ]
   },
   {
-    "objectID": "slides/week-2-intro-R-quarto.html#data-structures",
-    "href": "slides/week-2-intro-R-quarto.html#data-structures",
-    "title": "STAT 210 - Intro to R",
-    "section": "Data Structures",
-    "text": "Data Structures\n\nHomogeneousHeterogeneous\n\n\n\nevery element has the same data type\n\n\nVector: a one-dimensional column of homogeneous data.\nMatrix: the next step after a vector - it’s a set of homogenous data arranged in a two-dimensional, rectangular format.\n\n\n\n\nelements can be of different types\n\n\nList: a one-dimensional column of heterogeneous data.\nDataframe: a two-dimensional set of heterogeneous data arranged in a rectangular format."
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#indexing",
-    "href": "slides/week-2-intro-R-quarto.html#indexing",
-    "title": "STAT 210 - Intro to R",
-    "section": "Indexing",
-    "text": "Indexing\nWe use square brackets ([]) to access elements within data structures.\n\nIn R, we start indexing from 1.\n\n\nVectorMatrixListDataframe\n\n\n\nvec[4]    # 4th element\nvec[1:3]  # first 3 elements\n\n\n\n\nmat[2, 6]  # element in row 2, col 6\nmat[ , 3]   # all elements in col 3\n\n\n\n\nli[[5]]    # 5th element\nli$elementName # all elements in \"elementName\"\n\n\n\n\ndf[1, 2]     # element in row 1, col 2\ndf[17, ]     # all elements in row 17\ndf$colName  # all elements in the col named \"colName\""
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#logic",
-    "href": "slides/week-2-intro-R-quarto.html#logic",
-    "title": "STAT 210 - Intro to R",
-    "section": "Logic",
-    "text": "Logic\nWe can combine logical statements using and, or, and not.\n\n(X AND Y) requires that both X and Y are true.\n(X OR Y) requires that one of X or Y is true.\n(NOT X) is true if X is false, and false if X is true.\n\n\n\nx &lt;- c(TRUE, FALSE, TRUE, FALSE)\ny &lt;- c(TRUE, TRUE, FALSE, FALSE)\n\n\nAndOrNot\n\n\n\nx & y\n\n[1]  TRUE FALSE FALSE FALSE\n\n\n\n\n\nx | y\n\n[1]  TRUE  TRUE  TRUE FALSE\n\n\n\n\n\n!x\n\n[1] FALSE  TRUE FALSE  TRUE"
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#did-you-leave-off-a-parenthesis",
-    "href": "slides/week-2-intro-R-quarto.html#did-you-leave-off-a-parenthesis",
-    "title": "STAT 210 - Intro to R",
-    "section": "Did you leave off a parenthesis?",
-    "text": "Did you leave off a parenthesis?\n\nseq(from = 1, to = 10, by = 1\n\nseq(from = 1, to = 10, by = 1\n\nError in parse(text = input): &lt;text&gt;:2:0: unexpected end of input\n1: seq(from = 1, to = 10, by = 1\n   ^\n\n\n\n\n\nseq(from = 1, to = 10, by = 1)\n\n [1]  1  2  3  4  5  6  7  8  9 10"
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#did-you-leave-off-a-comma",
-    "href": "slides/week-2-intro-R-quarto.html#did-you-leave-off-a-comma",
-    "title": "STAT 210 - Intro to R",
-    "section": "Did you leave off a comma?",
-    "text": "Did you leave off a comma?\n\nseq(from = 1, to = 10 by = 1)\n\nseq(from = 1, to = 10 by = 1)\n\nError in parse(text = input): &lt;text&gt;:1:23: unexpected symbol\n1: seq(from = 1, to = 10 by\n                          ^\n\n\n\n\n\nseq(from = 1, to = 10, by = 1)\n\n [1]  1  2  3  4  5  6  7  8  9 10"
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#are-you-using-the-right-function-name",
-    "href": "slides/week-2-intro-R-quarto.html#are-you-using-the-right-function-name",
-    "title": "STAT 210 - Intro to R",
-    "section": "Are you using the right function name?",
-    "text": "Are you using the right function name?\n\nsequence(from = 1, to = 10, by = 1)\n\nsequence(from = 1, to = 10, by = 1)\n\nError in sequence.default(from = 1, to = 10, by = 1): argument \"nvec\" is missing, with no default\n\n\n\n\n\nseq(from = 1, to = 10, by = 1)\n\n [1]  1  2  3  4  5  6  7  8  9 10"
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#are-you-using-the-right-input-that-the-function-expects",
-    "href": "slides/week-2-intro-R-quarto.html#are-you-using-the-right-input-that-the-function-expects",
-    "title": "STAT 210 - Intro to R",
-    "section": "Are you using the right input that the function expects?",
-    "text": "Are you using the right input that the function expects?\n\nsqrt(“1”)\n\nsqrt(\"1\")\n\nError in sqrt(\"1\"): non-numeric argument to mathematical function\n\n\n\n\n\nsqrt(1)\n\n[1] 1"
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#are-you-expecting-the-right-output-of-the-function",
-    "href": "slides/week-2-intro-R-quarto.html#are-you-expecting-the-right-output-of-the-function",
-    "title": "STAT 210 - Intro to R",
-    "section": "Are you expecting the right output of the function?",
-    "text": "Are you expecting the right output of the function?\n\nmy_obj(5)\n\nmy_obj &lt;- seq(from = 1, to = 10, by = 1)\n\nmy_obj(5)\n\nError in my_obj(5): could not find function \"my_obj\"\n\n\n\n\n\nmy_obj[5]\n\n[1] 5"
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#messages",
-    "href": "slides/week-2-intro-R-quarto.html#messages",
-    "title": "STAT 210 - Intro to R",
-    "section": "Messages",
-    "text": "Messages\nJust because you see scary red text, this does not mean something went wrong! This is just R communicating with you.\n\n\nFor example, you will often see:\n\nlibrary(lme4)\n\nLoading required package: Matrix"
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#warnings",
-    "href": "slides/week-2-intro-R-quarto.html#warnings",
-    "title": "STAT 210 - Intro to R",
-    "section": "Warnings",
-    "text": "Warnings\nOften, R will give you a warning.\n\nThis means that your code did run…\n…but you probably want to make sure it succeeded.\n\n\n\n\n\n\nmy_vec &lt;- c(\"a\", \"b\", \"c\")\n\nmy_new_vec &lt;- as.integer(my_vec)\n\nWarning: NAs introduced by coercion\n\n\n\n\n\n\nDoes this look right?\n\nmy_new_vec\n\n[1] NA NA NA"
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#errors",
-    "href": "slides/week-2-intro-R-quarto.html#errors",
-    "title": "STAT 210 - Intro to R",
-    "section": "Errors",
-    "text": "Errors\nIf the word Error appears in your message from R, then you have a problem.\nThis means your code could not run!\n\n\n\nmy_vec &lt;- c(\"a\", \"b\", \"c\")\n\nmy_new_vec &lt;- my_vec + 1\n\nError in my_vec + 1: non-numeric argument to binary operator"
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#r-says",
-    "href": "slides/week-2-intro-R-quarto.html#r-says",
-    "title": "STAT 210 - Intro to R",
-    "section": "R says…",
-    "text": "R says…\n\nError: Object some_obj not found.\n\n\nIt probably means…\n\nYou haven’t run the code to create some_obj OR you have a typo in the name!\n\n\n\n\n\nsome_ojb &lt;- 1:10\n\nmean(some_obj)\n\nError in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'mean': object 'some_obj' not found"
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#r-says-1",
-    "href": "slides/week-2-intro-R-quarto.html#r-says-1",
-    "title": "STAT 210 - Intro to R",
-    "section": "R says…",
-    "text": "R says…\n\nError: Object of type ‘closure’ is not subsettable.\n\n\nIt probably means…\n\nOops, you tried to use square brackets on a function.\n\n\n\n\n\nmean[1, 2]\n\nError in mean[1, 2]: object of type 'closure' is not subsettable"
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#r-says-2",
-    "href": "slides/week-2-intro-R-quarto.html#r-says-2",
-    "title": "STAT 210 - Intro to R",
-    "section": "R says…",
-    "text": "R says…\n\nError: Non-numeric argument to binary operator.\n\n\nIt probably means…\n\nYou tried to do math on data that isn’t numeric.\n\n\n\n\n\n\"a\" + 2\n\nError in \"a\" + 2: non-numeric argument to binary operator"
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#what-if-none-of-these-solved-my-error",
-    "href": "slides/week-2-intro-R-quarto.html#what-if-none-of-these-solved-my-error",
-    "title": "STAT 210 - Intro to R",
-    "section": "What if none of these solved my error?",
-    "text": "What if none of these solved my error?\n\nLook at the help file for the function! (e.g., ?group_by)\nWhen all else fails, Google your error message or ask ChatGPT!\n\n\nLeave out the specifics.\nInclude the name(s) of the function(s) you are using."
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#try-it",
-    "href": "slides/week-2-intro-R-quarto.html#try-it",
-    "title": "STAT 210 - Intro to R",
-    "section": "Try it…",
-    "text": "Try it…\nWhat’s wrong here?\n\nmatrix(\n  c(\"a\", \"b\", \"c\", \"d\"), \n  num_row = 2\n  )\n\nError in matrix(c(\"a\", \"b\", \"c\", \"d\"), num_row = 2): unused argument (num_row = 2)\n\n\n\n\nThe documentation says…\nmatrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE,\n       dimnames = NULL)"
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#scripts",
-    "href": "slides/week-2-intro-R-quarto.html#scripts",
-    "title": "STAT 210 - Intro to R",
-    "section": "Scripts",
-    "text": "Scripts\n\nScripts (File &gt; New File &gt; R Script) are files of code that are meant to be run on their own.\n\n\n\nScripts can be run in RStudio by clicking the Run button at the top of the editor window when the script is open.\nYou can also run code interactively in a script by:\n\nhighlighting lines of code and hitting run.\nplacing your cursor on a line of code and hitting run.\nplacing your cursor on a line of code and hitting ctrl + enter or command + enter."
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#notebooks",
-    "href": "slides/week-2-intro-R-quarto.html#notebooks",
-    "title": "STAT 210 - Intro to R",
-    "section": "Notebooks",
-    "text": "Notebooks\nNotebooks are an implementation of literate programming.\n\nThey allow you to integrate code, output, text, images, etc. into a single document.\nE.g.,\n\nQuarto notebook\nR Markdown notebook\nJupyter notebook\n\n\nWe love notebooks because they help us produce a reproducible analysis!"
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#what-is-markdown",
-    "href": "slides/week-2-intro-R-quarto.html#what-is-markdown",
-    "title": "STAT 210 - Intro to R",
-    "section": "What is Markdown?",
-    "text": "What is Markdown?\nMarkdown is a markup language.\nIt uses special symbols and formatting to make pretty documents.\n\n\n*italics* – makes italics\n**bold** – makes bold text\n# – makes headers\n! – includes images or HTML links\n&lt; &gt; – embeds URLs\n\n\n\nMarkdown files have the .md extension."
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#what-is-quarto",
-    "href": "slides/week-2-intro-R-quarto.html#what-is-quarto",
-    "title": "STAT 210 - Intro to R",
-    "section": "What is Quarto?",
-    "text": "What is Quarto?\nQuarto unifies and extends the R Markdown ecosystem.\n\nQuarto files have the .qmd extension."
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#highlights-of-quarto",
-    "href": "slides/week-2-intro-R-quarto.html#highlights-of-quarto",
-    "title": "STAT 210 - Intro to R",
-    "section": "Highlights of Quarto",
-    "text": "Highlights of Quarto\n\nConsistent implementation of attractive and handy features across outputs:\n\nE.g., tabsets, code-folding, syntax highlighting, etc.\n\nMore accessible defaults and better support for accessibility.\nGuardrails that are helpful when learning:\n\nE.g., YAML completion, informative syntax errors, etc.\n\nSupport for other languages like Python, Julia, Observable, and more."
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#quarto-formats",
-    "href": "slides/week-2-intro-R-quarto.html#quarto-formats",
-    "title": "STAT 210 - Intro to R",
-    "section": "Quarto Formats",
-    "text": "Quarto Formats\nQuarto makes moving between outputs straightforward.\n\nAll that needs to change between these formats is a few lines in the front matter (YAML)!\n\n\n\nDocument\ntitle: \"Lesson 1\"\nformat: html\nPresentation\ntitle: \"Lesson 1\"\nformat: revealjs\n\nWebsite\nproject:\n  type: website\n\nwebsite: \n  navbar: \n    left:\n      - lesson-1.qmd"
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#quarto-components",
-    "href": "slides/week-2-intro-R-quarto.html#quarto-components",
-    "title": "STAT 210 - Intro to R",
-    "section": "Quarto Components",
-    "text": "Quarto Components\n\n\nHow does Quarto know that a section of text should be interpreted as R code?"
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#r-code-options-in-quarto",
-    "href": "slides/week-2-intro-R-quarto.html#r-code-options-in-quarto",
-    "title": "STAT 210 - Intro to R",
-    "section": "R Code Options in Quarto",
-    "text": "R Code Options in Quarto\nR code chunk options are included at the top of each code chunk, prefaced with a #| (hashpipe).\n\nThese options control how the following code is run and reported in the final Quarto document.\nSome R code options can also be included in the front matter (YAML) which would be applied globally to the entire document."
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#r-code-options-in-quarto-1",
-    "href": "slides/week-2-intro-R-quarto.html#r-code-options-in-quarto-1",
-    "title": "STAT 210 - Intro to R",
-    "section": "R Code Options in Quarto",
-    "text": "R Code Options in Quarto"
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#chunk-option-completion-in-quarto",
-    "href": "slides/week-2-intro-R-quarto.html#chunk-option-completion-in-quarto",
-    "title": "STAT 210 - Intro to R",
-    "section": "Chunk Option Completion in Quarto",
-    "text": "Chunk Option Completion in Quarto"
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#rendering-your-quarto-document",
-    "href": "slides/week-2-intro-R-quarto.html#rendering-your-quarto-document",
-    "title": "STAT 210 - Intro to R",
-    "section": "Rendering your Quarto Document",
-    "text": "Rendering your Quarto Document\nTo take your .qmd file and make it look pretty, you have to render it."
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#rendering-your-quarto-document-1",
-    "href": "slides/week-2-intro-R-quarto.html#rendering-your-quarto-document-1",
-    "title": "STAT 210 - Intro to R",
-    "section": "Rendering your Quarto Document",
-    "text": "Rendering your Quarto Document\nQuarto CLI (command line interface) orchestrates each step of rendering:\n\nProcess the executable code chunks with either knitr or jupyter.\nConvert the resulting Markdown file to the desired output."
-  },
-  {
-    "objectID": "slides/week-2-intro-R-quarto.html#rendering-your-quarto-document-2",
-    "href": "slides/week-2-intro-R-quarto.html#rendering-your-quarto-document-2",
-    "title": "STAT 210 - Intro to R",
-    "section": "Rendering your Quarto Document",
-    "text": "Rendering your Quarto Document\nWhen you click Render:\n\n\n\nYour file is saved.\nThe R code written in your .qmd file gets run in order.\n\n\nIt starts from scratch, even if you previously ran some of the code in RStudio.\n\n\nA new file is created.\n\n\nIf your Quarto file is called “Lab1.qmd”, then a file called “Lab1.html” will be created.\nThis will be saved in the same folder as “Lab1.qmd”."
-  },
-  {
-    "objectID": "labs/instructions/lab-1-instructions.html#step-2-choose-new-project",
-    "href": "labs/instructions/lab-1-instructions.html#step-2-choose-new-project",
-    "title": "Lab 1: Introduction to Quarto",
+    "objectID": "group-activities/week-2/pa1-base-r-solution.html",
+    "href": "group-activities/week-2/pa1-base-r-solution.html",
+    "title": "Practice Activity 1: Find the Mistakes",
     "section": "",
-    "text": "For now, we are simply creating a New R Project. This will generate a .Rproj file and folder of the same name to store all of our content and set our working directory.",
-    "crumbs": [
-      "Labs",
-      "Lab 1 & Challenge 1 Instructions"
-    ]
+    "text": "Today you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message.\nThis task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.\nSome advice:"
   },
   {
-    "objectID": "weeks/week-4-ggplot.html",
-    "href": "weeks/week-4-ggplot.html",
-    "title": "Introduction to ggplot",
-    "section": "",
-    "text": "The greatest possibilities of visual display lie in vividness and inescapability of the intended message. A visual display can stop your mental flow in its tracks and make you think. A visual display can force you to notice what you never expected to see. (“Why, that scatter diagram has a hole in the middle!”) – John Tukey, Data Based Graphics: Visual Display in the Decades to Come",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#learning-objectives",
-    "href": "weeks/week-4-ggplot.html#learning-objectives",
-    "title": "Introduction to ggplot",
-    "section": "0.1 Learning Objectives",
-    "text": "0.1 Learning Objectives\n\nDescribe charts using the grammar of graphics\nCreate layered graphics that highlight multiple aspects of the data\nEvaluate existing charts and develop new versions that improve accessibility and readability",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#loading-in-the-ggplot2-package",
-    "href": "weeks/week-4-ggplot.html#loading-in-the-ggplot2-package",
-    "title": "Introduction to ggplot",
-    "section": "0.2 Loading in the ggplot2 Package",
-    "text": "0.2 Loading in the ggplot2 Package\nIn this class, we’re going to use the ggplot2 package to create graphics in R. This package is already installed as part of the tidyverse, but can be installed:\n\ninstall.packages(\"ggplot2\") #only needs to happen once - Do not include in Quarto documents!\n\nand/or loaded:\n\nlibrary(\"ggplot2\")\n\n# alternatively\nlibrary(\"tidyverse\") # (my preference!)\n\n\n\n\n\n\nBuilding a masterpiece, by Allison Horst",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#the-grammar-of-graphics",
-    "href": "weeks/week-4-ggplot.html#the-grammar-of-graphics",
-    "title": "Introduction to ggplot",
-    "section": "1.1 The Grammar of Graphics",
-    "text": "1.1 The Grammar of Graphics\nThe grammar of graphics is an approach first introduced in Leland Wilkinson’s book (Wilkinson 2005). Unlike other graphics classification schemes, the grammar of graphics makes an attempt to describe how the data set itself relates to the components of the chart.\nThis has a few advantages:\n\nIt’s relatively easy to represent the same data set with different types of plots (and to find their strengths and weaknesses)\nGrammar leads to a concise description of the plot and its contents\nWe can add layers to modify the graphics, each with their own basic grammar (just like we combine sentences and clauses to build a rich, descriptive paragraph)\n\n\n\n\nA pyramid view of the major components of the grammar of graphics, with data as the base, aesthetics building on data, scales building on aesthetics, geometric objects, statistics, facets, and the coordinate system at the top of the pyramid. Source: (Sarkar 2018)",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#making-your-first-ggplot",
-    "href": "weeks/week-4-ggplot.html#making-your-first-ggplot",
-    "title": "Introduction to ggplot",
-    "section": "1.2 Making Your First ggplot",
-    "text": "1.2 Making Your First ggplot\n\n✅ Check-in\nQuestion 1 – What specifically does the code ggplot(data = mpg) do?\n\nCreates a blank plot\nMakes a scatterplot of the first two variables in the mpg dataset\nCreates a ggplot with the mpg dataset",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#aesthetics",
-    "href": "weeks/week-4-ggplot.html#aesthetics",
-    "title": "Introduction to ggplot",
-    "section": "1.3 Aesthetics",
-    "text": "1.3 Aesthetics\n📖 Required Reading: Layers - Aesthetic Mappings.\n\n✅ Check-in\n\nggplot(data = mpg) +\n  geom_point(mapping = aes(x = displ, y = hwy), color = \"blue\")\n\nQuestion 2: What aesthetics does this plot contain?\n\nx\ny\ncolor\ndata\n\nQuestion 3: Which of the following changes would set the color of the points to be blue?\n\n## Option A\nggplot(data = mpg) +\ngeom_point(\n  mapping = aes(x = displ, \n                y = hwy, \n                color = blue)\n  )\n\n## Option B\nggplot(data = mpg) +\ngeom_point(\n  mapping = aes(x = displ, \n                y = hwy), \n  color = \"blue\"\n  )\n\n## Option C\nggplot(data = mpg, \n       mapping = aes(color = \"blue\")\n       ) +\ngeom_point(\n  mapping = aes(x = displ, \n                y = hwy)\n  )",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#geoms",
-    "href": "weeks/week-4-ggplot.html#geoms",
-    "title": "Introduction to ggplot",
-    "section": "1.4 geoms",
-    "text": "1.4 geoms\n\nWhat type of chart to use?\nIt can be hard to know what type of chart to use for a particular type of data. I recommend figuring out what you want to show first, and then thinking about how to show that data with an appropriate plot type. Consider the following factors:\n\nWhat type of variable is x? Categorical? Continuous? Discrete?\nWhat type of variable is y?\nHow many observations do I have for each x / y variable?\nAre there any important moderating variables?\nDo I have data that might be best shown in small multiples? E.g. a categorical moderating variable and a lot of data, where the categorical variable might be important for showing different features of the data?\n\nOnce you’ve thought through this, take a look through catalogs like the R Graph Gallery to see what visualizations match your data and use-case.\n📖 Required Reading: Layers - Geometric Objects.\n💻 Required Tutorials\n\nBar Charts\nHistograms\nScatterplots\nLine Plots\n\n\n\n✅ Check-in\nQuestion 4: Match each plot with the geom_XXX() function used to create it!\n\n\n\nLine Chart\nBoxplot\nHistogram\nArea Chart\n\n\n\ngeom_boxplot()\ngeom_point()\ngeom_hist()\ngeom_bar()\ngeom_smooth()\ngeom_point()\ngeom_area()\ngeom_line()\ngeom_histogram()",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#getting-a-bit-fancier",
-    "href": "weeks/week-4-ggplot.html#getting-a-bit-fancier",
-    "title": "Introduction to ggplot",
-    "section": "1.5 Getting a Bit Fancier",
-    "text": "1.5 Getting a Bit Fancier\nIn this section we dig a bit deeper into how we can make our code more efficient and other ways we can add additional variables to our plots.\n\nGlobal vs. local aesthetics\nThe aesthetic mappings that are defined in ggplot() are the global level aesthetics, that is they are inherited by each of the subsequent geom_ layers of the plot. However, each geom_ function in ggplot2 can also take its own mapping arguments, which allows for aesthetic mappings at the local level that are combined with those inherited from the global level.\n\n\n✅ Check-in\nQuestion 5: Match the code to the type of aesthetics that are being used:\n\n\n\nGlobal\n \nLocal\n\n\nggplot(data = mpg, \n       mapping = aes(x = mpg, y = hwy)\n       ) + \n  geom_point()\n\n\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = mpg, y = hwy))",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#facets",
-    "href": "weeks/week-4-ggplot.html#facets",
-    "title": "Introduction to ggplot",
-    "section": "1.6 Facets",
-    "text": "1.6 Facets\n📖 Required Reading: Layers - Facets.",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#data-transformations",
-    "href": "weeks/week-4-ggplot.html#data-transformations",
-    "title": "Introduction to ggplot",
-    "section": "1.7 Data transformations",
-    "text": "1.7 Data transformations\n📖 Required Reading: Layers - Statistical Transformations.",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#changing-the-positions-of-bars",
-    "href": "weeks/week-4-ggplot.html#changing-the-positions-of-bars",
-    "title": "Introduction to ggplot",
-    "section": "1.8 Changing the positions of bars",
-    "text": "1.8 Changing the positions of bars\n📖 Required Reading: Layers - Position Adjustments.\n\n✅ Check-in\nQuestion 6: What arguments for geom_jitter() control the amount of jittering?\n\nwidth\nheight\nstat\nposition\nna.rm\nshow.legend\ndata\nmapping",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#plot-customizations",
-    "href": "weeks/week-4-ggplot.html#plot-customizations",
-    "title": "Introduction to ggplot",
-    "section": "1.9 Plot Customizations",
-    "text": "1.9 Plot Customizations\n📖 Required Reading: Communication\n\n\n✅ Check-in\nQuestion 7: What can the labs() function do? Select all that apply.\n\nCustomize the x-axis label\nCustomize the y-axis label\nCustomize the legend label\nCustomize the plot title\nAdd a caption to the plot",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "group-activities/week-3/pa2-vc-intro-tidy-solution.html",
-    "href": "group-activities/week-3/pa2-vc-intro-tidy-solution.html",
-    "title": "Practice Activity 2: Modernizing the Process",
-    "section": "",
-    "text": "Today you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message using the tidyverse. First thing is to include the package in a setup chunk above!\nThis task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group."
-  },
-  {
-    "objectID": "group-activities/week-3/pa2-vc-intro-tidy-solution.html#groupwork-protocols",
-    "href": "group-activities/week-3/pa2-vc-intro-tidy-solution.html#groupwork-protocols",
-    "title": "Practice Activity 2: Modernizing the Process",
+    "objectID": "group-activities/week-2/pa1-base-r-solution.html#groupwork-protocols",
+    "href": "group-activities/week-2/pa1-base-r-solution.html#groupwork-protocols",
+    "title": "Practice Activity 1: Find the Mistakes",
     "section": "Groupwork Protocols",
     "text": "Groupwork Protocols\nDuring the Practice Activity, you and your partner will alternate between two roles—Developer and Coder.\nWhen you are the Developer, you will type into the Quarto document in RStudio. However, you do not type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.\nWhen you are the Coder, you are responsible for reading the instructions / prompts and directing the Developer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Developer to debug the code you specified. Once the code runs, you are expected to collaborate with the Developer to write code comments that describe the actions taken by your code.\n\nGroup Norms\nRemember, your group is expected to adhere to the following norms:\n\nThink and work together. Do not divide the work.\nYou are smarter together.\nNo cross-talk with other groups."
   },
   {
-    "objectID": "group-activities/week-3/pa2-vc-intro-tidy-solution.html#part-zero-accessing-the-practice-activity",
-    "href": "group-activities/week-3/pa2-vc-intro-tidy-solution.html#part-zero-accessing-the-practice-activity",
-    "title": "Practice Activity 2: Modernizing the Process",
+    "objectID": "group-activities/week-2/pa1-base-r-solution.html#part-zero-accessing-the-practice-activity",
+    "href": "group-activities/week-2/pa1-base-r-solution.html#part-zero-accessing-the-practice-activity",
+    "title": "Practice Activity 1: Find the Mistakes",
     "section": "Part Zero: Accessing the Practice Activity",
-    "text": "Part Zero: Accessing the Practice Activity\n\nTo access the activity and get it ready to share:\n\nLog into your CSUMB R Server Account.\n\nChoose one partner (with the closest upcoming birthday) to create an R Project called “pa-1-intro-quarto”.\n\nUpload the pa1-base-r.qmd into the project folder.\n\nShare the project with the other partner, go to File &gt; Share Project &gt; Type partner’s username &gt; Click Add\n\n\n\nFor each code chunk, add a #| label: and a #comment describing what the code chunk is doing. Be sure to check that all spacing is appropriate as well!"
+    "text": "Part Zero: Accessing the Practice Activity\n\nTo access the activity and get it ready to share:\n\nLog into your CSUMB R Server Account.\n\nChoose one partner (with the closest upcoming birthday) to create an R Project called “pa-1-intro-quarto”.\n\nUpload the pa1-base-r.qmd into the project folder.\n\nShare the project with the other partner, go to File &gt; Share Project &gt; Type partner’s username &gt; Click Add"
   },
   {
-    "objectID": "group-activities/week-3/pa2-vc-intro-tidy-solution.html#part-one-setup",
-    "href": "group-activities/week-3/pa2-vc-intro-tidy-solution.html#part-one-setup",
-    "title": "Practice Activity 2: Modernizing the Process",
+    "objectID": "group-activities/week-2/pa1-base-r-solution.html#part-one-setup",
+    "href": "group-activities/week-2/pa1-base-r-solution.html#part-one-setup",
+    "title": "Practice Activity 1: Find the Mistakes",
     "section": "Part One: Setup",
-    "text": "Part One: Setup\nEach of the following R chunks will cause an error and / or do the desired task incorrectly. Find the mistake, and correct it to complete the intended action.\n\nCreate vectors containing the upper case letters, lower case letters, and some punctuation marks. add a label that indicate this code chunk creates the vectors of letters and punctuation.\n\n\nlower_case &lt;- c(\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\",\n                \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\")\n\nupper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\", \"I\", \"J\", \"K\", \"L\", \"M\",\n                \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\")\n\npunctuation &lt;- c(\".\", \",\", \"!\", \"?\", \"'\", '\"', \"(\", \")\", \" \", \"-\", \";\", \":\")\n\nUsing the above, we can complete the following 5 steps within a few lines of code using the tidyverse.\n\nMake one long vector containing all the symbols.\nTurn the my_symbols vector into a data frame, with one column named “symbol”.\nFind the total number of symbols we have in our data frame.\nCreate a new variable in your dataframe that assigns a number to each symbol.\n\n\n# add comment here\n\nmy_symbols &lt;- tibble(symbols = c(lower_case, \n                                 upper_case, \n                                 punctuation)) |&gt; \n              mutate(num = row_number())"
+    "text": "Part One: Setup\nEach of the following R chunks will cause an error and / or do the desired task incorrectly. Find the mistake, and correct it to complete the intended action.\n\nCreate vectors containing the upper case letters, lower case letters, and some punctuation marks.\n\n\nlower_case &lt;- c(\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\",\n                \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\")\n\nupper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\", \"I\", \"J\", \"K\", \"L\", \"M\",\n                \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\")\n\npunctuation &lt;- c(\".\", \",\", \"!\", \"?\", \"'\", '\"', \"(\", \")\", \" \", \"-\", \";\", \":\")\n\n\nMake one long vector containing all the symbols.\n\n\nmy_symbols &lt;- c(lower_case, upper_case, punctuation)\n\n\nTurn the my_symbols vector into a data frame, with one column named “symbol”.\n\n\nmy_symbols &lt;- data.frame(symbol = my_symbols)\n\n\nFind the total number of symbols we have in our data frame.\n\n\nlen &lt;- length(my_symbols$symbol)\n\n\nCreate a new variable in your dataframe that assigns a number to each symbol.\n\n\nmy_symbols$num &lt;- 1:len"
   },
   {
-    "objectID": "group-activities/week-3/pa2-vc-intro-tidy-solution.html#part-two-decoding-the-secret-message.",
-    "href": "group-activities/week-3/pa2-vc-intro-tidy-solution.html#part-two-decoding-the-secret-message.",
-    "title": "Practice Activity 2: Modernizing the Process",
+    "objectID": "group-activities/week-2/pa1-base-r-solution.html#part-two-decoding-the-secret-message.",
+    "href": "group-activities/week-2/pa1-base-r-solution.html#part-two-decoding-the-secret-message.",
+    "title": "Practice Activity 1: Find the Mistakes",
     "section": "Part Two: Decoding the secret message.",
-    "text": "Part Two: Decoding the secret message.\nThis chunk will load up the encoded secret message as a vector:\n\n#extracts the code from a dropbox file and pulls out generic first vector X1\nlibrary(readr)\ntop_secret &lt;- read_csv(\"https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1\", \n                       col_names = FALSE)$X1\n\nBy altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, in the order given below, but replace all of this mess with the tidyverse code below.\n\nAdd 14 to every number.\nMultiply every number by 18, then subtract 257.\nUse the exp() function to exponentiate every number.\nSquare every number.\n\n\n#add comment here\n#there are several ways to do this, the way below doesn't overwrite any column so you \"don't lose work\"\n\ncode_break &lt;- top_secret |&gt; \n  as_tibble() |&gt; \n  mutate(step6 = top_secret + 14,\n         step7 = step6*18 - 257,\n         step8 = exp(step7),\n         step9 = step8^2)\n\nhead(code_break) #see the first few lines here\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. Write the code to verify that this is true for your top_secret object!\nHint: This is what is called a “relational” comparison, where you compare an object to a number and R will give you a vector of TRUEs and FALSEs based on whether the comparison is / is not met. You can then use these TRUEs and FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.\n\n#add comment here\n\ncode_break |&gt; \n  summarize(total = sum(step9 &lt; 17))\n\n\n\nNext, carry out the following steps:\n\nTurn your vector of numbers into a matrix with 5 columns.\n\n\n#add comment here\ncode_matrix &lt;- code_break |&gt; \n  pull(step9) |&gt; \n  matrix(ncol = 5) |&gt; \n  as_tibble(column_name = TRUE) |&gt; \n  mutate(id = row_number())\n\n\nSeparately from your top secret numbers, create a vector of all the even numbers between 1 and 382. Name it “evens”. That is, “evens” should contain 2, 4, 6, 8 …, 382.\n\n\n#add comment here\nevens &lt;- seq(from = 2, to = 382, by = 2)\n\n\nSubtract the “evens” vector from the first column of your secret message matrix.\nSubtract 100 from all numbers 18-24th rows of the 3rd column.\nMultiply all numbers in the 4th and 5th column by 2.\nTurn your matrix back into a vector.\n\n\n#add comment here\ncode_vector &lt;- code_matrix |&gt; \n  mutate(V1 = V1 - evens) |&gt; \n  mutate(V3 = if_else(id %in% 18:24, V3 - 100, V3)) |&gt; \n  mutate(V4 = V4*2, \n         V5 = V5*2) |&gt; \n  select(-id) |&gt; \n  pivot_longer(V1:V5, names_to = \"column\", values_to = \"code\") |&gt; \n  arrange(column) |&gt; \n  mutate(id = row_number())\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. Write the code to verify that this is true for your top_secret object!\nHint: Use a relational comparison similar to what you used in the last checkpoint, but here you will need to subset values from your vector!\n\n#code to verify that indices 500 and beyond have values **below** 100\ncode_vector |&gt; \n  summarize(beyond = sum(if_else(id %in% 500:max(id) &gt;= 100, TRUE, FALSE))) \n\n\n\nTake the square root of all numbers in indices 38 to 465.\nUse the round() function to round all numbers to the nearest whole number.\nReplace all instances of the number 39 with 20. Hint: Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign\n\n\n#add comment here\ncode_vector_update &lt;- code_vector |&gt; \n  mutate(code = if_else(id %in% 38:465, sqrt(code), code)) |&gt; \n  mutate(code = round(code, digits = 0)) |&gt; \n  mutate(code = if_else(code == 39, 20, code))\n\nCheckpoint: Headquarters has informed you that your final message should have 344 even numbers.\nHint: Checking for divisibility is an interesting operation that isn’t done much in R. Modulus is the operation you are interested in, where you are checking for whether the numbers are divisible by 2, with no remainder. See what you can find about modulus in R!\n\n# Code to verify how many even numbers are in your top_secret vector\n\ncode_vector_update |&gt; \n  summarize(even = sum(code %% 2 == 0))"
+    "text": "Part Two: Decoding the secret message.\nThis chunk will load up the encoded secret message as a vector:\n\nlibrary(readr)\ntop_secret &lt;- read_csv(\"https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1\", \n                       col_names = FALSE)$X1\n\nBy altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, in the order given below.\n\nAdd 14 to every number.\nMultiply every number by 18, then subtract 257.\nUse the exp() function to exponentiate every number.\nSquare every number.\n\nHint: To update a vector after performing an operation, you overwrite the existing object with its updated counterpart. This looks something like this:\nx &lt;- x + 12,\nwhere the original value(s) in x have had 12 added to them, and the resulting values are put back in to the object named x.\n\n## Code to carry out steps 6-9 \n\nts6 &lt;- top_secret + 14\nts7 &lt;- ts6*18 - 257\nts8 &lt;- exp(ts7)\nts9 &lt;- ts8^2\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. Write the code to verify that this is true for your top_secret object!\nHint: This is what is called a “relational” comparison, where you compare an object to a number and R will give you a vector of TRUEs and FALSEs based on whether the comparison is / is not met. You can then use these TRUEs and FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.\n\n# Write code to verify that there are 352 numbers with values **below** 17\nsum(ts9 &lt; 17)\n\nNext, carry out the following steps:\n\nTurn your vector of numbers into a matrix with 5 columns.\nSeparately from your top secret numbers, create a vector of all the even numbers between 1 and 382. Name it “evens”. That is, “evens” should contain 2, 4, 6, 8 …, 382.\nSubtract the “evens” vector from the first column of your secret message matrix.\nSubtract 100 from all numbers 18-24th rows of the 3rd column.\nMultiply all numbers in the 4th and 5th column by 2.\nTurn your matrix back into a vector.\n\n\n## Code to carry out steps 10-15\n\nts_mat &lt;- matrix(ts9, ncol = 5)\nevens &lt;- seq(2,382, by = 2)\nts_mat[,1] &lt;- ts_mat[,1] - evens\nts_mat[18:24, 3] &lt;- ts_mat[18:24, 3] - 100\nts_mat[, 4:5] &lt;- ts_mat[, 4:5]*2\nts_vec &lt;- as.vector(ts_mat)\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. Write the code to verify that this is true for your top_secret object!\nHint: Use a relational comparison similar to what you used in the last checkpoint, but here you will need to subset values from your vector!\n\n# Write code to verify that indices 500 and beyond have values **below** 100\nsum(ts_vec[500:955] &gt;= 100)\n\n\nTake the square root of all numbers in indices 38 to 465.\nUse the round() function to round all numbers to the nearest whole number.\nReplace all instances of the number 39 with 20.\n\nHint: Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign!\n\n# Code for steps 16-18\nts_vec[38:465] &lt;- sqrt(ts_vec[38:465])\nts_vec &lt;- round(ts_vec)\nts_vec[ts_vec == 39] &lt;- 20\n\nCheckpoint: Headquarters has informed you that your final message should have 344 even numbers.\nHint: Checking for divisibility is an interesting operation that isn’t done much in R. Modulus is the operation you are interested in, where you are checking for whether the numbers are divisible by 2, with no remainder. See what you can find about modulus in R!\n\n# Code to verify how many even numbers are in your top_secret vector\n\nsum(ts_vec %% 2 == 0)"
   },
   {
-    "objectID": "group-activities/week-3/pa2-vc-intro-tidy-solution.html#part-3-the-secret-message",
-    "href": "group-activities/week-3/pa2-vc-intro-tidy-solution.html#part-3-the-secret-message",
-    "title": "Practice Activity 2: Modernizing the Process",
-    "section": "Part 3: The secret message!",
-    "text": "Part 3: The secret message!\nUse your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:\n\n# add comment here\ncode_vector_update |&gt; \n  left_join(my_symbols, by = c(\"code\" = \"num\")) |&gt; \n  pull(symbols) |&gt; \n  stringr::str_c(collapse = \"\")\n\nGoogle the first line of this message, if you do not recognize it, to see what poem it is."
-  },
-  {
-    "objectID": "group-activities/week-3/pa2-base-r-vc.html",
-    "href": "group-activities/week-3/pa2-base-r-vc.html",
-    "title": "Practice Activity 2: Break the Code",
-    "section": "",
-    "text": "Today you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message.\nThis task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group."
-  },
-  {
-    "objectID": "group-activities/week-3/pa2-base-r-vc.html#groupwork-protocols",
-    "href": "group-activities/week-3/pa2-base-r-vc.html#groupwork-protocols",
-    "title": "Practice Activity 2: Break the Code",
-    "section": "Groupwork Protocols",
-    "text": "Groupwork Protocols\nDuring the Practice Activity, you and your partner will alternate between two roles—Developer and Coder.\nWhen you are the Developer, you will type into the Quarto document in RStudio. However, you do not type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.\nWhen you are the Coder, you are responsible for reading the instructions / prompts and directing the Developer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Developer to debug the code you specified. Once the code runs, you are expected to collaborate with the Developer to write code comments that describe the actions taken by your code.\n\nGroup Norms\nRemember, your group is expected to adhere to the following norms:\n\nThink and work together. Do not divide the work.\nYou are smarter together.\nNo cross-talk with other groups."
-  },
-  {
-    "objectID": "group-activities/week-3/pa2-base-r-vc.html#part-zero-accessing-the-practice-activity",
-    "href": "group-activities/week-3/pa2-base-r-vc.html#part-zero-accessing-the-practice-activity",
-    "title": "Practice Activity 2: Break the Code",
-    "section": "Part Zero: Accessing the Practice Activity",
-    "text": "Part Zero: Accessing the Practice Activity\n\nTo access the activity and get it ready to share:\n\nThe Developer (partner with first name alphabetically) should create a GitHub repo called “pa-2-code-breaking”.\n\nTo the description add “Peer Activity 2 with NAME1 and NAME 2” and check to add a README file and Create the Repository.\n\nUnder Settings, go to Collaborators, the Add people and search for your partner by username or email.\n\nThe partner should then log into GitHub and accept the invitation. Now you both should be able to push/pull to the same repository.\n\nThe Developer should then create a Version Control R Project on their computer and then download the PA2 .qmd file into the folder.\n\nTest you connection by staging, committing, and pushing the new files (.Rproj and .qmd) to the GitHub Repository.\n\nNow you are ready to start!\n\n\nFor each code chunk, add a #| label: and a #comment describing what the code chunk is doing. Be sure to check that all spacing is appropriate as well!"
-  },
-  {
-    "objectID": "group-activities/week-3/pa2-base-r-vc.html#part-one-setup",
-    "href": "group-activities/week-3/pa2-base-r-vc.html#part-one-setup",
-    "title": "Practice Activity 2: Break the Code",
-    "section": "Part One: Setup",
-    "text": "Part One: Setup\nEach of the following R chunks will cause an error and / or do the desired task incorrectly. The correct code is on the PA2 Activity on the webpage, please copy the correct code into each code chunk and add a label and comment.\n\nCreate vectors containing the upper case letters, lower case letters, and some punctuation marks. add a label that indicate this code chunk creates the vectors of letters and punctuation.\n\n\nlower_case &lt;- c(\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\",\n                \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\")\n\nupper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\" \"I\", \"J\", \"K\", \"L\", \"M\",\n                \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\")\n\npunctuation &lt;- c(\".\", \",\", \"!\", \"?\", \"'\", '\"', \"(\", \")\", \" \", \"-\", \";\", \":\")\n\n\nMake one long vector containing all the symbols.\n\n\nmy_symbols &lt;- (lower_case, upper_case, punctuation)\n\n\nTurn the my_symbols vector into a data frame, with one column named “symbol”.\n\n\nmy_symbols &lt;- dataframe(symbol = my_symbols)\n\n\nFind the total number of symbols we have in our data frame.\n\n\nlen &lt;- length(my_Symbols)\n\n\nCreate a new variable in your dataframe that assigns a number to each symbol.\n\n\nmy_symbols%Num &lt;- 1:len"
-  },
-  {
-    "objectID": "group-activities/week-3/pa2-base-r-vc.html#part-two-decoding-the-secret-message.",
-    "href": "group-activities/week-3/pa2-base-r-vc.html#part-two-decoding-the-secret-message.",
-    "title": "Practice Activity 2: Break the Code",
-    "section": "Part Two: Decoding the secret message.",
-    "text": "Part Two: Decoding the secret message.\nThis chunk will load up the encoded secret message as a vector:\n\ntop_secret &lt;- read_csv(\"https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1\", \n                       col_names = FALSE)$X1\n\nBy altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, in the order given below.\n\nAdd 14 to every number.\n\n\nts6 &lt;- top_secret ___________\n\n\nMultiply every number by 18, then subtract 257.\n\n\nts7 &lt;- ts6___________\n\n\nUse the exp() function to exponentiate every number.\n\n\nts8 &lt;- ____(ts7)\n\n\nSquare every number.\n\n\nts9 &lt;- \n\nCheckpoint: Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. Write the code to verify that this is true for your top_secret object!\nHint: This is what is called a “relational” comparison, where you compare an object to a number and R will give you a vector of TRUEs and FALSEs based on whether the comparison is / is not met. You can then use these TRUEs and FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.\n\n# Write code to verify that there are 352 numbers with values **below** 17\n\n___(ts9 &lt; 17)\n\n\n\n\nHint: To update an object after performing an operation, you overwrite the existing object with its updated counterpart. This looks something like this:\nx &lt;- x + 12,\nwhere the original value(s) in x have had 12 added to them, and the resulting values are put back in to the object named x. Be careful with this - if you do something wrong you will need to rerun the previous code chunks to reset everything! Fortunately, the grey arrow pointing down to the green line in each code chunk runs all previous code chunks again.\nNext, carry out the following steps:\n\nTurn your vector of numbers into a matrix with 5 columns.\n\n\nts_mat &lt;- _____(ts9, ncol = ____) \n\n\nSeparately from your top secret numbers, create a vector of all the even numbers between 1 and 382. Name it “evens”. That is, “evens” should contain 2, 4, 6, 8 …, 382.\n\n\nevens &lt;- seq(from = __ , to = __ , by = __)\n\n\nSubtract the “evens” vector from the first column of your secret message matrix.\n\n\nts_mat[, 1] &lt;- ts_mat[, ___] - evens\n\n\nSubtract 100 from all numbers 18-24th rows of the 3rd column.\n\n\nts_mat[18:24, 3] &lt;- ts_mat[____, ____] - ____\n\n\nMultiply all numbers in the 4th and 5th column by 2.\n\n\nts_mat[, __:__] &lt;- \n\n\nTurn your matrix back into a vector.\n\n\nts_vec &lt;- ________(ts_mat)\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. Write the code to verify that this is true for your top_secret object!\nHint: Use a relational comparison similar to what you used in the last checkpoint, but here you will need to subset values from your vector!\n\n# Write code to verify that indices 500 and beyond have values **below** 100\n___(ts_vec[____:____] &gt;= ____)\n\n\n\n\n\nTake the square root of all numbers in indices 38 to 465.\n\n\nts_vec[___:___] &lt;- ____(ts_vec[38:465])\n\n\nUse the round() function to round all numbers to the nearest whole number.\n\n\nts_vec &lt;- \n\n\nReplace all instances of the number 39 with 20. Hint: Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign\n\n\nts_vec[ts_vec == ___ ] &lt;- \n\nCheckpoint: Headquarters has informed you that your final message should have 344 even numbers.\nHint: Checking for divisibility is an interesting operation that isn’t done much in R. Modulus is the operation you are interested in, where you are checking for whether the numbers are divisible by 2, with no remainder. See what you can find about modulus in R!\n\n# Code to verify how many even numbers are in your top_secret vector\n\n___(ts_vec %% 2 == 0)"
-  },
-  {
-    "objectID": "group-activities/week-3/pa2-base-r-vc.html#part-3-the-secret-message",
-    "href": "group-activities/week-3/pa2-base-r-vc.html#part-3-the-secret-message",
-    "title": "Practice Activity 2: Break the Code",
+    "objectID": "group-activities/week-2/pa1-base-r-solution.html#part-3-the-secret-message",
+    "href": "group-activities/week-2/pa1-base-r-solution.html#part-3-the-secret-message",
+    "title": "Practice Activity 1: Find the Mistakes",
     "section": "Part 3: The secret message!",
     "text": "Part 3: The secret message!\nUse your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:\n\nstringr::str_c(my_symbols$symbol[ts_vec], collapse = \"\")\n\nGoogle the first line of this message, if you do not recognize it, to see what poem it is."
   },
   {
-    "objectID": "group-activities/week-3/pa2-base-r-vc.html#part-4-wrap-up",
-    "href": "group-activities/week-3/pa2-base-r-vc.html#part-4-wrap-up",
-    "title": "Practice Activity 2: Break the Code",
+    "objectID": "group-activities/week-2/pa1-base-r.html",
+    "href": "group-activities/week-2/pa1-base-r.html",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "",
+    "text": "Today you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message.\nThis task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.\nSome advice:"
+  },
+  {
+    "objectID": "group-activities/week-2/pa1-base-r.html#groupwork-protocols",
+    "href": "group-activities/week-2/pa1-base-r.html#groupwork-protocols",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Groupwork Protocols",
+    "text": "Groupwork Protocols\nDuring the Practice Activity, you and your partner will alternate between two roles—Developer and Coder.\nWhen you are the Developer, you will type into the Quarto document in RStudio. However, you do not type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.\nWhen you are the Coder, you are responsible for reading the instructions / prompts and directing the Developer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Developer to debug the code you specified. Once the code runs, you are expected to collaborate with the Developer to write code comments that describe the actions taken by your code.\n\nGroup Norms\nRemember, your group is expected to adhere to the following norms:\n\nThink and work together. Do not divide the work.\nYou are smarter together.\nNo cross-talk with other groups."
+  },
+  {
+    "objectID": "group-activities/week-2/pa1-base-r.html#part-zero-accessing-the-practice-activity",
+    "href": "group-activities/week-2/pa1-base-r.html#part-zero-accessing-the-practice-activity",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part Zero: Accessing the Practice Activity",
+    "text": "Part Zero: Accessing the Practice Activity\n\nTo access the activity and get it ready to share:\n\nLog into your CSUMB R Server Account.\n\nChoose one partner (with the closest upcoming birthday) to create an R Project called “pa-1-intro-quarto”.\n\nUpload the pa1-base-r.qmd into the project folder.\n\nShare the project with the other partner, go to File &gt; Share Project &gt; Type partner’s username &gt; Click Add\n\n\n\nFor each code chunk, add a #| label: and a #comment describing what the code chunk is doing. Be sure to check that all spacing is appropriate as well!"
+  },
+  {
+    "objectID": "group-activities/week-2/pa1-base-r.html#part-one-setup",
+    "href": "group-activities/week-2/pa1-base-r.html#part-one-setup",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part One: Setup",
+    "text": "Part One: Setup\nEach of the following R chunks will cause an error and / or do the desired task incorrectly. Find the mistake, and correct it to complete the intended action.\n\nCreate vectors containing the upper case letters, lower case letters, and some punctuation marks. add a label that indicate this code chunk creates the vectors of letters and punctuation.\n\n\nlower_case &lt;- c(\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\",\n                \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\")\n\nupper_case &lt;- c(\"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\" \"I\", \"J\", \"K\", \"L\", \"M\",\n                \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\")\n\npunctuation &lt;- c(\".\", \",\", \"!\", \"?\", \"'\", '\"', \"(\", \")\", \" \", \"-\", \";\", \":\")\n\n\nMake one long vector containing all the symbols.\n\n\nmy_symbols &lt;- (lower_case, upper_case, punctuation)\n\n\nTurn the my_symbols vector into a data frame, with one column named “symbol”.\n\n\nmy_symbols &lt;- dataframe(symbol = my_symbols)\n\n\nFind the total number of symbols we have in our data frame.\n\n\nlen &lt;- length(my_Symbols)\n\n\nCreate a new variable in your dataframe that assigns a number to each symbol.\n\n\nmy_symbols%Num &lt;- 1:len"
+  },
+  {
+    "objectID": "group-activities/week-2/pa1-base-r.html#part-two-decoding-the-secret-message.",
+    "href": "group-activities/week-2/pa1-base-r.html#part-two-decoding-the-secret-message.",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part Two: Decoding the secret message.",
+    "text": "Part Two: Decoding the secret message.\nThis chunk will load up the encoded secret message as a vector:\n\ntop_secret &lt;- read_csv(\"https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1\", \n                       col_names = FALSE)$X1\n\nBy altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, in the order given below.\n\nAdd 14 to every number.\n\n\nts6 &lt;- top_secret ___________\n\n\nMultiply every number by 18, then subtract 257.\n\n\nts7 &lt;- ts6___________\n\n\nUse the exp() function to exponentiate every number.\n\n\nts8 &lt;- ____(ts7)\n\n\nSquare every number.\n\n\nts9 &lt;- \n\nCheckpoint: Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. Write the code to verify that this is true for your top_secret object!\nHint: This is what is called a “relational” comparison, where you compare an object to a number and R will give you a vector of TRUEs and FALSEs based on whether the comparison is / is not met. You can then use these TRUEs and FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.\n\n# Write code to verify that there are 352 numbers with values **below** 17\n\n___(ts9 &lt; 17)\n\n\nHint: To update an object after performing an operation, you overwrite the existing object with its updated counterpart. This looks something like this:\nx &lt;- x + 12,\nwhere the original value(s) in x have had 12 added to them, and the resulting values are put back in to the object named x. Be careful with this - if you do something wrong you will need to rerun the previous code chunks to reset everything! Fortunately, the grey arrow pointing down to the green line in each code chunk runs all previous code chunks again.\nNext, carry out the following steps:\n\nTurn your vector of numbers into a matrix with 5 columns.\n\n\nts_mat &lt;- _____(ts9, ncol = ____) \n\n\nSeparately from your top secret numbers, create a vector of all the even numbers between 1 and 382. Name it “evens”. That is, “evens” should contain 2, 4, 6, 8 …, 382.\n\n\nevens &lt;- seq(from = __ , to = __ , by = __)\n\n\nSubtract the “evens” vector from the first column of your secret message matrix.\n\n\nts_mat[, 1] &lt;- ts_mat[, ___] - evens\n\n\nSubtract 100 from all numbers 18-24th rows of the 3rd column.\n\n\nts_mat[18:24, 3] &lt;- ts_mat[____, ____] - ____\n\n\nMultiply all numbers in the 4th and 5th column by 2.\n\n\nts_mat[, __:__] &lt;- \n\n\nTurn your matrix back into a vector.\n\n\nts_vec &lt;- ________(ts_mat)\n\nCheckpoint: Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. Write the code to verify that this is true for your top_secret object!\nHint: Use a relational comparison similar to what you used in the last checkpoint, but here you will need to subset values from your vector!\n\n# Write code to verify that indices 500 and beyond have values **below** 100\n___(ts_vec[____:____] &gt;= ____)\n\n\n\nTake the square root of all numbers in indices 38 to 465.\n\n\nts_vec[___:___] &lt;- ____(ts_vec[38:465])\n\n\nUse the round() function to round all numbers to the nearest whole number.\n\n\nts_vec &lt;- \n\n\nReplace all instances of the number 39 with 20. Hint: Step 18 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign\n\n\nts_vec[ts_vec == ___ ] &lt;- \n\nCheckpoint: Headquarters has informed you that your final message should have 344 even numbers.\nHint: Checking for divisibility is an interesting operation that isn’t done much in R. Modulus is the operation you are interested in, where you are checking for whether the numbers are divisible by 2, with no remainder. See what you can find about modulus in R!\n\n# Code to verify how many even numbers are in your top_secret vector\n\n___(ts_vec %% 2 == 0)"
+  },
+  {
+    "objectID": "group-activities/week-2/pa1-base-r.html#part-3-the-secret-message",
+    "href": "group-activities/week-2/pa1-base-r.html#part-3-the-secret-message",
+    "title": "Practice Activity 1: Find the Mistakes",
+    "section": "Part 3: The secret message!",
+    "text": "Part 3: The secret message!\nUse your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:\n\nstringr::str_c(my_symbols$symbol[ts_vec], collapse = \"\")\n\nGoogle the first line of this message, if you do not recognize it, to see what poem it is."
+  },
+  {
+    "objectID": "group-activities/week-2/pa1-base-r.html#part-4-wrap-up",
+    "href": "group-activities/week-2/pa1-base-r.html#part-4-wrap-up",
+    "title": "Practice Activity 1: Find the Mistakes",
     "section": "Part 4: Wrap up",
-    "text": "Part 4: Wrap up\nThe last step is to make each code chunk hidden, even though it runs by modifying the YAML. Once knit to markdown format for viewing on GitHub, push all the final changes and rendered .md to the repository and submit your repository with your “quiz” for the week. Note that each person should be submit a link."
+    "text": "Part 4: Wrap up\nThe last step is to make each code chunk hidden, even though it runs by modifying the YAML. Once knit, Export the project and submit with your “quiz” for the week. Note that each person should be submit a copy."
   },
   {
     "objectID": "group-activities/week-3/pa2-vc-instructions.html",
@@ -1200,5 +868,12 @@
     "title": "Practice Activity 2: Version Control",
     "section": "Part 4: Wrap up",
     "text": "Part 4: Wrap up\nThe last step is to make each code chunk hidden, even though it runs by modifying the YAML. Once knit, Export the project and submit with your “quiz” for the week. Note that each person should be submit a copy."
+  },
+  {
+    "objectID": "group-activities/week-3/pa2-vc-instructions.html#part-5-preview-the-tidyverse",
+    "href": "group-activities/week-3/pa2-vc-instructions.html#part-5-preview-the-tidyverse",
+    "title": "Practice Activity 2: Version Control",
+    "section": "Part 5: Preview the tidyverse",
+    "text": "Part 5: Preview the tidyverse\nIf you want to see what the above code would look like done completely in the tidyverse you can check out the PA 2: Modernizing the Process. You will notice that in some cases the tidyverse is much easier to understand and is more efficient (less code) while in other cases base R is more efficient. We are always trying to find the best tool and somethings that is a tidyverse tool and other times it will be a base tool."
   }
 ]
