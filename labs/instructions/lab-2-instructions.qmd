@@ -66,23 +66,6 @@ Note, if you didn't select `Create a git repository` when you created the websit
 
 
 
+**The rest of the lab will be updated after class**
 
 
-
-
-## Render again!
-
-Notice that when you render the document, all of the code reruns again, 
-producing the same output as before, but with your changes---this is called 
-reproducibility!
-
-You should render **often** while completing your practice activities and lab
-assignments. Make small changes, then make sure the file still renders rather 
-than making a bunch of big changes and then realizing something is wrong.
-
-## Turn it in!
-
-Open the .html file on your computer to make sure it looks as you expected. Then
-upload the rendered (.html extension) document to Canvas and the zipped project file as two separate uploads.!
-
-> You'll be doing this same process for all your future Lab Assignments but after next week you will submit a GitHub link instead of the rendered document. Each of these will involve a Quarto file. Some weeks, I may have a template for you to copy like you had here, while other weeks you will generate your own Quarto file from scratch.

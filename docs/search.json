@@ -330,29 +330,7 @@
     "href": "labs/instructions/lab-2-instructions.html#step-4-publish-your-website",
     "title": "Lab 2: Getting Started on your Portfolio",
     "section": "2.1 Step 4: Publish Your Website",
-    "text": "2.1 Step 4: Publish Your Website",
-    "crumbs": [
-      "Labs",
-      "Lab 2 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-2-instructions.html#render-again",
-    "href": "labs/instructions/lab-2-instructions.html#render-again",
-    "title": "Lab 2: Getting Started on your Portfolio",
-    "section": "2.2 Render again!",
-    "text": "2.2 Render again!\nNotice that when you render the document, all of the code reruns again, producing the same output as before, but with your changes—this is called reproducibility!\nYou should render often while completing your practice activities and lab assignments. Make small changes, then make sure the file still renders rather than making a bunch of big changes and then realizing something is wrong.",
-    "crumbs": [
-      "Labs",
-      "Lab 2 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-2-instructions.html#turn-it-in",
-    "href": "labs/instructions/lab-2-instructions.html#turn-it-in",
-    "title": "Lab 2: Getting Started on your Portfolio",
-    "section": "2.3 Turn it in!",
-    "text": "2.3 Turn it in!\nOpen the .html file on your computer to make sure it looks as you expected. Then upload the rendered (.html extension) document to Canvas and the zipped project file as two separate uploads.!\n\nYou’ll be doing this same process for all your future Lab Assignments but after next week you will submit a GitHub link instead of the rendered document. Each of these will involve a Quarto file. Some weeks, I may have a template for you to copy like you had here, while other weeks you will generate your own Quarto file from scratch.",
+    "text": "2.1 Step 4: Publish Your Website\nThe rest of the lab will be updated after class",
     "crumbs": [
       "Labs",
       "Lab 2 Instructions"
