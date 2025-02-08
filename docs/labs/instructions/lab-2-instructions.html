@@ -250,10 +250,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#step-3-choose-quarto-website" id="toc-step-3-choose-quarto-website" class="nav-link" data-scroll-target="#step-3-choose-quarto-website"><span class="header-section-number">1.3</span> Step 3: Choose Quarto Website</a></li>
   <li><a href="#step-4-render-your-website" id="toc-step-4-render-your-website" class="nav-link" data-scroll-target="#step-4-render-your-website"><span class="header-section-number">1.4</span> Step 4: Render your Website</a></li>
   </ul></li>
-  <li><a href="#part-two-connecting-to-github" id="toc-part-two-connecting-to-github" class="nav-link" data-scroll-target="#part-two-connecting-to-github"><span class="header-section-number">2</span> Part Two: Connecting to GitHub</a>
+  <li><a href="#part-two-connecting-to-github" id="toc-part-two-connecting-to-github" class="nav-link" data-scroll-target="#part-two-connecting-to-github"><span class="header-section-number">2</span> Part Two: Connecting to GitHub</a></li>
+  <li><a href="#part-three-customizing-your-webpage" id="toc-part-three-customizing-your-webpage" class="nav-link" data-scroll-target="#part-three-customizing-your-webpage"><span class="header-section-number">3</span> Part Three: Customizing Your Webpage</a>
   <ul class="collapse">
-  <li><a href="#step-4-publish-your-website" id="toc-step-4-publish-your-website" class="nav-link" data-scroll-target="#step-4-publish-your-website"><span class="header-section-number">2.1</span> Step 4: Publish Your Website</a></li>
+  <li><a href="#about" id="toc-about" class="nav-link" data-scroll-target="#about"><span class="header-section-number">3.1</span> About</a></li>
+  <li><a href="#index" id="toc-index" class="nav-link" data-scroll-target="#index"><span class="header-section-number">3.2</span> Index</a></li>
+  <li><a href="#quarto.yml" id="toc-quarto.yml" class="nav-link" data-scroll-target="#quarto.yml"><span class="header-section-number">3.3</span> <code>_quarto.yml</code></a></li>
   </ul></li>
+  <li><a href="#part-four-publish-your-webpage" id="toc-part-four-publish-your-webpage" class="nav-link" data-scroll-target="#part-four-publish-your-webpage"><span class="header-section-number">4</span> Part Four: Publish Your Webpage</a></li>
+  <li><a href="#learn-more" id="toc-learn-more" class="nav-link" data-scroll-target="#learn-more"><span class="header-section-number">5</span> Learn More</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jcanner/stat_210_2025_website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -320,14 +325,99 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_github</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Note, if you didn’t select <code>Create a git repository</code> when you created the website you may need to run <code>usethis:use_git()</code> first. The above code should generate a repository and push the website contents to GitHub.</p>
+<p>Note, if you didn’t select <code>Create a git repository</code> when you created the website you may need to run <code>usethis::use_git()</code> first. It is possible it will ask you to make Commits. Go ahead an commit your changes (but don’t push) and then run the code above again. The above code should generate a repository and push the website contents to GitHub.</p>
 <p><img src="images/output-usethis-github.png" class="img-fluid" alt="Output from using usethis::use_github()"></p>
-<section id="step-4-publish-your-website" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="step-4-publish-your-website"><span class="header-section-number">2.1</span> Step 4: Publish Your Website</h2>
-<p><strong>The rest of the lab will be updated after class</strong></p>
-
-
 </section>
+<section id="part-three-customizing-your-webpage" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Part Three: Customizing Your Webpage</h1>
+<section id="about" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="about"><span class="header-section-number">3.1</span> About</h2>
+<p>Let’s start easy. Go into your <code>about.qmd</code> and write a short paragraph introducing yourself. Now is a good time to save your changes then <strong>Stage, Commit, and Push</strong> your changes to GitHub.</p>
+</section>
+<section id="index" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="index"><span class="header-section-number">3.2</span> Index</h2>
+<p>The <code>index.qmd</code> will serve as your home page for your website, so let’s make it pretty! Update the <code>YAML</code> code with the following and then update <code>title</code>. Move a nice profile image into your project folder and change the file name after <code>image:</code> to match your images name and type (e.g.&nbsp;.jpg, .png). Update the LinkedIn and Github links to match your profile links (if you don’t have LinkedIn make one!).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Judith Canner"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">about:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">  template: jolla</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">  image: profile.jpg</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">  links:</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    - icon: linkedin</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">      text: LinkedIn</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">      href: https://linkedin.com</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">    - icon: github</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">      text: Github</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">      href: https://github.com</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Go ahead and save and then under Build, Render the website. How does it look?</p>
+<p>Within the text/markdown area of the <code>.qmd</code> add some of the following information about yourself:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Judith Canner is a Professor of Statistics and Chair of the Department of Mathematics and Statistics at <span class="co">[</span><span class="ot">California State University, Monterey Bay</span><span class="co">](http://csumb.edu/mathstat)</span>.</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Education</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>Shippensburg University | Shippensburg, PA  </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>B.S. in Applied Mathematics | 2001 - 2004</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Experience</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>Wengo Analytics | Head Data Scientist | April 2018 - present</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>GeoScynce | Chief Analyst | Sept 2012 - April 2018</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Go ahead and save and then under Build, Render the website. Now is a good time to save your changes then <strong>Stage, Commit, and Push</strong> your changes to GitHub.</p>
+<p>Feel free to make other changes, add additional text, links, or images.</p>
+</section>
+<section id="quarto.yml" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="quarto.yml"><span class="header-section-number">3.3</span> <code>_quarto.yml</code></h2>
+<p>Open up the <code>_quarto.yml</code>. This document controls the structure of your webpage. You do not put content here, you simply put information about how the website should render. Your text might look something like this (and if it doesn’t, update it to look like this):</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="an">project:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  type: website</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>website:</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  title: "Your Name's ePortfolio"</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  navbar:</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    left:</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>href: index.qmd</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        text: "Home"</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>href: about.qmd</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        text: "About Me"</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>format:</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  html:</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    theme: cosmo</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    css: styles.css</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    toc: true</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>editor: visual</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can update the theme if you want - <a href="https://quarto.org/docs/output-formats/html-themes.html">Quarto HTML Theming</a> or customize your theme or even create your own css code (if you know how). That is up to you!</p>
+<p>At minimum, here is the modification you need to make the following modification - add the <code>output-dir: docs</code> at the top under project/type.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="an">project:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  type: website</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  output-dir: docs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>What this does is renders the HTML parts of your website directly into a folder called <code>/docs</code> and this locations is what we will use to publish your webpage on GitHub.</p>
+<p>Save your changes. Build your website (notice a <code>docs</code> file is now created. Now is a good time to save your changes then <strong>Stage, Commit, and Push</strong> your changes to GitHub</p>
+</section>
+</section>
+<section id="part-four-publish-your-webpage" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Part Four: Publish Your Webpage</h1>
+<p>Ok, here is the final step! You only need to do this once and then after that, every time you push your changes to GitHub it will update your website.</p>
+<p>On GitHub, within your repository, go to Settings:</p>
+<p><img src="images/settings-github.png" class="img-fluid" alt="Location of Settings within GitHub Repository"></p>
+<p><img src="images/pages-github.png" class="img-fluid" alt="Location of Pages within Settings within GitHub Repository"></p>
+<p>Under “Build and deployment” be sure that “Source” is set to “Deploy from branch”. Then under “Branch” select “main” instead of “None” and “/docs” instead of “/(root)”. Then click “Save”</p>
+<p><img src="images/deploy-from-docs.png" class="img-fluid" alt="Settings to Deploy from the docs file on the main branch for your pages"></p>
+<p>Now give it a minute or two. Then refresh your page and you should see the following information:</p>
+<p><img src="images/website-link.png" class="img-fluid" alt="Appearance of website link on pages"></p>
+<p>Now go ahead and visit your site!</p>
+<p>Last step, go back to your repository on GitHub and in the “About” section on the right, then click the gear symbol and set the website to “Use your GitHub Pages website”</p>
+<p><img src="images/set-website-repository.png" class="img-fluid" alt="Appearance of website link on pages"></p>
+<p><strong>Submit a link to your Repository for your Lab 2 Assignment in Canvas.</strong></p>
+</section>
+<section id="learn-more" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Learn More</h1>
+<p>If you want to learn more of the “nitty-gritty” of website development in quarto, you can check out their <a href="https://quarto.org/docs/websites/">Guide to Websites</a> (select <code>RStudio</code>) as your tool).</p>
+
+
 </section>
 
 </main> <!-- /main -->

@@ -326,11 +326,33 @@
     ]
   },
   {
-    "objectID": "labs/instructions/lab-2-instructions.html#step-4-publish-your-website",
-    "href": "labs/instructions/lab-2-instructions.html#step-4-publish-your-website",
+    "objectID": "labs/instructions/lab-2-instructions.html#about",
+    "href": "labs/instructions/lab-2-instructions.html#about",
     "title": "Lab 2: Getting Started on your Portfolio",
-    "section": "2.1 Step 4: Publish Your Website",
-    "text": "2.1 Step 4: Publish Your Website\nThe rest of the lab will be updated after class",
+    "section": "3.1 About",
+    "text": "3.1 About\nLet’s start easy. Go into your about.qmd and write a short paragraph introducing yourself. Now is a good time to save your changes then Stage, Commit, and Push your changes to GitHub.",
+    "crumbs": [
+      "Labs",
+      "Lab 2 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-2-instructions.html#index",
+    "href": "labs/instructions/lab-2-instructions.html#index",
+    "title": "Lab 2: Getting Started on your Portfolio",
+    "section": "3.2 Index",
+    "text": "3.2 Index\nThe index.qmd will serve as your home page for your website, so let’s make it pretty! Update the YAML code with the following and then update title. Move a nice profile image into your project folder and change the file name after image: to match your images name and type (e.g. .jpg, .png). Update the LinkedIn and Github links to match your profile links (if you don’t have LinkedIn make one!).\n---\ntitle: \"Judith Canner\"\nabout:\n  template: jolla\n  image: profile.jpg\n  links:\n    - icon: linkedin\n      text: LinkedIn\n      href: https://linkedin.com\n    - icon: github\n      text: Github\n      href: https://github.com\n---\nGo ahead and save and then under Build, Render the website. How does it look?\nWithin the text/markdown area of the .qmd add some of the following information about yourself:\nJudith Canner is a Professor of Statistics and Chair of the Department of Mathematics and Statistics at [California State University, Monterey Bay](http://csumb.edu/mathstat).\n\n## Education\n\nShippensburg University | Shippensburg, PA  \nB.S. in Applied Mathematics | 2001 - 2004\n\n## Experience\n\nWengo Analytics | Head Data Scientist | April 2018 - present\n\nGeoScynce | Chief Analyst | Sept 2012 - April 2018\nGo ahead and save and then under Build, Render the website. Now is a good time to save your changes then Stage, Commit, and Push your changes to GitHub.\nFeel free to make other changes, add additional text, links, or images.",
+    "crumbs": [
+      "Labs",
+      "Lab 2 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-2-instructions.html#quarto.yml",
+    "href": "labs/instructions/lab-2-instructions.html#quarto.yml",
+    "title": "Lab 2: Getting Started on your Portfolio",
+    "section": "3.3 _quarto.yml",
+    "text": "3.3 _quarto.yml\nOpen up the _quarto.yml. This document controls the structure of your webpage. You do not put content here, you simply put information about how the website should render. Your text might look something like this (and if it doesn’t, update it to look like this):\nproject:\n  type: website\n\nwebsite:\n  title: \"Your Name's ePortfolio\"\n  navbar:\n    left:\n      - href: index.qmd\n        text: \"Home\"\n      - href: about.qmd\n        text: \"About Me\"\n\nformat:\n  html:\n    theme: cosmo\n    css: styles.css\n    toc: true\n\neditor: visual\nYou can update the theme if you want - Quarto HTML Theming or customize your theme or even create your own css code (if you know how). That is up to you!\nAt minimum, here is the modification you need to make the following modification - add the output-dir: docs at the top under project/type.\nproject:\n  type: website\n  output-dir: docs\nWhat this does is renders the HTML parts of your website directly into a folder called /docs and this locations is what we will use to publish your webpage on GitHub.\nSave your changes. Build your website (notice a docs file is now created. Now is a good time to save your changes then Stage, Commit, and Push your changes to GitHub",
     "crumbs": [
       "Labs",
       "Lab 2 Instructions"
