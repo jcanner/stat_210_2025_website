@@ -1,0 +1,167 @@
+---
+title: "R Projects & Importing Data"
+format: html
+number-sections: true
+number-depth: 2
+editor: source
+bibliography: references.bib
+execute: 
+  echo: true
+  eval: false
+  include: true
+resources: 
+  - data_import_practice.qmd
+  - Ages_Data.zip
+---
+
+## Learning Objectives
+
+-   Describe what an R Project is
+-   Outline how an R Project affects the file paths used to read in data  
+-   Read in data from common formats into R
+
+#### `r emo::ji("play button")` Watch Videos: 14 minutes
+
+#### `r emo::ji("book")` Readings: 15-20 minutes
+
+#### `r emo::ji("computer")` Activities: 30 minutes
+
+#### `r emo::ji("check")` Check-ins: 1
+
+
+# Directories, Paths, and Projects 
+
+Last week, we learned how to organize our personal files and locate them using
+absolute and relative file paths. The idea of a "base folder" or starting place
+was introduced as a **working directory**. In `R`, there are two ways to set up
+your file path and file system organization:
+
+::: column-margin
+{{< video https://www.youtube.com/watch?v=86Bz3lE4HGs >}}
+:::
+
+1.  Set your working directory in `R` (do not recommend)
+2.  Use R Projects (preferred!)
+
+## Working Directories in `R`
+
+To find where your working directory is in `R`, you can either look at the top
+of your console or type `getwd()` into your console.
+
+```{r}
+#| label: get-wd
+getwd()
+```
+
+Although it is not recommended, you can set your working directory in `R` with
+`setwd()`:
+
+```{r}
+#| eval: false
+#| label: setting-full-path
+#| echo: true
+
+setwd("/path/to/my/assignment/folder")
+```
+
+::: column-margin
+![](images/week-2/setwd-rproj-horst.png){fig-alt="A cartoon of a cracked glass cube looking frustrated with casts on its arm and leg, with bandaids on it, containing 'setwd', looks on at a metal riveted cube labeled 'R Proj' holding a skateboard looking sympathetic, and a smaller cube with a helmet on labeled 'here' doing a trick on a skateboard."}
+:::
+
+::: {.callout-caution}
+### File Paths in `R`
+
+A quick warning on file paths is that Mac / Linux and Windows differ in the
+direction of their backslash to separate folder locations. Mac/Linux use `/` 
+(e.g. `STAT331/Week1`) while Window's uses `\` (e.g. `STAT331\Week1`).
+:::
+
+## R Projects
+
+📖 [Required Reading: Workflow (R Projects)](https://r4ds.hadley.nz/workflow-scripts.html#projects)
+
+::: {.callout-note}
+# Only read Section 6.2!
+:::
+
+If you open up your folder from Lab 1, you will notice that you have a blue 
+cube (an R Project) living in this folder! The R Project lives in this folder for
+two reasons, (1) when you copied the Lab 1 GitHub repository you told RStudio 
+you wanted to make a new R Project, and (2) in order for RStudio to talk with
+GitHub you need to use an R Project. 
+
+However, if you look at your STAT331 folder (the one that lives in your 
+Documents folder), you **should not** see a blue cube since we never created an
+R Project in this folder. Let's do that now!
+
+To add a R Project to an existing folder on your computer (e.g., you already
+created a folder for this class), first open RStudio on your computer and click
+`File > New Project`, then:
+
+![Navigation prompt for creating a new R Project in an existing directory](images/week-2/create-existing-rproj-step-1.png){width=50% fig-align="center" fig-alt="Screenshot of navigation box that appears when you select 'File' and 'New Project'. The 'Existing Directory' option is highlighted in blue."}
+
+Then, browse on your computer to where you saved your STAT331 folder last week. 
+This should be in your Documents folder, similar to where mine is saved!
+
+![Navigation prompt for selecting which existing folder in which the R Project should be created.](images/week-2/create-existing-rproj-step-2.png){width=50% fig-align="center" fig-alt="Screenshot of navigation box that appears when you select 'Existing Directory' from the previous navigation menue. By clicking on the 'Browse' button you can navigate to the existing folder where you would like to insert the R Project. In the image, I've navigated to my STAT331 folder which lives in my Documents."}
+
+Once you click "Create Project", your existing folder, `STAT331` should now
+contain a `STAT331.Rproj` file. This is your new "home" base for this class -
+whenever you refer to a file with a relative path it will begin to look for it
+here.
+
+If you would like a list of step-by-step instructions for this process, feel 
+free to look at this file: [Creating a Project in an Existing Directory](https://scribehow.com/shared/Creating_a_Project_in_an_Existing_Directory__7NTs-4d2RtO1octP6rrBTQ)
+
+## `r emo::ji("check")` Check-in 2.2: RStudio Projects
+
+Take a screenshot of your class directory, showing the **R Project** living 
+inside your STAT331 folder. 
+
+---
+
+# Loading Data Into R
+
+## How do I load my data?
+
+`r emo::ji("book")` [Required Reading: Data Import](https://r4ds.hadley.nz/data-import.html)
+
+## Where does my data live?
+
+`r emo::ji("play button")` [Required Video: How do I get to my data? (8 minutes)](https://www.youtube.com/watch?v=jvWwrELLEw8)
+
+## `r emo::ji("check")` Check-in 2.3: Loading Data
+
+For this check-in you are asked to work through reading in different data sets. 
+You are expected to create your own Quarto document to complete this activity. 
+
+The folder Age_Data contains several data sets with the names and ages of five
+individuals. The data sets are stored as different file types. 
+[Download Ages_Data.zip here](Ages_Data.zip), make sure to unzip the folder,
+save these in a reasonable place (e.g., `STAT331 > Week 2 > Checkins` or
+`STAT331 > Checkins > Week 2`). 
+
+::: callout-tip
+## Extracting zip folders
+
+You will need to **extract** the contents of the `ages.zip` file, that means you
+will need to uncompress the files from the folder for RStudio to know where to
+get the data from.
+:::
+
+Once you have the data saved (and extracted) in your STAT 331 folder, preferably
+in the Week 2 subfolder, use the `readr` and `readxl` packages to complete the
+following exercises. 
+
+1. Load the appropriate packages for reading in data.
+2. Read in the data set *ages.csv*
+3. Read in the data set *ages_tab.txt*
+4. Read in the data set *ages_mystery.txt*
+5. Read in the data set *ages.xlsx*
+6. Find a way to use `read_csv()` to read *ages.csv* with the variable "Name" as a factor data type and "Age" as a character data type.
+
+Once you've finished coding these exercises, head over to Canvas and fill in the
+"gap" code I've provided. For reference, I would recommend you store the 
+`Ages_Data` similar to how I have:
+
+![](images/week-2/ages_folder_structure.png){fig-alt="A screenshot of the folder structure of my STAT 331 folder. The STAT 331 folder lives in my documents and has two main folders--Week 1 and Week 2. The Week 2 folder is expanded to show that I have a subfolder named 'Check-ins' that lives inside the Week 2 folder. The expanded folders also show that inside the Check-ins folder (inside the Week 2 folder) there is an 'Agest_Data' folder, which contains four different datasets--ages_mystery.txt, ages_space.txt, ages.csv, and ages.xlsx."}
