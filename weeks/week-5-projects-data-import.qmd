@@ -10,7 +10,6 @@ execute:
   eval: false
   include: true
 resources: 
-  - data_import_practice.qmd
   - Ages_Data.zip
 ---
 
@@ -19,8 +18,8 @@ resources:
 -   Describe what an R Project is
 -   Outline how an R Project affects the file paths used to read in data  
 -   Read in data from common formats into R
+-   Identify missing data and type of missingness
 
-#### `r emo::ji("play button")` Watch Videos: 14 minutes
 
 #### `r emo::ji("book")` Readings: 15-20 minutes
 
@@ -31,14 +30,10 @@ resources:
 
 # Directories, Paths, and Projects 
 
-Last week, we learned how to organize our personal files and locate them using
+We have learned how to organize our personal files and locate them using
 absolute and relative file paths. The idea of a "base folder" or starting place
 was introduced as a **working directory**. In `R`, there are two ways to set up
 your file path and file system organization:
-
-::: column-margin
-{{< video https://www.youtube.com/watch?v=86Bz3lE4HGs >}}
-:::
 
 1.  Set your working directory in `R` (do not recommend)
 2.  Use R Projects (preferred!)
@@ -73,35 +68,31 @@ setwd("/path/to/my/assignment/folder")
 
 A quick warning on file paths is that Mac / Linux and Windows differ in the
 direction of their backslash to separate folder locations. Mac/Linux use `/` 
-(e.g. `STAT331/Week1`) while Window's uses `\` (e.g. `STAT331\Week1`).
+(e.g. `STAT210/Week1`) while Window's uses `\` (e.g. `STAT210\Week1`).
 :::
 
 ## R Projects
 
-📖 [Required Reading: Workflow (R Projects)](https://r4ds.hadley.nz/workflow-scripts.html#projects)
+📖 [Review Reading: Workflow (R Projects)](https://r4ds.hadley.nz/workflow-scripts.html#projects)
 
 ::: {.callout-note}
 # Only read Section 6.2!
 :::
 
-If you open up your folder from Lab 1, you will notice that you have a blue 
-cube (an R Project) living in this folder! The R Project lives in this folder for
-two reasons, (1) when you copied the Lab 1 GitHub repository you told RStudio 
+### Create an R Project from an Existing Folder  
+So far, each time we have worked in R we have created an R Project. The R Project lives in the created folder for two reasons, (1) when you copy a GitHub repository you told RStudio 
 you wanted to make a new R Project, and (2) in order for RStudio to talk with
 GitHub you need to use an R Project. 
 
-However, if you look at your STAT331 folder (the one that lives in your 
-Documents folder), you **should not** see a blue cube since we never created an
-R Project in this folder. Let's do that now!
+However, if you look in any other folder on your computer, you **should not** see a blue cube since you never created an R Project in those folders. Suppose we have a project we've been work on and we never created an official R Project for it (perhaps it is a folder filled with data sets or someone sent a zipped filed that didn't contain an R Project file (.RProj).  
 
 To add a R Project to an existing folder on your computer (e.g., you already
-created a folder for this class), first open RStudio on your computer and click
-`File > New Project`, then:
+created a folder for the project), first open RStudio on your computer and click
+`File > New Project`, then select `Existing Directory`:  
 
 ![Navigation prompt for creating a new R Project in an existing directory](images/week-2/create-existing-rproj-step-1.png){width=50% fig-align="center" fig-alt="Screenshot of navigation box that appears when you select 'File' and 'New Project'. The 'Existing Directory' option is highlighted in blue."}
 
-Then, browse on your computer to where you saved your STAT331 folder last week. 
-This should be in your Documents folder, similar to where mine is saved!
+Then, browse on your computer to where you saved your project folder (it should be on your hard drive and not on iCloud, Google Drive, or One Drive).  For example, let's say you ahd a folder called `STAT331` that you wanted to turn into a R Project. Select that folder.
 
 ![Navigation prompt for selecting which existing folder in which the R Project should be created.](images/week-2/create-existing-rproj-step-2.png){width=50% fig-align="center" fig-alt="Screenshot of navigation box that appears when you select 'Existing Directory' from the previous navigation menue. By clicking on the 'Browse' button you can navigate to the existing folder where you would like to insert the R Project. In the image, I've navigated to my STAT331 folder which lives in my Documents."}
 
@@ -113,11 +104,6 @@ here.
 If you would like a list of step-by-step instructions for this process, feel 
 free to look at this file: [Creating a Project in an Existing Directory](https://scribehow.com/shared/Creating_a_Project_in_an_Existing_Directory__7NTs-4d2RtO1octP6rrBTQ)
 
-## `r emo::ji("check")` Check-in 2.2: RStudio Projects
-
-Take a screenshot of your class directory, showing the **R Project** living 
-inside your STAT331 folder. 
-
 ---
 
 # Loading Data Into R
@@ -128,9 +114,7 @@ inside your STAT331 folder.
 
 ## Where does my data live?
 
-`r emo::ji("play button")` [Required Video: How do I get to my data? (8 minutes)](https://www.youtube.com/watch?v=jvWwrELLEw8)
-
-## `r emo::ji("check")` Check-in 2.3: Loading Data
+`r emo::ji("check")` Check-in: Loading Data
 
 For this check-in you are asked to work through reading in different data sets. 
 You are expected to create your own Quarto document to complete this activity. 
@@ -138,8 +122,8 @@ You are expected to create your own Quarto document to complete this activity.
 The folder Age_Data contains several data sets with the names and ages of five
 individuals. The data sets are stored as different file types. 
 [Download Ages_Data.zip here](Ages_Data.zip), make sure to unzip the folder,
-save these in a reasonable place (e.g., `STAT331 > Week 2 > Checkins` or
-`STAT331 > Checkins > Week 2`). 
+save these in a reasonable place (e.g., `STAT210 > Week 5 > Checkins` or
+`STAT210 > Checkins > Week 5`). 
 
 ::: callout-tip
 ## Extracting zip folders
