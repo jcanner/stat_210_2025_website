@@ -1106,6 +1106,39 @@
     ]
   },
   {
+    "objectID": "labs/instructions/lab-3-instructions.html#medium-ridge-plots",
+    "href": "labs/instructions/lab-3-instructions.html#medium-ridge-plots",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "section": "5.1 🌶 Medium: Ridge Plots",
+    "text": "5.1 🌶 Medium: Ridge Plots\nIn Lab 3, you used side-by-side boxplots to visualize the distribution of weight within each species of rodent. Boxplots have substantial flaws, namely that they disguise distributions with multiple modes.\nA “superior” alternative is the density plot. However, ggplot2 does not allow for side-by-side density plots using geom_density(). Instead, we will need to make use of the ggridges package to create side-by-side density (ridge) plots.\n\nFor this challenge you are to change your boxplots to ridge plots. You will need to install the ggridges package and explore the geom_density_ridges() function.",
+    "crumbs": [
+      "Labs",
+      "Lab 3 and Challenge 3 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-3-instructions.html#spicy-exploring-color-themes",
+    "href": "labs/instructions/lab-3-instructions.html#spicy-exploring-color-themes",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "section": "5.2 🌶 🌶 Spicy: Exploring Color Themes",
+    "text": "5.2 🌶 🌶 Spicy: Exploring Color Themes\nThe built-in ggplot() color scheme may not include the colors you were looking for. Don’t worry – there are many other color palettes available to use!\nYou can change the colors used by ggplot() in a few different ways.\n\nManual Specification\nAdd the scale_color_manual() or scale_fill_manual() functions to your plot and directly specify the colors you want to use. You can either:\n\ndefine a vector of colors within the scale functions (e.g. values = c(\"blue\", \"black\", \"red\", \"green\")) OR\ncreate a vector of colors using hex numbers and store that vector as a variable. Then, call that vector in the scale_color_manual() function.\n\nHere are some example hex color schemes:\n\n# A vector of a RG color deficient friendly palette with gray:\ncdPalette_grey &lt;- c(\"#999999\", \"#E69F00\", \"#56B4E9\", \"#009E73\", \"#F0E442\", \"#0072B2\", \"#D55E00\", \"#CC79A7\")\n\n# A vector of a RG color deficient friendly palette with black:\ncdPalette_blk &lt;- c(\"#000000\", \"#E69F00\", \"#56B4E9\", \"#009E73\", \"#F0E442\", \"#0072B2\", \"#D55E00\", \"#CC79A7\")\n\n\n\n\n\n\n\nNote\n\n\n\nIf you are interested in using specific hex colors, I like the image color picker app to find the colors I want.\n\n\n\n\nPackage Specification\nWhile manual specification may be necessary for some contexts, it can be a real pain to handpick 5+ colors. This is where color scales built-in to R packages come in handy! Popular packages for colors include:\n\nRColorBrewer – change colors by using scale_fill_brewer() or scale_colour_brewer().\nviridis – change colors by using scale_colour_viridis_d() for discrete data, scale_colour_viridis_c() for continuous data.\nggsci – change colors by using scale_color_&lt;PALNAME&gt;() or scale_fill_&lt;PALNAME&gt;(), where you specify the name of the palette you wish to use (e.g. scale_color_aaas()).\n\n\n\n\n\n\n\nNote\n\n\n\nThis website provides an exhaustive list of color themes available through various packages.\n\n\n\nIn this challenge you are expected to use this information to modify the boxplots you created Lab 3. First, you are to color the boxplots based on the variable genus. Next, you are to change the colors used for genus using either manual color specification or any of the packages listed here (or others!).",
+    "crumbs": [
+      "Labs",
+      "Lab 3 and Challenge 3 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-3-instructions.html#hot-exploring-ggplot2-annotation",
+    "href": "labs/instructions/lab-3-instructions.html#hot-exploring-ggplot2-annotation",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "section": "5.3 🌶 🌶 🌶 Hot: Exploring ggplot2 Annotation",
+    "text": "5.3 🌶 🌶 🌶 Hot: Exploring ggplot2 Annotation\nSome data scientists advocate that we should try to eliminate legends from our plots to make them more clear. Instead of using legends, which cause the reader’s eye to stray from the plot, we should use annotation.\nWe can add annotation(s) to a ggplot() using the annotate() function:\n\nggplot(data = surveys, \n       mapping = aes(x = weight, y = species, color = genus)\n       ) +\n  geom_boxplot() +\n  scale_color_manual(values = cdPalette_grey) + \n  annotate(\"text\", y = 6, x = 200, label = \"Sigmodon\") +\n  annotate(\"text\", y = 4, x = 200, label = \"Perognathus\") +\n  theme(legend.position = \"none\") +\n  labs(x = \"Weight (g)\",\n       y = \"\",\n       subtitle = \"by Species and Genera\",\n       title = \"Rodent Weight\")\n\nNote that I’ve labeled the “Sigmodon” and “Perognathus” genera, so the reader can tell that these boxplots are associated with their respective genus.\n\nIn this challenge you are expected to use this information to modify the boxplots you created in Lab 3. First, you are to color the boxplots based on the variable genus. Next, you are to add annotations for each genus next to the boxplot(s) associated with that genus. Finally, you are expected to use the theme() function to remove the color legend from the plot, since it is no longer needed!",
+    "crumbs": [
+      "Labs",
+      "Lab 3 and Challenge 3 Instructions"
+    ]
+  },
+  {
     "objectID": "group-activities/week-2/pa1-base-r.html",
     "href": "group-activities/week-2/pa1-base-r.html",
     "title": "Practice Activity 1: Find the Mistakes",

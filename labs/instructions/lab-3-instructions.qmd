@@ -222,7 +222,7 @@ For this week's Challenge, you will have three different options to explore. I'v
 This is a great place to let your creativity show! Make sure to indicate what additional touches you added, and provide any online references you used.
 
 
-# `r emo::ji("hot_pepper")` Medium: Ridge Plots
+## `r emo::ji("hot_pepper")` Medium: Ridge Plots
 
 In Lab 3, you used side-by-side **boxplots** to visualize the distribution of weight within each species of rodent. Boxplots have [substantial flaws](https://www.data-to-viz.com/caveat/boxplot.html), namely that they disguise distributions with multiple modes.
 
@@ -230,7 +230,7 @@ A "superior" alternative is the density plot. However, `ggplot2` does not allow 
 
 > **For this challenge you are to change your boxplots to ridge plots. You will need to install the `ggridges` package and explore the `geom_density_ridges()` function.**
 
-# `r emo::ji("hot_pepper")` `r emo::ji("hot_pepper")` Spicy: Exploring Color Themes
+## `r emo::ji("hot_pepper")` `r emo::ji("hot_pepper")` Spicy: Exploring Color Themes
 
 The built-in `ggplot()` color scheme may not include the colors you were looking for. Don't worry -- there are many other color palettes available to use!
 
@@ -291,7 +291,7 @@ While manual specification may be necessary for some contexts, it can be a real 
 
 > **In this challenge you are expected to use this information to modify the boxplots you created Lab 3. First, you are to color the boxplots based on the variable `genus`. Next, you are to change the colors used for `genus` using either manual color specification or any of the packages listed here (or others!).**
 
-# `r emo::ji("hot_pepper")` `r emo::ji("hot_pepper")` `r emo::ji("hot_pepper")` Hot: Exploring `ggplot2` Annotation
+## `r emo::ji("hot_pepper")` `r emo::ji("hot_pepper")` `r emo::ji("hot_pepper")` Hot: Exploring `ggplot2` Annotation
 
 Some data scientists advocate that we should try to eliminate legends from our plots to make them more clear. Instead of using legends, which cause the reader's eye to stray from the plot, we should use **annotation**.
 

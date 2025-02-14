@@ -12,9 +12,7 @@ editor: source
 library(tidyverse)
 ```
 
-## Tuesday, October 1
-
-Today we will...
+## Today we will...
 
 + Accessing Practice Activities
 + Review

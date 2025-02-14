@@ -301,14 +301,16 @@ window.Quarto = {
   <li><a href="#boxplots" id="toc-boxplots" class="nav-link" data-scroll-target="#boxplots"><span class="header-section-number">3.2</span> Boxplots</a></li>
   </ul></li>
   <li><a href="#lab-3-submission" id="toc-lab-3-submission" class="nav-link" data-scroll-target="#lab-3-submission"><span class="header-section-number">4</span> Lab 3 Submission</a></li>
-  <li><a href="#challenge-problems" id="toc-challenge-problems" class="nav-link" data-scroll-target="#challenge-problems"><span class="header-section-number">5</span> Challenge Problems</a></li>
-  <li><a href="#medium-ridge-plots" id="toc-medium-ridge-plots" class="nav-link" data-scroll-target="#medium-ridge-plots"><span class="header-section-number">6</span> 🌶 Medium: Ridge Plots</a></li>
-  <li><a href="#spicy-exploring-color-themes" id="toc-spicy-exploring-color-themes" class="nav-link" data-scroll-target="#spicy-exploring-color-themes"><span class="header-section-number">7</span> 🌶 🌶 Spicy: Exploring Color Themes</a>
+  <li><a href="#challenge-problems" id="toc-challenge-problems" class="nav-link" data-scroll-target="#challenge-problems"><span class="header-section-number">5</span> Challenge Problems</a>
+  <ul class="collapse">
+  <li><a href="#medium-ridge-plots" id="toc-medium-ridge-plots" class="nav-link" data-scroll-target="#medium-ridge-plots"><span class="header-section-number">5.1</span> 🌶 Medium: Ridge Plots</a></li>
+  <li><a href="#spicy-exploring-color-themes" id="toc-spicy-exploring-color-themes" class="nav-link" data-scroll-target="#spicy-exploring-color-themes"><span class="header-section-number">5.2</span> 🌶 🌶 Spicy: Exploring Color Themes</a>
   <ul class="collapse">
   <li><a href="#manual-specification" id="toc-manual-specification" class="nav-link" data-scroll-target="#manual-specification">Manual Specification</a></li>
   <li><a href="#package-specification" id="toc-package-specification" class="nav-link" data-scroll-target="#package-specification">Package Specification</a></li>
   </ul></li>
-  <li><a href="#hot-exploring-ggplot2-annotation" id="toc-hot-exploring-ggplot2-annotation" class="nav-link" data-scroll-target="#hot-exploring-ggplot2-annotation"><span class="header-section-number">8</span> 🌶 🌶 🌶 Hot: Exploring <code>ggplot2</code> Annotation</a></li>
+  <li><a href="#hot-exploring-ggplot2-annotation" id="toc-hot-exploring-ggplot2-annotation" class="nav-link" data-scroll-target="#hot-exploring-ggplot2-annotation"><span class="header-section-number">5.3</span> 🌶 🌶 🌶 Hot: Exploring <code>ggplot2</code> Annotation</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jcanner/stat_210_2025_website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -520,17 +522,16 @@ window.Quarto = {
 <h1 data-number="5"><span class="header-section-number">5</span> Challenge Problems</h1>
 <p>For this week’s Challenge, you will have three different options to explore. I’ve arranged these options in terms of their “spiciness,” or the difficulty of completing the task. <strong>You only need to complete one task to complete the challenge, but if you are interested in exploring more than one, feel free!</strong></p>
 <p>This is a great place to let your creativity show! Make sure to indicate what additional touches you added, and provide any online references you used.</p>
-</section>
-<section id="medium-ridge-plots" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> 🌶 Medium: Ridge Plots</h1>
+<section id="medium-ridge-plots" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="medium-ridge-plots"><span class="header-section-number">5.1</span> 🌶 Medium: Ridge Plots</h2>
 <p>In Lab 3, you used side-by-side <strong>boxplots</strong> to visualize the distribution of weight within each species of rodent. Boxplots have <a href="https://www.data-to-viz.com/caveat/boxplot.html">substantial flaws</a>, namely that they disguise distributions with multiple modes.</p>
 <p>A “superior” alternative is the density plot. However, <code>ggplot2</code> does not allow for side-by-side density plots using <code>geom_density()</code>. Instead, we will need to make use of the <code>ggridges</code> package to create side-by-side density (ridge) plots.</p>
 <blockquote class="blockquote">
 <p><strong>For this challenge you are to change your boxplots to ridge plots. You will need to install the <code>ggridges</code> package and explore the <code>geom_density_ridges()</code> function.</strong></p>
 </blockquote>
 </section>
-<section id="spicy-exploring-color-themes" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> 🌶 🌶 Spicy: Exploring Color Themes</h1>
+<section id="spicy-exploring-color-themes" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="spicy-exploring-color-themes"><span class="header-section-number">5.2</span> 🌶 🌶 Spicy: Exploring Color Themes</h2>
 <p>The built-in <code>ggplot()</code> color scheme may not include the colors you were looking for. Don’t worry – there are many other color palettes available to use!</p>
 <p>You can change the colors used by <code>ggplot()</code> in a few different ways.</p>
 <section id="manual-specification" class="level3">
@@ -588,8 +589,8 @@ Note
 </blockquote>
 </section>
 </section>
-<section id="hot-exploring-ggplot2-annotation" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> 🌶 🌶 🌶 Hot: Exploring <code>ggplot2</code> Annotation</h1>
+<section id="hot-exploring-ggplot2-annotation" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="hot-exploring-ggplot2-annotation"><span class="header-section-number">5.3</span> 🌶 🌶 🌶 Hot: Exploring <code>ggplot2</code> Annotation</h2>
 <p>Some data scientists advocate that we should try to eliminate legends from our plots to make them more clear. Instead of using legends, which cause the reader’s eye to stray from the plot, we should use <strong>annotation</strong>.</p>
 <p>We can add annotation(s) to a <code>ggplot()</code> using the <code>annotate()</code> function:</p>
 <div class="cell">
@@ -614,6 +615,7 @@ Note
 
 <!-- -->
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1465,7 +1467,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-234"><a href="#cb5-234" aria-hidden="true" tabindex="-1"></a>This is a great place to let your creativity show! Make sure to indicate what additional touches you added, and provide any online references you used.</span>
 <span id="cb5-235"><a href="#cb5-235" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-236"><a href="#cb5-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-237"><a href="#cb5-237" aria-hidden="true" tabindex="-1"></a><span class="fu"># `r emo::ji("hot_pepper")` Medium: Ridge Plots</span></span>
+<span id="cb5-237"><a href="#cb5-237" aria-hidden="true" tabindex="-1"></a><span class="fu">## `r emo::ji("hot_pepper")` Medium: Ridge Plots</span></span>
 <span id="cb5-238"><a href="#cb5-238" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-239"><a href="#cb5-239" aria-hidden="true" tabindex="-1"></a>In Lab 3, you used side-by-side **boxplots** to visualize the distribution of weight within each species of rodent. Boxplots have <span class="co">[</span><span class="ot">substantial flaws</span><span class="co">](https://www.data-to-viz.com/caveat/boxplot.html)</span>, namely that they disguise distributions with multiple modes.</span>
 <span id="cb5-240"><a href="#cb5-240" aria-hidden="true" tabindex="-1"></a></span>
@@ -1473,7 +1475,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-242"><a href="#cb5-242" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-243"><a href="#cb5-243" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **For this challenge you are to change your boxplots to ridge plots. You will need to install the `ggridges` package and explore the `geom_density_ridges()` function.**</span></span>
 <span id="cb5-244"><a href="#cb5-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-245"><a href="#cb5-245" aria-hidden="true" tabindex="-1"></a><span class="fu"># `r emo::ji("hot_pepper")` `r emo::ji("hot_pepper")` Spicy: Exploring Color Themes</span></span>
+<span id="cb5-245"><a href="#cb5-245" aria-hidden="true" tabindex="-1"></a><span class="fu">## `r emo::ji("hot_pepper")` `r emo::ji("hot_pepper")` Spicy: Exploring Color Themes</span></span>
 <span id="cb5-246"><a href="#cb5-246" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-247"><a href="#cb5-247" aria-hidden="true" tabindex="-1"></a>The built-in <span class="in">`ggplot()`</span> color scheme may not include the colors you were looking for. Don't worry -- there are many other color palettes available to use!</span>
 <span id="cb5-248"><a href="#cb5-248" aria-hidden="true" tabindex="-1"></a></span>
@@ -1534,7 +1536,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-307"><a href="#cb5-307" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-308"><a href="#cb5-308" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **In this challenge you are expected to use this information to modify the boxplots you created Lab 3. First, you are to color the boxplots based on the variable `genus`. Next, you are to change the colors used for `genus` using either manual color specification or any of the packages listed here (or others!).**</span></span>
 <span id="cb5-309"><a href="#cb5-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-310"><a href="#cb5-310" aria-hidden="true" tabindex="-1"></a><span class="fu"># `r emo::ji("hot_pepper")` `r emo::ji("hot_pepper")` `r emo::ji("hot_pepper")` Hot: Exploring `ggplot2` Annotation</span></span>
+<span id="cb5-310"><a href="#cb5-310" aria-hidden="true" tabindex="-1"></a><span class="fu">## `r emo::ji("hot_pepper")` `r emo::ji("hot_pepper")` `r emo::ji("hot_pepper")` Hot: Exploring `ggplot2` Annotation</span></span>
 <span id="cb5-311"><a href="#cb5-311" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-312"><a href="#cb5-312" aria-hidden="true" tabindex="-1"></a>Some data scientists advocate that we should try to eliminate legends from our plots to make them more clear. Instead of using legends, which cause the reader's eye to stray from the plot, we should use **annotation**.</span>
 <span id="cb5-313"><a href="#cb5-313" aria-hidden="true" tabindex="-1"></a></span>
