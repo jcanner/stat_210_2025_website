@@ -1,65 +1,103 @@
 ---
-title: "Challenge 3: Extending Teaching Evaluation Investigations"
+title: "Challenge 3: Spicing things up with ggplot2"
+aauthor: "Your name here!"
+format: html
+editor: source
+embed-resources: true
+execute: 
+  echo: true
+  eval: false
 ---
 
-# Chi-Square Test of Independence
+For this week's Challenge, you will have three different options to explore.
+I've arranged these options in terms of their "spiciness," or the difficulty of 
+completing the task. **You are only required to complete one task, but if you are interested in exploring more than one, feel free!**
 
-Let’s compare the level of SET ratings for Question 3 (The professor used activities to make the class more engaging.) between senior instructors and junior instructors.
+This is a great place to let your creativity show! Make sure to indicate what
+additional touches you added, and provide any online references you used.
 
-**1. Using the original `teacher_evals` dataset (not `teacher_evals_clean`), create a new dataset that accomplishes the following with *one*`dplyr` pipeline:**
+# Getting Set-up 
 
--   **includes responses for Question 3 only**
--   **creates a new variable called `SET_level` that is “excellent” if the `SET_score_avg` is 4 or higher (inclusive) and “standard” otherwise**
--   **creates a new variable called `sen_level` that is “junior” if `seniority` is 4 or less (inclusive) and “senior” otherwise**
--   **contains only the variables we are interested in –- `course_id`, `SET_level`, and `sen_level`**
--   **saves the mutated data into a new object named `teacher_evals_compare`.**
+Within this document, make sure to specify that your plots are contained in
+your document (`self-contained: true`) and that your code is visible to the reader (`echo: true`). If there are other formatting specifics
+you would like to include, feel free to toss those in the YAML, too!
 
-::: callout-tip
-Helpful functions: `filter()`, `mutate()`, `if_else()`, `select()`
+Next, create a setup code chunk to load the packages and read in the
+`surveys.csv` data file exactly how you did in Lab 2.
+
+Finally, create another code chunk and paste in your code from Question 14 or Question 15 in Lab 2 -- we will be modifying the box plot of weights by species!
+
+# Medium: Ridge Plots
+
+In Lab 2, you used side-by-side **boxplots** to visualize the distribution of 
+weight within each species of rodent. Boxplots have [substantial flaws](https://www.data-to-viz.com/caveat/boxplot.html), namely that they
+disguise distributions with multiple modes.
+
+A "superior" alternative is the density plot. However, `ggplot2` does not allow
+for side-by-side density plots using `geom_density()`. Instead, we will need to
+make use of the `ggridges` package to create side-by-side density (ridge) plots.
+
+> **For this challenge you are to change your boxplots to ridge plots. You will need to install the `ggridges` package and explore the `geom_density_ridges()` function.**
+
+# Spicy: Exploring Color Themes
+
+The built-in `ggplot()` color scheme may not include the colors you were looking
+for. Don't worry -- there are many other color palettes available to use!
+
+You can change the colors used by `ggplot()` in a few different ways.
+
+### Manual Specification
+
+Add the `scale_color_manual()` or `scale_fill_manual()` functions to your plot
+and directly specify the colors you want to use. You can either:
+
+1.  define a vector of colors within the `scale` functions (e.g.
+`values = c("blue", "black", "red", "green")`) OR
+
+2.  create a vector of colors using hex numbers and store that vector as a
+variable. Then, call that vector in the `scale_color_manual()` function.
+
+::: callout-note
+If you are interested in using specific hex colors, I like the [image color picker app](https://imagecolorpicker.com/en) to find the colors I want. 
 :::
 
-```{r}
-#| label: cleaning-data-for-junior-senior-comparison
-# code chunk for Q12
+### Package Specification
 
-```
+While manual specification may be necessary for some contexts, it can be a 
+real pain to handpick 5+ colors. This is where color scales built-in to R
+packages come in handy! Popular packages for colors include:
 
-**2. Using the new dataset and your `ggplot2` skills, recreate the filled bar plot shown below.**
+-   `RColorBrewer` -- change colors by using `scale_fill_brewer()` or `scale_colour_brewer()`.
 
-![](https://atheobold.github.io/groupworthy-data-science/labs/instructions/images/challenge-3-plot-to-recreate.png)
+-   `viridis` -- change colors by using `scale_colour_viridis_d()` for discrete
+data, `scale_colour_viridis_c()` for continuous data.
 
-::: callout-tip
-Helpful geometric object and arguments: `geom_bar(stat = ..., position = ...)`
+-   `ggsci` -- change colors by using `scale_color_<PALNAME>()` or
+`scale_fill_<PALNAME>()`, where you specify the name of the palette you wish to
+use (e.g. `scale_color_aaas()`).
 
-You **should not** have to do any more data manipulation to create this plot.
-
-Note that getting the general structure and reader friendly labels is the first step. The next step is to figure out the labels of the bars and the theme of the plot.
+::: callout-note
+[This website](https://github.com/EmilHvitfeldt/r-color-palettes) provides an exhaustive list of color themes available through various packages.
 :::
 
-```{r}
-#| label: recreate-plot
-# code chunk for Q13
+> **In this challenge you are expected to use this information to modify the boxplots you created Lab 2. First, you are to color the boxplots based on the variable `genus`. Next, you are to change the colors used for `genus` using either manual color specification or any of the packages listed here (or others!).**
 
-```
+# Hot: Exploring `ggplot2` Annotation
 
-**3. Look up the documentation for `chisq.test()` to carry out a chi-square test of independence between the SET level and instructor seniority level in your new dataset.**
+Some data scientists advocate that we should try to eliminate legends from our
+plots to make them more clear. Instead of using legends, which cause the 
+reader's eye to stray from the plot, we should use **annotation**.
 
-::: callout-tip
-Note that the `chisq.test()` function does not take a formula / data specification as we have seen before. You will need to extract the variables you wish to include in the analysis using a `$` (e.g., `evals$level$`).
-:::
+> **In this challenge you are expected to use this information to modify the boxplots you created in Lab 2. First, you are to color the boxplots based on the variable `genus`. Next, you are to add annotations for each genus next to the boxplot(s) associated with that genus. Finally, you are expected to use the `theme()` function to remove the color legend from the plot, since it is no longer needed!**
 
-```{r}
-#| label: chi-square-test
-# code chunk for Q14
+# Challenge 2 Submission
 
-```
+For Lab 2 you will submit **only** your HTML file. Your HTML file is required to have the following specifications in the YAML options (at the top of your document):
 
-**4. Draw a conclusion about the independence of evaluation level and seniority level based on your chi-square test.**
+-   have the plots embedded (`embed-resources: true`)
+-   include your source code (`code-tools: true`)
+-   include all your code and output (`echo: true`)
 
-# Study Critique
+**If any of the options are not included, your Lab 2 or Challenge 2 assignment will receive an "Incomplete" and you will be required to submit a revision.**
 
-Part of the impetus behind this study was to investigate characteristics of a course or an instructor that might affect student evaluations of teaching that are **not** explicitly related to teaching effectiveness. For instance, it has been shown that gender identity and gender express affect student evaluations of teaching ([an example](https://link.springer.com/article/10.1007/s10755-014-9313-4?nr_email_referer=1)).
-
-**5. If you were to conduct this study at Cal Poly, what are two other variables you would like to collect that you think might be related to student evaluations? These should be course or instructor characteristics that were not collected in this study.**
-
-**6. Explain what effects / relationships you would expect to see for each of the two variables you outlined.**
+In addition, your document should not have any warnings or messages output in your HTML document. **If your HTML contains warnings or messages, you will receive an "Incomplete" for document formatting and you will be required to submit a revision.**
