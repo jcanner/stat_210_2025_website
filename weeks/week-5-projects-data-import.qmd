@@ -367,6 +367,8 @@ Remember to load the `readr` and `readxl` packages first!
 
 
 ## What's the difference?
+Compare the two functions `read.csv()` and `read_csv()` - what do you notice about the possible arguments you can use in each? Why is `read_csv()` the better option?  
+
 
 ::: columns
 ::: {.column width="47%"}

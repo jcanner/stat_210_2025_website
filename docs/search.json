@@ -930,7 +930,7 @@
     "href": "weeks/week-5-projects-data-import.html#whats-the-difference",
     "title": "R Projects & Importing Data",
     "section": "4.5 What’s the difference?",
-    "text": "4.5 What’s the difference?",
+    "text": "4.5 What’s the difference?\nCompare the two functions read.csv() and read_csv() - what do you notice about the possible arguments you can use in each? Why is read_csv() the better option?",
     "crumbs": [
       "Weekly materials",
       "Week 5 - Importing Data"
