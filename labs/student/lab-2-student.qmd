@@ -1,5 +1,5 @@
 ---
-title: "Lab 2: Exploring Rodents with `ggplot2`"
+title: "Lab 3: Exploring Rodents with `ggplot2`"
 author: "Your name here!"
 format: html
 editor: source
@@ -11,66 +11,24 @@ execute:
 
 # Part 1: GitHub Workflow
 
-Now that you have the Lab 2 repository cloned, you need to make sure you can 
-successfully push to GitHub. To do this you need to:
 
--   Open the `lab-2-student.qmd` file (in the lower right hand corner). 
--   Change the `author` line at the top of the document (in the YAML) to your
-name. 
--   Save your file either by clicking on the blue floppy disk or with a shortcut
-(command / control + s). 
--   Click the "Git" tab in upper right pane
--   Check the "Staged" box for the `lab-2-student.qmd` file (the file you changed)
--   Click "Commit"
--   In the box that opens, type a message in "Commit message", such as
-"Added my name".
--   Click "Commit".
--   Click the green "Push" button to send your local changes to GitHub.
 
-RStudio will display something like:
-
-```         
->>> /usr/bin/git push origin HEAD:refs/heads/main
-To https://github.com/atheobold/introduction-to-quarto-allison-theobold.git
-   3a2171f..6d58539  HEAD -> main
-```
-
-Now you are ready to go! Remember, as you are going through the lab I would 
-strongly recommend rendering your HTML and committing your after **every** 
-question! 
 
 ## Seeking Help
 
-Part of learning to program is learning from a variety of resources. Thus, I
-expect you will use resources that you find on the internet. There is, however,
-an important balance between copying someone else's code and
-*using their code to learn*. Therefore, if you use external resources, I want to
-know about it. 
+Part of learning to program is learning from a variety of resources. Thus, I expect you will use resources that you find on the internet. There is, however, an important balance between copying someone else's code and *using their code to learn*. Therefore, if you use external resources, I want to know about it. 
 
-- If you used Google, you are expected to "inform" me of any resources you used
-by **pasting the link to the resource in a code comment next to where you used
-that resource**.
+- If you used Google, you are expected to "inform" me of any resources you used by **pasting the link to the resource in a code comment next to where you used that resource**.
 
-- If you used ChatGPT, you are expected to "inform" me of the assistance you
-received by (1) indicating somewhere in the problem that you used ChatGPT 
-(e.g., below the question prompt or as a code comment), and (2) downloading and
-attaching the `.txt` file containing your **entire** conversation with ChatGPT.
+- If you used ChatGPT, you are expected to "inform" me of the assistance you received by (1) indicating somewhere in the problem that you used ChatGPT (e.g., below the question prompt or as a code comment), and (2) downloading and attaching the `.txt` file containing your **entire** conversation with ChatGPT.
 
-Additionally, you are permitted and encouraged to work with your peers as you
-complete lab assignments, but **you are expected to do your own work**. Copying
-from each other is cheating, and letting people copy from you is also cheating.
-Please don't do either of those things.
+Additionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but **you are expected to do your own work**. Copying from each other is cheating, and letting people copy from you is also cheating. Please don't do either of those things.
 
 # Lab Instructions
 
-The questions in this lab are noted with numbers and boldface. Each question
-will require you to produce code, whether it is one line or multiple lines.
+The questions in this lab are noted with numbers and boldface. Each question will require you to produce code, whether it is one line or multiple lines. 
 
-This document is quite plain, meaning it does not have any special formatting.
-As part of your demonstration of creating professional looking Quarto documents,
-I would encourage you to spice your documents up (e.g., declaring execution
-options, specifying how your figures should be output, formatting your code
-output, etc.).
+This document is quite plain, meaning it does not have any special formatting. As part of your demonstration of creating professional looking Quarto documents, **I would encourage you to spice your documents up (e.g., declaring execution options, specifying how your figures should be output, formatting your code output, etc.).**
 
 # Setup
 
@@ -83,17 +41,9 @@ In the code chunk below, load in the packages necessary for your analysis. You s
 
 # Data Context
 
-The Portal Project is a long-term ecological study being conducted near Portal, 
-AZ. Since 1977, the site has been used to study the interactions among rodents,
-ants, and plants, as well as their respective responses to climate. To study the
-interactions among organisms, researchers experimentally manipulated access to
-24 study plots. This study has produced over 100 scientific papers and is one of
-the longest running ecological studies in the U.S.
+The Portal Project is a long-term ecological study being conducted near Portal, AZ. Since 1977, the site has been used to study the interactions among rodents, ants, and plants, as well as their respective responses to climate. To study the interactions among organisms, researchers experimentally manipulated access to 24 study plots. This study has produced over 100 scientific papers and is one of the longest running ecological studies in the U.S.
 
-We will be investigating the animal species diversity and weights found within
-plots at the Portal study site. The data are stored as a comma separated value
-(CSV) file. Each row holds information for a single animal, and the columns
-represent:
+We will be investigating the animal species diversity and weights found within plots at the Portal study site. The data are stored as a comma separated value (CSV) file. Each row holds information for a single animal, and the columns represent:
 
 | Column            | Description                        |
 |-------------------|------------------------------------|
@@ -113,10 +63,12 @@ represent:
 
 # Reading the Data into `R`
 
-**1. Using the `read_csv()` function, write the code necessary to load in the `surveys.csv` dataset (stored in the data folder). For simplicity, name the data `surveys`.**
+We are going to use the `read_csv()` function to load in the `surveys.csv` dataset (stored in the data folder). For simplicity, name the data `surveys`.**
 
 ```{r}
 #| label: load-data
+
+surveys <- read_csv()
 
 ```
 

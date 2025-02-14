@@ -1,0 +1,150 @@
+---
+title: "PA 3: Using Data Visualization to Find the Penguins"
+format: html
+editor: source
+execute: 
+  echo: true
+  error: true
+---
+
+```{r}
+
+```
+
+Today you will be exploring different types of visualizations to uncover which species of penguins reside on different islands.
+
+***This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.***
+
+Some advice: If you aren't sure how to make a specific plot or how to customize
+a look over the class text for this week and make use of the [ggplot2 cheatsheet](https://rstudio.github.io/cheatsheets/html/data-visualization.html?_gl=1*1u8zjpq*_ga*MTM4Nzk4ODMyOC4xNzA2NzU3MjEx*_ga_2C0WZ1JHG0*MTcxODkxNjU5Ny43LjAuMTcxODkxNjU5Ny4wLjAuMA).
+
+## Groupwork Protocols
+
+During the Practice Activity, you and your partner will alternate between two
+roles---Developer and Coder. 
+
+When you are the **Developer**, you will type into the Quarto document in
+RStudio. However, you **do not** type your own ideas. Instead, you type what 
+the Coder tells you to type. You are permitted to ask the Coder clarifying
+questions, and, if both of you have a question, you are permitted to ask the
+professor. You are expected to run the code provided by the Coder and, if 
+necessary, to work with the Coder to debug the code. Once the code runs, you
+are expected to collaborate with the Coder to write code comments that describe
+the actions taken by your code.
+
+When you are the **Coder**, you are responsible for reading the 
+instructions / prompts and directing the Developer what to type in the Quarto
+document. You are responsible for managing the resources your group has
+available to you (e.g., cheatsheet, textbook). If necessary, you should work
+with the Developer to debug the code you specified. Once the code runs, you
+are expected to collaborate with the Developer to write code comments that
+describe the actions taken by your code.
+
+### Group Norms
+
+Remember, your group is expected to adhere to the following norms:
+
+1.  Think and work together. Do not divide the work.
+2.  You are smarter together.
+3.  No cross-talk with other groups.
+
+# Getting Set-up
+
+<!-- The partner whose family name starts first alphabetically starts as the  -->
+<!-- Developer (typing and listening to instructions from the Coder! -->
+
+## Step 1: Install the `palmerpenguins` Package
+
+We will be creating visualizations using the `ggplot2` package.
+
+For this activity, we will be exploring the `penguins` data from the `palmerpenguins` package, which has [fantastic documentation with really awesome artwork](https://allisonhorst.github.io/palmerpenguins/). So, you will need to install the **palmerpenguins** package. Run the following code in your console:
+
+`install.packages("palmerpenguins")`
+
+## Step 2: Create a Set-up Code Chunk
+
+-   Locate the code chunk at the beginning of your document (directly under the YAML).
+-   Name the code chunk `setup` (with the hashpipe `#|`)
+-   Specify the code chunk options (with the hashpipe `#|`) that the messages from loading in the packages should not be included.
+-   Load in the `tidyverse` or `ggplot2` package.
+-   Load in the `palmerpenguins` package.
+
+
+
+
+## Step 3: Accessing the `penguins` Dataset
+
+I like to tangibly see the data set I will be working with so let's pull the `penguins` data into the R environment. Run the code below and you should see the penguins data appear in the top right Environment tab.
+
+```{r}
+#| label: load-data
+
+data(penguins)
+```
+
+<!-- Change roles (Developer becomes Coder)! -->
+
+## Step 4: Get to Know the Data
+
+**What variables are included in these data? What units are the variables measured in? What does each row represent?**
+
+> Insert Answer Here
+
+
+
+# Making Graphics
+
+In this section you will explore the `penguins` dataset by creating multiple types of plots. As you are creating you plots, please don't forget to (1) give your plots reader friendly axes labels, and. (2) follow good code formatting!
+
+## Step 5: Barchart
+
+Use `ggplot2` to draw a barchart of different `species` included in the dataset.
+
+```{r}
+#| label: barchart
+
+```
+
+## Step 6: Scatterplot
+
+Use `ggplot2` to create a scatterplot of the relationship between the bill length (`bill_length_mm`) and bill depth (`bill_depth_mm`).
+
+```{r}
+#| label: scatterplot
+
+```
+
+## Step 7: Adding A Categorical Variable
+
+<!-- Change roles (Developer becomes Coder)! -->
+
+Building off of the plot you made in Step 6, add an aesthetic to differentiate the species of the penguins in the scatterplot by color.
+
+```{r}
+#| label: scatterplot-with-one-categorical-variable
+
+```
+
+## Step 8: Adding Another Categorical Variable
+
+Building off of the plot you made in Step 7, add the location of the penguins ( `island`) to your visualization. There may be more than one method to address this, however, one method will more easily allow you to address the questions below.
+
+```{r}
+#| label: scatterplot-with-two-categorical-variables
+
+```
+
+# Canvas Quiz
+
+Working together as a team, use the plots you both created to address the
+following questions on Canvas:
+
+1.  Which species of penguins is represented the **least** in the `penguins` data set?
+
+2.  Which species of penguins are found on Biscoe Island?
+
+3.  Which species of penguins are found on Dream Island?
+
+4.  Which species of penguins are found on Torgersen Island?
+
+5.  Color deficiencies can make differentiating groups difficult---what aesthetic could you add to your plot to double encode species?

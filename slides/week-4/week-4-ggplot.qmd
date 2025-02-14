@@ -1,0 +1,1208 @@
+---
+title: "Basics of Graphics"
+format: 
+  revealjs:
+    theme: ../style.scss
+editor: source
+---
+
+```{r setup}
+#| include: false
+#| message: false
+library(tidyverse)
+```
+
+## Tuesday, October 1
+
+Today we will...
+
++ Accessing Practice Activities
++ Review
+  + Tidy Data
+  + Load External Data
+  + Graphics (and `ggplot2`)
++ PA 3: Using Data Visualization to Find the Penguins
+   + Peer Programming
+
+<!-- Be sure to update with new Posit Cloud assignment link! -->
+
+# Accessing Practice Activities
+
+We are using Posit Cloud for collaborative coding, so you and your partner 
+can type in the **same** document at the **same** time. 
+
+::: {.small}
+Take 3-minutes to: 
+
+- Open the email you were sent (from me and / or Posit Cloud)
+- Click on the link to join your workspace
+- Log-in to Posit Cloud
+:::
+
+# Grammar of Graphics
+
+## Grammar of Graphics
+
+The Grammar of Graphics (GoG) is a principled way of specifying **exactly** how to create a particular graph from a given data set. It helps us to systematically design new graphs.
+
+. . .
+
+<br>
+
+Think of a graph or a data visualization as a mapping...
+
+...**FROM variables** in the data set (or statistics computed from the data)...
+
+...**TO visual attributes** (or "aesthetics") **of marks** (or "geometric elements") on the page/screen.
+
+
+## Why GoG?
+
++ It's more flexible than a "chart zoo" of named graphs.
++ The software understands the structure of your graph.
++ It easily automates graphing of data subsets.
+
+
+
+## Components of GoG
+
+::: {.small}
++ `data`: dataframe containing variables
++ `aes` : aesthetic mappings (position, color, symbol, ...)
++ `geom` : geometric element (point, line, bar, box, ...)
++ `stat` : statistical variable transformation (identity, count, linear model, quantile, ...)
++ `scale` : scale transformation (log scale, color mapping, axes tick breaks, ...)
++ `coord` : Cartesian, polar, map projection, ...
++ `facet` : divide into subplots using a categorical variable
+:::
+
+# Using `ggplot2`
+
+
+## How to Build a Graphic
+
+Complete this template to build a basic graphic:
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+
+ggplot(
+  data = <DATA>, 
+  mapping = aes(<MAPPINGS>)
+  ) +
+  <GEOM FUNCTION>() + 
+  any other arguments...
+```
+
+. . .
+
+Notice, every `+` adds another **layer** to our graphic.
+
+. . .
+
+Also notice that I'm using **named arguments** to make my code easier to read. 
+
+##
+
+::: panel-tabset
+
+### Add data
+
+This begins a plot that you can add layers to:
+
+```{r}
+#| echo: true
+#| code-line-numbers: true
+#| fig-align: center
+#| fig-height: 4.5
+#| fig-width: 4.5
+#| label: blank-plot
+#| fig-alt: "An image of a blank gray square representing a blank plotting canvas."
+
+ggplot(data = mpg)
+```
+
+### Add aesthetics
+
+```{r}
+#| echo: true
+#| code-line-numbers: "2"
+#| fig-align: center
+#| fig-height: 4.5
+#| fig-width: 4.5
+#| label: add-variables-to-aesthetics
+#| fig-alt: "An image of a gray square with white gridlines representing a plotting canvas where the variables have been assigned to the x and y aesthetics. On the x-axis there is a variable named 'class' with seven different values mapped to a particular white gridline---2seater, compact, midsize, minivan, pickup, subcompact, suv. On the y-axis there is a variable named 'hwy' with three printed values mapped to different white gridlines---20, 30, and 40. The spaces between these gridlines represent values between the printed values (e.g., 25)."
+
+
+ggplot(data = mpg, 
+       mapping = aes(x = class, y = hwy)
+       )
+```
+
+### Add one `geom` per layer
+
+:::: {.columns}
+
+::: {.column width="50%"}
+::: {.small}
+```{r}
+#| echo: true
+#| code-line-numbers: false
+#| fig-height: 6
+#| label: adding-jittered-points
+#| fig-alt: "A visualization of the different hwy milage for different types of cars. On the x-axis there is a variable named 'class' with seven different values mapped to a particular white gridline---2seater, compact, midsize, minivan, pickup, subcompact, suv. On the y-axis there is a variable named 'hwy' with three printed values mapped to different white gridlines---20, 30, and 40. The spaces between these gridlines represent values between the printed values (e.g., 25). The visualization has a variety of points (black dots), where each point represents a particular vehicle. Each point is horizontally aligned with the type of vehicle and vertically aligned with the highway mileage for the vehicle. Overall, it appears that pickups and suvs have the lowest highway mileage, with minivans having slightly better milage. compact, midsize, and subcompact vehicles have fairly similar milage, with cars ranging from 25 to 40 miles per gallon."
+
+ggplot(data = mpg, 
+       mapping = aes(x = class, 
+                     y = hwy)
+       ) +
+  geom_jitter()
+```
+:::
+:::
+
+::: {.column width="50%"}
+::: {.small}
+```{r}
+#| echo: true
+#| code-line-numbers: false
+#| fig-height: 6
+#| label: adding-jittered-points-and-boxplots
+#| fig-alt: "The same visualization is presented, except there are not boxplots superimposed on top of the points (dots) for each vehicle type. The boxplots display the median (center line), quantiles (edges), and min / max (whiskers) of each vehicle's mileage."
+
+ggplot(data = mpg, 
+       mapping = aes(x = class, 
+                     y = hwy)
+       ) +
+  geom_jitter() +
+  geom_boxplot()
+```
+:::
+:::
+::::
+:::
+
+## Aesthetics
+
+We map **variables** (columns) from the data to **aesthetics** on the graphic using the `aes()` function.
+
+. . .
+
+What aesthetics can we set (*see [ggplot2 cheat sheet](https://rstudio.github.io/cheatsheets/html/data-visualization.html?_gl=1*1u8zjpq*_ga*MTM4Nzk4ODMyOC4xNzA2NzU3MjEx*_ga_2C0WZ1JHG0*MTcxODkxNjU5Ny43LjAuMTcxODkxNjU5Ny4wLjAuMA..) for more*)?
+
+:::: {.columns}
+::: {.column width="22%"}
+
+<font size = "6">
+
++ x, y
++ color, fill
++ linetype
++ size
++ shape
+
+</font>
+
+:::
+::: {.column width="78%"}
+
+:::
+::::
+
+
+## Aesthetics
+
+We map **variables** (columns) from the data to **aesthetics** on the graphic using the `aes()` function.
+
+What aesthetics can we set (*see [ggplot2 cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf) for more*)?
+
+:::: {.columns}
+::: {.column width="20%"}
+
+::: {.small}
++ x, y
++ color, fill
++ linetype
++ size
++ shape
+:::
+
+:::
+::: {.column width="80%"}
+
+![](images/aes.png)
+
+:::
+::::
+
+
+## Special Properties of Aesthetics
+
+::: panel-tabset
+
+## Global Aesthetics
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "2-4"
+#| label: global-aesthetics
+
+ggplot(data = housingsub, 
+       mapping = aes(
+         x = date, 
+         y = median)
+       ) +
+  geom_point()
+```
+
+## Local Aesthetics
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "2-3"
+#| label: local-aesthetics
+
+ggplot(data = housingsub) +
+  geom_point(mapping = aes(x = date,
+                           y = median)
+             )
+```
+
+:::
+
+## Special Properties of Aesthetics
+
+::: panel-tabset
+
+## Mapping Aesthetics
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "4"
+#| label: mapping-a-color
+
+ggplot(data = housingsub) +
+  geom_point(mapping = aes(x = date, 
+                           y = median,
+                           color = city)
+             )
+```
+
+## Setting Aesthetics
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "4"
+#| label: setting-a-color
+
+ggplot(data = housingsub) +
+  geom_point(mapping = aes(x = date, 
+                           y = median), 
+             color = "blue")
+```
+:::
+
+
+## Geometric Objects
+
+Wee use a `geom_XXX()` function to represent data points.
+
+. . .
+
+:::: {.columns}
+
+::: {.column width="35%"}
+::: {.small}
+**one variable**
+
++ `geom_density()`
++ `geom_dotplot()`
++ `geom_histogram()`
++ `geom_boxplot()`
+:::
+:::
+
+::: {.column width="35%"}
+::: {.small}
+**two variable**
+
++ `geom_point()`
++ `geom_line()`
++ `geom_density_2d()`
+:::
+:::
+
+::: {.column width="30%"}
+::: {.small}
+**three variable**
+
++ `geom_contour()`
++ `geom_raster()`
+:::
+:::
+::::
+
+</br>
+
+*This is not an exhaustive list -- see [ggplot2 cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf)*.
+
+
+<!-- ## Same Data, Three Different Plots -->
+
+<!-- ::: panel-tabset -->
+
+<!-- ### geom_point() -->
+
+<!-- ::: {.small} -->
+<!-- ```{r} -->
+<!-- #| echo: true -->
+<!-- #| code-fold: true -->
+<!-- #| code-line-numbers: "6" -->
+<!-- #| fig-height: 4 -->
+<!-- #| fig-width: 6 -->
+<!-- #| fig-align: center -->
+<!-- #| label: example-scatterplot -->
+
+<!-- ggplot(data = mpg, -->
+<!--        mapping = aes(x = cty,  -->
+<!--                      y = hwy, -->
+<!--                      color = class) -->
+<!--        ) + -->
+<!--   geom_point() + -->
+<!--   labs(x = "City (mpg)",  -->
+<!--        y = "Highway (mpg)",  -->
+<!--        color = " ") + -->
+<!--   theme(axis.title = element_text(size = 14), -->
+<!--         legend.position = "top", -->
+<!--         legend.text = element_text(size = 14) -->
+<!--         ) -->
+<!-- ``` -->
+<!-- ::: -->
+
+<!-- ### geom_text() -->
+
+<!-- ::: {.small} -->
+<!-- ```{r} -->
+<!-- #| echo: true -->
+<!-- #| code-fold: true -->
+<!-- #| code-line-numbers: "6" -->
+<!-- #| fig-height: 4 -->
+<!-- #| fig-width: 6 -->
+<!-- #| fig-align: center -->
+<!-- #| label: example-word-plot -->
+
+<!-- ggplot(data = mpg, -->
+<!--        mapping = aes(x = cty, -->
+<!--                      y = hwy, -->
+<!--                      color = class) -->
+<!--        ) + -->
+<!--   geom_text(mapping = aes(label = class)) + -->
+<!--   labs(x = "City (mpg)",  -->
+<!--        y = "Highway (mpg)",  -->
+<!--        color = " ") + -->
+<!--   theme(axis.title = element_text(size = 14), -->
+<!--         legend.position = "top", -->
+<!--         legend.text = element_text(size = 14) -->
+<!--         ) -->
+<!-- ``` -->
+<!-- ::: -->
+
+<!-- ### geom_smooth() -->
+
+<!-- ::: {.small} -->
+<!-- ```{r} -->
+<!-- #| echo: true -->
+<!-- #| code-fold: true -->
+<!-- #| code-line-numbers: "6" -->
+<!-- #| fig-height: 4 -->
+<!-- #| fig-width: 6 -->
+<!-- #| fig-align: center -->
+<!-- #| label: example-line-plot -->
+
+<!-- ggplot(data = mpg, -->
+<!--        mapping = aes(x = cty, -->
+<!--                      y = hwy, -->
+<!--                      color = class) -->
+<!--        ) + -->
+<!--   geom_smooth() + -->
+<!--   labs(x = "City (mpg)",  -->
+<!--        y = "Highway (mpg)",  -->
+<!--        color = " ") + -->
+<!--   theme(axis.title = element_text(size = 14), -->
+<!--         legend.position = "top", -->
+<!--         legend.text = element_text(size = 14) -->
+<!--         ) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- ::: -->
+
+
+## Creating a Graphic
+
+To create a specific type of graphic, we will **combine** aesthetics and geometric objects.
+
+. . .
+
+<br>
+
+Let's try it!
+
+
+##
+
+::: panel-tabset
+
+### The Goal
+
+Start with the TX housing data.
+
+![](images/tx_housing.png)
+
+Make a plot of <span style="color:teal"> median house price </span> over <span style="color:purple"> time </span> (including both <span style="color:green"> individual data points </span> and <span style="color:darkorange"> a smoothed trend line</span>), distinguishing between <span style="color:blue"> different cities </span>.
+
+
+### Game Plan
+
+![](images/txhousing_plan.png)
+
+### ggplot
+
+```{r}
+#| echo: false
+#| label: texas-metro-data
+
+sm_tx <- txhousing |>
+  filter(city %in% c("Dallas",
+                     "Fort Worth",
+                     "Austin",
+                     "Houston", 
+                     "El Paso")
+         )
+```
+
+::: {.small}
+```{r}
+#| echo: true
+#| code-fold: true
+#| label: median-home-price-over-time-for-tx-metro
+
+ggplot(data = sm_tx,
+       mapping = aes(x = date, 
+                     y = median, 
+                     color = city)
+       ) + 
+  geom_point() + 
+  geom_smooth(method = "loess") + 
+  labs(x = "Date",
+       y = "",
+       color = " ",
+       title = "Changes in Median Home Price for Texas Metro Areas") +
+  scale_y_continuous(labels = scales::label_dollar())
+```
+:::
+:::
+
+
+## Faceting
+
+Extracts subsets of data and places them in side-by-side plots.
+
+```{r}
+#| echo: true
+#| fig-height: 3
+#| fig-width: 12
+#| code-line-numbers: "6"
+#| code-fold: true
+
+ggplot(data = sm_tx,
+       mapping = aes(x = date, 
+                     y = median)
+       ) + 
+  geom_point() + 
+  facet_wrap(~city) +
+  geom_smooth(method = "loess") + 
+  labs(x = "Date",
+       y = "",
+       color = " ",
+       title = "Changes in Median Home Price for Texas Metro Areas") +
+  scale_y_continuous(labels = scales::label_dollar())
+```
+
+
+```{r}
+#| echo: false
+#| label: create-month-categorical-variable
+
+sm_tx <- mutate(sm_tx, 
+                month_cat = case_when(month == 1 ~ "January", 
+                                      month == 2 ~ "February", 
+                                      month == 3 ~ "March", 
+                                      month == 4 ~ "April", 
+                                      month == 5 ~ "May", 
+                                      month == 6 ~ "June", 
+                                      month == 7 ~ "July", 
+                                      month == 8 ~ "August", 
+                                      month == 9 ~ "September", 
+                                      month == 10 ~ "October", 
+                                      month == 11 ~ "November", 
+                                      month == 12 ~ "December")
+                )
+```
+
+```{r}
+#| fig-height: 3.5
+#| fig-width: 8
+#| code-line-numbers: "4"
+#| echo: false
+#| fig-align: center
+#| eval: false
+
+ggplot(data = sm_tx,
+       mapping = aes(x = date, 
+                     y = median)
+       ) + 
+  geom_point() + 
+  facet_wrap(city ~ month_cat) +
+  geom_smooth(method = "loess") + 
+  labs(x = "Date",
+       y = "",
+       color = " ",
+       title = "Changes in Median Home Price for Texas Metro Areas") +
+  scale_y_continuous(labels = scales::label_dollar())
+
+```
+
+
+## Faceting
+
+::: panel-tabset
+
+### Options
+
+::: {.small}
++ `facet_wrap(~ b)`: facets by one variable
+  * `nrow` controls the number of rows the facets are output into 
+  * `ncol` controls the number of columns the facets are output into
++ `facet_grid(a ~ b)`: facet by two variables
+  * variable `a` will be assigned to the rows
+  * variable `b` will be assigned to the columns into both rows and columns
+:::
+
+### Scales
+
+::: {.small}
+You can set scales to let axis limits vary across facets:
+
+`facet_grid(y ~ x, scales = ______)`
+
+  + `"free"` -- both x- and y-axis limits adjust to individual facets
+  + `"free_x"` -- only x-axis limits adjust
+  + `"free_y"` -- only y-axis limits adjust
+
+:::
+
+<!-- ### Labels -->
+
+<!-- ::: {.small} -->
+<!-- You can set a labeller to adjust facet labels. -->
+
+<!-- Include both the variable name and factor name in the labels: -->
+
+<!-- + `facet_wrap(~ b, labeller = label_both)` -->
+
+<!-- Display math symbols in the labels: -->
+
+<!-- + `facet_wrap(~ b, labeller = label_bquote(alpha ^ .(b)))` -->
+<!-- + `facet_wrap(~ b, labeller = label_parsed)` -->
+
+<!-- ::: -->
+:::
+
+
+## Statistical Transformation: `stat`
+
+A `stat` transforms an existing variable into a new variable to plot.
+
++ `identity` leaves the data as is.
++ `count` counts the number of observations.
++ `summary` allows you to specify a desired transformation function.
+
+. . .
+
+Sometimes these statistical transformations happen under the hood when we use 
+a specific `geom_XXX()`.
+
+
+
+
+## Statistical Transformation: `stat`
+
+::: panel-tabset
+
+### `stat_count()`
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {.small}
+```{r}
+#| echo: true
+#| code-line-numbers: "4"
+#| label: default-stat-with-geom-bar
+
+ggplot(data = mpg,
+       mapping = aes(x = class)
+       ) +
+  geom_bar()
+```
+:::
+:::
+
+::: {.column width="50%"}
+::: {.small}
+
+```{r}
+#| echo: true
+#| code-line-numbers: "4"
+#| label: using-stat-count-with-specific-geom
+
+ggplot(data = mpg,
+       mapping = aes(x = class)
+       ) +
+  stat_count(geom = "bar")
+```
+:::
+:::
+::::
+
+### `stat_summary()`
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {.small}
+```{r}
+#| echo: true
+#| code-line-numbers: "5-6"
+#| label: using-stat-summary-with-mean-for-bars
+
+ggplot(data = mpg,
+       mapping = aes(x = class,
+                     y = hwy)
+       ) +
+  stat_summary(geom = "bar",
+               fun = "mean") +
+  scale_y_continuous(limits = c(0, 45))
+```
+:::
+:::
+
+::: {.column width="50%"}
+::: {.small}
+```{r}
+#| echo: true
+#| code-line-numbers: "5-6"
+#| label: using-stat-summary-with-max-for-bars
+
+ggplot(data = mpg,
+       mapping = aes(x = class,
+                     y = hwy)
+       ) +
+  stat_summary(geom = "bar",
+               fun = "max") +
+  scale_y_continuous(limits = c(0, 45))
+```
+:::
+:::
+
+::::
+:::
+
+## Position Adjustements
+
+Position adjustments determine how to arrange `geom`'s that would otherwise occupy the same space.
+
+::: {.small}
+
++ `position = "dodge"`: Arrange elements side by side.
++ `position = "fill"`: Stack elements on top of one another + normalize height.
++ `position = "stack"`: Stack elements on top of one another.
++ `position = "jitter"`: Add random noise to `x` & `y` position of each element to
+avoid overplotting (see `geom_jitter()`).
+:::
+
+## Position Adjustements
+
+::: {.small}
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "4"
+
+ggplot(data = mpg, 
+       mapping = aes(fl, fill = drv)
+       ) + 
+  geom_bar(position = "_____")
+```
+:::
+
+![](images/position.png)
+
+
+## Plot Customizations
+
+::: panel-tabset
+
+### Labels
+
+::: {.small}
+```{r}
+#| echo: true
+#| code-line-numbers: "5-8"
+#| fig-height: 4
+#| fig-width: 6
+#| fig-align: center
+#| code-fold: true
+#| label: example-labs-specifications
+
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = hwy, color = cyl)
+       ) + 
+  geom_jitter() + 
+  labs(x = "Engine Displacement (liters)", 
+       y = " ", 
+       color = "Cylinders",
+       title = "Cars with More Cylinders Have Larger Engine Displacement\n and Lower Fuel Efficiency")
+```
+:::
+
+### Themes
+
+::: {.small}
+```{r}
+#| echo: true
+#| code-line-numbers: "9"
+#| fig-height: 4
+#| fig-width: 6
+#| fig-align: center
+#| code-fold: true
+#| label: example-theme
+
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = hwy, color = cyl)
+       ) + 
+  geom_jitter() + 
+  labs(x = "Engine Displacement (liters)", 
+       y = " ", 
+       color = "Cylinders",
+       title = "Cars with More Cylinders Have Larger Engine Displacement\n and Lower Fuel Efficiency") +
+  theme_bw() +
+  theme(legend.position = "bottom")
+```
+:::
+
+### Scales: Axes Ticks
+
+::: {.small}
+```{r}
+#| echo: true
+#| code-line-numbers: "9-11"
+#| fig-height: 4
+#| fig-width: 6
+#| fig-align: center
+#| code-fold: true
+#| label: example-axis-ticks
+
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = hwy, color = cyl)
+       ) + 
+  geom_jitter() + 
+  labs(x = "Engine Displacement (liters)", 
+       y = " ", 
+       color = "Cylinders",
+       title = "Cars with More Cylinders Have Larger Engine Displacement\n and Lower Fuel Efficiency") +
+  scale_y_continuous(limits = c(0, 50),
+                     breaks = seq(from = 0, to = 50, by = 5)
+                     )
+```
+:::
+
+### Scales: Color
+
+::: {.small}
+```{r}
+#| echo: true
+#| code-line-numbers: "9"
+#| fig-height: 4
+#| fig-width: 6
+#| fig-align: center
+#| code-fold: true
+#| label: example-colors
+
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = hwy, color = cyl)
+       ) + 
+  geom_jitter() + 
+  labs(x = "Engine Displacement (liters)", 
+       y = " ", 
+       color = "Cylinders",
+       title = "Cars with More Cylinders Have Larger Engine Displacement\n and Lower Fuel Efficiency") +
+  scale_color_gradient(low = "white", high = "green4")
+```
+:::
+:::
+
+# Nicely Formatted Code
+
+## ggplot Code
+
+::: {.small}
+It is good practice to put each `geom` and `aes` on a new line.
+
++ This makes code easier to read! 
++ Generally: no line of code should be over 80 characters long.
+:::
+
+::: panel-tabset
+
+### Bad
+
+::: {.small}
+```{r}
+#| echo: true
+#| eval: false
+#| label: poorly-formatted-code
+#| code-line-numbers: false
+
+ggplot(data = mpg, mapping = aes(x = cty, y = hwy, color = class)) + geom_point() + theme_bw() + labs(x = "City (mpg)", y = "Highway (mpg)")
+```
+:::
+
+### Good
+
+::: {.small}
+```{r}
+#| echo: true
+#| eval: false
+#| label: medium-formatted-code
+#| code-line-numbers: false
+
+ggplot(data = mpg, 
+       mapping = aes(x = cty, y = hwy, color = class)) + 
+  geom_point() + 
+  theme_bw() + 
+  labs(x = "City (mpg)", y = "Highway (mpg)")
+```
+:::
+
+### Amazing
+
+::: {.small}
+```{r}
+#| echo: true
+#| eval: false
+#| label: nicely-formatted-code
+#| code-line-numbers: false
+
+ggplot(data = mpg, 
+       mapping = aes(
+         x = cty, 
+         y = hwy, 
+         color = class
+         )
+       ) + 
+  geom_point() + 
+  theme_bw() + 
+  labs(x = "City (mpg)", 
+       y = "Highway (mpg)")
+```
+:::
+:::
+
+
+<!-- ## Let's Practice! -->
+
+<!-- How would you make this plot from the `diamonds` dataset in `ggplot2`? -->
+
+
+<!-- :::: {.columns} -->
+<!-- ::: {.column width="90%"} -->
+
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- tmp <- diamonds -->
+<!-- tmp$category <- cut(tmp$price, breaks = c(0, 999, 4999, Inf)) -->
+<!-- price_labs <- c("<$1k", "$1k-$5k", ">$5k") -->
+<!-- names(price_labs) <- c("(0,999]","(999,5e+03]","(5e+03,Inf]") -->
+
+<!-- ggplot(data = tmp, -->
+<!--        mapping = aes(x = cut, -->
+<!--                      fill = cut)) + -->
+<!--   geom_bar() + -->
+<!--   facet_wrap(.~category, -->
+<!--              labeller = labeller(category = price_labs)) + -->
+<!--   theme(axis.text.x = element_blank(), -->
+<!--         axis.title = element_text(size = 18), -->
+<!--         legend.title = element_text(size = 18), -->
+<!--         legend.text = element_text(size = 14), -->
+<!--         strip.text = element_text(size = 18)) -->
+<!-- ``` -->
+
+<!-- ::: -->
+<!-- ::: {.column width="10%"} -->
+
+<!-- <br> -->
+
+<!-- + `data` -->
+<!-- + `aes` -->
+<!-- + `geom` -->
+<!-- + `facet` -->
+
+<!-- ::: -->
+<!-- :::: -->
+
+# Let's Make Some Visualizations!
+
+<!-- ## Creating a Game Plan -->
+
+<!-- There are a lot of pieces to put together when creating a good graphic. -->
+
+<!-- + So, when sitting down to create a plot, you should first create a -->
+<!-- **game plan**! -->
+
+<!-- . . . -->
+
+<!-- This game plan should include: -->
+
+<!-- 1. What data are you starting from? -->
+<!-- 2. What are your x- and y-axes? -->
+<!-- 3. What type(s) of `geom` do you need? -->
+<!-- 4. What other `aes`'s do you need? -->
+
+
+<!-- ## -->
+
+<!-- ::: panel-tabset -->
+
+<!-- ### Make a Game Plan! -->
+
+<!-- Use the `mpg` dataset to create two side-by-side scatterplots of city MPG  -->
+<!-- (`cty`) vs. highway MPG (`hwy`) where the points are colored by the drive type -->
+<!-- (`drv`). The two plots should be separated by `year`. -->
+
+<!-- ![](images/empty_game_plan.png) -->
+
+<!-- ### Example -->
+
+<!-- ![](images/mpg_game_plan.png) -->
+
+<!-- ### R Code -->
+
+<!-- ::: {.small} -->
+<!-- ```{r} -->
+<!-- #| code-fold: true -->
+<!-- #| echo: true -->
+<!-- #| fig-height: 4.5 -->
+<!-- ggplot(data = mpg, -->
+<!--        mapping = aes(x = cty, -->
+<!--                      y = hwy, -->
+<!--                      color = drv) -->
+<!--        ) + -->
+<!--   geom_point() + -->
+<!--   facet_wrap(~ year) + -->
+<!--   labs(x = "City Milage (mpg)", -->
+<!--        y = "Highway Milage")+ -->
+<!--   scale_color_discrete(name = "Drive Type", -->
+<!--                        labels = c("4-wheel", -->
+<!--                                   "Front", -->
+<!--                                   "Rear") -->
+<!--                        ) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- ::: -->
+
+<!-- # Expert Designer -->
+
+# PA 3: Using Data Visualization to Find the Penguins
+
+![Artwork by Allison Horst](https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png)
+
+## Using Data Visualization to Find the Penguins
+
+::: columns
+::: {.column width="60%"}
+::: {.small}
+This puzzle activity will require knowledge of:
+
+- installing and loading packages in R
+- formatting code chunks in Quarto
+- interpreting the context of a dataset
+- data types / variable types
+- different types of visualizations
+- what visualization(s) go with different data types
+- how to make visualizations with **ggplot2**
+- choosing between different aesthetic options
+:::
+
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="35%"}
+::: {.fragment}
+::: {.midi}
+**None of us have all these abilities. Each of us has some of these abilities.**
+:::
+:::
+:::
+:::
+
+## Pair Programming Expectations
+
+::: {.small}
+During your collaboration, you and your partner will alternate between two roles: 
+:::
+
+. . .
+
+::: columns
+::: {.column width="49%"}
+**Developer**
+
+::: {.small}
+-   Reads prompt and ensures Coder understands what is being asked. 
+-   Types the code specified by the Coder into the Quarto document.
+<!-- -   Listens carefully, asks the Coder to repeat statements if needed, or to slow -->
+<!-- down. -->
+<!-- -   Encourages the Coder to vocalize their thinking. -->
+<!-- -   Asks the Coder clarifying questions. -->
+<!-- -   Checks for accuracy by asking the solution to be restated for clarity. -->
+<!-- -   **Does not** give hints to the Coder for how to solve the problem.  -->
+<!-- -   **Does not** solve the problem themselves.  -->
+-   Runs the code provided by the Coder. 
+-   Works with Coder to debug the code. 
+<!-- -   **Does not** tell the Coder how to correct an error. -->
+-   Evaluates the output.  
+-   Works with Coder to write code comments. 
+:::
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="49%"}
+::: {.fragment}
+**Coder**
+
+::: {.small}
+-   Reads out instructions or prompts
+-   Directs the Developer what to type. 
+-   Talks with Developer about their ideas. 
+<!-- -   **Does not** ask the Developer how they would solve the problem.  -->
+-   Manages resources (e.g., cheatsheets, textbook). 
+<!-- -   **Does not** ask the developer what functions / tools they should use.  -->
+-   Works with Developer to debug the code. 
+<!-- -   **Does not** ask the Developer to debug the code.  -->
+-   Works with Developer to write code comments. 
+:::
+:::
+:::
+:::
+
+## 
+
+::: {.callout-tip}
+## Group Norms
+
+1.  Think and work together. Do not divide the work.
+2.  You are smarter together.
+3.  Be open minded. 
+4.  No cross-talk with other groups.
+5.  Communicate with each other! 
+:::
+
+<!-- Add other norms that are relevant -->
+
+<!-- Add in discussion of benefits of speaking your code out loud -->
+<!-- - deeper understanding -->
+<!-- - practice communicating ideas -->
+<!-- - explaining your thinking -->
+
+## ggplot2 Resources
+
+Every group should have a **ggplot2** cheatsheet! 
+
+::: columns
+::: {.column width="37%"}
+::: {.fragment}
+**On the Front**
+
+::: {.incremental}
+::: {.small}
+- Column 1: the "template" for making a ggplot
+- Column 3: creating plots for two continuous variables
+- Column 4: creating plots for one discrete or one continuous variable
+:::
+:::
+:::
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="37%"}
+::: {.fragment}
+**On the Back**
+
+::: {.incremental}
+::: {.small}
+- Column 4: adding facets and labels to your plot
+- Column 3: adding themes to your plot (if you have extra time)
+:::
+:::
+:::
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="15%"}
+![](images/ggplot-cheatsheet.png){fig-alt="A picture of the ggplot2 cheatsheet, which contains helpful information on assembling a variety of visualizations all using the ggplot2 package."}
+
+:::
+:::
+
+## Opening the Practice Activity in Posit Cloud
+
+The partner whose family name starts first alphabetically starts as the
+Developer! 
+
+Both of you need to do the following:
+
+::: {.small}
+- Open the email you were sent (from me and / or Posit Cloud)
+- Click on the link to join your workspace
+- Log-in to Posit Cloud
+- Open the PA 2: Using Data Visualization to Find the Penguins project
+- Open the `PA2-ggplot.qmd` file
+- Get started! 
+:::
+
+## Submission
+
+- When you have completed the visualization tasks, you will work as a group to
+answer the five questions posed at the end of the document. 
+
+- Each person will input the answers to these questions in the PA2 Canvas quiz.
+- The person who last occupied the role of Developer will download and submit
+the `PA-2.html` file for the group.
+  + Only one submission per group!
+
+# Wrap-up
+
+# What skills did you need?

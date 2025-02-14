@@ -1,0 +1,91 @@
+---
+title: "PA 3 Task Card - Using Data Visualization to Find the Penguins"
+editor: source
+format: typst
+---
+
+Today you will be exploring different types of visualizations to uncover which
+species of penguins reside on different islands.
+
+***This task is complex. It requires many different types of abilities. Everyone
+will be good at some of these abilities but nobody will be good at all of them.
+In order to solve this puzzle, you will need to use the skills of each member of
+your group.***
+
+## Group Roles
+
+When you are the **Developer**, you will type into the Quarto document in
+RStudio. However, you **do not** type your own ideas. Instead, you type what 
+the Coder tells you to type. You are permitted to ask the Coder clarifying
+questions, and, if both of you have a question, you are permitted to ask the
+professor. You are expected to run the code provided by the Coder and, if 
+necessary, to work with the Coder to debug the code. Once the code runs, you
+are expected to collaborate with the Coder to write code comments that describe
+the actions taken by your code.
+
+When you are the **Coder**, you are responsible for reading the 
+instructions / prompts and directing the Developer what to type in the Quarto
+document. You are responsible for managing the resources your group has
+available to you (e.g., cheatsheet, textbook). If necessary, you should work
+with the Developer to debug the code you specified. Once the code runs, you
+are expected to collaborate with the Developer to write code comments that
+describe the actions taken by your code.
+
+## Group Norms
+
+Remember, your group is expected to adhere to the following norms:
+
+1.  Think and work together. Do not divide the work.
+2.  You are smarter together.
+3.  Be open minded. 
+4.  No cross-talk with other groups.
+5.  Communicate with each other! 
+
+\newpage
+
+# Writing Code
+
+Writing "tidy" and "well documented" code are two of the learning targets for
+this course. As such, I would strongly encourage you to use every opportunity to
+practice these skills.
+
+## Tidy Code
+
+As you are writing code for this assignment, make sure your code
+follows the [tidyverse style guide for ggplot code](https://style.tidyverse.org/ggplot2.html).
+Specifically, your code should:
+
+-   use whitespace liberally
+    -   before & after every `=` sign
+    -   after every `,`
+    -   before every `+`
+-   use new lines liberally
+    -   after every `+`
+    -   after `,` when needed (if code is more than 80 characters in length)
+
+## Well Documented Code
+
+Include a comment at the beginning of the code chunk
+that briefly states the purpose of the chunk (comments come after `#` signs). In
+addition, if your code involves many steps or steps you needed to look up / get
+help on, I would encourage you to write a code comment on what is happening in
+these lines.
+
+```{r}
+#| label: code-comment-example
+#| eval: false
+
+ggplot(data = penguins, 
+       mapping = aes(x = species, 
+                     fill = species)) +
+# use fill instead of color to get the bars filled entirely with color (instead of just on the outside)
+  
+  geom_bar() +
+  labs(x = "", 
+       y = "", 
+       title = "Number of Penguins Captured in the Palmer Archipelago") +
+# remove axis titles and put that information in the title where it is easier to read
+  
+  theme(legend.position = "none")
+# to remove the legend position, since the fill information is already included on the x-axis
+```
