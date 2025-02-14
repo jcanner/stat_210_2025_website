@@ -24,19 +24,6 @@ library(tidyverse)
 
 <!-- Be sure to update with new Posit Cloud assignment link! -->
 
-# Accessing Practice Activities
-
-We are using Posit Cloud for collaborative coding, so you and your partner 
-can type in the **same** document at the **same** time. 
-
-::: {.small}
-Take 3-minutes to: 
-
-- Open the email you were sent (from me and / or Posit Cloud)
-- Click on the link to join your workspace
-- Log-in to Posit Cloud
-:::
-
 # Grammar of Graphics
 
 ## Grammar of Graphics
@@ -59,7 +46,6 @@ Think of a graph or a data visualization as a mapping...
 + It's more flexible than a "chart zoo" of named graphs.
 + The software understands the structure of your graph.
 + It easily automates graphing of data subsets.
-
 
 
 ## Components of GoG
@@ -309,7 +295,7 @@ ggplot(data = housingsub) +
 
 ## Geometric Objects
 
-Wee use a `geom_XXX()` function to represent data points.
+We use a `geom_XXX()` function to represent data points.
 
 . . .
 
@@ -445,136 +431,7 @@ Wee use a `geom_XXX()` function to represent data points.
 
 To create a specific type of graphic, we will **combine** aesthetics and geometric objects.
 
-. . .
 
-<br>
-
-Let's try it!
-
-
-##
-
-::: panel-tabset
-
-### The Goal
-
-Start with the TX housing data.
-
-![](images/tx_housing.png)
-
-Make a plot of <span style="color:teal"> median house price </span> over <span style="color:purple"> time </span> (including both <span style="color:green"> individual data points </span> and <span style="color:darkorange"> a smoothed trend line</span>), distinguishing between <span style="color:blue"> different cities </span>.
-
-
-### Game Plan
-
-![](images/txhousing_plan.png)
-
-### ggplot
-
-```{r}
-#| echo: false
-#| label: texas-metro-data
-
-sm_tx <- txhousing |>
-  filter(city %in% c("Dallas",
-                     "Fort Worth",
-                     "Austin",
-                     "Houston", 
-                     "El Paso")
-         )
-```
-
-::: {.small}
-```{r}
-#| echo: true
-#| code-fold: true
-#| label: median-home-price-over-time-for-tx-metro
-
-ggplot(data = sm_tx,
-       mapping = aes(x = date, 
-                     y = median, 
-                     color = city)
-       ) + 
-  geom_point() + 
-  geom_smooth(method = "loess") + 
-  labs(x = "Date",
-       y = "",
-       color = " ",
-       title = "Changes in Median Home Price for Texas Metro Areas") +
-  scale_y_continuous(labels = scales::label_dollar())
-```
-:::
-:::
-
-
-## Faceting
-
-Extracts subsets of data and places them in side-by-side plots.
-
-```{r}
-#| echo: true
-#| fig-height: 3
-#| fig-width: 12
-#| code-line-numbers: "6"
-#| code-fold: true
-
-ggplot(data = sm_tx,
-       mapping = aes(x = date, 
-                     y = median)
-       ) + 
-  geom_point() + 
-  facet_wrap(~city) +
-  geom_smooth(method = "loess") + 
-  labs(x = "Date",
-       y = "",
-       color = " ",
-       title = "Changes in Median Home Price for Texas Metro Areas") +
-  scale_y_continuous(labels = scales::label_dollar())
-```
-
-
-```{r}
-#| echo: false
-#| label: create-month-categorical-variable
-
-sm_tx <- mutate(sm_tx, 
-                month_cat = case_when(month == 1 ~ "January", 
-                                      month == 2 ~ "February", 
-                                      month == 3 ~ "March", 
-                                      month == 4 ~ "April", 
-                                      month == 5 ~ "May", 
-                                      month == 6 ~ "June", 
-                                      month == 7 ~ "July", 
-                                      month == 8 ~ "August", 
-                                      month == 9 ~ "September", 
-                                      month == 10 ~ "October", 
-                                      month == 11 ~ "November", 
-                                      month == 12 ~ "December")
-                )
-```
-
-```{r}
-#| fig-height: 3.5
-#| fig-width: 8
-#| code-line-numbers: "4"
-#| echo: false
-#| fig-align: center
-#| eval: false
-
-ggplot(data = sm_tx,
-       mapping = aes(x = date, 
-                     y = median)
-       ) + 
-  geom_point() + 
-  facet_wrap(city ~ month_cat) +
-  geom_smooth(method = "loess") + 
-  labs(x = "Date",
-       y = "",
-       color = " ",
-       title = "Changes in Median Home Price for Texas Metro Areas") +
-  scale_y_continuous(labels = scales::label_dollar())
-
-```
 
 
 ## Faceting
@@ -604,7 +461,7 @@ You can set scales to let axis limits vary across facets:
   + `"free_y"` -- only y-axis limits adjust
 
 :::
-
+:::
 <!-- ### Labels -->
 
 <!-- ::: {.small} -->
@@ -620,7 +477,6 @@ You can set scales to let axis limits vary across facets:
 <!-- + `facet_wrap(~ b, labeller = label_parsed)` -->
 
 <!-- ::: -->
-:::
 
 
 ## Statistical Transformation: `stat`
@@ -863,6 +719,7 @@ It is good practice to put each `geom` and `aes` on a new line.
 
 + This makes code easier to read! 
 + Generally: no line of code should be over 80 characters long.
++ Pro Tip: The [`styler`](https://styler.r-lib.org/) package can do this for you!  
 :::
 
 ::: panel-tabset
@@ -1170,7 +1027,7 @@ Every group should have a **ggplot2** cheatsheet!
 :::
 
 ::: {.column width="15%"}
-![](images/ggplot-cheatsheet.png){fig-alt="A picture of the ggplot2 cheatsheet, which contains helpful information on assembling a variety of visualizations all using the ggplot2 package."}
+  ![](images/ggplot-cheatsheet.png){fig-alt="A picture of the ggplot2 cheatsheet, which contains helpful information on assembling a variety of visualizations all using the ggplot2 package."}
 
 :::
 :::
@@ -1180,15 +1037,10 @@ Every group should have a **ggplot2** cheatsheet!
 The partner whose family name starts first alphabetically starts as the
 Developer! 
 
-Both of you need to do the following:
+Remember:
 
 ::: {.small}
-- Open the email you were sent (from me and / or Posit Cloud)
-- Click on the link to join your workspace
-- Log-in to Posit Cloud
-- Open the PA 2: Using Data Visualization to Find the Penguins project
-- Open the `PA2-ggplot.qmd` file
-- Get started! 
+- The Developer is responsible for either setting up a shared project on the Server or shared repository on GitHub.  
 :::
 
 ## Submission
@@ -1196,10 +1048,12 @@ Both of you need to do the following:
 - When you have completed the visualization tasks, you will work as a group to
 answer the five questions posed at the end of the document. 
 
-- Each person will input the answers to these questions in the PA2 Canvas quiz.
-- The person who last occupied the role of Developer will download and submit
-the `PA-2.html` file for the group.
-  + Only one submission per group!
+- Each person will input the answers to these questions in the PA3 Canvas quiz and submit either a link or zipped version of the project.  
+
+- For those recording, you can press the X (top right corner) and wait until the video finishes uploading.  
+
+- Once finished, you can start work on Lab 3!
+
 
 # Wrap-up
 
