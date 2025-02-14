@@ -55,6 +55,9 @@ website:
             text: "Week 3 - Version Control"
           - href: weeks/week-4-ggplot.qmd
             text: "Week 4 - Data Visualization"
+          - href: weeks/week-5-projects-data-import.qmd
+            text: "Week 5 - Importing Data"
+          
       - section: "Labs" 
         contents:
           - href: labs/instructions/lab-1-instructions.qmd

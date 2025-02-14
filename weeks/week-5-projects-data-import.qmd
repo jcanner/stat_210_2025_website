@@ -8,10 +8,19 @@ bibliography: references.bib
 execute: 
   echo: true
   eval: false
+  message: false
+  warning: false
   include: true
 resources: 
   - Ages_Data.zip
 ---
+
+```{r}
+#| label: setup
+#| include: false
+library(tidyverse)
+```
+
 
 ## Learning Objectives
 
@@ -146,6 +155,7 @@ Different formats of the data are **tidy** in different ways.
 
 ```{r}
 #| echo: false
+#| eval: true
 #| label: creating-small-data-set-wide-format
 
 bb_wide <- tibble(Team     = c("A", "B", "C", "D"),
@@ -160,6 +170,7 @@ bb_wide <- tibble(Team     = c("A", "B", "C", "D"),
 
 ```{r}
 #| echo: false
+#| eval: true
 #| label: displaying-wide-data
 
 bb_wide |> 
@@ -170,6 +181,7 @@ bb_wide |>
 
 ```{r}
 #| echo: false
+#| eval: true
 #| label: transforming-to-long
 
 bb_long <- bb_wide |> 
@@ -193,16 +205,16 @@ Let's make a plot of each team's statistics!
 
 ::: {.small}
 ```{r}
-#| echo: true
 #| label: plot-with-wide-data
+#| echo: true
+#| eval: true
 #| code-fold: true
 #| fig-width: 6
 #| fig-height: 4
 #| fig-align: center
 
 ggplot(data = bb_wide, 
-       mapping = aes(x = Team)
-       ) +
+       mapping = aes(x = Team)) +
   geom_point(mapping = aes(y = Points, 
                            color = "Points"), 
              size = 4) +
@@ -213,8 +225,9 @@ ggplot(data = bb_wide,
                            color = "Rebounds"), 
              size = 4) + 
   scale_colour_manual(
-    values = c("darkred", "steelblue", "forestgreen")
-  ) +
+    values = c("darkred", 
+               "steelblue", 
+               "forestgreen")) +
   labs(color = "Statistic")
 ```
 :::
@@ -223,8 +236,9 @@ ggplot(data = bb_wide,
 
 ::: {.small}
 ```{r}
-#| echo: true
 #| label: plot-with-long-data
+#| echo: true
+#| eval: true
 #| code-fold: true
 #| fig-width: 6
 #| fig-height: 4
@@ -233,12 +247,12 @@ ggplot(data = bb_wide,
 ggplot(data = bb_long, 
        mapping = aes(x = Team, 
                      y = Value, 
-                     color = Statistic)
-       ) +
+                     color = Statistic)) +
   geom_point(size = 4) + 
   scale_colour_manual(
-    values = c("darkred", "steelblue", "forestgreen")
-  ) +
+    values = c("darkred", 
+               "steelblue", 
+               "forestgreen")) +
   labs(color = "Statistic")
 ```
 :::
@@ -293,6 +307,8 @@ Joe, 40
 
 ## Common Types of Data Files
 
+What is the delimiter (e.g. comma, tab, space, etc.) for each data file?  
+
 ::: panel-tabset
 ### File A
 
@@ -329,15 +345,21 @@ Using **base** `R` functions:
 The **tidyverse** has some cleaned-up versions in the `readr` and `readxl` packages: 
 
 ::: {.small}
-- `read_csv()` is for comma-separated data.
 
-- `read_tsv()` is for tab-separated data.
+- `readr` package is loaded with `library(tidyverse)`  
 
-- `read_table()` is for white-space-separated data.
+    + `read_csv()` is for comma-separated data.  
 
-- `read_delim()` is any data with "columns" (you specify the separator). The above are special cases.
+    + `read_tsv()` is for tab-separated data.
 
-- `read_xls()` and `read_xlsx()`  are specifically for dealing with Excel files.
+    + `read_table()` is for white-space-separated data.
+
+    + `read_delim()` is any data with "columns" (you specify the separator). The above are special cases.
+
+- `readxl` will need need to be loaded separately with `library(readxl)`  
+
+    + `read_xls()` and `read_xlsx()`  are specifically for dealing with Excel files.
+    
 :::
 
 Remember to load the `readr` and `readxl` packages first!
@@ -358,9 +380,10 @@ Remember to load the `readr` and `readxl` packages first!
 :::
 :::
 
+## Practice with Importing Data  
 
-Once you have the data saved (and extracted) in your STAT 331 folder, preferably
-in the Week 2 subfolder, use the `readr` and `readxl` packages to complete the
+Once you have the data saved (and extracted) in your STAT 210 folder, preferably
+in the Week 5 subfolder, use the `readr` and `readxl` packages to complete the
 following exercises. 
 
 1. Load the appropriate packages for reading in data.
@@ -370,8 +393,4 @@ following exercises.
 5. Read in the data set *ages.xlsx*
 6. Find a way to use `read_csv()` to read *ages.csv* with the variable "Name" as a factor data type and "Age" as a character data type.
 
-Once you've finished coding these exercises, head over to Canvas and fill in the
-"gap" code I've provided. For reference, I would recommend you store the 
-`Ages_Data` similar to how I have:
 
-![](images/week-2/ages_folder_structure.png){fig-alt="A screenshot of the folder structure of my STAT 331 folder. The STAT 331 folder lives in my documents and has two main folders--Week 1 and Week 2. The Week 2 folder is expanded to show that I have a subfolder named 'Check-ins' that lives inside the Week 2 folder. The expanded folders also show that inside the Check-ins folder (inside the Week 2 folder) there is an 'Agest_Data' folder, which contains four different datasets--ages_mystery.txt, ages_space.txt, ages.csv, and ages.xlsx."}
