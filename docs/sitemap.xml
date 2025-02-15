@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/slides/week-2/week-2-intro-R-quarto.html</loc>
+    <lastmod>2025-02-01T02:38:21.681Z</lastmod>
+  </url>
+  <url>
     <loc>https://github.com/jcanner/stat_210_2025_website/docs/group-activities/week-3/pa2-vc-intro-tidy-solution.html</loc>
     <lastmod>2025-02-07T17:31:05.861Z</lastmod>
   </url>
@@ -21,40 +25,44 @@
     <lastmod>2025-02-04T00:22:27.060Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/jcanner/stat_210_2025_website/docs/labs/instructions/lab-1-instructions.html</loc>
-    <lastmod>2025-02-04T00:22:25.902Z</lastmod>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/slides/week-3/week-3-intro-version-control.html</loc>
+    <lastmod>2025-02-01T02:40:02.780Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/jcanner/stat_210_2025_website/docs/weeks/week-2-quarto.html</loc>
-    <lastmod>2025-02-04T00:22:27.059Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/jcanner/stat_210_2025_website/docs/group-activities/week-2/expert-designer.html</loc>
-    <lastmod>2025-02-04T00:22:25.628Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/jcanner/stat_210_2025_website/docs/group-activities/pair-programming-norms.html</loc>
-    <lastmod>2025-02-04T00:22:25.621Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/jcanner/stat_210_2025_website/docs/course-materials/course_resources.html</loc>
-    <lastmod>2025-02-12T19:45:10.875Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/jcanner/stat_210_2025_website/docs/group-activities/week-1/broken-circles.html</loc>
-    <lastmod>2025-02-04T00:22:25.623Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/jcanner/stat_210_2025_website/docs/index.html</loc>
-    <lastmod>2025-02-14T06:32:31.049Z</lastmod>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/labs/instructions/lab-2-instructions.html</loc>
+    <lastmod>2025-02-08T02:29:33.227Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/jcanner/stat_210_2025_website/docs/about.html</loc>
     <lastmod>2025-02-04T00:22:25.280Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/jcanner/stat_210_2025_website/docs/labs/instructions/lab-2-instructions.html</loc>
-    <lastmod>2025-02-08T02:29:33.227Z</lastmod>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/index.html</loc>
+    <lastmod>2025-02-14T06:32:31.049Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/group-activities/week-1/broken-circles.html</loc>
+    <lastmod>2025-02-04T00:22:25.623Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/course-materials/course_resources.html</loc>
+    <lastmod>2025-02-12T19:45:10.875Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/group-activities/pair-programming-norms.html</loc>
+    <lastmod>2025-02-04T00:22:25.621Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/group-activities/week-2/expert-designer.html</loc>
+    <lastmod>2025-02-04T00:22:25.628Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/weeks/week-2-quarto.html</loc>
+    <lastmod>2025-02-04T00:22:27.059Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/labs/instructions/lab-1-instructions.html</loc>
+    <lastmod>2025-02-04T00:22:25.902Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/jcanner/stat_210_2025_website/docs/weeks/week-1-r-rstudio.html</loc>
@@ -79,5 +87,9 @@
   <url>
     <loc>https://github.com/jcanner/stat_210_2025_website/docs/group-activities/week-3/pa2-vc-instructions.html</loc>
     <lastmod>2025-02-07T20:47:32.794Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/slides/week-4/week-4-ggplot.html</loc>
+    <lastmod>2025-02-14T19:52:13.684Z</lastmod>
   </url>
 </urlset>
