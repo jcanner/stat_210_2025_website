@@ -22,14 +22,12 @@ resources:
 library(tidyverse)
 ```
 
-
 ## Learning Objectives
 
 -   Describe what an R Project is
--   Outline how an R Project affects the file paths used to read in data  
+-   Outline how an R Project affects the file paths used to read in data\
 -   Read in data from common formats into R
 -   Identify missing data and type of missingness
-
 
 #### `r emo::ji("book")` Readings: 15-20 minutes
 
@@ -37,29 +35,23 @@ library(tidyverse)
 
 #### `r emo::ji("check")` Check-ins: 1
 
+# Directories, Paths, and Projects
 
-# Directories, Paths, and Projects 
-
-We have learned how to organize our personal files and locate them using
-absolute and relative file paths. The idea of a "base folder" or starting place
-was introduced as a **working directory**. In `R`, there are two ways to set up
-your file path and file system organization:
+We have learned how to organize our personal files and locate them using absolute and relative file paths. The idea of a "base folder" or starting place was introduced as a **working directory**. In `R`, there are two ways to set up your file path and file system organization:
 
 1.  Set your working directory in `R` (do not recommend)
 2.  Use R Projects (preferred!)
 
 ## Working Directories in `R`
 
-To find where your working directory is in `R`, you can either look at the top
-of your console or type `getwd()` into your console.
+To find where your working directory is in `R`, you can either look at the top of your console or type `getwd()` into your console.
 
 ```{r}
 #| label: get-wd
 getwd()
 ```
 
-Although it is not recommended, you can set your working directory in `R` with
-`setwd()`:
+Although it is not recommended, you can set your working directory in `R` with `setwd()`:
 
 ```{r}
 #| eval: false
@@ -73,48 +65,39 @@ setwd("/path/to/my/assignment/folder")
 ![](images/week-2/setwd-rproj-horst.png){fig-alt="A cartoon of a cracked glass cube looking frustrated with casts on its arm and leg, with bandaids on it, containing 'setwd', looks on at a metal riveted cube labeled 'R Proj' holding a skateboard looking sympathetic, and a smaller cube with a helmet on labeled 'here' doing a trick on a skateboard."}
 :::
 
-::: {.callout-caution}
+::: callout-caution
 ### File Paths in `R`
 
-A quick warning on file paths is that Mac / Linux and Windows differ in the
-direction of their backslash to separate folder locations. Mac/Linux use `/` 
-(e.g. `STAT210/Week1`) while Window's uses `\` (e.g. `STAT210\Week1`).
+A quick warning on file paths is that Mac / Linux and Windows differ in the direction of their backslash to separate folder locations. Mac/Linux use `/` (e.g. `STAT210/Week1`) while Window's uses `\` (e.g. `STAT210\Week1`).
 :::
 
 ## R Projects
 
 📖 [Review Reading: Workflow (R Projects)](https://r4ds.hadley.nz/workflow-scripts.html#projects)
 
-::: {.callout-note}
+::: callout-note
 # Only read Section 6.2!
 :::
 
-### Create an R Project from an Existing Folder  
-So far, each time we have worked in R we have created an R Project. The R Project lives in the created folder for two reasons, (1) when you copy a GitHub repository you told RStudio 
-you wanted to make a new R Project, and (2) in order for RStudio to talk with
-GitHub you need to use an R Project. 
+### Create an R Project from an Existing Folder
 
-However, if you look in any other folder on your computer, you **should not** see a blue cube since you never created an R Project in those folders. Suppose we have a project we've been work on and we never created an official R Project for it (perhaps it is a folder filled with data sets or someone sent a zipped filed that didn't contain an R Project file (.RProj).  
+So far, each time we have worked in R we have created an R Project. The R Project lives in the created folder for two reasons, (1) when you copy a GitHub repository you told RStudio you wanted to make a new R Project, and (2) in order for RStudio to talk with GitHub you need to use an R Project.
 
-To add a R Project to an existing folder on your computer (e.g., you already
-created a folder for the project), first open RStudio on your computer and click
-`File > New Project`, then select `Existing Directory`:  
+However, if you look in any other folder on your computer, you **should not** see a blue cube since you never created an R Project in those folders. Suppose we have a project we've been work on and we never created an official R Project for it (perhaps it is a folder filled with data sets or someone sent a zipped filed that didn't contain an R Project file (.RProj).
 
-![Navigation prompt for creating a new R Project in an existing directory](images/week-2/create-existing-rproj-step-1.png){width=50% fig-align="center" fig-alt="Screenshot of navigation box that appears when you select 'File' and 'New Project'. The 'Existing Directory' option is highlighted in blue."}
+To add a R Project to an existing folder on your computer (e.g., you already created a folder for the project), first open RStudio on your computer and click `File > New Project`, then select `Existing Directory`:
 
-Then, browse on your computer to where you saved your project folder (it should be on your hard drive and not on iCloud, Google Drive, or One Drive).  For example, let's say you ahd a folder called `STAT331` that you wanted to turn into a R Project. Select that folder.
+![Navigation prompt for creating a new R Project in an existing directory](images/week-2/create-existing-rproj-step-1.png){width="50%" fig-align="center" fig-alt="Screenshot of navigation box that appears when you select 'File' and 'New Project'. The 'Existing Directory' option is highlighted in blue."}
 
-![Navigation prompt for selecting which existing folder in which the R Project should be created.](images/week-2/create-existing-rproj-step-2.png){width=50% fig-align="center" fig-alt="Screenshot of navigation box that appears when you select 'Existing Directory' from the previous navigation menue. By clicking on the 'Browse' button you can navigate to the existing folder where you would like to insert the R Project. In the image, I've navigated to my STAT331 folder which lives in my Documents."}
+Then, browse on your computer to where you saved your project folder (it should be on your hard drive and not on iCloud, Google Drive, or One Drive). For example, let's say you ahd a folder called `STAT331` that you wanted to turn into a R Project. Select that folder.
 
-Once you click "Create Project", your existing folder, `STAT331` should now
-contain a `STAT331.Rproj` file. This is your new "home" base for this class -
-whenever you refer to a file with a relative path it will begin to look for it
-here.
+![Navigation prompt for selecting which existing folder in which the R Project should be created.](images/week-2/create-existing-rproj-step-2.png){width="50%" fig-align="center" fig-alt="Screenshot of navigation box that appears when you select 'Existing Directory' from the previous navigation menue. By clicking on the 'Browse' button you can navigate to the existing folder where you would like to insert the R Project. In the image, I've navigated to my STAT331 folder which lives in my Documents."}
 
-If you would like a list of step-by-step instructions for this process, feel 
-free to look at this file: [Creating a Project in an Existing Directory](https://scribehow.com/shared/Creating_a_Project_in_an_Existing_Directory__7NTs-4d2RtO1octP6rrBTQ)
+Once you click "Create Project", your existing folder, `STAT331` should now contain a `STAT331.Rproj` file. This is your new "home" base for this class - whenever you refer to a file with a relative path it will begin to look for it here.
 
----
+If you would like a list of step-by-step instructions for this process, feel free to look at this file: [Creating a Project in an Existing Directory](https://scribehow.com/shared/Creating_a_Project_in_an_Existing_Directory__7NTs-4d2RtO1octP6rrBTQ)
+
+------------------------------------------------------------------------
 
 # Loading Data Into R
 
@@ -126,21 +109,14 @@ free to look at this file: [Creating a Project in an Existing Directory](https:/
 
 `r emo::ji("check")` Check-in: Loading Data
 
-For this check-in you are asked to work through reading in different data sets. 
-You are expected to create your own Quarto document to complete this activity. 
+For this check-in you are asked to work through reading in different data sets. You are expected to create your own Quarto document to complete this activity.
 
-The folder Age_Data contains several data sets with the names and ages of five
-individuals. The data sets are stored as different file types. 
-[Download Ages_Data.zip here](Ages_Data.zip), make sure to unzip the folder,
-save these in a reasonable place (e.g., `STAT210 > Week 5 > Checkins` or
-`STAT210 > Checkins > Week 5`). 
+The folder Age_Data contains several data sets with the names and ages of five individuals. The data sets are stored as different file types. [Download Ages_Data.zip here](Ages_Data.zip), make sure to unzip the folder, save these in a reasonable place (e.g., `STAT210 > Week 5 > Checkins` or `STAT210 > Checkins > Week 5`).
 
 ::: callout-tip
 ## Extracting zip folders
 
-You will need to **extract** the contents of the `ages.zip` file, that means you
-will need to uncompress the files from the folder for RStudio to know where to
-get the data from.
+You will need to **extract** the contents of the `ages.zip` file, that means you will need to uncompress the files from the folder for RStudio to know where to get the data from.
 :::
 
 # Tidy Data
@@ -148,7 +124,6 @@ get the data from.
 ## Tidy Data
 
 ![Artwork by Allison Horst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/85520b8f-4629-4763-8a2a-9ceff27458bf_rw_1920.jpg?h=21007b20ac00cf37318dca645c215453){fig-alt="An educational graphic explaining 'Tidy Data' with text and a simple table. The main text at the top reads, 'TIDY DATA is a standard way of mapping the meaning of a dataset to its structure,' followed by the attribution to Hadley Wickham. Below, it explains the concept of tidy data: 'In tidy data: each variable forms a column, each observation forms a row, each cell is a single measurement.' To the right, there is a small table with three columns labeled 'id,' 'name,' and 'color,' demonstrating how each column is a variable and each row is an observation. The table contains entries such as 'floof' (gray), 'max' (black), and 'panda' (calico). The image ends with a citation for Hadley Wickham's 2014 paper on Tidy Data."}
-
 
 ## Same Data, Different Formats
 
@@ -194,17 +169,16 @@ bb_long <- bb_wide |>
 bb_long |> 
   knitr::kable()
 ```
-
 :::
 
 ## Connection to ggplot
 
-Let's make a plot of each team's statistics! 
+Let's make a plot of each team's statistics!
 
-::: panel-tabset
+::::: panel-tabset
 ### Option 1 - Wide Data
 
-::: {.small}
+::: small
 ```{r}
 #| label: plot-with-wide-data
 #| echo: true
@@ -235,7 +209,7 @@ ggplot(data = bb_wide,
 
 ### Option 2 - Long Data
 
-::: {.small}
+::: small
 ```{r}
 #| label: plot-with-long-data
 #| echo: true
@@ -257,13 +231,11 @@ ggplot(data = bb_long,
   labs(color = "Statistic")
 ```
 :::
-
-:::
+:::::
 
 ## Tidy Data
 
 ![Artwork by Allison Horst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/40488240-4609-4dc3-8920-693e078b55ce_rw_1920.jpg?h=2e96a7e21e19c43867546498da026649){fig-alt="An illustration featuring a cute, cartoonish scene with three characters sitting on a bench. In the center, there is a smiling blue rectangular character resembling a tidy data table, holding an ice cream cone. On either side of the table are two round, fluffy creatures: one pink on the left and one green on the right, both also holding ice cream cones. Above the characters, the text reads 'make friends with tidy data.' The overall tone of the image is friendly and inviting, encouraging positive feelings toward tidy data."}
-
 
 # Working with External Data
 
@@ -273,42 +245,37 @@ Look at the **file extension** for the type of data file.
 
 . . .
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="70%"}
-
-`.csv` :  "comma-separated values"
-
+`.csv` : "comma-separated values"
 :::
 
 ::: {.column width="30%"}
-```
+```         
 Name, Age
 Bob, 49
 Joe, 40
 ```
 :::
-
-::::
-
-. . .
-
-`.xls`, `.xlsx`:  Microsoft Excel spreadsheet
-
-  + Common approach: save as `.csv`
-  + Nicer approach:  use the `readxl` package
+:::::
 
 . . .
 
-`.txt`:  plain text
+`.xls`, `.xlsx`: Microsoft Excel spreadsheet
 
-  + Could have any sort of delimiter...
-  + Need to let R know what to look for!
+-   Common approach: save as `.csv`
+-   Nicer approach: use the `readxl` package
 
+. . .
+
+`.txt`: plain text
+
+-   Could have any sort of delimiter...
+-   Need to let R know what to look for!
 
 ## Common Types of Data Files
 
-What is the delimiter (e.g. comma, tab, space, etc.) for each data file?  
+What is the delimiter (e.g. comma, tab, space, etc.) for each data file?
 
 ::: panel-tabset
 ### File A
@@ -325,52 +292,46 @@ What is the delimiter (e.g. comma, tab, space, etc.) for each data file?
 
 ### Sources
 
-+ [File A](https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html)
-+ [File B](https://github.com/ccusa/Disaster_Vulnerability_Map/blob/master/sample-data.tsv)
-+ [File C](https://chadbaldwin.net/2021/03/24/quick-parse-csv-file.html)
-
+-   [File A](https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html)
+-   [File B](https://github.com/ccusa/Disaster_Vulnerability_Map/blob/master/sample-data.tsv)
+-   [File C](https://chadbaldwin.net/2021/03/24/quick-parse-csv-file.html)
 :::
-
 
 ## Loading External Data
 
 Using **base** `R` functions:
 
-- `read.csv()` is for reading in `.csv` files.
+-   `read.csv()` is for reading in `.csv` files.
 
-- `read.table()` and `read.delim()` are for any data with "columns" (you specify the separator).
-
+-   `read.table()` and `read.delim()` are for any data with "columns" (you specify the separator).
 
 ## Loading External Data
 
-The **tidyverse** has some cleaned-up versions in the `readr` and `readxl` packages: 
+The **tidyverse** has some cleaned-up versions in the `readr` and `readxl` packages:
 
-::: {.small}
+::: small
+-   `readr` package is loaded with `library(tidyverse)`
 
-- `readr` package is loaded with `library(tidyverse)`  
+    -   `read_csv()` is for comma-separated data.
 
-    + `read_csv()` is for comma-separated data.  
+    -   `read_tsv()` is for tab-separated data.
 
-    + `read_tsv()` is for tab-separated data.
+    -   `read_table()` is for white-space-separated data.
 
-    + `read_table()` is for white-space-separated data.
+    -   `read_delim()` is any data with "columns" (you specify the separator). The above are special cases.
 
-    + `read_delim()` is any data with "columns" (you specify the separator). The above are special cases.
+-   `readxl` will need need to be loaded separately with `library(readxl)`
 
-- `readxl` will need need to be loaded separately with `library(readxl)`  
-
-    + `read_xls()` and `read_xlsx()`  are specifically for dealing with Excel files.
-    
+    -   `read_xls()` and `read_xlsx()` are specifically for dealing with Excel files.
 :::
 
 Remember to load the `readr` and `readxl` packages first!
 
-
 ## What's the difference?
-Compare the two functions `read.csv()` and `read_csv()` - what do you notice about the possible arguments you can use in each? Why is `read_csv()` the better option?  
 
+Compare the two functions `read.csv()` and `read_csv()` - what do you notice about the possible arguments you can use in each? Why is `read_csv()` the better option?
 
-::: columns
+:::::: columns
 ::: {.column width="47%"}
 ![](images/week-5/read.csv_doc.png)
 :::
@@ -381,19 +342,22 @@ Compare the two functions `read.csv()` and `read_csv()` - what do you notice abo
 ::: {.column width="48%"}
 ![](images/week-5/read_csv_doc.png)
 :::
-:::
+::::::
 
-## Practice with Importing Data  
+## Practice with Importing Data
 
-Once you have the data saved (and extracted) in your STAT 210 folder, preferably
-in the Week 5 subfolder, use the `readr` and `readxl` packages to complete the
-following exercises. 
+Once you have the data saved (and extracted) in your STAT 210 folder, preferably in the Week 5 subfolder, use the `readr` and `readxl` packages to complete the following exercises.
 
-1. Load the appropriate packages for reading in data.
-2. Read in the data set *ages.csv*
-3. Read in the data set *ages_tab.txt*
-4. Read in the data set *ages_mystery.txt*
-5. Read in the data set *ages.xlsx*
-6. Find a way to use `read_csv()` to read *ages.csv* with the variable "Name" as a factor data type and "Age" as a character data type.
+1.  Load the appropriate packages for reading in data.
+2.  Read in the data set *ages.csv*
+3.  Read in the data set *ages_tab.txt*
+4.  Read in the data set *ages_mystery.txt*
+5.  Read in the data set *ages.xlsx*
+6.  Find a way to use `read_csv()` to read *ages.csv* with the variable "Name" as a factor data type and "Age" as a character data type.
 
 
+## Import Multiple Files at Once
+
+If you have multiple files that are organized the same way (same variables names/columns), you can actually import them all at once and combine into one file. Check out the following tutorial:
+
+{{< video https://www.youtube.com/embed/mtzp9_LbQdk >}}

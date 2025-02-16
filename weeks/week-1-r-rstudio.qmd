@@ -11,55 +11,38 @@ number-depth: 2
 library(tidyverse)
 ```
 
-For the first portion of this week's coursework, we are going to learn about / 
-refresh our memory on R and RStudio. This course is all about you learning
-skills for working with data in R, so you will need to have **local**
-installations of both R and RStudio on your computer.
+For the first portion of this week's coursework, we are going to learn about / refresh our memory on R and RStudio. This course is all about you learning skills for working with data in R, so you will need to have **local** installations of both R and RStudio on your computer.
 
 ::: callout-warning
 # Cannot Install R or RStudio
 
-If for any reason you cannot download R or RStudio onto your laptop, please let
-me know as soon as possible so we can figure something out.
+If for any reason you cannot download R or RStudio onto your laptop, please let me know as soon as possible so we can figure something out.
 :::
-
 
 ------------------------------------------------------------------------
 
 # Step 1: Installing `R`
 
-As mentioned above, you will need to have local installations of both R (the
-software) and RStudio (the interface for working in R). **Do not skip this step
-if you already have both R and RStudio installed on your computer**, as you need
-to ensure you are using the most up to date version of R and RStudio.
+As mentioned above, you will need to have local installations of both R (the software) and RStudio (the interface for working in R). **Do not skip this step if you already have both R and RStudio installed on your computer**, as you need to ensure you are using the most up to date version of R and RStudio.
 
 ## Updating Your Version of R
 
-If you already have `R` downloaded, you need to confirm that you have the most
-up to date version of `R`. **Do not ignore these instructions.** If you neglect
-to update your version of R, you may find that updating a package will make it
-so your code will not run.
+If you already have `R` downloaded, you need to confirm that you have the most up to date version of `R`. **Do not ignore these instructions.** If you neglect to update your version of R, you may find that updating a package will make it so your code will not run.
 
 -   Step 1: Open RStudio
--   Step 2: At the top of the the Console it will say what version of R you are
-using
+-   Step 2: At the top of the the Console it will say what version of R you are using
 
 ![](images/week-1/r-version.png){fig-alt = "A screenshot of what version of R should appear when you open RStudio. The version reads 'R version 4.4.2 (2024-10-31) -- 'Pile of Leaves'."}
 
-If the version **is not** 4.4.2 (like the image above), you need to update your
-version of R! The simplest way to do this is to follow the instructions below to
-install R.
+If the version **is not** 4.4.2 (like the image above), you need to update your version of R! The simplest way to do this is to follow the instructions below to install R.
 
 ## Installing R
 
-Download and install R by going to <https://cloud.r-project.org/>. Here, you
-will find three options for installing R---click on the option for your
-computer's operating system.
+Download and install R by going to <https://cloud.r-project.org/>. Here, you will find three options for installing R---click on the option for your computer's operating system.
 
 ### 📽️ [Useful Video: Installing R and RStudio - Windows](https://youtu.be/n8kP7c_QbLA?si=gUyTqtQDO4v6VlZE)
 
 ### 📽️ [Useful Video: Installing R and RStudio - Mac](http://youtu.be/tXZDoMlXfTE?hd=1)
-
 
 ### If you are a *Windows* user:
 
@@ -69,17 +52,12 @@ computer's operating system.
 
 -   Click on the Download link.
 
--   When you open the execution file (`.exe`) you will be prompted with a
-variety of questions about installing R. Feel free to use the default features /
-settings that come with R (continue to click "Ok" until the download starts).
+-   When you open the execution file (`.exe`) you will be prompted with a variety of questions about installing R. Feel free to use the default features / settings that come with R (continue to click "Ok" until the download starts).
 
 ::: callout-warning
 # Multiple Versions of R
 
-Beware that if you had a previous version of R downloaded on your PC, that old
-version will not be deleted when you download the most recent version of R. We
-do not want to have two versions of R installed, as your computer can get
-confused what version of R to use. So, you need to remove the old version of R.
+Beware that if you had a previous version of R downloaded on your PC, that old version will not be deleted when you download the most recent version of R. We do not want to have two versions of R installed, as your computer can get confused what version of R to use. So, you need to remove the old version of R.
 
 To do this you need to:
 
@@ -100,12 +78,9 @@ To do this you need to:
 
 -   Click on “Download R for (Mac) OS X”
 
--   Under “Latest release:” click on R-X.X.X.pkg, where R-X.X.X is the version
-number. For example, the latest version of R as of October 31, 2024 was R-4.4.2
-(Pile of Leaves).
+-   Under “Latest release:” click on R-X.X.X.pkg, where R-X.X.X is the version number. For example, the latest version of R as of October 31, 2024 was R-4.4.2 (Pile of Leaves).
 
--   When installing, use the default features / settings that come with R (click
-Ok until the download starts).
+-   When installing, use the default features / settings that come with R (click Ok until the download starts).
 
 ::: callout-tip
 # Troubleshooting for Macs
@@ -114,61 +89,36 @@ First, identify which version of OSx you are running. [How-to](https://support.a
 
 Next, find out which version of `R` your computer can run. [Link](https://cran.r-project.org/bin/macosx/)
 
-If this version is 3.6 or later, download the latest version that your computer
-can handle.
+If this version is 3.6 or later, download the latest version that your computer can handle.
 
-If this version is 3.4 or earlier, you're going to run in to some trouble. I
-recommend updating your version of OSx, if you are willing. If you can't, then
-you can use [Posit Cloud](https://posit.cloud/) to run `R` and RStudio on a free
-server. However, I recommend strongly against this option; your files will not
-be saved indefinitely, you will have limited hours to complete your work, your
-computing power will be limited, and you will need an internet connection at all
-times to do your work.
+If this version is 3.4 or earlier, you're going to run in to some trouble. I recommend updating your version of OSx, if you are willing. If you can't, then you can use [Posit Cloud](https://posit.cloud/) to run `R` and RStudio on a free server. However, I recommend strongly against this option; your files will not be saved indefinitely, you will have limited hours to complete your work, your computing power will be limited, and you will need an internet connection at all times to do your work.
 :::
 
 ### If you are a *Linux* user:
 
-Click on “Download R for Linux” and choose your distribution for more
-information on installing `R` for your setup.
+Click on “Download R for Linux” and choose your distribution for more information on installing `R` for your setup.
 
 # Step 2: Install RStudio
 
-RStudio is an Integrated Development Environment (IDE) for `R`. What does that
-mean? Well, if you think of `R` as a language, which it is, you can think of
-RStudio as a program that helps you write and work in the language. Back in the
-dark ages, people wrote programs in text editors and then used the command line
-to compile those programs and run them. RStudio makes programming in `R` much
-easier and this course requires you to use it!
+RStudio is an Integrated Development Environment (IDE) for `R`. What does that mean? Well, if you think of `R` as a language, which it is, you can think of RStudio as a program that helps you write and work in the language. Back in the dark ages, people wrote programs in text editors and then used the command line to compile those programs and run them. RStudio makes programming in `R` much easier and this course requires you to use it!
 
 ## Updating Your Version of RStudio
 
-If you already have RStudio, you need to double check if you have the most
-recent version. You **will not** have access to the newest features for Quarto
-documents unless you have the most recent version of RStudio.
+If you already have RStudio, you need to double check if you have the most recent version. You **will not** have access to the newest features for Quarto documents unless you have the most recent version of RStudio.
 
 -   Step 1: Open RStudio
 -   Step 2: Click on "Help" in the upper menu
 -   Step 3: Click on "Check for Updates"
 
-If there are no updates to RStudio since you installed it, you are good to go!
-If you need to update RStudio, you will be sent to Posit (the parent company) to
-download the most recent version of RStudio desktop.
+If there are no updates to RStudio since you installed it, you are good to go! If you need to update RStudio, you will be sent to Posit (the parent company) to download the most recent version of RStudio desktop.
 
 ## Installing RStudio
 
-Downloading the most recent version of RStudio works the same way regardless of
-whether you've never downloaded RStudio before or if you just need to update
-your version of RStudio. 
+Downloading the most recent version of RStudio works the same way regardless of whether you've never downloaded RStudio before or if you just need to update your version of RStudio.
 
-When you navigate to the RStudio download page
-(<https://rstudio.com/products/rstudio/download/>), the website should
-automatically detect your computer's operating system. So, you should be able to 
-simply click the blue "Download RStudio Desktop for [insert operating system
-here]" button. 
+When you navigate to the RStudio download page (<https://rstudio.com/products/rstudio/download/>), the website should automatically detect your computer's operating system. So, you should be able to simply click the blue "Download RStudio Desktop for \[insert operating system here\]" button.
 
-Clicking the button will begin installing RStudio. Once the download has
-completed, you will need to open the application file (on a Mac this is a `.dmg`
-file, on Windows this is an `exe` file). 
+Clicking the button will begin installing RStudio. Once the download has completed, you will need to open the application file (on a Mac this is a `.dmg` file, on Windows this is an `exe` file).
 
 ------------------------------------------------------------------------
 
@@ -178,16 +128,7 @@ file, on Windows this is an `exe` file).
 
 # Introduction to R
 
-R is a statistical programming language. Unlike more general-purpose languages,
-R is optimized for working with data and doing statistics. R was created by Ross
-Ihaka and Robert Gentleman in 1993 (hence "R") and was formally released by the
-**R Core Group** in 1997 (a group of 20-ish volunteers who are the *only* people
-who can change the base (built-in) functionality of `R`). If you want to build
-an independent, standalone graphical interface, or run a web server, R is
-probably not the ideal language to use (you might want C / Python or PHP /
-Python, respectively). If you want to vacuum up a bunch of data, fit several
-regression models, and then compare the models, R is a great option and will be
-faster than working in a more general-purpose language like C or base Python.
+R is a statistical programming language. Unlike more general-purpose languages, R is optimized for working with data and doing statistics. R was created by Ross Ihaka and Robert Gentleman in 1993 (hence "R") and was formally released by the **R Core Group** in 1997 (a group of 20-ish volunteers who are the *only* people who can change the base (built-in) functionality of `R`). If you want to build an independent, standalone graphical interface, or run a web server, R is probably not the ideal language to use (you might want C / Python or PHP / Python, respectively). If you want to vacuum up a bunch of data, fit several regression models, and then compare the models, R is a great option and will be faster than working in a more general-purpose language like C or base Python.
 
 In general, R is...
 
@@ -195,14 +136,7 @@ In general, R is...
 -   1 indexed (start counting 1, 2, 3, ...)
 -   a scripting language (R code does not have to be compiled before it is run)
 
-One thing to know about `R` is that it is **open-source**. This means that no
-company owns `R` (like there is for *SAS* or *Matlab*) and that developers
-cannot charge for the use of their R software. This does not mean that all of
-your code needs to be public (you can keep your code private), but it is
-important to be a good open-source citizen by sharing your code publicly when
-possible (later we will learn about *GitHub*), contributing to public projects
-and packages, creating your own packages, and using `R` for ethical and
-respectful projects.
+One thing to know about `R` is that it is **open-source**. This means that no company owns `R` (like there is for *SAS* or *Matlab*) and that developers cannot charge for the use of their R software. This does not mean that all of your code needs to be public (you can keep your code private), but it is important to be a good open-source citizen by sharing your code publicly when possible (later we will learn about *GitHub*), contributing to public projects and packages, creating your own packages, and using `R` for ethical and respectful projects.
 
 ### 📖 [Required Reading: Basics of R](https://r4ds.hadley.nz/workflow-basics)
 
@@ -214,18 +148,17 @@ If you would like to learn more about the history of R, here is an [excellent ar
 
 ### 💻 [Required Tutorial: R Programming Basics](https://r-primers.andrewheiss.com/basics/02-programming-basics)
 
-::: {.callout-note}
+::: callout-note
 # Programming in R
 
-This tutorial gives you an overview of the foundations that make up the R 
-programming language, including:
+This tutorial gives you an overview of the foundations that make up the R programming language, including:
 
-- functions and their arguments
-- accessing help files
-- making code comments
-- object types (e.g., vectors, lists, )
-- data types (e.g., numeric, integer, double, character) 
-- R's package system
+-   functions and their arguments
+-   accessing help files
+-   making code comments
+-   object types (e.g., vectors, lists, )
+-   data types (e.g., numeric, integer, double, character)
+-   R's package system
 :::
 
 # Introduction to RStudio

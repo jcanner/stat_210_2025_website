@@ -477,6 +477,17 @@
     ]
   },
   {
+    "objectID": "weeks/week-5-projects-data-import.html#import-multiple-files-at-once",
+    "href": "weeks/week-5-projects-data-import.html#import-multiple-files-at-once",
+    "title": "R Projects & Importing Data",
+    "section": "4.7 Import Multiple Files at Once",
+    "text": "4.7 Import Multiple Files at Once\nIf you have multiple files that are organized the same way (same variables names/columns), you can actually import them all at once and combine into one file. Check out the following tutorial:",
+    "crumbs": [
+      "Weekly materials",
+      "Week 5 - Importing Data"
+    ]
+  },
+  {
     "objectID": "weeks/week-4-ggplot.html",
     "href": "weeks/week-4-ggplot.html",
     "title": "Introduction to ggplot2",
