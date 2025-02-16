@@ -2,8 +2,10 @@
 title: "Basics of Graphics"
 format: 
   revealjs:
-    theme: ../style.scss
+    theme: [../style.scss, simple]
+    auto-stretch: false
 editor: source
+embed-resources: true  
 ---
 
 ```{r setup}
