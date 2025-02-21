@@ -142,10 +142,11 @@ Now we will read the data back in, be sure to assign the it a meaningful object 
 Remember that now we are reading back in a data file of type `csv`. Now when you look at the data we should have `NA` instead of `99` or `999` in our data, for example:
 
 ```{r}
-#| label: load-data
+#| label: load-data-again
 #| echo: false
 #| message: false
-your_file_name <- read_csv("../student/data/buoy_update.csv",col_types = cols(.default = col_character()),
+your_file_name <- read_csv("../student/data/buoy_update.csv",
+                           col_types = cols(.default = col_character()),
                           na = c("99", "999"))
 head(your_file_name, 5)[,10:13]
 ```
@@ -167,27 +168,26 @@ Now we have our clean, correctly classified, data ready for analysis as `buoy_fi
 
 
 # Part 3: Recreate the Following Visualization
-
-
+Now that are data is "analytic ready", go ahead and read in your clean data and use it to try and recreate the following visualization. Do your best to match the following visualization as close as possible. (Hint: when specifying color, you may need to use `factor()` to get R to treat a continuous value as discrete).  
 
 ```{r}
 #| label: monterey-air-temp-viz
 #| echo: false
+#| warning: false
+#| message: false
 
 buoy_final |> 
   ggplot(mapping = aes(y = atmp, x = mm)) +
-  geom_jitter(aes(color = mm), alpha = 0.1, width = 0.1) +
+  geom_jitter(aes(color = factor(mm)), alpha = 0.1, width = 0.1) +
   geom_smooth(color = "black") + 
-  guides(fill = "none", color = "none") +
-  scale_fill_viridis_c() + 
-  scale_color_viridis_c() +
+  guides(color = "none") +
+  scale_color_viridis_d() + 
   theme_light() +
   scale_x_continuous(breaks = c(1:12)) +
   labs(x = "Month in 2024",
        y = "Air Temperature (Celsius)",
-       title = "Monterey Bay Air Temperature in 2024",
-       subtitle = "Station 46092 Buoy Measurements")
-  
+       title = "Monterey Bay Caynon Air Temperature in 2024",
+       caption = "Source: NOAA National Data Buoy Center")
 
 ```
 

@@ -65,6 +65,8 @@ website:
             text: "Lab 2 Instructions"
           - href: labs/instructions/lab-3-instructions.qmd
             text: "Lab 3 and Challenge 3 Instructions"
+          - href: labs/instructions/lab-4-instructions.qmd
+            text: "Lab 4 Instructions"
    
 
 format:
