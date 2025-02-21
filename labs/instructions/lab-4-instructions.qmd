@@ -23,12 +23,12 @@ Use appropriate naming conventions for your project (see Code Style Guide), e.g.
 
 Your project folder should contain the following:
 
--   .Rproj
--   [lab-4-student.qmd](../student/lab-4-student.qmd)
--   "data-raw" folder containing
-    -   [buoy_2024.txt](../student/data/buoy_2024.txt)
-    "data-clean" folder that will contain only final data set
--   rendered document
+-  .Rproj
+-  [lab-4-student.qmd](../student/lab-4-student.qmd)
+-  "data-raw" folder containing
+  -   [buoy_2024.txt](../student/data/buoy_2024.txt)
+-  "data-clean" folder that will contain only final data set
+-  rendered document
 
 You will submit a link to your GitHub repository with all content.
 
