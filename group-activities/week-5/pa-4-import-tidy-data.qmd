@@ -1,0 +1,201 @@
+---
+title: "PA 4: Preparing the Youth Risk Behavior Analysis"
+format: html
+execute: 
+  echo: true
+  eval: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+library()  #load package of all the tidyverse packages
+library()  #load the package from the video that cleans variable names
+```
+
+<!-- United States Department of Health and Human Services. Centers for Disease Control and Prevention. CDC Youth Risk Behavior Surveillance System (YRBSS) National Datasets, 1991-2021: YRBS_2021_national.csv. Ann Arbor, MI: Inter-university Consortium for Political and Social Research [distributor], 2025-02-04. https://doi.org/10.3886/E217921V1-168641 -->
+
+***This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.***
+
+## Groupwork Protocols
+
+During the Practice Activity, you and your partner will alternate between two roles---Developer and Coder.
+
+When you are the **Developer**, you will type into the Quarto document in RStudio. However, you **do not** type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.
+
+When you are the **Coder**, you are responsible for reading the instructions / prompts and directing the Developer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Developer to debug the code you specified. Once the code runs, you are expected to collaborate with the Developer to write code comments that describe the actions taken by your code.
+
+### Group Norms
+
+Remember, your group is expected to adhere to the following norms:
+
+1.  Think and work together. Do not divide the work.
+2.  You are smarter together.
+3.  No cross-talk with other groups.
+
+## Goals for the Activity
+
+-   Solve issues in your data as you read it in by parsing out text from numbers, specifying NA values, and cleaning up variable names
+
+**THROUGHOUT** the Activity be sure to follow the Style Guide by doing the following:
+
+-   load the appropriate packages at the beginning of the Rmarkdown\
+-   use proper spacing\
+-   name all code chunks\
+-   comment at least once in each code chunk to describe why you made your coding decisions\
+-   add appropriate labels to all graphic axes
+
+## Youth Risk Behavior Surveillance Systems (YRBSS)
+
+This data is from a survey given every other year called the Youth Risk Behavior Surveillance System administered by the Center for Disease Control and Prevention. The survey monitors health risks among youth, such as violence, sexually transmitted diseases, tobacco, and alcohol use.
+
+The data set contains over 100,000 rows from 2023. A code book is also provided that gives extensive information on the survey. The data can be stored in an Excel or spreadsheet program, but it cannot be manipulated in those programs because of its size - this why we need R.
+
+<!-- The partner who most recently watched an Avengers movies is the  -->
+
+<!-- Developer (typing and listening to instructions from the Coder! -->
+
+## Setting up your Project
+
+Your project should have the following components:
+
+1.  `data-raw` folder that contains the provided data set\
+2.  `data-clean` that will eventually hold your cleaned up data\
+3.  completed `.qmd` and rendered file
+
+### Step 1: Attempt to Read in the Data
+
+Go ahead and read in the data, calling it `youth`. What do you notice?
+
+```{r}
+#| label: read-data
+#| eval: false
+
+youth <- read_csv("data-raw/YRBS2015.csv")
+```
+
+Describe some of the issues you notice in the data:
+
+> Insert answer here
+
+### Step 2: Skip the First Row
+
+Using either the `help` options or the `readr` add an argument to the code above that will skip the first row of the data file so that the 'headers' (column titles) read in correctly.
+
+### Step 3: Fix the Missing Values
+
+Take note of how missing values are designated in the data. Add an argument to the code above that identifies and fixes the data so that each missing value type is treated as the same `NA`.
+
+<!-- Change roles (Developer becomes Coder)! -->
+
+### Step 4: Clean A few of the Variables
+
+Add additional arguments to the code above that does the following:
+
+-   `AgeCat`: remove the text "years old" from the numeric values\
+-   `Grade`: remove the text "th grade" from the numeric values\
+-   `Perception of weight`: read as a factor with the following
+    -   `levels = c("Very underweight","Slightly underweight", "About the right weight", "Slightly overweight", "Very overweight")`
+-   Set the following variables to the right data type:
+    -   `Gender`\
+    -   `Height in meters`\
+    -   `Weight in kilograms`\
+    -   `Body Mass Index`
+    -   `BMI percentile`\
+    -   `Fruit eating`\
+    -   `Salad eating`
+    -   `Other vegetable eating`
+    -   `Soda drinking`
+    -   `Breakfast eating`
+    -   `Physical activity >= 5 days`
+    -   `Television watching`
+    -   `Sports team participation`\
+-   Skip the rest of the variables (hint set `.default = _________`)
+
+<!-- Change roles (Developer becomes Coder)! -->
+
+### Step 5: Clean the Variable Names
+
+Use the `janitor` package to clean the variable names to snake_case.
+
+### Step 6: Write the Clean Data
+
+Write the clean data to the `data-clean` folder.
+
+Now that the data is clean, you can add `eval: false` to the prior code chunks and read in the clean data below.
+
+```{r}
+#| label: read-clean-data
+youth_clean <- 
+```
+
+Why do we keep the code for the data cleaning but set the code chunks to `eval: false`?
+
+> Insert Answer Here
+
+<!-- Change roles (Developer becomes Coder)! -->
+
+### Step 7: Explore Missingness
+
+Look at the following graphs
+
+```{r}
+#| label: how-many-missing-viz
+youth_clean |> 
+  naniar::gg_miss_var()
+```
+
+```{r}
+#| label: missingness-overlap-viz
+youth_clean |> 
+    naniar::gg_miss_upset()
+```
+
+What do the two graphs tell you about the missingness in the data (i.e., which variables are missing the most values and which combinations of variables are missing the most together)?
+
+> Insert Answer Here
+
+How does the missingness of the data impact what variables you might choose to analyze? Why?
+
+> Insert Answer Here
+
+<!-- Change roles (Developer becomes Coder)! -->
+
+### Step 8: Make a Visualization
+
+```{r}
+#| label: plot  
+youth_clean |>  #instead of data = youth_clean in ggplot we can "pipe" our data  
+  drop_na() |>  #drops missing values
+  ggplot()
+```
+
+Complete the following steps in your visualization in the code chunk above:
+
+-   Plot the height on the x-axis\
+-   Plot the weight on the y-axis\
+-   Color the points based on student perception of weight\
+-   Add a linear model (use `method = "lm"` and geom_smooth())
+-   Make the points more transparent\
+-   Facet by grade and gender\
+-   Add descriptive titles and labels\
+-   Export the graph as the file `weight-perception.png`
+
+<!-- Change roles (Developer becomes Coder)! -->
+
+**Challenge Modifications**
+
+-   Make the points a color-blind friendly color scale\
+-   Change the general theme of the graph\
+-   Move the legend to the bottom of the graph\
+-   Adjust the figure height and width to 10x10
+
+# Canvas Quiz
+
+Working together as a team, the above analysis to answer the following questions on canvas:
+
+1.  Which variable has the most missing values?
+
+2.  Which variable combination has the most missing values?
+
+Be ready to submit the complete project, with files rendered and created data and image files.
