@@ -26,7 +26,7 @@ Your project folder should contain the following:
 -  .Rproj
 -  [lab-4-student.qmd](../student/lab-4-student.qmd)
 -  "data-raw" folder containing
-  -   [buoy_2024.txt](../student/data/buoy_2024.txt)
+    + [buoy_2024.txt](../student/data/buoy_2024.txt)
 -  "data-clean" folder that will contain only final data set
 -  rendered document
 

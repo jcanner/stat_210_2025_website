@@ -1,0 +1,286 @@
+---
+title: "Data Wrangling with dplyr"
+format: html
+number-sections: true
+number-depth: 2
+editor: source
+execute: 
+  echo: true
+  eval: false
+  include: true
+---
+
+## Learning Targets
+
+When you are finished with the readings and videos, you should be able to...
+
+-   Describe to someone what a function conflict is
+
+-   Describe to someone the similarities and differences between a `list`, a
+`data.frame`, and a `tibble`
+
+-   Identify the **structure** of an object
+
+-   Identify the **data type(s)** of an object
+
+-   Describe to someone what the *tidyverse* is
+
+-   Use the six main dplyr verbs:
+
+    -   `filter()`
+
+    -   `arrange()`
+
+    -   `select()`
+
+    -   `mutate()`
+
+    -   `summarize()`
+    
+    -   `arrange() 
+
+-   Use `group_by()` to perform groupwise operations
+
+-   Use the pipe operator (`|>` or `%>%`) to chain together data wrangling
+operations
+
+
+#### `r emo::ji("book")` Readings: 60 minutes
+
+#### `r emo::ji("computer")` Activities: 30-45 minutes
+
+#### `r emo::ji("check")` Check-ins: 1
+
+# Part One: Learning More about Packages, Data Types, and Objects
+
+## Learning More About Packages in R
+
+`r emo::ji("play button")` [Required Video: Why do I get this message when I load the tidyverse? -- 8 minutes](http://somup.com/crf6q4b920)
+
+::: callout-note
+## Removing messages from your HTML file
+
+To remove the package loading / data loading messages, you have two options:
+
+1.  Globally turn off all messages by specifying `message: false` as an `execute` option in your YAML
+2.  Locally turn off messages for a specific code chunk by specifying `#| message: false` as a code chunk option
+:::
+
+## Learning More about Data Types & Objects in R
+
+::: columns
+::: {.column width="45%"}
+
+
+::: {.column width="45%"}
+`r emo::ji("book")` [Read a Textbook: Data Types in R ](https://bookdown.org/rdpeng/rprogdatascience/r-nuts-and-bolts.html#r-objects)
+:::
+:::
+
+In addition, read the following section from the first edition of R for DS:
+
+`r emo::ji("book")` [Required Reading: Tibbles](https://r4ds.had.co.nz/tibbles.html)
+
+## `r emo::ji("check")` Check-in 3.1: Data Structures
+
+**Question 1**
+
+In essence, a `data.frame` is simply a special `list` - with a few extra 
+restrictions on the `list` format.
+
+Think about the datasets you have already worked with. Which of the following
+restrictions on a `list` do you think are needed for the `list` to be a
+`data.frame`? (Select all that apply)
+
+a)  The elements of the list must all be vectors of the same length.
+b)  The elements of the list must all be the same data type.
+c)  The elements of the list must all have no missing values.
+d)  The elements of the list must all have names.
+
+**Question 2**
+
+Tibbles are described as "opinionated" dataframes. Which of the following are
+true about a `tibble`'s behavior? (Select all that apply)
+
+a)  `tibble`s only print the first 10 rows of a dataset
+b)  `tibble`s allow for non-syntactic variable names, like `:)`
+c)  `tibble`s never convert strings to factors
+d)  `tibble`s create row names
+
+# Part Two: Wrangling data with dplyr
+
+## Introduction to dplyr
+
+`r emo::ji("book")` [Required Reading: Data Transformation](https://r4ds.hadley.nz/data-transform.html)
+
+## dplyr Verbs
+
+::: columns
+::: {.column width="40%"}
+`r emo::ji("play button")` [Required Video: `filter()` -- 11 minutes](https://youtu.be/pPI-prhLYqI)
+
+`r emo::ji("play button")` [Required Video: `select()` -- 6 minutes](https://youtu.be/OInnmiccHt8)
+
+`r emo::ji("play button")` [Required Video: `mutate()` -- 9 minutes](https://youtu.be/QWyUnQ2EzPs)
+
+</br> </br>
+
+`r emo::ji("play button")` [Required Video: `arrange()` -- 7 minutes](https://youtu.be/4Qhdc81mpvo)
+
+`r emo::ji("play button")` [Required Video: `summarize()`-- 8 minutes](http://somup.com/crflYibWZw)
+
+`r emo::ji("play button")` [Required Video: `group_by()` -- 6 minutes](http://somup.com/crflqbbWFy)
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="55%"}
+![](images/week-3/filter_horst.png)
+
+</br>
+
+![](images/week-3/mutate_horst.png)
+:::
+:::
+
+## The Pipe Operator
+
+`r emo::ji("play button")` [Required Video: The pipe operator -- 8 minutes](http://somup.com/crflYfbWZD)
+
+`r emo::ji("play button")` [Required Video: Extending the pipe -- 3 minutes](http://somup.com/crflYmbWup)
+
+## Practice
+
+`r emo::ji("computer")` [Required Tutorial: Practice with dplyr](https://r-primers.andrewheiss.com/transform-data/03-deriving/)
+
+------------------------------------------------------------------------
+
+## `r emo::ji("check")` Check-in 3.2: Data Wrangling
+
+**Question 1:** Suppose we would like to study how the ratio of penguin body
+mass to flipper size differs across the species. Arrange the following steps
+into an order that accomplishes this goal (assuming the steps are connected with
+a `|>` or a `%>%`).
+
+```{r}
+#| include: false
+
+penguins |>
+  mutate(
+    mass_flipper_ratio = body_mass_g / flipper_length_mm
+  ) |>
+  group_by(species) |>
+  summarize(
+    avg_mass_flipper_ratio = median(mass_flipper_ratio)
+  ) |>
+  arrange(avg_mass_flipper_ratio)
+```
+
+```{r}
+#| eval: false
+#| echo: true
+
+# a
+arrange(med_mass_flipper_ratio)
+
+
+# b
+group_by(species)
+
+
+# c
+penguins 
+  
+
+# d
+summarize(
+  med_mass_flipper_ratio = median(mass_flipper_ratio)
+)
+
+  
+# e
+mutate(
+  mass_flipper_ratio = body_mass_g / flipper_length_mm
+)
+  
+```
+
+::: callout-tip
+## Try running the code!
+
+You can check your answers using the `penguins` data from the **palmerpenguins**
+R package!
+:::
+
+**Question 2:**
+
+Consider the base R code below.
+
+```{r}
+#| echo: true
+#| eval: false
+
+mean(penguins[penguins$species == "Adelie", ]$body_mass_g)
+```
+
+For each of the following `dplyr` pipelines, indicate which of the following is
+true:
+
+(i) It returns the exact same thing as the (above) base R code
+(ii) It returns the correct information, but the wrong object type
+(iii) It returns incorrect information
+(iv) It returns an error
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Part a
+penguins |>
+  filter("body_mass_g") |>
+  pull("Adelie") |>
+  mean()
+
+
+# Part b
+penguins |>
+  filter(species == "Adelie") |>
+  select(body_mass_g) |>
+  summarize(mean(body_mass_g))
+
+
+# Part c
+penguins |>
+  pull(body_mass_g) |>
+  filter(species == "Adelie") |>
+  mean()
+
+
+# Part d
+penguins |>
+  filter(species == "Adelie") |>
+  select(body_mass_g) |>
+  mean()
+
+
+# Part e
+penguins |>
+  filter(species == "Adelie") |>
+  pull(body_mass_g) |>
+  mean()
+
+
+# Part f
+penguins |>
+  select(species == "Adelie") |>
+  filter(body_mass_g) |>
+  summarize(mean(body_mass_g))
+```
+
+::: callout-tip
+## Try running the code!
+
+You can check your answers using the `penguins` data from the **palmerpenguins**
+R package!
+:::
