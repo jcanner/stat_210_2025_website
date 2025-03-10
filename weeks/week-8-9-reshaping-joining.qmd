@@ -1,0 +1,391 @@
+---
+title: "Data Joins and Transformations"
+format: html
+number-sections: true
+number-depth: 2
+bibliography: references.bib
+editor: source
+execute: 
+  echo: true
+  include: true
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: package-load
+
+library(tidyverse)
+```
+
+Broadly, your objective while reading these chapters is to be able to identify
+data sets which have “messy” formats and determine a sequence of operations to
+transition the data into “tidy” format. To do this, you should master the
+following concepts:
+
+- Determine what data format is necessary to generate a desired plot or
+statistical model.
+- Understand the differences between “wide” and “long” format data and how to
+transition between the two structures.
+- Understand relational data formats and how to use data joins to assemble data
+from multiple tables into a single table.
+
+------------------------------------------------------------------------
+
+#### `r emo::ji("play button")` Watch Videos: 25-minutes
+
+#### `r emo::ji("book")` Readings: 75-minutes
+
+#### `r emo::ji("computer")` Activities: 3
+
+#### `r emo::ji("check")` Check-ins: 2
+
+------------------------------------------------------------------------
+
+# Part One: Tidy Data
+
+The illustrations below are lifted from an [excellent blog post](https://www.openscapes.org/blog/2020/10/12/tidy-data/) [@lowndesTidyDataEfficiency2020] about tidy data; they're reproduced here 
+because
+
+::: column-margin
+{{< video https://www.youtube.com/embed/Afc3MqWXfls >}}
+:::
+
+1.  they're beautiful and licensed as CCA-4.0-by, and
+2.  they might be more memorable than the equivalent paragraphs of text without illustration.
+
+Most of the time, data does not come in a format suitable for analysis. 
+Spreadsheets are generally optimized for data entry or viewing, rather than for
+statistical analysis:
+
+-   Tables may be laid out for easy data entry, so that there are multiple
+observations in a single row
+-   It may be visually preferable to arrange columns of data to show multiple
+times or categories on the same row for easy comparison
+
+When we analyze data, however, we care much more about the fundamental structure
+of observations: discrete units of data collection. Each observation may have
+several corresponding variables that may be measured simultaneously, but
+fundamentally each discrete data point is what we are interested in analyzing or
+plotting.
+
+The structure of **tidy data** reflects this preference for keeping the data in
+a fundamental form: each observation is in its own row, any observed variables
+are in single columns. This format is inherently rectangular, which is also
+important for statistical analysis - our methods are typically designed to work
+with matrices of data.
+
+![Figure 1: Tidy data format, illustrated.](https://www.openscapes.org/img/blog/tidydata/tidydata_1.jpg){fig-alt="Stylized text providing an overview of Tidy Data. The top reads 'Tidy data is a standard way of mapping the meaning of a dataset to its structure. - Hadley Wickham.' On the left reads 'In tidy data: each variable forms a column; each observation forms a row; each cell is a single measurement.' There is an example table on the lower right with columns ‘id’, ‘name’ and ‘color’ with observations for different cats, illustrating tidy data structure."}
+
+![Figure 2: An illustration of the principle that every messy dataset is messy in its own way.](https://www.openscapes.org/img/blog/tidydata/tidydata_2.jpg){fig-alt="There are two sets of anthropomorphized data tables. The top group of three tables are all rectangular and smiling, with a shared speech bubble reading 'our columns are variables and our rows are observations!'. Text to the left of that group reads “The standard structure of tidy data means that 'tidy datasets are all alike…' The lower group of four tables are all different shapes, look ragged and concerned, and have different speech bubbles reading (from left to right) 'my column are values and my rows are variables', 'I have variables in columns AND in rows', 'I have multiple variables in a single column', and 'I don’t even KNOW what my deal is.' Next to the frazzled data tables is text '...but every messy dataset is messy in its own way. -Hadley Wickham.'"}
+
+The preference for tidy data has several practical implications: it is easier
+to reuse code on tidy data, allowing for analysis using a standardized set of
+tools (rather than having to build a custom tool for each data analysis job).
+
+![Figure 3: Tidy data is easier to manage because the same tools and approaches apply to multiple datasets.](https://www.openscapes.org/img/blog/tidydata/tidydata_3.jpg){fig-alt="On the left is a happy cute fuzzy monster holding a rectangular data frame with a tool that fits the data frame shape. On the workbench behind the monster are other data frames of similar rectangular shape, and neatly arranged tools that also look like they would fit those data frames. The workbench looks uncluttered and tidy. The text above the tidy workbench reads 'When working with tidy data, we can use the same tools in similar ways for different datasets…' On the right is a cute monster looking very frustrated, using duct tape and other tools to haphazardly tie data tables together, each in a different way. The monster is in front of a messy, cluttered workbench. The text above the frustrated monster reads '...but working with untidy data often means reinventing the wheel with one-time approaches that are hard to iterate or reuse.'"}
+
+In addition, standardized tools for data analysis means that it is easier to
+collaborate with others: if everyone starts with the same set of assumptions
+about the dataset, you can borrow methods and tools from a collaborator's
+analysis and easily apply them to your own dataset.
+
+::: columns
+::: {.column width="47%"}
+![Figure 4: Collaboration with tidy data.](https://www.openscapes.org/img/blog/tidydata/tidydata_4.jpg){fig-alt="Two happy looking round fuzzy monsters, each holding a similarly shaped wrench with the word wrangle' on it. Between their tools is held up a rectangular data table labeled 'TIDY.'"}
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="47%"}
+![Figure 5: Tidy data enables standardized workflows.](https://www.openscapes.org/img/blog/tidydata/tidydata_5.jpg){fig-alt="Cute fuzzy monsters putting rectangular data tables onto a conveyor belt. Along the conveyor belt line are different automated 'stations' that update the data, reading 'WRANGLE', 'VISUALIZE', and 'MODEL'. A monster at the end of the conveyor belt is carrying away a table that reads 'Complete analysis.'"}
+:::
+:::
+
+Tidy data makes it easier to collaborate with others and analyze new data using
+standardized workflows.
+
+## Examples: Messy Data
+
+These datasets all display the same data: TB (Tuberculosis) cases documented by
+the WHO (World Health Organization) in Afghanistan, Brazil, and China, between
+1999 and 2000. There are four variables: country, year, cases, and population, but
+each table has a different layout.
+
++ For each of the data set, determine whether each table is tidy. 
+  + If it is not, identify which rule(s) it violates.
+
++ What would you have to do to the data to be able to compute a standardized TB
+infection rate per 100,000 people?
+
+::: {.callout-tip}
+All of these data sets are "built-in" to the `tidyr` package!
+:::
+
+::: panel-tabset
+#### Table 1 {-}
+
+```{r}
+#| echo: false
+#| eval: true
+#| label: tidy-table-1
+
+knitr::kable(table1, caption = "Table 1")
+```
+
+Here, each observation is a single row, each variable is a column, and
+everything is nicely arranged for e.g. regression or statistical analysis. We
+can easily compute another measure, such as cases per 100,000 population, by
+taking `cases` / `population` \* 100000 (this would define a new column).
+
+#### Table 2 {- #table2}
+
+```{r}
+#| echo: false
+#| eval: true
+#| label: tidy2
+
+knitr::kable(table2, caption = "Table 2")
+```
+
+Here, we have 4 columns again, but we now have 12 rows (instead of 6): one of
+the columns is an indicator of which of two numerical observations is recorded
+in that row; a second column stores the value (e.g., `cases`, `population`).
+This form of the data is more easily plotted in **ggplot2**, if we want to show
+trend lines for both cases and population, but computing per capita cases would
+be much more difficult in this form than in the arrangement in Table 1!
+
+#### Table 3 {-}
+
+```{r}
+#| label: tidy-table-3
+#| eval: true
+#| echo: false
+
+knitr::kable(table3, caption = "Table 3")
+```
+
+This form has only 3 columns, because the rate variable (which is a character)
+stores both the case count and the population. We can't do *anything* with this
+format as it stands, because we can't do math on data stored as characters.
+However, this form might be easier to read and record for a human being.
+
+#### Table 4 {- #tables4ab}
+
+```{r}
+#| echo: false
+#| eval: true
+#| label: tidy-table-4
+
+knitr::kable(table4a, caption = "Table 4a")
+knitr::kable(table4b, caption = "Table 4b")
+```
+
+In this form, we have two tables - one for population, and one for cases. Each
+year's observations are in a separate column. This format is often found in
+separate sheets of an Excel workbook. To work with this data, we'll need to
+transform each table so that there is a column indicating which year an
+observation is from, and then merge the two tables together by country and year.
+
+#### Table 5 {-}
+
+```{r}
+#| echo: false
+#| eval: true
+#| label: tidy-table-5
+
+knitr::kable(tidyr::table5, caption = "Table 5")
+```
+
+Table 5 is very similar to Table 3, but the year has been separated into two
+columns - century, and year. This is more common with year, month, and day in
+separate columns (or date and time in separate columns), often to deal with the
+fact that spreadsheets don't always handle dates the way you'd hope they would.
+:::
+
+In a perfect world, all data would come in the right format for our needs, but this is often not the case. We will spend the next few weeks learning about how
+to use R to reformat our data to follow the **tidy data** framework and see why
+this is so important. By the end of this chapter, you will have the skills
+needed to wrangle and transform the most common "messy" data sets into "tidy"
+form.
+
+::: callout-note
+## Do we always want our data in the same layout?
+
+The concept of tidy data is useful for mapping variables from the data set to
+elements in a graph, specifications of a model, or aggregating to create
+summaries. However, what is considered to be "tidy data" format for one task,
+might not be in the correct "tidy data" format for a different task. It is
+important for you to consider the end goal when restructuring your data.
+
+Part of this course is building the skills for you to be able to map your data
+operation steps from an original data set to the correct format (and output).
+:::
+
+# Part Two: Reshaping Data
+
+`r emo::ji("book")` [Required Reading: *R4DS* Chapter 5 (Data tidying)](https://r4ds.hadley.nz/data-tidy.html)
+
+::: column-margin
+![](images/week-4/tidyr.png){width=50% fig-alt="Hexagonal sticker for the 'tidyr' package from RStudio. The design features a tidy broom sweeping across, symbolizing data cleaning and organization. The background is a soft gradient of blues, and the package name 'tidyr' is prominently displayed in white near the bottom."}
+:::
+
+
+### `r emo::ji("check")` **Check-in: Practice with Pivoting**
+
+Load in the cereal data set:
+
+```{r}
+#| message: false
+
+library(liver)
+
+data(cereal)
+
+head(cereal)
+
+```
+
+**Question 1:** Create a new dataset called `cereals_long`, that has three
+columns:
+
+-   The `name` of the cereal
+
+-   A column called `Nutrient` with values `"protein"`, `"fat"`, or `"fiber"`.
+
+-   A column called `Amount` with the corresponding amount of the nutrient.
+
+::: {.callout-caution}
+You are expected to use `pivot_longer()` to perform this operation!
+:::
+
+# Part Three: Joining data
+
+`r emo::ji("book")` [Required Reading: *R4DS* Chapter 21 (Joins)](https://r4ds.hadley.nz/joins.html)
+
+::: callout-note
+Because these chapters do a **much** better job visualizing the concepts, I've
+chosen not to record additional videos.
+:::
+
+### `r emo::ji("check")` **Check-in 4.2: Practice with Joins**
+
+The following code creates three datasets / tibbles:
+
+```{r}
+#| label: course-datasets-for-joining
+#| echo: true
+#| eval: true
+
+prof_info <- tibble(
+  professor = c("Bodwin", 
+                "Theobold", 
+                "Robinson",
+                "Mann", 
+                "Ruiz"),
+  undergrad_school = c("Harvard", 
+                       "Colorado Mesa University",
+                       "Winona State University",
+                       "Carlton College", 
+                       "Reed College"),
+  grad_school = c("UNC", 
+                  "Montana State University", 
+                  "University of Nebraska-Lincoln",
+                  "University of Michigan", 
+                  "Oregon State University")
+)
+
+prof_course <- tidyr::tibble(
+  professor = c("Bodwin", 
+                "Robinson", 
+                "Theobold", 
+                "Mann", 
+                "Carlton"),
+  Stat_331 = c(TRUE, 
+               TRUE, 
+               TRUE, 
+               TRUE, 
+               TRUE),
+  Stat_330 = c(FALSE, 
+               TRUE, 
+               FALSE, 
+               FALSE, 
+               FALSE),
+  Stat_431 = c(TRUE, 
+               TRUE, 
+               TRUE, 
+               TRUE, 
+               FALSE)
+)
+
+course_info <- tibble(
+  course = c("Stat_331", 
+             "Stat_330", 
+             "Stat_431"),
+  num_sections = c(8, 
+                   3, 
+                   1)
+)
+
+```
+
+Here is what they look like once created:
+
+```{r}
+#| label: preview-datasets
+#| echo: true
+#| eval: true
+
+prof_info
+
+prof_course 
+
+course_info
+```
+
+These datasets contain information about five Cal Poly professors, their educational history, the classes they are able to teach, and the number of sections of each class that need to be assigned.
+
+**a) Combine datasets 1 and 2 to make this dataset:**
+
+```
+professor undergrad_school         grad_school          Stat_331 Stat_330 Stat_431
+Bodwin    Harvard                  UNC                  TRUE     FALSE    TRUE    
+Theobold  Colorado Mesa University Montana State Unive… TRUE     FALSE    TRUE    
+Robinson  Winona State University  University of Nebra… TRUE     TRUE     TRUE    
+Mann      Carlton College          University of Michi… TRUE     FALSE    TRUE
+```
+
+**b) Combine datasets 1 and 2 to make this dataset:**
+
+```
+professor undergrad_school         grad_school          Stat_331 Stat_330 Stat_431
+Bodwin    Harvard                  UNC                  TRUE     FALSE    TRUE    
+Theobold  Colorado Mesa University Montana State Unive… TRUE     FALSE    TRUE    
+Robinson  Winona State University  University of Nebra… TRUE     TRUE     TRUE  
+Mann      Carlton College          University of Michi… TRUE     FALSE    TRUE    
+Ruiz      Reed College             Oregon State Univer… NA       NA       NA
+```
+
+**c) Combine datasets 2 and 3 to make this dataset:**
+
+```         
+professor course   can_teach num_sections
+Bodwin    Stat_331 TRUE                 8
+Bodwin    Stat_330 FALSE                3
+Bodwin    Stat_431 TRUE                 1
+Robinson  Stat_331 TRUE                 8
+Robinson  Stat_330 TRUE                 3
+Robinson  Stat_431 TRUE                 1
+Theobold  Stat_331 TRUE                 8
+Theobold  Stat_330 FALSE                3
+Theobold  Stat_431 TRUE                 1
+Mann      Stat_331 TRUE                 8
+Mann      Stat_330 FALSE                3
+Mann      Stat_431 TRUE                 1
+Carlton   Stat_331 TRUE                 8
+Carlton   Stat_330 FALSE                3
+Carlton   Stat_431 FALSE                1
+```
+

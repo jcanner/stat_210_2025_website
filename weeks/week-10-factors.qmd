@@ -1,0 +1,107 @@
+---
+title: "Working with Categorical Variables"
+format: html
+number-sections: true
+number-depth: 2
+bibliography: references.bib
+editor: source
+execute: 
+  echo: true
+  include: true
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: package-load
+
+library(tidyverse)
+```
+
+The second section of this coursework is focused on working with factor data
+types. By the end of this week, you should be able to:
+
+- Use forcats to reorder and relabel factor variables in data cleaning steps and
+data visualizations.
+
+------------------------------------------------------------------------
+
+#### `r emo::ji("play button")` Watch Videos: 9-minutes
+
+#### `r emo::ji("book")` Readings: 15-minutes
+
+#### `r emo::ji("computer")` Activities: 0
+
+#### `r emo::ji("check")` Check-ins: 1
+
+------------------------------------------------------------------------
+
+# Factors with `forcats`
+
+We have been floating around the idea of *factor* data types. In this section, 
+we will formally define factors and why they are needed for data visualization
+and analysis. We will then learn useful functions for working with factors in
+our data cleaning steps.
+
+::: column-margin
+```{r}
+#| echo: false
+#| eval: true
+#| out-width: "50%"
+#| fig-align: center
+#| fig-alt: "The image is a hexagonal sticker with a light blue background. In the center, there is an orange cat with a smiling face, standing on its hind legs and holding a string of colorful flags that spell 'forcats' in lowercase letters. The cat appears playful and joyful, and the design gives a whimsical, fun feel. The borders of the hexagon are outlined in white, and the overall design is simple yet vibrant, focusing on the cat and the string of flags."
+
+knitr::include_graphics("images/week-4/forcats.png")
+```
+:::
+
+`r emo::ji("play button")` [Required Video: Working with factors using forcats -- 9 minutes](https://www.youtube.com/embed/dAiSYli7tVg)
+
+In short, factors are categorical variables with a fixed number of values (think
+a set number of groups). One of the main features that set factors apart from
+groups is that you can reorder the groups to be non-alphabetical. In this
+section we will be using the `forcats` package (part of the `tidyverse`!) to
+create and manipulate factor variables.
+
+`r emo::ji("book")` [Required Reading: *R4DS* Chapter 16 (Factors) ](https://r4ds.hadley.nz/factors.html)
+
+### `r emo::ji("check")` **Check-in 4.3: Functions from `forcats`**
+
+Answer the following questions in the Canvas Quiz.
+
+**1. Which of the following tasks can `fct_recode()` accomplish?** Select all 
+that apply!
+
++ changes the values of the factor levels
++ reorders the levels of a factor
++ remove levels of a factor you don’t want
++ collapse levels of a factor into a new level
+
+**2. Which of the following tasks can `fct_relevel()` accomplish?**
+
++ reorders the levels of a factor
++ changes the values of the factor levels
++ remove levels of a factor you don’t want
++ collapse levels of a factor into a new level
+
+**3. What is the main difference between `fct_collapse()` and `fct_recode()`?**
+
++ `fct_recode()` uses strings to create factor levels
++ `fct_recode()` uses groups to create factor levels
++ `fct_recode()` cannot create an “Other” group
+
+**4. What ordering do you get with `fct_reorder()`?**
+
++ largest to smallest based on another variable
++ order of appearance
++ largest to smallest based on counts
++ alphabetical order
+
+**5. What ordering do you get with `fct_inorder()`?**
+
++ order of appearance
++ alphabetical order
++ largest to smallest based on counts
++ largest to smallest based on another variable
+:::
