@@ -1,5 +1,5 @@
 ---
-title: "Lab 3: Student Evaluations of Teaching"
+title: "Lab 5: Student Evaluations of Teaching"
 author: "Instructions"
 format: 
   html:  
@@ -17,7 +17,7 @@ In this lab, we will be using the `dplyr` package to explore student evaluations
 
 # Part 1: GitHub Workflow
 
-## Step 1: Making a Copy from GitHub Classroom
+## Step 1: Make a 
 
 You can access the Lab 3 materials through the [Lab 3 assignment on GitHub Classroom](https://classroom.github.com/a/qwGgpcu4). We're going to follow the same steps as last week to make your own copy of this repository:
 
