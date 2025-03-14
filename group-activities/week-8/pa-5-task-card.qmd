@@ -1,5 +1,5 @@
 ---
-title: "PA 4 Task Card -- Military Spending"
+title: "PA 5 Task Card -- Military Spending"
 editor: source
 format: docx
 ---
@@ -44,29 +44,7 @@ Remember, your group is expected to adhere to the following norms:
 
 \newpage
 
-## Filtering Joins
 
-::: columns
-::: {.column width="40%"}
-```{r}
-#| eval: false
-#| echo: true
-#| label: anti-joing-from-picture
-
-anti_join(left_table, 
-          right_table, 
-          by = "id"
-  )
-```
-:::
-
-::: {.column width="5%"}
-:::
-
-::: {.column width="50%"}
-![](images/anti-join-2.png){width=70%}
-:::
-:::
 
 ## Lengthening Data
 
