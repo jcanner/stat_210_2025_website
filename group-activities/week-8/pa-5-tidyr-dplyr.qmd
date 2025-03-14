@@ -82,7 +82,7 @@ military <- read_xlsx("data/gov_spending_per_capita.xlsx",  #comment
                       sheet = "Share of Govt. spending",    #comment
                       skip  = 7,                            #comment
                       n_max = 191,                          #comment
-                      na = c("xxx", ".."))                  #comment
+                      na = c("xxx", ". ."))                  #comment
 ```
 
 *I would highly recommend you open the dataset in Excel, so you can see the data layout!*
