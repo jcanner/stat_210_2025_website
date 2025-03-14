@@ -157,7 +157,7 @@ military_clean |>
 We are interested in comparing the military expenditures of countries in Eastern
 Europe. Our desired plot looks something like this:
 
-![Desired plot: Countries from Central Asia used for demonstration -- your plot will have different countries and spending values.](images/military-expenditure-plot.png)
+![Desired plot: Countries from Eastern Europe adn their military spending.](images/military-expenditure-plot.png)
 
 Unfortunately, if we want a point representing the spending for every country
 and year, we need every year to be a **single column**!
