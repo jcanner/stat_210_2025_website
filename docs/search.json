@@ -274,7 +274,7 @@
     "href": "labs/instructions/lab-5-instructions.html#step-1-make-a-git-hub-repository",
     "title": "Lab 5: Student Evaluations of Teaching",
     "section": "Step 1: Make a Git Hub Repository",
-    "text": "Step 1: Make a Git Hub Repository\nBe sure to set up a GitHub repository and then use Version Control to set up your Lab 5 R Project so it is connected. Then download this week’s lab file into the folder and create a data-raw and data-clean folder and store the provided data appropriately:\n\nlab-5-student.qmd +\ndata-raw\n\nteacher_evals_orig.csv\n\ndata-clean (you will want to save your clean data data in this folder)\n\nYou will also want to look at the Teacher Evaluations Codebook to help you understand the variables and data.",
+    "text": "Step 1: Make a Git Hub Repository\nBe sure to set up a GitHub repository and then use Version Control to set up your Lab 5 R Project so it is connected. Then download this week’s lab file into the folder and create a data-raw and data-clean folder and store the provided data appropriately:\n\nlab-5-student.qmd\ndata-raw\n\nteacher_evals.csv\n\ndata-clean (you will want to save your clean data data in this folder)\n\nYou will also want to look at the Teacher Evaluations Codebook to help you understand the variables and data.",
     "crumbs": [
       "Labs",
       "Lab 5 Instructions"

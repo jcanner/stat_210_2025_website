@@ -1,1 +1,1 @@
-Sitemap: https://github.com/jcanner/stat_210_2025_website/sitemap.xml
+Sitemap: https://github.com/jcanner/stat_210_2025_website/docs/sitemap.xml
