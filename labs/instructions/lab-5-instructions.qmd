@@ -21,9 +21,9 @@ In this lab, we will be using the `dplyr` package to explore student evaluations
 
 Be sure to set up a GitHub repository and then use Version Control to set up your Lab 5 R Project so it is connected. Then download this week's lab file into the folder and create a `data-raw` and `data-clean` folder and store the provided data appropriately:
 
-+ [lab-5-student.qmd](../student/lab-5-student.qmd) +
++ [lab-5-student.qmd](../student/lab-5-student.qmd) 
 + data-raw
-    - [teacher_evals_orig.csv](../student/data/teacher_evals.csv)
+    - [teacher_evals.csv](../student/data/teacher_evals.csv)
 + data-clean (you will want to save your clean data data in this folder)
 
 You will also want to look at the [**Teacher Evaluations Codebook**](../student/resources/teacher_evals_codebook.pdf) to help you understand the variables and data.  
