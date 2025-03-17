@@ -17,21 +17,21 @@ In this lab, we will be using the `dplyr` package to explore student evaluations
 
 # Part 1: GitHub Workflow
 
-## Step 1: Make a 
+## Step 1: Make a Git Hub Repository
 
-You can access the Lab 3 materials through the [Lab 3 assignment on GitHub Classroom](https://classroom.github.com/a/qwGgpcu4). We're going to follow the same steps as last week to make your own copy of this repository:
+Be sure to set up a GitHub repository and then use Version Control to set up your Lab 5 R Project so it is connected. Then download this week's lab file into the folder and create a `data-raw` and `data-clean` folder and store the provided data appropriately:
 
-<!-- Update link to GH Classroom assignment -->
++ [lab-5-student.qmd](../student/lab-5-student.qmd) +
++ data-raw
+    - [teacher_evals_orig.csv](../student/data/teacher_evals.csv)
++ data-clean (you will want to save your clean data data in this folder)
 
-::: {.callout-tip collapse="true"}
-# Same process as last week!
+You will also want to look at the [**Teacher Evaluations Codebook**](../student/resources/teacher_evals_codebook.pdf) to help you understand the variables and data.  
 
-Use these steps to make a copy of the Lab 2 repository: [List of Steps to Copy the Lab Assignment from GitHub Classroom](https://scribehow.com/shared/Copying_Labs_from_GitHub_into_RStudio__ATprsf2MTYmuPP86Xna1Eg)
-:::
 
 ## Step 2: Making a Small Change
 
-Now, find the `lab-3-student.qmd` file in the "Files" tab in the lower right 
+Now, find the `lab-5-student.qmd` file in the "Files" tab in the lower right 
 hand corner. Click on this file to open it. 
 
 At the top of the document (in the YAML) there is an `author` line that says 
@@ -60,13 +60,14 @@ To https://github.com/atheobold/introduction-to-quarto-allison-theobold.git
 
 ## Step 4: Let's get started wranging some data!
 
+
 # Part 2: Some Words of Advice
 
 Part of learning to program is learning from a variety of resources. Thus, I expect you will use resources that you find on the internet. There is, however, an important balance between copying someone else's code and *using their code to learn*. Therefore, if you use external resources, I want to know about it.
 
 -   If you used Google, you are expected to "inform" me of any resources you used by **pasting the link to the resource in a code comment next to where you used that resource**.
 
--   If you used ChatGPT, you are expected to "inform" me of the assistance you received by (1) indicating somewhere in the problem that you used ChatGPT (e.g., below the question prompt or as a code comment), and (2) downloading and attaching the `.txt` file containing your **entire** conversation with ChatGPT.
+-   If you used ChatGPT, you are expected to "inform" me of the assistance you received by (1) indicating somewhere in the problem that you used ChatGPT (e.g., below the question prompt or as a code comment), and (2) downloading and including the `.txt` file containing your **entire** conversation with ChatGPT in your repository.
 
 Additionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but **you are expected to do your own work**. Copying from each other is cheating, and letting people copy from you is also cheating. Please don't do either of those things.
 
@@ -124,7 +125,7 @@ These data are from the end of the winter semester of the 2020-2021 academic yea
 
 This rich dataset allows us to **investigate many of the biases in student evaluations of teaching** that have been reported in the literature and to formulate new hypotheses.
 
-Before tackling the problems below, study the description of each variable included in the `teacher_evals_codebook.pdf` inside the "resources" folder.
+Before tackling the problems below, study the description of each variable included in the `teacher_evals_codebook.pdf`.
 
 **1. Load the appropriate R packages for your analysis.**
 
@@ -135,7 +136,6 @@ Before tackling the problems below, study the description of each variable inclu
 ```
 
 **2. Load in the `teacher_evals` data.** 
-*Hint: You should use the `here()` function from the __here__ package!*
 
 ```{r}
 #| label: load-data
@@ -183,7 +183,7 @@ really a numeric data type?)**
 `question_no`, `no_participants`, `resp_share`, `SET_score_avg`,
 `percent_failed_cur`, `academic_degree`, `seniority`, and `sex`**
 
-**Assign your cleaned data to a new variable named `teacher_evals_clean` –- use these data going forward.**
+**Assign your cleaned data to a new variable named `teacher_evals_clean` –- use these data going forward. Save the data as `teacher_evals_clean.csv` in the `data-clean` folder.**
 
 ::: callout-tip
 Helpful functions: `rename()`, `mutate()`, `as.factor()`
@@ -214,6 +214,8 @@ Helpful functions: `summarize()`, `n_distinct()`
 
 ::: callout-tip
 Helpful functions: `filter()`, `if_any()`
+
+*Hint: Look at PA 5 for example code*
 :::
 
 ```{r}
@@ -241,6 +243,8 @@ Helpful functions: `select()`, `distinct(___, .keep_all = TRUE)`, `count()`, `su
 ```{r}
 #| label: teacher-course-asked-every-question
 # code chunk for Q8
+
+data <- read_csv("../student")
 
 ```
 

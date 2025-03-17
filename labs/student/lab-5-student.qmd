@@ -1,5 +1,5 @@
 ---
-title: "Lab 3: Student Evaluations of Teaching"
+title: "Lab 5: Student Evaluations of Teaching"
 author: "Your name here!"
 format: html
 editor: source
@@ -13,16 +13,16 @@ of teaching data.
 
 # Part 1: GitHub Workflow
 
-Now that you have the Lab 2 repository cloned, you need to make sure you can 
+Now that you have the Lab 5 repository cloned, you need to make sure you can 
 successfully push to GitHub. To do this you need to:
 
--   Open the `lab-3-student.qmd` file (in the lower right hand corner). 
+-   Open the `lab-5-student.qmd` file (in the lower right hand corner). 
 -   Change the `author` line at the top of the document (in the YAML) to your
 name. 
 -   Save your file either by clicking on the blue floppy disk or with a shortcut
 (command / control + s). 
 -   Click the "Git" tab in upper right pane
--   Check the "Staged" box for the `lab-3-student.qmd` file (the file you
+-   Check the "Staged" box for the `lab-5-student.qmd` file (the file you
 changed)
 -   Click "Commit"
 -   In the box that opens, type a message in "Commit message", such as
@@ -42,6 +42,7 @@ Now you are ready to go! Remember, as you are going through the lab I would
 strongly recommend rendering your HTML and committing your after **every** 
 question! 
 
+
 # Part 2: Some Words of Advice
 
 Part of learning to program is learning from a variety of resources. Thus, I
@@ -56,7 +57,7 @@ used by **pasting the link to the resource in a code comment next to where you u
 -   If you used ChatGPT, you are expected to "inform" me of the assistance you
 received by (1) indicating somewhere in the problem that you used ChatGPT 
 (e.g., below the question prompt or as a code comment), and (2) downloading and
-attaching the `.txt` file containing your **entire** conversation with ChatGPT.
+including the `.txt` file containing your **entire** conversation with ChatGPT.
 
 Additionally, you are permitted and encouraged to work with your peers as you
 complete lab assignments, but **you are expected to do your own work**. Copying
@@ -139,7 +140,7 @@ This rich dataset allows us to **investigate many of the biases in student evalu
 hypotheses.
 
 Before tackling the problems below, study the description of each variable
-included in the `teacher_evals_codebook.pdf` inside the "resources" folder.
+included in the `teacher_evals_codebook.pdf`.
 
 **1. Load the appropriate R packages for your analysis.**
 
@@ -150,7 +151,6 @@ included in the `teacher_evals_codebook.pdf` inside the "resources" folder.
 ```
 
 **2. Load in the `teacher_evals` data.** 
-*Hint: You should use the `here()` function from the __here__ package!*
 
 ```{r}
 #| label: load-data
@@ -183,7 +183,7 @@ included in the `teacher_evals_codebook.pdf` inside the "resources" folder.
 - **changing data types in whichever way you see fit (e.g., is the instructor ID really a numeric data type?)**
 - **only keeping the columns we will use -- `course_id`, `teacher_id`, `question_no`, `no_participants`, `resp_share`, `SET_score_avg`, `percent_failed_cur`, `academic_degree`, `seniority`, and `sex`**
 
-**Assign your cleaned data to a new variable named `teacher_evals_clean` –- use these data going forward.**
+**Assign your cleaned data to a new variable named `teacher_evals_clean` –- use these data going forward. Save the data as `teacher_evals_clean.csv` in the `data-clean` folder.**
 
 ```{r}
 #| label: data-cleaning
