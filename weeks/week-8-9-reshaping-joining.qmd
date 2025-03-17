@@ -33,8 +33,6 @@ from multiple tables into a single table.
 
 ------------------------------------------------------------------------
 
-#### `r emo::ji("play button")` Watch Videos: 25-minutes
-
 #### `r emo::ji("book")` Readings: 75-minutes
 
 #### `r emo::ji("computer")` Activities: 3
@@ -47,10 +45,6 @@ from multiple tables into a single table.
 
 The illustrations below are lifted from an [excellent blog post](https://www.openscapes.org/blog/2020/10/12/tidy-data/) [@lowndesTidyDataEfficiency2020] about tidy data; they're reproduced here 
 because
-
-::: column-margin
-{{< video https://www.youtube.com/embed/Afc3MqWXfls >}}
-:::
 
 1.  they're beautiful and licensed as CCA-4.0-by, and
 2.  they might be more memorable than the equivalent paragraphs of text without illustration.

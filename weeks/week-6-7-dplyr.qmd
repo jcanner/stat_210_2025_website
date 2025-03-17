@@ -53,10 +53,6 @@ operations
 
 # Part One: Learning More about Packages, Data Types, and Objects
 
-## Learning More About Packages in R
-
-`r emo::ji("play button")` [Required Video: Why do I get this message when I load the tidyverse? -- 8 minutes](http://somup.com/crf6q4b920)
-
 ::: callout-note
 ## Removing messages from your HTML file
 
@@ -81,7 +77,7 @@ In addition, read the following section from the first edition of R for DS:
 
 `r emo::ji("book")` [Required Reading: Tibbles](https://r4ds.had.co.nz/tibbles.html)
 
-## `r emo::ji("check")` Check-in 3.1: Data Structures
+## `r emo::ji("check")` Check-in: Data Structures
 
 **Question 1**
 
@@ -116,27 +112,15 @@ d)  `tibble`s create row names
 ## dplyr Verbs
 
 ::: columns
-::: {.column width="40%"}
-`r emo::ji("play button")` [Required Video: `filter()` -- 11 minutes](https://youtu.be/pPI-prhLYqI)
-
-`r emo::ji("play button")` [Required Video: `select()` -- 6 minutes](https://youtu.be/OInnmiccHt8)
-
-`r emo::ji("play button")` [Required Video: `mutate()` -- 9 minutes](https://youtu.be/QWyUnQ2EzPs)
-
-</br> </br>
-
-`r emo::ji("play button")` [Required Video: `arrange()` -- 7 minutes](https://youtu.be/4Qhdc81mpvo)
-
-`r emo::ji("play button")` [Required Video: `summarize()`-- 8 minutes](http://somup.com/crflYibWZw)
-
-`r emo::ji("play button")` [Required Video: `group_by()` -- 6 minutes](http://somup.com/crflqbbWFy)
-:::
-
-::: {.column width="5%"}
-:::
-
-::: {.column width="55%"}
+::: {.column width="45%"}
 ![](images/week-3/filter_horst.png)
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="45%"}
+
 
 </br>
 
@@ -144,11 +128,7 @@ d)  `tibble`s create row names
 :::
 :::
 
-## The Pipe Operator
 
-`r emo::ji("play button")` [Required Video: The pipe operator -- 8 minutes](http://somup.com/crflYfbWZD)
-
-`r emo::ji("play button")` [Required Video: Extending the pipe -- 3 minutes](http://somup.com/crflYmbWup)
 
 ## Practice
 
@@ -156,7 +136,7 @@ d)  `tibble`s create row names
 
 ------------------------------------------------------------------------
 
-## `r emo::ji("check")` Check-in 3.2: Data Wrangling
+## `r emo::ji("check")` Check-in: Data Wrangling
 
 **Question 1:** Suppose we would like to study how the ratio of penguin body
 mass to flipper size differs across the species. Arrange the following steps

@@ -10,7 +10,7 @@ website:
   page-navigation: true
   title: "Statistical Computing with R"
   description: "Homepage for STAT 210 at CSUMB"
-  site-url: "https://github.com/jcanner/stat_210_2025_website/docs"
+  site-url: "https://github.com/jcanner/stat_210_2025_website"
   repo-url: https://github.com/jcanner/stat_210_2025_website
   repo-actions: [issue]
 
@@ -56,6 +56,10 @@ website:
             text: "Week 4 - Data Visualization"
           - href: weeks/week-5-projects-data-import.qmd
             text: "Week 5 - Importing Data"
+          - href: weeks/week-6-7-dplyr.qmd
+            text: "Week 6-7 - Transforming Data"
+          - href: weeks/week-8-9-reshaping-joining.qmd
+            text: "Week 8-9 - Pivoting and Joining Data"
           
       - section: "Labs" 
         contents:
@@ -67,7 +71,8 @@ website:
             text: "Lab 3 and Challenge 3 Instructions"
           - href: labs/instructions/lab-4-instructions.qmd
             text: "Lab 4 Instructions"
-   
+          - href: labs/instructions/lab-5-instructions.qmd
+            text: "Lab 5 Instructions"   
 
 format:
   html:
