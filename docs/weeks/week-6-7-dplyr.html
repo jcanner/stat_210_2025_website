@@ -63,6 +63,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../weeks/week-8-9-reshaping-joining.html" rel="next">
+<link href="../weeks/week-5-projects-data-import.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -114,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Data Wrangling with dplyr</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week-1-r-rstudio.html">Weekly materials</a></li><li class="breadcrumb-item"><a href="../weeks/week-6-7-dplyr.html">Week 6-7 - Transforming Data</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -175,13 +177,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Weekly materials</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../weeks/week-1-r-rstudio.html" class="sidebar-item-text sidebar-link">
@@ -210,6 +212,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../weeks/week-5-projects-data-import.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 5 - Importing Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-6-7-dplyr.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 6-7 - Transforming Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-8-9-reshaping-joining.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8-9 - Pivoting and Joining Data</span></a>
   </div>
 </li>
       </ul>
@@ -247,6 +261,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Lab 4 Instructions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/instructions/lab-5-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 5 Instructions</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -262,8 +282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#learning-targets" id="toc-learning-targets" class="nav-link active" data-scroll-target="#learning-targets"><span class="header-section-number">0.1</span> Learning Targets</a></li>
   <li><a href="#part-one-learning-more-about-packages-data-types-and-objects" id="toc-part-one-learning-more-about-packages-data-types-and-objects" class="nav-link" data-scroll-target="#part-one-learning-more-about-packages-data-types-and-objects"><span class="header-section-number">1</span> Part One: Learning More about Packages, Data Types, and Objects</a>
   <ul class="collapse">
-  <li><a href="#learning-more-about-packages-in-r" id="toc-learning-more-about-packages-in-r" class="nav-link" data-scroll-target="#learning-more-about-packages-in-r"><span class="header-section-number">1.1</span> Learning More About Packages in R</a></li>
-  <li><a href="#learning-more-about-data-types-objects-in-r" id="toc-learning-more-about-data-types-objects-in-r" class="nav-link" data-scroll-target="#learning-more-about-data-types-objects-in-r"><span class="header-section-number">1.2</span> Learning More about Data Types &amp; Objects in R</a></li>
+  <li><a href="#learning-more-about-data-types-objects-in-r" id="toc-learning-more-about-data-types-objects-in-r" class="nav-link" data-scroll-target="#learning-more-about-data-types-objects-in-r"><span class="header-section-number">1.1</span> Learning More about Data Types &amp; Objects in R</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jcanner/stat_210_2025_website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -271,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week-1-r-rstudio.html">Weekly materials</a></li><li class="breadcrumb-item"><a href="../weeks/week-6-7-dplyr.html">Week 6-7 - Transforming Data</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Data Wrangling with dplyr</h1>
 </div>
@@ -323,9 +342,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="part-one-learning-more-about-packages-data-types-and-objects" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Part One: Learning More about Packages, Data Types, and Objects</h1>
-<section id="learning-more-about-packages-in-r" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="learning-more-about-packages-in-r"><span class="header-section-number">1.1</span> Learning More About Packages in R</h2>
-<p>▶️ <a href="http://somup.com/crf6q4b920">Required Video: Why do I get this message when I load the tidyverse? – 8 minutes</a></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -343,16 +359,15 @@ Removing messages from your HTML file
 </ol>
 </div>
 </div>
-</section>
-<section id="learning-more-about-data-types-objects-in-r" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="learning-more-about-data-types-objects-in-r"><span class="header-section-number">1.2</span> Learning More about Data Types &amp; Objects in R</h2>
+<section id="learning-more-about-data-types-objects-in-r" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="learning-more-about-data-types-objects-in-r"><span class="header-section-number">1.1</span> Learning More about Data Types &amp; Objects in R</h2>
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="column" style="width:45%;">
 <p>📖 <a href="https://bookdown.org/rdpeng/rprogdatascience/r-nuts-and-bolts.html#r-objects">Read a Textbook: Data Types in R</a></p>
 </div>
-</div><p>In addition, read the following section from the first edition of R for DS:</p><p>📖 <a href="https://r4ds.had.co.nz/tibbles.html">Required Reading: Tibbles</a></p><section id="check-in-3.1-data-structures" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="check-in-3.1-data-structures"><span class="header-section-number">1.3</span> ✅ Check-in 3.1: Data Structures</h2>
+</div><p>In addition, read the following section from the first edition of R for DS:</p><p>📖 <a href="https://r4ds.had.co.nz/tibbles.html">Required Reading: Tibbles</a></p><section id="check-in-data-structures" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="check-in-data-structures"><span class="header-section-number">1.2</span> ✅ Check-in: Data Structures</h2>
 <p><strong>Question 1</strong></p>
 <p>In essence, a <code>data.frame</code> is simply a special <code>list</code> - with a few extra restrictions on the <code>list</code> format.</p>
 <p>Think about the datasets you have already worked with. Which of the following restrictions on a <code>list</code> do you think are needed for the <code>list</code> to be a <code>data.frame</code>? (Select all that apply)</p>
@@ -379,35 +394,23 @@ Removing messages from your HTML file
 <section id="dplyr-verbs" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="dplyr-verbs"><span class="header-section-number">2.2</span> dplyr Verbs</h2>
 <div class="columns">
-<div class="column" style="width:40%;">
-<p>▶️ <a href="https://youtu.be/pPI-prhLYqI">Required Video: <code>filter()</code> – 11 minutes</a></p>
-<p>▶️ <a href="https://youtu.be/OInnmiccHt8">Required Video: <code>select()</code> – 6 minutes</a></p>
-<p>▶️ <a href="https://youtu.be/QWyUnQ2EzPs">Required Video: <code>mutate()</code> – 9 minutes</a></p>
-<p><br> <br></p>
-<p>▶️ <a href="https://youtu.be/4Qhdc81mpvo">Required Video: <code>arrange()</code> – 7 minutes</a></p>
-<p>▶️ <a href="http://somup.com/crflYibWZw">Required Video: <code>summarize()</code>– 8 minutes</a></p>
-<p>▶️ <a href="http://somup.com/crflqbbWFy">Required Video: <code>group_by()</code> – 6 minutes</a></p>
-</div><div class="column" style="width:5%;">
-
-</div><div class="column" style="width:55%;">
+<div class="column" style="width:45%;">
 <p><img src="images/week-3/filter_horst.png" class="img-fluid"></p>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
 <p><br></p>
 <p><img src="images/week-3/mutate_horst.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
-<section id="the-pipe-operator" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="the-pipe-operator"><span class="header-section-number">2.3</span> The Pipe Operator</h2>
-<p>▶️ <a href="http://somup.com/crflYfbWZD">Required Video: The pipe operator – 8 minutes</a></p>
-<p>▶️ <a href="http://somup.com/crflYmbWup">Required Video: Extending the pipe – 3 minutes</a></p>
-</section>
-<section id="practice" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="practice"><span class="header-section-number">2.4</span> Practice</h2>
+<section id="practice" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="practice"><span class="header-section-number">2.3</span> Practice</h2>
 <p>💻 <a href="https://r-primers.andrewheiss.com/transform-data/03-deriving/">Required Tutorial: Practice with dplyr</a></p>
 <hr>
 </section>
-<section id="check-in-3.2-data-wrangling" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="check-in-3.2-data-wrangling"><span class="header-section-number">2.5</span> ✅ Check-in 3.2: Data Wrangling</h2>
+<section id="check-in-data-wrangling" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="check-in-data-wrangling"><span class="header-section-number">2.4</span> ✅ Check-in: Data Wrangling</h2>
 <p><strong>Question 1:</strong> Suppose we would like to study how the ratio of penguin body mass to flipper size differs across the species. Arrange the following steps into an order that accomplishes this goal (assuming the steps are connected with a <code>|&gt;</code> or a <code>%&gt;%</code>).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a</span></span>
@@ -758,7 +761,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/github\.com\/jcanner\/stat_210_2025_website\/docs");
+      var filterRegex = new RegExp("https:\/\/github\.com\/jcanner\/stat_210_2025_website");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1086,6 +1089,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../weeks/week-5-projects-data-import.html" class="pagination-link" aria-label="Week 5 - Importing Data">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 5 - Importing Data</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../weeks/week-8-9-reshaping-joining.html" class="pagination-link" aria-label="Week 8-9 - Pivoting and Joining Data">
+        <span class="nav-page-text">Week 8-9 - Pivoting and Joining Data</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

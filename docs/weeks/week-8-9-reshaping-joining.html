@@ -83,6 +83,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../labs/instructions/lab-1-instructions.html" rel="next">
+<link href="../weeks/week-6-7-dplyr.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -134,7 +136,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Data Joins and Transformations</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week-1-r-rstudio.html">Weekly materials</a></li><li class="breadcrumb-item"><a href="../weeks/week-8-9-reshaping-joining.html">Week 8-9 - Pivoting and Joining Data</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -195,13 +197,13 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Weekly materials</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../weeks/week-1-r-rstudio.html" class="sidebar-item-text sidebar-link">
@@ -230,6 +232,18 @@ div.csl-indent {
   <div class="sidebar-item-container"> 
   <a href="../weeks/week-5-projects-data-import.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 5 - Importing Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-6-7-dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6-7 - Transforming Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-8-9-reshaping-joining.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 8-9 - Pivoting and Joining Data</span></a>
   </div>
 </li>
       </ul>
@@ -267,6 +281,12 @@ div.csl-indent {
  <span class="menu-text">Lab 4 Instructions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/instructions/lab-5-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 5 Instructions</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -297,7 +317,7 @@ div.csl-indent {
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week-1-r-rstudio.html">Weekly materials</a></li><li class="breadcrumb-item"><a href="../weeks/week-8-9-reshaping-joining.html">Week 8-9 - Pivoting and Joining Data</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Data Joins and Transformations</h1>
 </div>
@@ -323,9 +343,6 @@ div.csl-indent {
 <li>Understand relational data formats and how to use data joins to assemble data from multiple tables into a single table.</li>
 </ul>
 <hr>
-<section id="watch-videos-25-minutes" class="level4">
-<h4 class="anchored" data-anchor-id="watch-videos-25-minutes">▶️ Watch Videos: 25-minutes</h4>
-</section>
 <section id="readings-75-minutes" class="level4">
 <h4 class="anchored" data-anchor-id="readings-75-minutes">📖 Readings: 75-minutes</h4>
 </section>
@@ -336,13 +353,10 @@ div.csl-indent {
 <h4 class="anchored" data-anchor-id="check-ins-2">✅ Check-ins: 2</h4>
 <hr>
 </section>
-<section id="part-one-tidy-data" class="level1 page-columns page-full" data-number="1">
+<section id="part-one-tidy-data" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Part One: Tidy Data</h1>
 <p>The illustrations below are lifted from an <a href="https://www.openscapes.org/blog/2020/10/12/tidy-data/">excellent blog post</a> <span class="citation" data-cites="lowndesTidyDataEfficiency2020">(<a href="#ref-lowndesTidyDataEfficiency2020" role="doc-biblioref">Lowndes and Horst 2020</a>)</span> about tidy data; they’re reproduced here because</p>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/Afc3MqWXfls" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-</div></div><ol type="1">
+<ol type="1">
 <li>they’re beautiful and licensed as CCA-4.0-by, and</li>
 <li>they might be more memorable than the equivalent paragraphs of text without illustration.</li>
 </ol>
@@ -1189,7 +1203,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/github\.com\/jcanner\/stat_210_2025_website\/docs");
+      var filterRegex = new RegExp("https:\/\/github\.com\/jcanner\/stat_210_2025_website");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1517,6 +1531,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../weeks/week-6-7-dplyr.html" class="pagination-link" aria-label="Week 6-7 - Transforming Data">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 6-7 - Transforming Data</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../labs/instructions/lab-1-instructions.html" class="pagination-link" aria-label="Lab 1 &amp; Challenge 1 Instructions">
+        <span class="nav-page-text">Lab 1 &amp; Challenge 1 Instructions</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
