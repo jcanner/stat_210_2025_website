@@ -229,7 +229,7 @@ Helpful functions: `filter()`, `if_any()`
 ::: callout-tip
 You’ll need to first wrangle your data to have each instructor represented only once.
 
-Helpful functions: `select()`, `distinct(___, .keep_all = TRUE)`, `count()`, `summary()`
+Helpful functions: `select()`, `distinct(___, .keep_all = TRUE)`, `count()`, `summarize()`
 :::
 
 ```{r}
@@ -240,11 +240,19 @@ Helpful functions: `select()`, `distinct(___, .keep_all = TRUE)`, `count()`, `su
 
 **8. Each course seems to have used a different subset of the nine evaluation questions. How many teacher-course combinations asked all nine questions?**
 
+::: callout-tip
+You’ll need to first wrangle your data to find the number of questions asked 
+within each teacher-course combination. Then there are several ways to determine
+the number that used all 9 questions.
+
+Helpful functions: `group_by()`, `n_distinct()`, `count()`, `summarize()`, `ungroup()`
+
+:::
+
 ```{r}
 #| label: teacher-course-asked-every-question
 # code chunk for Q8
 
-data <- read_csv("../student")
 
 ```
 
