@@ -3,7 +3,6 @@ title: "Lab 5: Student Evaluations of Teaching"
 author: "Instructions"
 format: 
   html:  
-    embed-resources: true
     code-tools: true
     toc: true
 editor: source
