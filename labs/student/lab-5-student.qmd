@@ -1,9 +1,11 @@
 ---
 title: "Lab 5: Student Evaluations of Teaching"
 author: "Your name here!"
-format: html
+format: gfm
 editor: source
 embed-resources: true
+execute: 
+  echo: true
 ---
 
 In this lab, we will be using the `dplyr` package to explore student evaluations
