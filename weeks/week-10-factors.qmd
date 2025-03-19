@@ -27,11 +27,7 @@ data visualizations.
 
 ------------------------------------------------------------------------
 
-#### `r emo::ji("play button")` Watch Videos: 9-minutes
-
 #### `r emo::ji("book")` Readings: 15-minutes
-
-#### `r emo::ji("computer")` Activities: 0
 
 #### `r emo::ji("check")` Check-ins: 1
 
@@ -56,7 +52,6 @@ knitr::include_graphics("images/week-4/forcats.png")
 ```
 :::
 
-`r emo::ji("play button")` [Required Video: Working with factors using forcats -- 9 minutes](https://www.youtube.com/embed/dAiSYli7tVg)
 
 In short, factors are categorical variables with a fixed number of values (think
 a set number of groups). One of the main features that set factors apart from
@@ -66,9 +61,9 @@ create and manipulate factor variables.
 
 `r emo::ji("book")` [Required Reading: *R4DS* Chapter 16 (Factors) ](https://r4ds.hadley.nz/factors.html)
 
-### `r emo::ji("check")` **Check-in 4.3: Functions from `forcats`**
+### `r emo::ji("check")` **Check-in: Functions from `forcats`**
 
-Answer the following questions in the Canvas Quiz.
+Answer the following questions.
 
 **1. Which of the following tasks can `fct_recode()` accomplish?** Select all 
 that apply!

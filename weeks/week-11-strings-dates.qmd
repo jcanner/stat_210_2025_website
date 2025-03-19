@@ -28,8 +28,6 @@ able to:
 
 ------------------------------------------------------------------------
 
-#### `r emo::ji("play button")` Watch Videos: 20 minutes
-
 #### `r emo::ji("book")` Readings: 60-75 minutes
 
 #### `r emo::ji("check")` Preview Activities: 2
@@ -45,6 +43,7 @@ strings to regular expressions, which are extremely powerful (and extremely
 complicated).
 
 ::: column-margin
+Great video that goes more in depth into `stringr`
 {{< video https://www.youtube.com/embed/Oo_MtXwpi2Q >}} 
 :::
 
@@ -350,10 +349,6 @@ intuitive given we all work with schedules and calendars everyday. However,
 there are little nuances that we will learn to make working with dates and times
 easier.
 
-::: column-margin
-{{< video https://www.youtube.com/embed/SEPjN2AJqbo >}} 
-:::
-
 ### `r emo::ji("book")` [Required Reading: *R4DS* -- Dates and Times](https://r4ds.hadley.nz/datetimes.html)
 
 ::: {.callout-tip collapse="true"}
@@ -368,7 +363,7 @@ easier.
 -   [A tutorial on lubridate](https://data.library.virginia.edu/working-with-dates-and-time-in-r-using-the-lubridate-package/) - scroll down for details on intervals if you have trouble with `%within%` and `%--%`
 :::
 
-### `r emo::ji("check")` **Check-in 5.2: Functions from `lubridate`**
+### `r emo::ji("check")` **Check-in: Functions from `lubridate`**
 
 **Q1** Which of the following is true about the `year()` function?
 
