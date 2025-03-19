@@ -60,6 +60,10 @@ website:
             text: "Week 6-7 - Transforming Data"
           - href: weeks/week-8-9-reshaping-joining.qmd
             text: "Week 8-9 - Pivoting and Joining Data"
+          - href: weeks/week-10-factors.qmd
+            text: "Week 10 - Factors"
+          - href: weeks/week-11-strings-dates.qmd
+            text: "Week 11 - Strings, Dates, and Times"  
           
       - section: "Labs" 
         contents:
