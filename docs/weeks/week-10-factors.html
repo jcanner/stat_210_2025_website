@@ -29,6 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../weeks/week-11-strings-dates.html" rel="next">
+<link href="../weeks/week-8-9-reshaping-joining.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -80,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Working with Categorical Variables</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week-1-r-rstudio.html">Weekly materials</a></li><li class="breadcrumb-item"><a href="../weeks/week-10-factors.html">Week 10 - Factors</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -141,13 +143,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Weekly materials</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../weeks/week-1-r-rstudio.html" class="sidebar-item-text sidebar-link">
@@ -188,6 +190,18 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../weeks/week-8-9-reshaping-joining.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 8-9 - Pivoting and Joining Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-10-factors.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 10 - Factors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-11-strings-dates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11 - Strings, Dates, and Times</span></a>
   </div>
 </li>
       </ul>
@@ -245,7 +259,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#factors-with-forcats" id="toc-factors-with-forcats" class="nav-link active" data-scroll-target="#factors-with-forcats"><span class="header-section-number">1</span> Factors with <code>forcats</code></a>
   <ul class="collapse">
-  <li><a href="#check-in-4.3-functions-from-forcats" id="toc-check-in-4.3-functions-from-forcats" class="nav-link" data-scroll-target="#check-in-4.3-functions-from-forcats">✅ <strong>Check-in 4.3: Functions from <code>forcats</code></strong></a></li>
+  <li><a href="#check-in-functions-from-forcats" id="toc-check-in-functions-from-forcats" class="nav-link" data-scroll-target="#check-in-functions-from-forcats">✅ <strong>Check-in: Functions from <code>forcats</code></strong></a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jcanner/stat_210_2025_website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -253,7 +267,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week-1-r-rstudio.html">Weekly materials</a></li><li class="breadcrumb-item"><a href="../weeks/week-10-factors.html">Week 10 - Factors</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Working with Categorical Variables</h1>
 </div>
@@ -277,14 +291,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Use forcats to reorder and relabel factor variables in data cleaning steps and data visualizations.</li>
 </ul>
 <hr>
-<section id="watch-videos-9-minutes" class="level4">
-<h4 class="anchored" data-anchor-id="watch-videos-9-minutes">▶️ Watch Videos: 9-minutes</h4>
-</section>
 <section id="readings-15-minutes" class="level4">
 <h4 class="anchored" data-anchor-id="readings-15-minutes">📖 Readings: 15-minutes</h4>
-</section>
-<section id="activities-0" class="level4">
-<h4 class="anchored" data-anchor-id="activities-0">💻 Activities: 0</h4>
 </section>
 <section id="check-ins-1" class="level4">
 <h4 class="anchored" data-anchor-id="check-ins-1">✅ Check-ins: 1</h4>
@@ -304,12 +312,11 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-</div></div><p>▶️ <a href="https://www.youtube.com/embed/dAiSYli7tVg">Required Video: Working with factors using forcats – 9 minutes</a></p>
-<p>In short, factors are categorical variables with a fixed number of values (think a set number of groups). One of the main features that set factors apart from groups is that you can reorder the groups to be non-alphabetical. In this section we will be using the <code>forcats</code> package (part of the <code>tidyverse</code>!) to create and manipulate factor variables.</p>
+</div></div><p>In short, factors are categorical variables with a fixed number of values (think a set number of groups). One of the main features that set factors apart from groups is that you can reorder the groups to be non-alphabetical. In this section we will be using the <code>forcats</code> package (part of the <code>tidyverse</code>!) to create and manipulate factor variables.</p>
 <p>📖 <a href="https://r4ds.hadley.nz/factors.html">Required Reading: <em>R4DS</em> Chapter 16 (Factors)</a></p>
-<section id="check-in-4.3-functions-from-forcats" class="level3">
-<h3 class="anchored" data-anchor-id="check-in-4.3-functions-from-forcats">✅ <strong>Check-in 4.3: Functions from <code>forcats</code></strong></h3>
-<p>Answer the following questions in the Canvas Quiz.</p>
+<section id="check-in-functions-from-forcats" class="level3">
+<h3 class="anchored" data-anchor-id="check-in-functions-from-forcats">✅ <strong>Check-in: Functions from <code>forcats</code></strong></h3>
+<p>Answer the following questions.</p>
 <p><strong>1. Which of the following tasks can <code>fct_recode()</code> accomplish?</strong> Select all that apply!</p>
 <ul>
 <li>changes the values of the factor levels</li>
@@ -914,6 +921,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../weeks/week-8-9-reshaping-joining.html" class="pagination-link" aria-label="Week 8-9 - Pivoting and Joining Data">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 8-9 - Pivoting and Joining Data</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../weeks/week-11-strings-dates.html" class="pagination-link" aria-label="Week 11 - Strings, Dates, and Times">
+        <span class="nav-page-text">Week 11 - Strings, Dates, and Times</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

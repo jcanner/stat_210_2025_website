@@ -63,6 +63,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../labs/instructions/lab-1-instructions.html" rel="next">
+<link href="../weeks/week-10-factors.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -114,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Special Data Types</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week-1-r-rstudio.html">Weekly materials</a></li><li class="breadcrumb-item"><a href="../weeks/week-11-strings-dates.html">Week 11 - Strings, Dates, and Times</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -175,13 +177,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Weekly materials</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../weeks/week-1-r-rstudio.html" class="sidebar-item-text sidebar-link">
@@ -222,6 +224,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../weeks/week-8-9-reshaping-joining.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 8-9 - Pivoting and Joining Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-10-factors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10 - Factors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-11-strings-dates.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 11 - Strings, Dates, and Times</span></a>
   </div>
 </li>
       </ul>
@@ -289,7 +303,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#sec-dates" id="toc-sec-dates" class="nav-link" data-scroll-target="#sec-dates"><span class="header-section-number">2</span> Part 2: Dates</a>
   <ul class="collapse">
   <li><a href="#required-reading-r4ds-dates-and-times" id="toc-required-reading-r4ds-dates-and-times" class="nav-link" data-scroll-target="#required-reading-r4ds-dates-and-times">📖 Required Reading: <em>R4DS</em> – Dates and Times</a></li>
-  <li><a href="#check-in-5.2-functions-from-lubridate" id="toc-check-in-5.2-functions-from-lubridate" class="nav-link" data-scroll-target="#check-in-5.2-functions-from-lubridate">✅ <strong>Check-in 5.2: Functions from <code>lubridate</code></strong></a></li>
+  <li><a href="#check-in-functions-from-lubridate" id="toc-check-in-functions-from-lubridate" class="nav-link" data-scroll-target="#check-in-functions-from-lubridate">✅ <strong>Check-in: Functions from <code>lubridate</code></strong></a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jcanner/stat_210_2025_website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -297,7 +311,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week-1-r-rstudio.html">Weekly materials</a></li><li class="breadcrumb-item"><a href="../weeks/week-11-strings-dates.html">Week 11 - Strings, Dates, and Times</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Special Data Types</h1>
 </div>
@@ -322,9 +336,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Work with date and time variables using <code>lubridate</code></li>
 </ul>
 <hr>
-<section id="watch-videos-20-minutes" class="level4">
-<h4 class="anchored" data-anchor-id="watch-videos-20-minutes">▶️ Watch Videos: 20 minutes</h4>
-</section>
 <section id="readings-60-75-minutes" class="level4">
 <h4 class="anchored" data-anchor-id="readings-60-75-minutes">📖 Readings: 60-75 minutes</h4>
 </section>
@@ -337,6 +348,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Nearly always, when multiple variables are stored in a single column, they are stored as character variables. There are many different “levels” of working with strings in programming, from simple find-and-replaced of fixed (constant) strings to regular expressions, which are extremely powerful (and extremely complicated).</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
+<p>Great video that goes more in depth into <code>stringr</code></p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/Oo_MtXwpi2Q" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div></div><section id="required-reading-r4ds-strings" class="level3">
 <h3 class="anchored" data-anchor-id="required-reading-r4ds-strings">📖 <a href="https://r4ds.had.co.nz/strings.html">Required Reading: <em>R4DS</em> – Strings</a></h3>
@@ -676,13 +688,10 @@ Short Regular Expressions Primer
 </section>
 </section>
 </section>
-<section id="sec-dates" class="level1 page-columns page-full" data-number="2">
+<section id="sec-dates" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Part 2: Dates</h1>
 <p>In order to fill in an important part of our toolbox, we need to learn how to work with date variables. These variables feel like they should be simple and intuitive given we all work with schedules and calendars everyday. However, there are little nuances that we will learn to make working with dates and times easier.</p>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/SEPjN2AJqbo" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-</div></div><section id="required-reading-r4ds-dates-and-times" class="level3">
+<section id="required-reading-r4ds-dates-and-times" class="level3">
 <h3 class="anchored" data-anchor-id="required-reading-r4ds-dates-and-times">📖 <a href="https://r4ds.hadley.nz/datetimes.html">Required Reading: <em>R4DS</em> – Dates and Times</a></h3>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
@@ -706,8 +715,8 @@ Extra resources
 </div>
 </div>
 </section>
-<section id="check-in-5.2-functions-from-lubridate" class="level3">
-<h3 class="anchored" data-anchor-id="check-in-5.2-functions-from-lubridate">✅ <strong>Check-in 5.2: Functions from <code>lubridate</code></strong></h3>
+<section id="check-in-functions-from-lubridate" class="level3">
+<h3 class="anchored" data-anchor-id="check-in-functions-from-lubridate">✅ <strong>Check-in: Functions from <code>lubridate</code></strong></h3>
 <p><strong>Q1</strong> Which of the following is true about the <code>year()</code> function?</p>
 <ul>
 <li><code>year()</code> creates a duration object to be added to a datetime</li>
@@ -1297,6 +1306,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../weeks/week-10-factors.html" class="pagination-link" aria-label="Week 10 - Factors">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 10 - Factors</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../labs/instructions/lab-1-instructions.html" class="pagination-link" aria-label="Lab 1 &amp; Challenge 1 Instructions">
+        <span class="nav-page-text">Lab 1 &amp; Challenge 1 Instructions</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
