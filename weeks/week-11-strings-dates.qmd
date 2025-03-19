@@ -303,7 +303,7 @@ tibble(
 ```
 :::
 
-### `r emo::ji("check")` **Check-in 5.1: Functions from `stringr`**
+### `r emo::ji("check")` **Check-in: Functions from `stringr`**
 
 **1 Which of the follow are differences between `length()` and `str_length()`?**
 
