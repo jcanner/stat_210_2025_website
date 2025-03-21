@@ -1,0 +1,443 @@
+---
+title: "United Nations Voting Records"
+author: "Instructions"
+format: html
+embed-resources: true
+code-tools: true
+toc: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  eval: false
+  message: false
+  warning: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(tidyverse)
+library(lubridate) #should already be installed as a part of the tidyverse, we will talk more about this in Week 10
+library(scales)  #you may need to install package `scales`
+```
+
+
+***This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to produce the best product possible, you will need to use the skills of each member of your group.***
+
+<!-- The person who has the most siblings (or cousins if both are only children) starts as the Developer (typing and listening to instructions from the Coder)!  -->
+
+
+::: {.callout-note}
+Note: Since the project folder is already shared as a zip file, using the commands:  
+
+  - `usethis::use_git()`  
+  - `usethis::use_github()`
+
+might be easier to initiate your github repository. 
+:::
+
+
+## Goals for the Activity  
+
+- Join multiple data tables together by a common variable(s)  
+- Create new data sets through the joining of data from various sources  
+- Combine `join` functions with other `tidyverse` functions  
+
+**THROUGHOUT THE Activity** be sure to follow the Style Guide by doing the following:  
+
+- load the appropriate packages at the beginning of the Quarto document  
+- use proper spacing  
+- *add labels* to all code chunks  
+- comment at least once in each code chunk to describe why you made your coding decisions  
+- add appropriate labels to all graphic axes  
+
+
+
+
+# Data Description
+The data this week comes from Harvard's Dataverse by way of Mine Çetinkaya-Rundel, David Robinson, and Nicholas Goguen-Compagnoni.
+
+> Original Data citation: Erik Voeten "Data and Analyses of Voting in the UN General Assembly" Routledge Handbook of International Organization, edited by Bob Reinalda (published May 27, 2013). Available at SSRN: http://ssrn.com/abstract=2111149
+
+It was featured on [TidyTuesday](https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-03-23/readme.md)
+
+Here is each data set and its description (you might want to look at the Tidy Tuesday link for the tables already rendered)
+
+`unvotes.csv`
+
+|variable     |class     |description |
+|:------------|:---------|:-----------|
+|rcid         |double    | The roll call id; used to join with un_votes and un_roll_call_issues |
+|country      |character | Country name, by official English short name |
+|country_code |character | 2-character ISO country code |
+|vote         |integer   | Vote result as a factor of yes/abstain/no |
+
+
+```{r}
+unvotes <- read_csv("data/unvotes.csv")
+```
+
+
+
+`roll_calls.csv`
+
+|variable      |class     |description |
+|:-------------|:---------|:-----------|
+|rcid          |integer   |.           |
+|session       |double    | Session number. The UN holds one session per year; these started in 1946|
+|importantvote |integer   | Whether the vote was classified as important by the U.S. State Department report "Voting Practices in the United Nations". These classifications began with session 39|
+|date          |double    | Date of the vote, as a Date vector|
+|unres         |character | Resolution code |
+|amend         |integer   | Whether the vote was on an amendment; coded only until 1985 |
+|para          |integer   | Whether the vote was only on a paragraph and not a resolution; coded only until 1985|
+|short         |character |  Short description |
+|descr         |character | Longer description|
+
+
+```{r}
+#edit to read in roll_calls
+roll_calls <- read_csv("__________")
+```
+
+
+
+`issues.csv`
+
+|variable   |class     |description |
+|:----------|:---------|:-----------|
+|rcid       |integer   | The roll call id; used to join with unvotes and un_roll_calls |
+|short_name |character | Two-letter issue codes |
+|issue      |integer   | Descriptive issue name |
+
+```{r}
+#edit to read in issues
+
+```
+
+
+
+<!-- Swap roles -- Developer becomes Coder, Coder becomes Developer! -->
+
+
+
+## Data Exploration
+Our goal today is to explore how various members (countries) in the United Nations vote. We have three data sets, what can we determine from each data set separately?
+
+
+### UN Votes
+
+The first data set, `unvotes` contains data on the `rcid` which is the roll call id for the vote, the country/country code, and how the country voted. What can we learn from the data?  
+
+
+Comment on the following code, what is happening in each line?  One way to approach seeing what each line does is to highlight the code from before the `pipe` of that line up to the data `unvotes` and use `CTRL + ENTER` to run just the highlighted lines.  
+
+```{r}
+unvotes |> 
+  count(country, vote) |> #comment
+  group_by(country) |> #comment
+  mutate(total = sum(n)) |> #comment 
+  mutate(prop_vote = n/total) |> #comment
+  filter(country %in% c("United States", "Canada", 
+                        "Germany", "France",
+                        "Italy", "Japan",
+                        "United Kingdom")) |> #comment
+  ggplot(aes(x = country, y = prop_vote, 
+             fill = vote)) + #comment
+  geom_col(position = position_stack()) + #comment
+  labs(x = "Group of Seven Countries",
+       y = "Proportion of Votes",
+       title = "Voting Record of the G7",
+       fill = "Vote") + #comment
+  theme_minimal() +  #comment
+  scale_fill_viridis_d(end = 0.8) + #comment
+  coord_flip() #comment
+```
+
+> Describe what the graph above demonstrates above UN voting records for the G7 
+  
+  
+  
+  
+
+<!-- Swap roles -- Developer becomes Coder, Coder becomes Developer! -->
+
+
+
+
+### Roll Calls
+
+The second data set, `roll_calls` has more information on the type of vote, the importance, whether it was a resolution, and date of the vote.  What does eh following code do?
+
+```{r}
+roll_calls |> 
+  distinct(short)
+```
+
+> Description of code results
+
+
+
+We can use the individual data for `roll_calls` to look at the number of votes per year over time.
+
+```{r}
+roll_calls |> 
+  mutate(year = lubridate::year(date)) |> #extracts the year from the date value and creates a new `year` column
+  count(year) |> #counts how many votes there were per year assuming each line is an single voting instance
+  ggplot(aes(x = year, y = n)) +
+  geom_line() +
+  labs(x = "Year", y = "Number of Votes",
+       title = "UN Votes per Year") +
+  theme_minimal()
+```
+
+
+
+What information is missing from the above graphic that might be useful in understanding the issues the UN commonly votes on?
+
+> Insert Answer Here
+
+
+
+We could try and look at the short descriptions, `short`, for each vote with the following code. 
+```{r}
+roll_calls |> 
+  count(short)
+```
+
+Does the above information help us understand the voting issues of the UN over time? Explain.
+
+> Insert your answer here
+
+
+
+<!-- Swap roles -- Developer becomes Coder, Coder becomes Developer! -->
+
+
+### Issues 
+Finally we have the `issues` data which provides a more general description for each vote on specific issues.  Note that not all issues are included in the data set, just the ones related to the 6 issues below:
+
+```{r}
+issues |> 
+  count(issue)
+```
+
+It would be helpful to use the `issues` data with the `roll_calls` data to be able to better understand the voting trends within the UN on at least these 6 issues. To do this, we need to join the data.  
+
+
+
+# Votes Over Time  
+Now let's join our data together to get a better idea of how the UN has voted over time.  
+First, look at the number of rows in `issues` and `roll_calls` - do they match? What does this indicate?
+
+```{r}
+dim(issues)
+dim(roll_calls)
+```
+
+
+> Insert Answer Here
+
+
+
+Now let's try joining the `roll_calls` with the `issues` data.  Compare the following codes to join the data. Describe what each one does and how it differs from the others as a comment in the code chunk.  You might need to reference the slides or reading for this week.
+
+```{r}
+roll_calls |> 
+  left_join(issues, by = "rcid") #description of join
+```
+
+```{r}
+roll_calls |> 
+  right_join(issues, by = "rcid") #description of join
+```
+
+```{r}
+roll_calls |> 
+  full_join(issues, by = "rcid") #description of join
+```
+
+```{r}
+roll_calls |> 
+  inner_join(issues, by = "rcid") #description of join
+```
+
+**If we are only interested in retaining the records associated with the `issues` labeled in our data, which join(s) should we use?**
+
+> Insert answer here
+
+
+
+
+<!-- Swap roles -- Developer becomes Coder, Coder becomes Developer! -->
+
+
+Now that we know how to join the data, we will use the following code to examine the the voting trends for three of the issues related to conflict/weapons. 
+
+Be sure to run the code via the green arrow on the code chunk, as the `case_when()` code can get finicky sometimes and claim an error about a comma in the code when it doesn't exist.  *Comment on the code where indicated* and add your chosen join function
+```{r}
+roll_calls |> 
+  _________(issues, by = "rcid") |>  #join roll_calls and issues so that just the votes related to the issues data are retained.
+  mutate(issue = case_when(
+    issue == "Arms control and disarmament" ~ "Arms Control",
+    issue == "Nuclear weapons and nuclear material" ~ "Nuclear Weapons",
+    issue == "Palestinian conflict" ~ "Palestinian Conflict")) |>   #what is happening in this mutate function?
+  drop_na(issue) |> #drop NAs for values not defined in the previous line of code
+  mutate(year = lubridate::year(date)) |> #create a column `year` that contains the year value
+  count(year, issue) |> #what does this line do?
+  ggplot(aes(x = year, y = n, group = issue)) + #what does this line do?
+  geom_line(aes(color = issue)) + #what does this line do?
+  labs(x = "Year", y = "Number of Votes",
+       title = "United Nations Votes per Year",
+       subtitle = "Conflict and Arms Related Votes",
+       color = "Voting Issue") +
+  theme_minimal()
+```
+
+
+
+
+What do you notice? What do you wonder based on the graph created?
+> Insert Answer Here
+
+
+
+
+<!-- Swap roles -- Developer becomes Coder, Coder becomes Developer! -->
+
+
+# Challenge 1: Joining all Data
+
+We want to try and create the following visualization
+
+![](goal_graph.png)   
+
+
+
+
+To do this, though, we need information from all three data set, `unvotes`, `issues`, and `roll_calls`
+
+We want to join all three data sets together, *maintaining only the votes for which we have identified the general issue* (e.g., Nuclear War, Arms, Economics, etc.).  We will save (assign) the data as `un_full`.  Fill in the best *join functions* to do maintain just the votes for which we have identified the general issue.
+
+```{r}
+un_full <- unvotes |> 
+  _________(issues, by = "rcid") |> 
+  _________(roll_calls, by = "rcid") 
+
+#View(un_full)
+```
+
+
+Now, we are going to do some data cleaning.  Our goal is create a data set that includes the percentage of "yes" votes per country each year. Fill in the missing _________ with the correct verbs. We will call the data table `yes_votes`
+```{r}
+yes_votes <- un_full |> 
+  _________(country, issue, date, vote) |>  #keep just the columns for country, issue, date, vote
+  _________(year = lubridate::year(date)) |> #create a new variable called year
+  _________(country, year, issue) |> #group country, year, issue together to prepare for subsequent analysis
+  _________(percent_yes = mean(vote == "yes")) |> #calculate the proportion of yes votes
+  _________(issue = case_when(
+    issue == "Arms control and disarmament" ~ "Arms Control",
+    issue == "Nuclear weapons and nuclear material" ~ "Nuclear Weapons",
+    issue == "Palestinian conflict" ~ "Palestinian Conflict",
+    TRUE ~ issue)) #create/overwrite issue column with simpler values
+
+#View(yes_votes) #you can use this code to look at the table created
+```
+
+
+Now write the clean data `yes_votes` to a new data set in the data folder so we don't have to rerun the above code again if we want to use the data in the future.  
+
+
+```{r}
+_____csv(yes_votes, "_____/yes_votes.csv")
+```
+
+
+
+
+Now we can feed the `yes_votes` transformed data table into your graphing code, but first we will want to focus on the United States and Canada. *Provide a comment to describe what each line of code is doing in the process*.  
+
+```{r}
+yes_votes |> 
+  filter(country %in% c("United States","Canada")) |> # your comment here
+  ggplot(mapping = aes(x = year, y = percent_yes, color = country)) + # your comment here
+  geom_point(alpha = 0.4) + # your comment here
+  #geom_line(aes(group = country)) +
+  geom_smooth(method = "loess", se = FALSE) + #this fits a special model called a loess regression, a smooth line that fits the data
+  facet_wrap(~issue) + # your comment here
+  scale_y_continuous(labels = scales::percent) + #your comment here
+  labs(
+    title = "Percentage of 'Yes' votes in the UN General Assembly",
+    subtitle = "1946 to 2015",
+    y = "% Yes",
+    x = "Year",
+    color = "Country"
+  ) + #your comment here
+  theme_bw() +
+  theme(legend.position = "bottom") + #your comment here 
+  scale_color_viridis_d(option = "turbo") #your comment here
+```
+
+
+What do you notice about the voting records over time? 
+
+>Insert Answer Here
+
+
+
+
+
+
+# Challenge 2: Adding more data
+<!-- You do not need to complete this section unless you want to! It is a challenge problem to help you further apply what you did above. -->
+After your instructor created the above plot, she became curious about how politics might impact the UN Voting record for the United States since UN Ambassador is a presidential appointment. So your instructor started searching for a data set of US presidents, their years in office, and their political affiliation.  She found a data set on Kaggle.com and removed the information prior to 1940 (because the dates were coded funny and it was causing problems). She saved the data as `us_presidents.csv` and imported it into the project.
+
+```{r}
+president <- read_csv("data/us_presidents.csv")
+```
+
+She realized that her data only had the start/end dates for each president and she wanted a data set that filled in the missing years and political party for the president in that time period.  After much googling and reading Stack Overflow, found two functions she did not know about called `complete()` and `fill()` to fill in the missing years and party affiliations  
+
+
+```{r}
+politics_year <- president |> 
+    mutate(start = lubridate::mdy(start),  #formats date correctly
+           start_year = lubridate::year(start)) |> #pulls out year
+  filter(start_year > 1940) |>  #removes data before 1940 since there was no UN
+  select(start_year, party) |>   #pulls out just the variables of interest
+  complete(start_year = seq(min(start_year), 2020, by = 1)) |> #fill in missing years
+  fill(party) #fill in missing party affiliations for years
+```
+
+
+Next, your instructor took the `yes_votes` data and filtered out just the United States data and then joined by year to add the party affiliation of the president for each year of UN votes.  To create the visualization with the smoothed model, but color by party affiliation, she had to add a new column called `predict` that fit the model first instead of using `geom_smooth()`.  
+
+Comment the code below: 
+```{r}
+yes_votes |> 
+  filter(country == "United States") |>  #comment
+  left_join(politics_year, by = c("year" = "start_year")) |> #comment
+  group_by(issue) |>  #comment
+  mutate(predict = predict(loess(percent_yes~year))) |>  #comment
+  ggplot(mapping = aes(x = year, color = party, group = 1)) + #comment
+  geom_point(aes(y = percent_yes),alpha = 0.4) + #comment
+  geom_line(aes(y = predict)) + #comment
+  facet_wrap(~issue) + #comment
+  scale_y_continuous(labels = scales::percent) + #comment
+  labs(
+    title = "Percentage of 'Yes' votes in the UN General Assembly",
+    subtitle = "1946 to 2015",
+    y = "% Yes",
+    x = "Year",
+    color = "Country"
+  ) + #comment
+  theme_bw() + #comment
+  scale_color_manual(values = c("blue", "red")) + #comment
+  theme(legend.position = "bottom")  #comment
+```
+
+What do you notice? What do you wonder?
+
+> Insert your answer
+
+
