@@ -1,5 +1,5 @@
 ---
-title: "United Nations Voting Records"
+title: "PA 6: United Nations Voting Records"
 author: "Instructions"
 format: html
 embed-resources: true
