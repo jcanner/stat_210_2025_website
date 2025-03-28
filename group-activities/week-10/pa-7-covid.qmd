@@ -1,0 +1,205 @@
+---
+title: "PA 7: COVID-19 Infections and Impact on States"
+author: "Instructions"
+format: 
+  html: default
+  gfm: default
+embed-resources: true
+code-tools: true
+toc: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  eval: false
+  message: false
+  warning: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(tidyverse)
+library(scales) #can make nicer axis labels for graphs
+```
+
+
+***This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to produce the best product possible, you will need to use the skills of each member of your group.***
+
+<!-- The person who has the most relaxing Spring Break plans starts as the Developer (typing and listening to instructions from the Coder)!  -->
+
+
+::: {.callout-note}
+Note: Since the project folder is already shared as a zip file, using the commands:  
+
+  - `usethis::use_git()`  
+  - `usethis::use_github()`
+
+might be easier to initiate your github repository. 
+:::
+
+
+## Goals for the Activity  
+
+- Use the `dplyr` verbs to transform your data  
+- Create new data sets through the joining of data from various sources 
+- Use `forcats` to reorder values on a graph for easier comparison  
+
+
+**THROUGHOUT THE Activity** be sure to follow the Style Guide by doing the following:  
+
+- load the appropriate packages at the beginning of the Quarto document  
+- use proper spacing  
+- *add labels* to all code chunks  
+- comment at least once in each code chunk to describe why you made your coding decisions  
+- add appropriate labels to all graphic axes  
+
+
+
+## Setup - United States COVID-19 Cases and Deaths
+Starting in January 2020, the New York Times started reporting on COVID-19 infections in the United States and eventually created a [Githhub Repository](https://github.com/nytimes/covid-19-data/) of the data they used and reported on in their stories (a field called "Data Journalism"). They ended their data collection in March 2023 and switched to just using data from national reporting systems. 
+
+We will use their data to evaluate COVID-19 and how it varied across different states. Here are the NY Times data on cumulative cases by date and states (including territories).
+```{r}
+#| label: read-data
+#| eval: false
+# data comes from NY Times GitHub Repository - ends March 2023
+# not evaluating this code chunk because we will clean the data and use the clean data set
+cases <- read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv")
+```
+
+Note that both `cases` and `deaths` are cumulative by date and we will want to observe just the unique cases per day so we can get various estimates of totals across the states.  
+
+If we want to extract the daily cases we can use the following code which will calculate the difference in (cumulative) cases for one day minus the previous day using the `diff()` function from `base` R.  
+
+```{r}
+#| label: calculate-new-daily-cases
+#| eval: false
+# calculates the unique new daily cases and deaths for each state
+# eval is false since we created a new data set we will use going forward
+cases |> 
+  group_by(state) |> 
+  arrange(state, date) |> 
+  mutate(cases_daily = c(cases[1], diff(cases)),
+         deaths_daily = c(deaths[1], diff(deaths))) |> 
+  ungroup() |> 
+  write_csv("covid_cases_us.csv")
+```
+
+Now that are data is in the format we need (sort of), we will start our analysis.  
+
+## Part 1: Greatest Number of Cases
+
+First, we need to read in our clean data.
+
+```{r}
+#| label: read-clean-covid-cases
+
+cases <- read_csv("covid_cases_us.csv")
+```
+
+
+### Which 10 US States/Territories had the most COVID-19 Cases from January 2020-March 2023
+
+We want to identify the states with the most cases (top 10). To do this, we will need to modify our data to find the total number of cases for each state. The code below does this but ***it has errors!*** 
+
+Correct the errors and then assign the resulting data to `state_totals`.  
+
+```{r}
+#| label: calculate-totals
+
+cases |> 
+  groupby(state) |> 
+  sum(total = sum(case_daily)) |> 
+  ungroup() # this is useful to do after a group_by calculation is complete so you do not continue grouping by those variables 
+```
+
+
+Now use the `states_totals` and identify the top ten states/territories with the most cases between January 2020 and March 2023. Then make a graph ordered by greatest number of cases to least number of cases (Hint: use `forcats` functions to help you).
+
+```{r}
+#| label: top-10-states-cases
+
+state_totals |> 
+  ## order the data by total cases
+  ## extract just the top ten (Hint - look at the `slice() functions)
+  ## create a bar chart with x as the totals and y as the state names
+  ## order the states by greatest to smallest total on the graph
+  ## label, color, update as necessary to provide all relevant information
+```
+
+### Canvas Quiz Question 1
+
+**Which state had the most COVID-19 cases between January 2020 and March 2023?**
+
+>Insert Answer Here
+
+
+### Other Question
+**Is this the best way to look at our data? Is looking at just the total number of cases the best way to compare states?**
+
+>Insert Answer Here
+
+
+<!-- Swap roles -- Developer becomes Coder, Coder becomes Developer! -->
+
+
+
+## Part 2: Updating our Data Source
+
+Hopefully you realized that there is a flaw in our comparison. Many of the states with the most cases are also some of the biggest states in terms of population size! So is there a better way to make comparisons between groups with differing group sizes at baseline? YES! Here are a few options:  
+
+- Calculate the Proportion  
+- Calculate the Percentage  
+- Calculate a Rate, such as Rate per 100,000 people  
+
+
+To do any of the above calculations, we would need the population sizes for each state. Here is data from the US Census Bureau on the state estimated population size in 2019. 
+
+```{r}
+#| label: us-state-population-data
+us_pop <- read_csv("USpop2019.csv")
+```
+
+### Calculate a Relative Rate for Comparison
+
+Choose one of the above statistics to calculate to make our comparison between states/territories.  Then recreate your graph from above 
+
+```{r}
+state_totals |> 
+  ## add in column with state population sizes  
+  ## calculate your chosen relative rate (e.g. proportion, percentage, rate)
+  ## order the data by your relative rate
+  ## extract just the top ten (Hint - look at the `slice() functions)
+  ## create a bar chart with x as the relative rate and y as the state names
+  ## order the states by greatest to smallest relative rate on the graph
+  ## label, color, update as necessary to provide all relevant information
+```
+
+
+
+
+### Canvas Quiz Question 2
+
+**Which state had highest number of COVID-19 cases relative to population size between January 2020 and March 2023?**
+
+>Insert Answer Here
+
+
+### Other Questions
+**What are some possible issues with our analysis? Consider the following:**  
+
+- Data sources and reliability of the data  
+- Time scale and impact of time    
+- 
+
+>Insert Answer Here
+
+
+**What other questions would you like to try to answer using this data? Would that require other data sources? What information would you need to answer your questions?**
+
+>Insert Answer Here  
+
+
+
+

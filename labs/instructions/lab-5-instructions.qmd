@@ -57,7 +57,7 @@ To https://github.com/atheobold/introduction-to-quarto-allison-theobold.git
    3a2171f..6d58539  HEAD -> main
 ```
 
-## Step 4: Let's get started wranging some data!
+## Step 4: Let's get started wrangling some data!
 
 
 # Part 2: Some Words of Advice
