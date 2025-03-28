@@ -77,6 +77,11 @@ website:
             text: "Lab 4 Instructions"
           - href: labs/instructions/lab-5-instructions.qmd
             text: "Lab 5 Instructions"   
+      - section: "Portfolio" 
+        contents:
+          - href: portfolio/portfolio-overview.qmd
+            text: "Portfolio Part 1"
+
 
 format:
   html:

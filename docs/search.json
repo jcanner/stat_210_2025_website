@@ -1411,60 +1411,37 @@
     "text": "Discussion\n\nWhat do you think this game was about? What was its purpose?\nWhat did your group did that made you cooperate more successfully?\nWhat did your group did that made cooperation harder?\nWhat are some behaviors that could be implemented in the future to make cooperation easier?"
   },
   {
-    "objectID": "labs/instructions/lab-6-instructions.html",
-    "href": "labs/instructions/lab-6-instructions.html",
-    "title": "Lab 6: Starting your Portfolio Project",
+    "objectID": "portfolio/portfolio-overview.html",
+    "href": "portfolio/portfolio-overview.html",
+    "title": "Portfolio Part 1: Development and Planning",
     "section": "",
-    "text": "In this lab, we will be using the dplyr and tidyr package to start to clean and prepare your data for analysis for your portfolio project.\nYou are expected to use functions from the tidyverse packages to do your data manipulation!"
+    "text": "The Portfolio component is a place for you to put your R skills into action on a problem you are interested in with the goal of have a project you could share with future employers.\nIt should have the following qualities:\n\nIt is a real-world application of R that has not exactly been worked out before (e.g. it isn’t a demo from some package or blog).\n\nIt is interesting to you.\n\nIt involves data and analyzing or presenting that data. The data may be data you have from a lab, or something you have retrieved from the web, some examples of good sources: FBI database on crime statistics, National Oceanic and Atmospheric Administration, World Health Organization, Twitter, Yahoo finance data, etc. If you are having problems finding a dataset, see the resources at the end of the project description.\n\nThe analysis and presentation is useful in the real-world.\n\nThese are real-world projects, but they are also class projects and there can be unforeseen unknowns, if you find that it is going to be impossible to finish what you set out to accomplish, please contact your instructor to find a solution.\n\n\nThe final product will be a website page, hosted on your personal website, the includes the following content:\n\nDescription of the proposed research questions\n\nDescription of the data and data source(s)\n\nDescription of data cleaning\n\n2-3 data visualizations with commentary that answer the research questions\n\nThough no code should be visible on the website, the quarto document used to create the final product should contain all code for data cleaning and data visualization, commented and following a coding style conventions.",
+    "crumbs": [
+      "Portfolio",
+      "Portfolio Part 1"
+    ]
   },
   {
-    "objectID": "labs/instructions/lab-6-instructions.html#step-1-make-a-git-hub-repository",
-    "href": "labs/instructions/lab-6-instructions.html#step-1-make-a-git-hub-repository",
-    "title": "Lab 6: Starting your Portfolio Project",
-    "section": "Step 1: Make a Git Hub Repository",
-    "text": "Step 1: Make a Git Hub Repository"
+    "objectID": "portfolio/portfolio-overview.html#portfolio-expectations",
+    "href": "portfolio/portfolio-overview.html#portfolio-expectations",
+    "title": "Portfolio Part 1: Development and Planning",
+    "section": "",
+    "text": "The final product will be a website page, hosted on your personal website, the includes the following content:\n\nDescription of the proposed research questions\n\nDescription of the data and data source(s)\n\nDescription of data cleaning\n\n2-3 data visualizations with commentary that answer the research questions\n\nThough no code should be visible on the website, the quarto document used to create the final product should contain all code for data cleaning and data visualization, commented and following a coding style conventions.",
+    "crumbs": [
+      "Portfolio",
+      "Portfolio Part 1"
+    ]
   },
   {
-    "objectID": "labs/instructions/lab-6-instructions.html#step-2-making-a-small-change",
-    "href": "labs/instructions/lab-6-instructions.html#step-2-making-a-small-change",
-    "title": "Lab 6: Starting your Portfolio Project",
-    "section": "Step 2: Making a Small Change",
-    "text": "Step 2: Making a Small Change"
-  },
-  {
-    "objectID": "labs/instructions/lab-6-instructions.html#step-3-pushing-your-lab-to-github",
-    "href": "labs/instructions/lab-6-instructions.html#step-3-pushing-your-lab-to-github",
-    "title": "Lab 6: Starting your Portfolio Project",
-    "section": "Step 3: Pushing Your Lab to GitHub",
-    "text": "Step 3: Pushing Your Lab to GitHub"
-  },
-  {
-    "objectID": "labs/instructions/lab-6-instructions.html#step-4-lets-get-started-wrangling-some-data",
-    "href": "labs/instructions/lab-6-instructions.html#step-4-lets-get-started-wrangling-some-data",
-    "title": "Lab 6: Starting your Portfolio Project",
-    "section": "Step 4: Let’s get started wrangling some data!",
-    "text": "Step 4: Let’s get started wrangling some data!"
-  },
-  {
-    "objectID": "labs/instructions/lab-6-instructions.html#setting-up-your-code-chunks",
-    "href": "labs/instructions/lab-6-instructions.html#setting-up-your-code-chunks",
-    "title": "Lab 6: Starting your Portfolio Project",
-    "section": "Setting Up Your Code Chunks",
-    "text": "Setting Up Your Code Chunks\n\nThe first chunk of your Quarto document should be to declare your libraries (probably only tidyverse for now).\nThe second chunk of your Quarto document should be to load in your data."
-  },
-  {
-    "objectID": "labs/instructions/lab-6-instructions.html#save-regularly-render-often",
-    "href": "labs/instructions/lab-6-instructions.html#save-regularly-render-often",
-    "title": "Lab 6: Starting your Portfolio Project",
-    "section": "Save Regularly, Render Often",
-    "text": "Save Regularly, Render Often\n\nBe sure to save your work regularly.\nBe sure to render your file every so often, to check for errors and make sure it looks nice.\n\nMake sure your Quarto document does not contain View(dataset) or install.packages(\"package\"), both of these will prevent rendering.\nCheck your Quarto document for occasions when you looked at the data by typing the name of the data frame. Leaving these in means the whole dataset will print out and this looks unprofessional. Remove these!\nIf all else fails, you can set your execution options to error: true, which will allow the file to render even if errors are present."
-  },
-  {
-    "objectID": "labs/instructions/lab-6-instructions.html#the-data",
-    "href": "labs/instructions/lab-6-instructions.html#the-data",
-    "title": "Lab 6: Starting your Portfolio Project",
-    "section": "The Data",
-    "text": "The Data"
+    "objectID": "portfolio/portfolio-overview.html#respond-to-the-following-prompts",
+    "href": "portfolio/portfolio-overview.html#respond-to-the-following-prompts",
+    "title": "Portfolio Part 1: Development and Planning",
+    "section": "2.1 Respond to the following prompts:",
+    "text": "2.1 Respond to the following prompts:\nProvide a complete answer to each of the following questions and prompts.\n\nData Description\n\nIdentify your data source.\nDescribe your data, including variables and data types.\n\nIdentify the research questions you want to answer.\n\n\n\nData Visualization\n\nWhat do you want your final visualizations to look like?\n\nWhat do you want to highlight on your final visualizations in order to answer your research questions? How do you plan to do that?\n\nWhat is missing from your data or would need to change in your data to create these visualizations?\n\n\n\nData Cleaning\nThe answer to at least three of these questions should be “YES” for the data to meet the necessary standards to demonstrate your cleaning. Your data source should not be an already perfectly prepared data set.\n\nDo you need to reformat any variables into different types (e.g. factors, time, dates, strings)? Or remove information from variable values?\nDo you need to deal with any missing data, especially missing data coded other than NA?\n\nDo you need to filter your data? How?\nDo you need to create any new variables? What variables? How?\nDo you need to add new data (join) to your data? What data? How?\n\nAre there any variables you can exclude from your data?\n\nDo you need pivot your data in any way? Why? How?\nDo you need to summarize any of the variables? Which ones? How?\nWhat other aspects of your data need to be “fixed” in order to make your data visualizations?",
+    "crumbs": [
+      "Portfolio",
+      "Portfolio Part 1"
+    ]
   },
   {
     "objectID": "about.html",
@@ -1721,14 +1698,14 @@
     "href": "group-activities/week-10/pa-7-covid.html#part-1-greatest-number-of-cases",
     "title": "PA 7: COVID-19 Infections and Impact on States",
     "section": "Part 1: Greatest Number of Cases",
-    "text": "Part 1: Greatest Number of Cases\nFirst, we need to read in our clean data.\n\ncases &lt;- read_csv(\"covid_cases_us.csv\")\n\n\nWhich 10 US States/Territories had the most COVID-19 Cases from January 2020-March 2023\nWe want to identify the states with the most cases (top 10). To do this, we will need to modify our data to find the total number of cases for each state. The code below does this but it has errors!\nCorrect the errors and then assign the resulting data to state_totals.\n\ncases |&gt; \n  groupby(state) |&gt; \n  sum(total = sum(case_daily)) |&gt; \n  ungroup() # this is useful to do after a group_by calculation is complete so you do not continue grouping by those variables \n\nNow use the states_totals and identify the top ten states/territories with the most cases between January 2020 and March 2023. Then make a graph ordered by greatest number of cases to least number of cases (Hint: use forcats functions to help you).\n\nstate_totals |&gt; \n  ## order the data by total cases\n  ## extract just the top ten (Hint - look at the `slice() functions)\n  ## create a bar chart with x as the totals and y as the state names\n  ## order the states by greatest to smallest total on the graph\n  ## label, color, update as necessary to provide all relevant information\n\n\n\nCanvas Quiz Question 1\nWhich state had the most COVID-19 cases between January 2020 and March 2023?\n\nInsert Answer Here\n\n\n\nOther Question\nIs this the best way to look at our data? Is looking at just the total number of cases the best way to compare states?\n\nInsert Answer Here"
+    "text": "Part 1: Greatest Number of Cases\nFirst, we need to read in our clean data.\nNote - there may be an error in the code below.\n\ncases &lt;- read_csv(\"covid_cases_us.csv\")\n\n\nWhich 10 US States/Territories had the most COVID-19 Cases from January 2020-March 2023\nWe want to identify the states with the most cases (top 10). To do this, we will need to modify our data to find the total number of cases for each state. The code below does this but it has errors!\nCorrect the errors and then assign the resulting data to state_totals.\n\ncases |&gt; \n  groupby(state) |&gt; \n  sum(total = sum(case_daily)) |&gt; \n  ungroup() # this is useful to do after a group_by calculation is complete so you do not continue grouping by those variables \n\nNow use the states_totals and identify the top ten states/territories with the most cases between January 2020 and March 2023. Then make a graph ordered by greatest number of cases to least number of cases (Hint: use forcats functions to help you).\n\nstate_totals |&gt; \n  ## order the data by total cases\n  ## extract just the top ten (Hint - look at the `slice() functions)\n  ## create a bar chart with x as the totals and y as the state names\n  ## order the states by greatest to smallest total on the graph\n  ## label, color, update as necessary to provide all relevant information\n\n\n\nCanvas Quiz Question 1\nWhich state had the most COVID-19 cases between January 2020 and March 2023?\n\nInsert Answer Here\n\n\n\nOther Question\nIs this the best way to look at our data? Is looking at just the total number of cases the best way to compare states?\n\nInsert Answer Here"
   },
   {
     "objectID": "group-activities/week-10/pa-7-covid.html#part-2-updating-our-data-source",
     "href": "group-activities/week-10/pa-7-covid.html#part-2-updating-our-data-source",
     "title": "PA 7: COVID-19 Infections and Impact on States",
     "section": "Part 2: Updating our Data Source",
-    "text": "Part 2: Updating our Data Source\nHopefully you realized that there is a flaw in our comparison. Many of the states with the most cases are also some of the biggest states in terms of population size! So is there a better way to make comparisons between groups with differing group sizes at baseline? YES! Here are a few options:\n\nCalculate the Proportion\n\nCalculate the Percentage\n\nCalculate a Rate, such as Rate per 100,000 people\n\nTo do any of the above calculations, we would need the population sizes for each state. Here is data from the US Census Bureau on the state estimated population size in 2019.\n\nus_pop &lt;- read_csv(\"USpop2019.csv\")\n\n\nCalculate a Relative Rate for Comparison\nChoose one of the above statistics to calculate to make our comparison between states/territories. Then recreate your graph from above\n\nstate_totals |&gt; \n  ## add in column with state population sizes  \n  ## calculate your chosen relative rate (e.g. proportion, percentage, rate)\n  ## order the data by your relative rate\n  ## extract just the top ten (Hint - look at the `slice() functions)\n  ## create a bar chart with x as the relative rate and y as the state names\n  ## order the states by greatest to smallest relative rate on the graph\n  ## label, color, update as necessary to provide all relevant information\n\n\n\nCanvas Quiz Question 2\nWhich state had highest number of COVID-19 cases relative to population size between January 2020 and March 2023?\n\nInsert Answer Here\n\n\n\nOther Questions\nWhat are some possible issues with our analysis? Consider the following:\n\nData sources and reliability of the data\n\nTime scale and impact of time\n\n\n\n\nInsert Answer Here\n\nWhat other questions would you like to try to answer using this data? Would that require other data sources? What information would you need to answer your questions?\n\nInsert Answer Here"
+    "text": "Part 2: Updating our Data Source\nHopefully you realized that there is a flaw in our comparison. Many of the states with the most cases are also some of the biggest states in terms of population size! So is there a better way to make comparisons between groups with differing group sizes at baseline? YES! Here are a few options:\n\nCalculate the Proportion\n\nCalculate the Percentage\n\nCalculate a Rate, such as Rate per 100,000 people\n\nTo do any of the above calculations, we would need the population sizes for each state. Here is data from the US Census Bureau on the state estimated population size in 2019.\nNote - there may be an error in the code below.\n\nus_pop &lt;- read_csv(\"USpop2019.csv\")\n\n\nCalculate a Relative Rate for Comparison\nChoose one of the above statistics to calculate to make our comparison between states/territories. Then recreate your graph from above\n\nstate_totals |&gt; \n  ## add in column with state population sizes  \n  ## calculate your chosen relative rate (e.g. proportion, percentage, rate)\n  ## order the data by your relative rate\n  ## extract just the top ten (Hint - look at the `slice() functions)\n  ## create a bar chart with x as the relative rate and y as the state names\n  ## order the states by greatest to smallest relative rate on the graph\n  ## label, color, update as necessary to provide all relevant information\n\n\n\nCanvas Quiz Question 2\nWhich state had highest number of COVID-19 cases relative to population size between January 2020 and March 2023?\n\nInsert Answer Here\n\n\n\nOther Questions\nWhat are some possible issues with our analysis? Consider the following:\n\nData sources and reliability of the data\n\nTime scale and impact of time\n\n\n\n\nInsert Answer Here\n\nWhat other questions would you like to try to answer using this data? Would that require other data sources? What information would you need to answer your questions?\n\nInsert Answer Here"
   },
   {
     "objectID": "group-activities/week-8/pa-5-tidyr-dplyr.html",

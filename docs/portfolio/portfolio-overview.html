@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Instructions">
 
-<title>R Resources – Statistical Computing with R</title>
+<title>Portfolio Part 1: Development and Planning – Statistical Computing with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -29,8 +64,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../group-activities/pair-programming-norms.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../labs/instructions/lab-5-instructions.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -82,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../index.html">Course information</a></li><li class="breadcrumb-item"><a href="../course-materials/course_resources.html">R Resources</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../portfolio/portfolio-overview.html">Portfolio</a></li><li class="breadcrumb-item"><a href="../portfolio/portfolio-overview.html">Portfolio Part 1</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -114,13 +148,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Course information</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
@@ -129,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../course-materials/course_resources.html" class="sidebar-item-text sidebar-link active">
+  <a href="../course-materials/course_resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R Resources</span></a>
   </div>
 </li>
@@ -249,16 +283,16 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Portfolio</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../portfolio/portfolio-overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../portfolio/portfolio-overview.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Portfolio Part 1</span></a>
   </div>
 </li>
@@ -274,22 +308,40 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#weekly-r-cheatsheets" id="toc-weekly-r-cheatsheets" class="nav-link active" data-scroll-target="#weekly-r-cheatsheets">Weekly R Cheatsheets</a></li>
+  <li><a href="#portfolio-overview" id="toc-portfolio-overview" class="nav-link active" data-scroll-target="#portfolio-overview"><span class="header-section-number">1</span> Portfolio Overview</a>
+  <ul class="collapse">
+  <li><a href="#portfolio-expectations" id="toc-portfolio-expectations" class="nav-link" data-scroll-target="#portfolio-expectations"><span class="header-section-number">1.1</span> Portfolio Expectations</a></li>
+  </ul></li>
+  <li><a href="#part-1---describe-your-process" id="toc-part-1---describe-your-process" class="nav-link" data-scroll-target="#part-1---describe-your-process"><span class="header-section-number">2</span> Part 1 - Describe your Process</a>
+  <ul class="collapse">
+  <li><a href="#respond-to-the-following-prompts" id="toc-respond-to-the-following-prompts" class="nav-link" data-scroll-target="#respond-to-the-following-prompts"><span class="header-section-number">2.1</span> Respond to the following prompts:</a>
+  <ul class="collapse">
+  <li><a href="#data-description" id="toc-data-description" class="nav-link" data-scroll-target="#data-description">Data Description</a></li>
+  <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization">Data Visualization</a></li>
+  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning">Data Cleaning</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jcanner/stat_210_2025_website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../index.html">Course information</a></li><li class="breadcrumb-item"><a href="../course-materials/course_resources.html">R Resources</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../portfolio/portfolio-overview.html">Portfolio</a></li><li class="breadcrumb-item"><a href="../portfolio/portfolio-overview.html">Portfolio Part 1</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">R Resources</h1>
+<div class="quarto-title-block"><div><h1 class="title">Portfolio Part 1: Development and Planning</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Instructions </p>
+          </div>
+  </div>
     
   
     
@@ -300,70 +352,84 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Click on the link to access the R Cheatsheet related to a specific topic / package!</p>
-</div>
-</div>
-<section id="weekly-r-cheatsheets" class="level1">
-<h1>Weekly R Cheatsheets</h1>
-<p><strong>Week 1</strong></p>
+<section id="portfolio-overview" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Portfolio Overview</h1>
+<p>The Portfolio component is a place for you to put your R skills into action on a problem you are interested in with the goal of have a project you could share with future employers.</p>
+<p>It should have the following qualities:</p>
 <ul>
-<li><p><a href="https://rstudio.github.io/cheatsheets/html/rstudio-ide.html?_gl=1*1bgdjez*_ga*MTM4Nzk4ODMyOC4xNzA2NzU3MjEx*_ga_2C0WZ1JHG0*MTcxODkxNjU5Ny43LjEuMTcxODkxNjk4OC4wLjAuMA..">RStudion IDE</a></p></li>
-<li><p><a href="https://rstudio.github.io/cheatsheets/base-r.pdf">Base R</a></p></li>
+<li>It is a real-world application of R that has not exactly been worked out before (e.g.&nbsp;it isn’t a demo from some package or blog).<br>
+</li>
+<li>It is interesting to you.<br>
+</li>
+<li>It involves data and analyzing or presenting that data. The data may be data you have from a lab, or something you have retrieved from the web, some examples of good sources: FBI database on crime statistics, National Oceanic and Atmospheric Administration, World Health Organization, Twitter, Yahoo finance data, etc. If you are having problems finding a dataset, see the resources at the end of the project description.<br>
+</li>
+<li>The analysis and presentation is useful in the real-world.</li>
 </ul>
-<p><strong>Week 2</strong></p>
+<p>These are real-world projects, but they are also class projects and there can be unforeseen unknowns, if you find that it is going to be impossible to finish what you set out to accomplish, please contact your instructor to find a solution.</p>
+<section id="portfolio-expectations" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="portfolio-expectations"><span class="header-section-number">1.1</span> Portfolio Expectations</h2>
+<p>The final product will be a website page, hosted on your personal website, the includes the following content:</p>
 <ul>
-<li><a href="https://rstudio.github.io/cheatsheets/html/quarto.html?_gl=1*1li2kb5*_ga*MTM4Nzk4ODMyOC4xNzA2NzU3MjEx*_ga_2C0WZ1JHG0*MTcxODkxNjU5Ny43LjEuMTcxODkxNjk4OC4wLjAuMA..">Quarto</a></li>
+<li>Description of the proposed research questions<br>
+</li>
+<li>Description of the data and data source(s)<br>
+</li>
+<li>Description of data cleaning<br>
+</li>
+<li>2-3 data visualizations with commentary that answer the research questions</li>
 </ul>
-<p><strong>Week 3</strong></p>
-<ul>
-<li><a href="https://rstudio.github.io/cheatsheets/git-github.pdf">Git &amp; GitHub</a></li>
-</ul>
-<p><strong>Week 4</strong></p>
-<ul>
-<li><a href="https://rstudio.github.io/cheatsheets/html/data-visualization.html?_gl=1*1u8zjpq*_ga*MTM4Nzk4ODMyOC4xNzA2NzU3MjEx*_ga_2C0WZ1JHG0*MTcxODkxNjU5Ny43LjAuMTcxODkxNjU5Ny4wLjAuMA..">Data Visualization with ggplot2</a></li>
-</ul>
-<p><strong>Week 5</strong></p>
-<ul>
-<li><a href="https://rstudio.github.io/cheatsheets/html/data-import.html?_gl=1*1bgdjez*_ga*MTM4Nzk4ODMyOC4xNzA2NzU3MjEx*_ga_2C0WZ1JHG0*MTcxODkxNjU5Ny43LjEuMTcxODkxNjk4OC4wLjAuMA..">Data Import with readr</a></li>
-</ul>
-<p><strong>Week 6-7</strong></p>
-<ul>
-<li><a href="https://rstudio.github.io/cheatsheets/html/data-transformation.html?_gl=1*1u8zjpq*_ga*MTM4Nzk4ODMyOC4xNzA2NzU3MjEx*_ga_2C0WZ1JHG0*MTcxODkxNjU5Ny43LjAuMTcxODkxNjU5Ny4wLjAuMA..">Data Wrangling with dplyr</a></li>
-</ul>
-<p><strong>Week 8-9</strong></p>
-<ul>
-<li><a href="https://rstudio.github.io/cheatsheets/html/tidyr.html?_gl=1*1u8zjpq*_ga*MTM4Nzk4ODMyOC4xNzA2NzU3MjEx*_ga_2C0WZ1JHG0*MTcxODkxNjU5Ny43LjAuMTcxODkxNjU5Ny4wLjAuMA..">Data Tidying with tidyr</a></li>
-</ul>
-<p><strong>Week 10</strong></p>
-<ul>
-<li><a href="https://rstudio.github.io/cheatsheets/html/factors.html?_gl=1*1u8zjpq*_ga*MTM4Nzk4ODMyOC4xNzA2NzU3MjEx*_ga_2C0WZ1JHG0*MTcxODkxNjU5Ny43LjAuMTcxODkxNjU5Ny4wLjAuMA..">Factors with forcats</a></li>
-</ul>
-<p><strong>Week 11</strong></p>
-<ul>
-<li><p><a href="https://rstudio.github.io/cheatsheets/html/lubridate.html?_gl=1*12ke444*_ga*MTM4Nzk4ODMyOC4xNzA2NzU3MjEx*_ga_2C0WZ1JHG0*MTcxODkxNjU5Ny43LjAuMTcxODkxNjU5Ny4wLjAuMA">Dates with lubridate</a></p></li>
-<li><p><a href="https://rstudio.github.io/cheatsheets/html/strings.html?_gl=1*1u8zjpq*_ga*MTM4Nzk4ODMyOC4xNzA2NzU3MjEx*_ga_2C0WZ1JHG0*MTcxODkxNjU5Ny43LjAuMTcxODkxNjU5Ny4wLjAuMA..">Strings with stringr</a></p></li>
-<li><p>(optional) <a href="https://rstudio.github.io/cheatsheets/regex.pdf">Regular Expressions</a></p></li>
-</ul>
-<p><strong>Week 12</strong></p>
-<ul>
-<li><a href="https://rstudio.github.io/cheatsheets/tidyeval.pdf">Tidy Evaluation</a></li>
-</ul>
-<p><strong>Week 13</strong></p>
-<ul>
-<li><a href="https://rstudio.github.io/cheatsheets/html/purrr.html?_gl=1*1u8zjpq*_ga*MTM4Nzk4ODMyOC4xNzA2NzU3MjEx*_ga_2C0WZ1JHG0*MTcxODkxNjU5Ny43LjAuMTcxODkxNjU5Ny4wLjAuMA..">Iteration with purrr</a></li>
-</ul>
+<p>Though no code should be visible on the website, the quarto document used to create the final product should contain all code for data cleaning and data visualization, commented and following a coding style conventions.</p>
+</section>
+</section>
+<section id="part-1---describe-your-process" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Part 1 - Describe your Process</h1>
+<p>For the first part of the portfolio process there should be no code! Just a Quarto document discussing your answers to the following questions to help you prepare for the data cleaning and analysis.</p>
+<p>You should submit a link to a github repository containing the Quarto document you write and the data.</p>
+<section id="respond-to-the-following-prompts" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="respond-to-the-following-prompts"><span class="header-section-number">2.1</span> Respond to the following prompts:</h2>
+<p>Provide a complete answer to each of the following questions and prompts.</p>
+<section id="data-description" class="level3">
+<h3 class="anchored" data-anchor-id="data-description">Data Description</h3>
+<ol type="1">
+<li>Identify your data source.</li>
+<li>Describe your data, including variables and data types.<br>
+</li>
+<li>Identify the research questions you want to answer.</li>
+</ol>
+</section>
+<section id="data-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="data-visualization">Data Visualization</h3>
+<ol type="1">
+<li>What do you want your final visualizations to look like?<br>
+</li>
+<li>What do you want to highlight on your final visualizations in order to answer your research questions? How do you plan to do that?<br>
+</li>
+<li>What is missing from your data or would need to change in your data to create these visualizations?</li>
+</ol>
+</section>
+<section id="data-cleaning" class="level3">
+<h3 class="anchored" data-anchor-id="data-cleaning">Data Cleaning</h3>
+<p>The answer to at least three of these questions should be “YES” for the data to meet the necessary standards to demonstrate your cleaning. Your data source should not be an already perfectly prepared data set.</p>
+<ol type="1">
+<li>Do you need to reformat any variables into different types (e.g.&nbsp;factors, time, dates, strings)? Or remove information from variable values?</li>
+<li>Do you need to deal with any missing data, especially missing data coded other than NA?<br>
+</li>
+<li>Do you need to filter your data? How?</li>
+<li>Do you need to create any new variables? What variables? How?</li>
+<li>Do you need to add new data (join) to your data? What data? How?<br>
+</li>
+<li>Are there any variables you can exclude from your data?<br>
+</li>
+<li>Do you need pivot your data in any way? Why? How?</li>
+<li>Do you need to summarize any of the variables? Which ones? How?</li>
+<li>What other aspects of your data need to be “fixed” in order to make your data visualizations?</li>
+</ol>
 
 
+<!-- -->
+
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -600,6 +666,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -933,16 +1050,84 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="Weekly Schedule">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Weekly Schedule</span>
+      <a href="../labs/instructions/lab-5-instructions.html" class="pagination-link" aria-label="Lab 5 Instructions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 5 Instructions</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../group-activities/pair-programming-norms.html" class="pagination-link" aria-label="Pair Programming Norms">
-        <span class="nav-page-text">Pair Programming Norms</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Portfolio Part 1: Development and Planning"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Instructions"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">number-sections:</span><span class="co"> true</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="an">number-depth:</span><span class="co"> 2</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="an">toc:</span><span class="co"> true</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="an">code-tools:</span><span class="co"> true</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu"># Portfolio Overview</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>The Portfolio component is a place for you to put your R skills into action on a problem you are interested in with the goal of have a project you could share with future employers. </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>It should have the following qualities: </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>It is a real-world application of R that has not exactly been worked out before (e.g. it isn't a demo from some package or blog).  </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>It is interesting to you.  </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">-  </span>It involves data and analyzing or presenting that data.  The data may be data you have from a lab, or something you have retrieved from the web, some examples of good sources:  FBI database on crime statistics, National Oceanic and Atmospheric Administration, World Health Organization, Twitter, Yahoo finance data, etc.  If you are having problems finding a dataset, see the resources at the end of the project description.  </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The analysis and presentation is useful in the real-world. </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>These are real-world projects, but they are also class projects and there can be unforeseen unknowns, if you find that it is going to be impossible to finish what you set out to accomplish, please contact your instructor to find a solution.  </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Portfolio Expectations  </span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>The final product will be a website page, hosted on your personal website, the includes the following content:  </span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Description of the proposed research questions  </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Description of the data and data source(s)  </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Description of data cleaning  </span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>2-3 data visualizations with commentary that answer the research questions  </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>Though no code should be visible on the website, the quarto document used to create the final product should contain all code for data cleaning and data visualization, commented and following a coding style conventions.  </span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu"># Part 1 - Describe your Process</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>For the first part of the portfolio process there should be no code! Just a Quarto document discussing your answers to the following questions to help you prepare for the data cleaning and analysis.  </span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>You should submit a link to a github repository containing the Quarto document you write and the data.  </span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Respond to the following prompts:  </span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>Provide a complete answer to each of the following questions and prompts.</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Description</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Identify your data source. </span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Describe your data, including variables and data types.  </span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Identify the research questions you want to answer.</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Visualization  </span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>What do you want your final visualizations to look like?  </span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>What do you want to highlight on your final visualizations in order to answer your research questions? How do you plan to do that?  </span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>What is missing from your data or would need to change in your data to create these visualizations?  </span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Cleaning  </span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>The answer to at least three of these questions should be "YES" for the data to meet the necessary standards to demonstrate your cleaning. Your data source should not be an already perfectly prepared data set.  </span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Do you need to reformat any variables into different types (e.g. factors, time, dates, strings)? Or remove information from variable values? </span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Do you need to deal with any missing data, especially missing data coded other than NA?  </span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Do you need to filter your data? How? </span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Do you need to create any new variables? What variables? How? </span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Do you need to add new data (join) to your data? What data? How?  </span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Are there any variables you can exclude from your data?  </span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Do you need pivot your data in any way? Why? How?</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>Do you need to summarize any of the variables? Which ones? How?</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>What other aspects of your data need to be "fixed" in order to make your data visualizations?  </span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
