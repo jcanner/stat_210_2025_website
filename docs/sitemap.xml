@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://github.com/jcanner/stat_210_2025_website/docs/labs/instructions/lab-5-instructions.html</loc>
-    <lastmod>2025-03-17T23:56:01.577Z</lastmod>
+    <lastmod>2025-03-21T20:35:18.547Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/jcanner/stat_210_2025_website/docs/group-activities/week-1/data-cleaning-viz-steps.html</loc>
@@ -29,32 +29,36 @@
     <lastmod>2025-02-07T15:52:09.654Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/jcanner/stat_210_2025_website/docs/group-activities/week-5/pa-4-import-tidy-data.html</loc>
-    <lastmod>2025-02-21T06:03:26.745Z</lastmod>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/weeks/week-11-strings-dates.html</loc>
+    <lastmod>2025-03-19T22:18:28.581Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/jcanner/stat_210_2025_website/docs/group-activities/week-4/pa-3-ggplot.html</loc>
-    <lastmod>2025-02-14T03:57:18.447Z</lastmod>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/weeks/week-4-ggplot.html</loc>
+    <lastmod>2025-02-07T02:40:50.173Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/jcanner/stat_210_2025_website/docs/weeks/week-3-version-control.html</loc>
-    <lastmod>2025-02-04T00:22:27.060Z</lastmod>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/weeks/week-6-7-dplyr.html</loc>
+    <lastmod>2025-03-17T22:26:21.075Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/jcanner/stat_210_2025_website/docs/slides/week-3/week-3-intro-version-control.html</loc>
-    <lastmod>2025-02-01T02:40:02.780Z</lastmod>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/weeks/week-1-r-rstudio.html</loc>
+    <lastmod>2025-02-16T06:20:10.331Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/jcanner/stat_210_2025_website/docs/weeks/week-10-factors.html</loc>
-    <lastmod>2025-03-19T21:31:37.819Z</lastmod>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/labs/instructions/lab-1-instructions.html</loc>
+    <lastmod>2025-02-04T00:22:25.902Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/jcanner/stat_210_2025_website/docs/about.html</loc>
-    <lastmod>2025-02-04T00:22:25.280Z</lastmod>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/labs/instructions/lab-2-instructions.html</loc>
+    <lastmod>2025-02-08T02:29:33.227Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/weeks/week-2-quarto.html</loc>
+    <lastmod>2025-02-04T00:22:27.059Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/jcanner/stat_210_2025_website/docs/index.html</loc>
-    <lastmod>2025-03-21T19:27:23.330Z</lastmod>
+    <lastmod>2025-03-28T18:46:55.968Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/jcanner/stat_210_2025_website/docs/group-activities/week-1/broken-circles.html</loc>
@@ -73,32 +77,36 @@
     <lastmod>2025-02-04T00:22:25.628Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/jcanner/stat_210_2025_website/docs/weeks/week-2-quarto.html</loc>
-    <lastmod>2025-02-04T00:22:27.059Z</lastmod>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/labs/instructions/lab-6-instructions.html</loc>
+    <lastmod>2025-03-21T20:36:59.790Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/jcanner/stat_210_2025_website/docs/labs/instructions/lab-2-instructions.html</loc>
-    <lastmod>2025-02-08T02:29:33.227Z</lastmod>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/about.html</loc>
+    <lastmod>2025-02-04T00:22:25.280Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/jcanner/stat_210_2025_website/docs/labs/instructions/lab-1-instructions.html</loc>
-    <lastmod>2025-02-04T00:22:25.902Z</lastmod>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/weeks/week-10-factors.html</loc>
+    <lastmod>2025-03-19T21:31:37.819Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/jcanner/stat_210_2025_website/docs/weeks/week-1-r-rstudio.html</loc>
-    <lastmod>2025-02-16T06:20:10.331Z</lastmod>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/slides/week-3/week-3-intro-version-control.html</loc>
+    <lastmod>2025-02-01T02:40:02.780Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/jcanner/stat_210_2025_website/docs/weeks/week-6-7-dplyr.html</loc>
-    <lastmod>2025-03-17T22:26:21.075Z</lastmod>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/weeks/week-3-version-control.html</loc>
+    <lastmod>2025-02-04T00:22:27.060Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/jcanner/stat_210_2025_website/docs/weeks/week-4-ggplot.html</loc>
-    <lastmod>2025-02-07T02:40:50.173Z</lastmod>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/group-activities/week-4/pa-3-ggplot.html</loc>
+    <lastmod>2025-02-14T03:57:18.447Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/jcanner/stat_210_2025_website/docs/weeks/week-11-strings-dates.html</loc>
-    <lastmod>2025-03-19T22:18:28.581Z</lastmod>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/group-activities/week-5/pa-4-import-tidy-data.html</loc>
+    <lastmod>2025-02-21T06:03:26.745Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/jcanner/stat_210_2025_website/docs/group-activities/week-10/pa-7-covid.html</loc>
+    <lastmod>2025-03-28T18:53:50.031Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/jcanner/stat_210_2025_website/docs/group-activities/week-8/pa-5-tidyr-dplyr.html</loc>

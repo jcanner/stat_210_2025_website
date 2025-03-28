@@ -303,11 +303,11 @@
     ]
   },
   {
-    "objectID": "labs/instructions/lab-5-instructions.html#step-4-lets-get-started-wranging-some-data",
-    "href": "labs/instructions/lab-5-instructions.html#step-4-lets-get-started-wranging-some-data",
+    "objectID": "labs/instructions/lab-5-instructions.html#step-4-lets-get-started-wrangling-some-data",
+    "href": "labs/instructions/lab-5-instructions.html#step-4-lets-get-started-wrangling-some-data",
     "title": "Lab 5: Student Evaluations of Teaching",
-    "section": "Step 4: Let’s get started wranging some data!",
-    "text": "Step 4: Let’s get started wranging some data!",
+    "section": "Step 4: Let’s get started wrangling some data!",
+    "text": "Step 4: Let’s get started wrangling some data!",
     "crumbs": [
       "Labs",
       "Lab 5 Instructions"
@@ -684,508 +684,300 @@
     "text": "Part 3: The secret message!\nUse your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:\n\nstringr::str_c(my_symbols$symbol[ts_vec], collapse = \"\")\n\nGoogle the first line of this message, if you do not recognize it, to see what poem it is."
   },
   {
-    "objectID": "group-activities/week-5/pa-4-import-tidy-data.html",
-    "href": "group-activities/week-5/pa-4-import-tidy-data.html",
-    "title": "PA 4: Preparing the Youth Risk Behavior Analysis",
+    "objectID": "weeks/week-11-strings-dates.html",
+    "href": "weeks/week-11-strings-dates.html",
+    "title": "Special Data Types",
     "section": "",
-    "text": "This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group."
-  },
-  {
-    "objectID": "group-activities/week-5/pa-4-import-tidy-data.html#groupwork-protocols",
-    "href": "group-activities/week-5/pa-4-import-tidy-data.html#groupwork-protocols",
-    "title": "PA 4: Preparing the Youth Risk Behavior Analysis",
-    "section": "Groupwork Protocols",
-    "text": "Groupwork Protocols\nDuring the Practice Activity, you and your partner will alternate between two roles—Developer and Coder.\nWhen you are the Developer, you will type into the Quarto document in RStudio. However, you do not type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.\nWhen you are the Coder, you are responsible for reading the instructions / prompts and directing the Developer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Developer to debug the code you specified. Once the code runs, you are expected to collaborate with the Developer to write code comments that describe the actions taken by your code.\n\nGroup Norms\nRemember, your group is expected to adhere to the following norms:\n\nThink and work together. Do not divide the work.\nYou are smarter together.\nNo cross-talk with other groups."
-  },
-  {
-    "objectID": "group-activities/week-5/pa-4-import-tidy-data.html#goals-for-the-activity",
-    "href": "group-activities/week-5/pa-4-import-tidy-data.html#goals-for-the-activity",
-    "title": "PA 4: Preparing the Youth Risk Behavior Analysis",
-    "section": "Goals for the Activity",
-    "text": "Goals for the Activity\n\nSolve issues in your data as you read it in by parsing out text from numbers, specifying NA values, and cleaning up variable names\n\nTHROUGHOUT the Activity be sure to follow the Style Guide by doing the following:\n\nload the appropriate packages at the beginning of the Rmarkdown\n\nuse proper spacing\n\nname all code chunks\n\ncomment at least once in each code chunk to describe why you made your coding decisions\n\nadd appropriate labels to all graphic axes"
-  },
-  {
-    "objectID": "group-activities/week-5/pa-4-import-tidy-data.html#youth-risk-behavior-surveillance-systems-yrbss",
-    "href": "group-activities/week-5/pa-4-import-tidy-data.html#youth-risk-behavior-surveillance-systems-yrbss",
-    "title": "PA 4: Preparing the Youth Risk Behavior Analysis",
-    "section": "Youth Risk Behavior Surveillance Systems (YRBSS)",
-    "text": "Youth Risk Behavior Surveillance Systems (YRBSS)\nThis data is from a survey given every other year called the Youth Risk Behavior Surveillance System administered by the Center for Disease Control and Prevention. The survey monitors health risks among youth, such as violence, sexually transmitted diseases, tobacco, and alcohol use.\nThe data set contains over 100,000 rows from 2023. A code book is also provided that gives extensive information on the survey. The data can be stored in an Excel or spreadsheet program, but it cannot be manipulated in those programs because of its size - this why we need R."
-  },
-  {
-    "objectID": "group-activities/week-5/pa-4-import-tidy-data.html#setting-up-your-project",
-    "href": "group-activities/week-5/pa-4-import-tidy-data.html#setting-up-your-project",
-    "title": "PA 4: Preparing the Youth Risk Behavior Analysis",
-    "section": "Setting up your Project",
-    "text": "Setting up your Project\nYour project should have the following components:\n\ndata-raw folder that contains the provided data set\n\ndata-clean that will eventually hold your cleaned up data\n\ncompleted .qmd and rendered file\n\n\nStep 1: Attempt to Read in the Data\nGo ahead and read in the data, calling it youth. What do you notice?\n\nyouth &lt;- read_csv(\"data-raw/YRBS2015.csv\")\n\nDescribe some of the issues you notice in the data:\n\nInsert answer here\n\n\n\nStep 2: Skip the First Row\nUsing either the help options or the readr add an argument to the code above that will skip the first row of the data file so that the ‘headers’ (column titles) read in correctly.\n\n\nStep 3: Fix the Missing Values\nTake note of how missing values are designated in the data. Add an argument to the code above that identifies and fixes the data so that each missing value type is treated as the same NA.\n\n\n\nStep 4: Clean A few of the Variables\nAdd additional arguments to the code above that does the following:\n\nAgeCat: remove the text “years old” from the numeric values\n\nGrade: remove the text “th grade” from the numeric values\n\nPerception of weight: read as a factor with the following\n\nlevels = c(\"Very underweight\",\"Slightly underweight\", \"About the right weight\", \"Slightly overweight\", \"Very overweight\")\n\nSet the following variables to the right data type:\n\nGender\n\nHeight in meters\n\nWeight in kilograms\n\nBody Mass Index\nBMI percentile\n\nFruit eating\n\nSalad eating\nOther vegetable eating\nSoda drinking\nBreakfast eating\nPhysical activity &gt;= 5 days\nTelevision watching\nSports team participation\n\n\nSkip the rest of the variables (hint set .default = _________)\n\n\n\n\nStep 5: Clean the Variable Names\nUse the janitor package to clean the variable names to snake_case.\n\n\nStep 6: Write the Clean Data\nWrite the clean data to the data-clean folder.\nNow that the data is clean, you can add eval: false to the prior code chunks and read in the clean data below.\n\nyouth_clean &lt;- \n\nWhy do we keep the code for the data cleaning but set the code chunks to eval: false?\n\nInsert Answer Here\n\n\n\n\nStep 7: Explore Missingness\nLook at the following graphs\n\nyouth_clean |&gt; \n  naniar::gg_miss_var()\n\n\nyouth_clean |&gt; \n    naniar::gg_miss_upset()\n\nWhat do the two graphs tell you about the missingness in the data (i.e., which variables are missing the most values and which combinations of variables are missing the most together)?\n\nInsert Answer Here\n\nHow does the missingness of the data impact what variables you might choose to analyze? Why?\n\nInsert Answer Here\n\n\n\n\nStep 8: Make a Visualization\n\nyouth_clean |&gt;  #instead of data = youth_clean in ggplot we can \"pipe\" our data  \n  drop_na() |&gt;  #drops missing values\n  ggplot()\n\nComplete the following steps in your visualization in the code chunk above:\n\nPlot the height on the x-axis\n\nPlot the weight on the y-axis\n\nColor the points based on student perception of weight\n\nAdd a linear model (use method = \"lm\" and geom_smooth())\nMake the points more transparent\n\nFacet by grade and gender\n\nAdd descriptive titles and labels\n\nExport the graph as the file weight-perception.png\n\n\nChallenge Modifications\n\nMake the points a color-blind friendly color scale\n\nChange the general theme of the graph\n\nMove the legend to the bottom of the graph\n\nAdjust the figure height and width to 10x10"
-  },
-  {
-    "objectID": "group-activities/week-4/pa-3-ggplot.html",
-    "href": "group-activities/week-4/pa-3-ggplot.html",
-    "title": "PA 3: Using Data Visualization to Find the Penguins",
-    "section": "",
-    "text": "Today you will be exploring different types of visualizations to uncover which species of penguins reside on different islands.\nThis task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.\nSome advice: If you aren’t sure how to make a specific plot or how to customize a look over the class text for this week and make use of the ggplot2 cheatsheet."
-  },
-  {
-    "objectID": "group-activities/week-4/pa-3-ggplot.html#groupwork-protocols",
-    "href": "group-activities/week-4/pa-3-ggplot.html#groupwork-protocols",
-    "title": "PA 3: Using Data Visualization to Find the Penguins",
-    "section": "Groupwork Protocols",
-    "text": "Groupwork Protocols\nDuring the Practice Activity, you and your partner will alternate between two roles—Developer and Coder.\nWhen you are the Developer, you will type into the Quarto document in RStudio. However, you do not type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.\nWhen you are the Coder, you are responsible for reading the instructions / prompts and directing the Developer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Developer to debug the code you specified. Once the code runs, you are expected to collaborate with the Developer to write code comments that describe the actions taken by your code.\n\nGroup Norms\nRemember, your group is expected to adhere to the following norms:\n\nThink and work together. Do not divide the work.\nYou are smarter together.\nNo cross-talk with other groups."
-  },
-  {
-    "objectID": "group-activities/week-4/pa-3-ggplot.html#step-1-install-the-palmerpenguins-package",
-    "href": "group-activities/week-4/pa-3-ggplot.html#step-1-install-the-palmerpenguins-package",
-    "title": "PA 3: Using Data Visualization to Find the Penguins",
-    "section": "Step 1: Install the palmerpenguins Package",
-    "text": "Step 1: Install the palmerpenguins Package\nWe will be creating visualizations using the ggplot2 package.\nFor this activity, we will be exploring the penguins data from the palmerpenguins package, which has fantastic documentation with really awesome artwork. So, you will need to install the palmerpenguins package. Run the following code in your console:\ninstall.packages(\"palmerpenguins\")"
-  },
-  {
-    "objectID": "group-activities/week-4/pa-3-ggplot.html#step-2-create-a-set-up-code-chunk",
-    "href": "group-activities/week-4/pa-3-ggplot.html#step-2-create-a-set-up-code-chunk",
-    "title": "PA 3: Using Data Visualization to Find the Penguins",
-    "section": "Step 2: Create a Set-up Code Chunk",
-    "text": "Step 2: Create a Set-up Code Chunk\n\nLocate the code chunk at the beginning of your document (directly under the YAML).\nName the code chunk setup (with the hashpipe #|)\nSpecify the code chunk options (with the hashpipe #|) that the messages from loading in the packages should not be included.\nLoad in the tidyverse or ggplot2 package.\nLoad in the palmerpenguins package."
-  },
-  {
-    "objectID": "group-activities/week-4/pa-3-ggplot.html#step-3-accessing-the-penguins-dataset",
-    "href": "group-activities/week-4/pa-3-ggplot.html#step-3-accessing-the-penguins-dataset",
-    "title": "PA 3: Using Data Visualization to Find the Penguins",
-    "section": "Step 3: Accessing the penguins Dataset",
-    "text": "Step 3: Accessing the penguins Dataset\nI like to tangibly see the data set I will be working with so let’s pull the penguins data into the R environment. Run the code below and you should see the penguins data appear in the top right Environment tab.\n\ndata(penguins)\n\nWarning in data(penguins): data set 'penguins' not found"
-  },
-  {
-    "objectID": "group-activities/week-4/pa-3-ggplot.html#step-4-get-to-know-the-data",
-    "href": "group-activities/week-4/pa-3-ggplot.html#step-4-get-to-know-the-data",
-    "title": "PA 3: Using Data Visualization to Find the Penguins",
-    "section": "Step 4: Get to Know the Data",
-    "text": "Step 4: Get to Know the Data\nWhat variables are included in these data? What units are the variables measured in? What does each row represent?\n\nInsert Answer Here"
-  },
-  {
-    "objectID": "group-activities/week-4/pa-3-ggplot.html#step-5-barchart",
-    "href": "group-activities/week-4/pa-3-ggplot.html#step-5-barchart",
-    "title": "PA 3: Using Data Visualization to Find the Penguins",
-    "section": "Step 5: Barchart",
-    "text": "Step 5: Barchart\nUse ggplot2 to draw a barchart of different species included in the dataset."
-  },
-  {
-    "objectID": "group-activities/week-4/pa-3-ggplot.html#step-6-scatterplot",
-    "href": "group-activities/week-4/pa-3-ggplot.html#step-6-scatterplot",
-    "title": "PA 3: Using Data Visualization to Find the Penguins",
-    "section": "Step 6: Scatterplot",
-    "text": "Step 6: Scatterplot\nUse ggplot2 to create a scatterplot of the relationship between the bill length (bill_length_mm) and bill depth (bill_depth_mm)."
-  },
-  {
-    "objectID": "group-activities/week-4/pa-3-ggplot.html#step-7-adding-a-categorical-variable",
-    "href": "group-activities/week-4/pa-3-ggplot.html#step-7-adding-a-categorical-variable",
-    "title": "PA 3: Using Data Visualization to Find the Penguins",
-    "section": "Step 7: Adding A Categorical Variable",
-    "text": "Step 7: Adding A Categorical Variable\n\nBuilding off of the plot you made in Step 6, add an aesthetic to differentiate the species of the penguins in the scatterplot by color."
-  },
-  {
-    "objectID": "group-activities/week-4/pa-3-ggplot.html#step-8-adding-another-categorical-variable",
-    "href": "group-activities/week-4/pa-3-ggplot.html#step-8-adding-another-categorical-variable",
-    "title": "PA 3: Using Data Visualization to Find the Penguins",
-    "section": "Step 8: Adding Another Categorical Variable",
-    "text": "Step 8: Adding Another Categorical Variable\nBuilding off of the plot you made in Step 7, add the location of the penguins ( island) to your visualization. There may be more than one method to address this, however, one method will more easily allow you to address the questions below."
-  },
-  {
-    "objectID": "weeks/week-3-version-control.html#objectives",
-    "href": "weeks/week-3-version-control.html#objectives",
-    "title": "Week 3: Version Control with Git and GitHub",
-    "section": "0.1 Objectives",
-    "text": "0.1 Objectives\nMost of this section is either heavily inspired by Happy Git and Github for the UseR (Bryan, Hester, and The Stat 545 TAs 2021) or directly links to that book.\n\nRecognize the benefits of using version control to improve your coding practices and workflow.\nIdentify git / GitHub as a version control platform (and helper).\nInstall git onto your computer and register for a GitHub account\nStart applying version control practices to your workflow.",
+    "text": "This week is all about special data types in R. Similar to the tools you learned last week for working with factors, this week you are going to learn about tools for working with strings and dates. By the end of this week you should be able to:",
     "crumbs": [
       "Weekly materials",
-      "Week 3 - Version Control"
+      "Week 11 - Strings, Dates, and Times"
     ]
   },
   {
-    "objectID": "weeks/week-3-version-control.html#footnotes",
-    "href": "weeks/week-3-version-control.html#footnotes",
-    "title": "Week 3: Version Control with Git and GitHub",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nYes, I’m aware that this sounds paranoid. It’s been a very rare occasion that I’ve needed to restore something from another backup. You don’t want to take chances.↩︎",
+    "objectID": "weeks/week-11-strings-dates.html#regular-expressions",
+    "href": "weeks/week-11-strings-dates.html#regular-expressions",
+    "title": "Special Data Types",
+    "section": "1.1 Regular Expressions",
+    "text": "1.1 Regular Expressions\nMatching exact strings is easy - it’s just like using find and replace.\n\nlibrary(stringr)\n\nhuman_talk &lt;- \"blah, blah, blah. Do you want to go for a walk?\"\ndog_hears &lt;- str_extract(human_talk, \"walk\")\ndog_hears\n\n[1] \"walk\"\n\n\nBut, if you can master even a small amount of regular expression notation, you’ll have exponentially more power to do good (or evil) when working with strings. You can get by without regular expressions if you’re creative, but often they’re much simpler.\n\n📖 Recommended Reading: R4DS Chapter 15 (Regular Expressions)\n\n\n\n\n\n\nRead at least through Section 15.4.1.\n\n\n\n\n\n\n\n\n\n\n\n\nShort Regular Expressions Primer\n\n\n\n\n\nYou may find it helpful to follow along with this section using this web app built to test R regular expressions. The subset of regular expression syntax we’re going to cover here is fairly limited, but you can find regular expressions to do just about anything string-related. As with any tool, there are situations where it’s useful, and situations where you should not use a regular expression, no matter how much you want to.\nHere are the basics of regular expressions:\n\n[] enclose sets of characters\nFor example, [abc] will match any single character a, b, c\n- specifies a range of characters (A-z matches all upper and lower case letters)\n. matches any character (except a newline)\nTo match special characters, escape them using \\ (in most languages) or \\\\ (in R). So \\. or \\\\. will match a literal ., \\$ or \\\\$ will match a literal $.\n\n\nnum_string &lt;- \"phone: 123-456-7890, nuid: 12345678, ssn: 123-45-6789\"\n\nstr_extract(num_string, \"[0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9][0-9][0-9]\")\n\n[1] \"123-45-6789\"\n\n\nRepeating Patterns\nListing out all of those numbers can get repetitive, though. How do we specify repetition?\n\n* means repeat between 0 and inf times\n+ means 1 or more times\n? means 0 or 1 times – most useful when you’re looking for something optional\n{a, b} means repeat between a and b times, where a and b are integers. `\nNote that b can be blank. So [abc]{3,} will match abc, aaaa, cbbaa, but not ab, bb, or a.\nFor a single number of repeated characters, you can use {a}. So {3, } means “3 or more times” and {3} means “exactly 3 times”\n\n\nnum_string &lt;- \"phone: 123-456-7890, nuid: 12345678, ssn: 123-45-6789\"\n\n# Matches a sequence of *three* numbers, followed by a dash, \n# then a sequence of *two* numbers, followed by a dash, \n# then a sequence of *four* numbers, followed by a dash.\nssn &lt;- str_extract(num_string, \"[0-9]{3}-[0-9]{2}-[0-9]{4}\")\nssn\n\n[1] \"123-45-6789\"\n\n# Matches a sequence of *three* numbers, followed by any character, \n# then a sequence of *three* numbers, followed by any character, \n# then a sequence of *four* numbers, followed by any character, \nphone &lt;- str_extract(num_string, \"[0-9]{3}.[0-9]{3}.[0-9]{4}\")\nphone\n\n[1] \"123-456-7890\"\n\n# Matches a sequence of *eight* numbers \nnuid &lt;- str_extract(num_string, \"[0-9]{8}\")\nnuid\n\n[1] \"12345678\"\n\n\nAnchoring\nThere are also ways to “anchor” a pattern to a part of the string (e.g. the beginning or the end)\n\n^ has multiple meanings:\n\nif it’s the first character in a pattern, ^ matches the beginning of a string\nif it follows [, e.g. [^abc], ^ means “not” - for instance, “the collection of all characters that aren’t a, b, or c”.\n\n$ means the end of a string\n\nCombined with pre and post-processing, these let you make sense out of semi-structured string data, such as addresses.\n\naddress &lt;- \"1600 Pennsylvania Ave NW, Washington D.C., 20500\"\n\n# Match a sequence of one or more digits at the beginning of the string\nhouse_num &lt;- str_extract(address, \"^[0-9]{1,}\")\nhouse_num\n\n[1] \"1600\"\n\n# Match everything alphanumeric up to the comma\nstreet &lt;- str_extract(address, \"[A-z0-9 ]{1,}\")\n# Remove house number from street address\nstreet &lt;- str_remove(street, house_num) |&gt; \n  # Trim any leading or trailing whitespace from remaining string\n  str_trim() \nstreet\n\n[1] \"Pennsylvania Ave NW\"\n\n# Match one or more characters between the two commas  \ncity &lt;- str_extract(address, \",.+,\") |&gt; \n  # Remove the leading and trailing commas\n  str_remove_all(\",\") |&gt; \n  # Trim any leading or trailing whitespace from remaining string\n  str_trim()\ncity\n\n[1] \"Washington D.C.\"\n\n# Matches both 5 and 9 digit zip codes found at the end of the string\nzip &lt;- str_extract(address, \"[0-9-]{5,10}$\") \nzip\n\n[1] \"20500\"\n\n\nMaking Groups\n\n() are used to capture information. So ([0-9]{4}) captures any 4-digit number\na|b will select a or b.\n\nIf you’ve captured information using (), you can reference that information using back references. In most languages, those look like this: \\1 for the first reference, \\9 for the ninth. In R, back references are \\\\1 through \\\\9, because the \\ character is special, so you have to escape it.\n\nphone_num_variants &lt;- c(\"(123) 456-7980\", \"123.456.7890\", \"+1 123-456-7890\")\n\nphone_regex &lt;- \"\\\\+?[0-9]{0,3}? ?\\\\(?([0-9]{3})?\\\\)?.?([0-9]{3}).?([0-9]{4})\"\n# \\\\+?[0-9]{0,3} matches the country code, if specified, \n#    but won't take the first 3 digits from the area code \n#    unless a country code is also specified\n# \\\\( and \\\\) match literal parentheses if they exist\n# ([0-9]{3})? captures the area code, if it exists\n# .? matches any character\n# ([0-9]{3}) captures the exchange code\n# ([0-9]{4}) captures the 4-digit individual code\n\nstr_extract(phone_num_variants, phone_regex)\n\n[1] \"(123) 456-7980\"  \"123.456.7890\"    \"+1 123-456-7890\"\n\n# We didn't capture the country code, so it remained in the string\n\nhuman_talk &lt;- \"blah, blah, blah. Do you want to go for a walk? I think I'm going to treat myself to some ice cream for working so hard. \"\ndog_hears &lt;- str_extract_all(human_talk, \"walk|treat\")\ndog_hears\n\n[[1]]\n[1] \"walk\"  \"treat\"\n\n\nPutting it all together, we can test our regular expressions to ensure that they are specific enough to pull out what we want, while not pulling out other similar information:\n\nstrings &lt;- c(\"abcdefghijklmnopqrstuvwxyzABAB\",\n             \"banana orange strawberry apple\",\n             \"ana went to montana to eat a banana\",\n             \"call me at 432-394-2873. Do you want to go for a walk? I'm going to treat myself to some ice cream for working so hard.\",\n             \"phone: (123) 456-7890, nuid: 12345678, bank account balance: $50,000,000.23\",\n             \"1600 Pennsylvania Ave NW, Washington D.C., 20500\")\n\nphone_regex &lt;- \"\\\\+?[0-9]{0,3}? ?\\\\(?([0-9]{3})?\\\\)?.?([0-9]{3}).([0-9]{4})\"\ndog_regex &lt;- \"(walk|treat)\"\naddr_regex &lt;- \"([0-9]*) ([A-z0-9 ]{3,}), ([A-z\\\\. ]{3,}), ([0-9]{5})\"\n# Find patterns where two characters are repeated\nabab_regex &lt;- \"(..)\\\\1\"\n\n# Create a table for whether each regex was detected in each string\ntibble(\n  text = strings,\n  phone = str_detect(strings, phone_regex),\n  dog = str_detect(strings, dog_regex),\n  addr = str_detect(strings, addr_regex),\n  abab = str_detect(strings, abab_regex)\n  )\n\n# A tibble: 6 × 5\n  text                                                   phone dog   addr  abab \n  &lt;chr&gt;                                                  &lt;lgl&gt; &lt;lgl&gt; &lt;lgl&gt; &lt;lgl&gt;\n1 abcdefghijklmnopqrstuvwxyzABAB                         FALSE FALSE FALSE TRUE \n2 banana orange strawberry apple                         FALSE FALSE FALSE TRUE \n3 ana went to montana to eat a banana                    FALSE FALSE FALSE TRUE \n4 call me at 432-394-2873. Do you want to go for a walk… TRUE  TRUE  FALSE FALSE\n5 phone: (123) 456-7890, nuid: 12345678, bank account b… TRUE  FALSE FALSE FALSE\n6 1600 Pennsylvania Ave NW, Washington D.C., 20500       FALSE FALSE TRUE  FALSE\n\n\n\n\n\n\n\n✅ Check-in: Functions from stringr\n1 Which of the follow are differences between length() and str_length()?\n\nlength() gives the number of elements in a vector\nstr_length() gives the number of characters in a string\nstr_length() gives the number of strings in a vector\nlength() gives the dimensions of a dataframe\n\n2 What of the following is true about str_replace()?\n\nstr_replace() replaces the first instance of the pattern\nstr_replace() replaces the last instance of the pattern\nstr_replace() replaces every instance of the pattern\n\n3 str_trim() allows you to remove whitespace on what sides\n\nleft\nright\nboth\n\n4 Which of the following does str_sub() use to create a substring?\n\nstarting position\nending position\npattern to search for\n\n5 Which of the following does str_subset() use to create a substring?\n\nstarting position\nending position\npattern to search for\n\n6 What does the collapse argument do in str_c()?\n\nspecifies a string to be used when combining inputs into a single string\nspecifies whether the string should be collapsed",
     "crumbs": [
       "Weekly materials",
-      "Week 3 - Version Control"
+      "Week 11 - Strings, Dates, and Times"
     ]
   },
   {
-    "objectID": "slides/week-3/week-3-intro-version-control.html#git-vs-github",
-    "href": "slides/week-3/week-3-intro-version-control.html#git-vs-github",
-    "title": "Version Control",
-    "section": "Git vs GitHub",
-    "text": "Git vs GitHub\n\n\n\n\n\n\n\n\n\n\n\n\nA system for version control that manages a collection of files in a structured way.\nUses the command line or a GUI.\nGit is local."
-  },
-  {
-    "objectID": "slides/week-3/week-3-intro-version-control.html#git-vs-github-1",
-    "href": "slides/week-3/week-3-intro-version-control.html#git-vs-github-1",
-    "title": "Version Control",
-    "section": "Git vs GitHub",
-    "text": "Git vs GitHub\n\n\n\n\n\n\n\n\nA system for version control that manages a collection of files in a structured way.\nUses the command line or a GUI.\nGit is local.\n\n\n\n\n\n\n\n\nA cloud-based service that lets you use git across many computers.\nBasic services are free, advanced services are paid (like RStudio!).\nGitHub is remote."
-  },
-  {
-    "objectID": "slides/week-3/week-3-intro-version-control.html#why-learn-github",
-    "href": "slides/week-3/week-3-intro-version-control.html#why-learn-github",
-    "title": "Version Control",
-    "section": "Why Learn GitHub?",
-    "text": "Why Learn GitHub?\n\nGitHub provides a structured way for tracking changes to files over the course of a project.\n\n\nThink Google Docs or Dropbox history, but more structured and powerful!\n\n\nGitHub makes it easy to have multiple people working on the same files at the same time.\nYou can host a URL of fun things (like the class text, these slides, the course website, etc.) with GitHub pages."
-  },
-  {
-    "objectID": "slides/week-3/week-3-intro-version-control.html#git-repositories",
-    "href": "slides/week-3/week-3-intro-version-control.html#git-repositories",
-    "title": "Version Control",
-    "section": "Git Repositories",
-    "text": "Git Repositories\nGit is based on repositories.\n\n\n\nThink of a repository (repo) as a directory (folder) for a single project.\n\nThis directory will likely contain code, documentation, data, to do lists, etc. associated with the project.\nYou can link a local repo with a remote copy."
-  },
-  {
-    "objectID": "slides/week-3/week-3-intro-version-control.html#cloning-a-repo",
-    "href": "slides/week-3/week-3-intro-version-control.html#cloning-a-repo",
-    "title": "Version Control",
-    "section": "Cloning a Repo",
-    "text": "Cloning a Repo\n\n\n\nCreate an exact copy of a remote repo on your local machine."
-  },
-  {
-    "objectID": "slides/week-3/week-3-intro-version-control.html#committing-changes",
-    "href": "slides/week-3/week-3-intro-version-control.html#committing-changes",
-    "title": "Version Control",
-    "section": "Committing Changes",
-    "text": "Committing Changes\nTell git you have made changes you want to add to the repo.\n\nAlso provide a commit message – a short label describing what the changes are and why they exist.\n\n\n\nThe red line is a change we commit (add) to the repo.\n\n\n\n\n\n\n\n\nThe log of these changes is called your commit history.\n\nYou can always go back to old copies!"
-  },
-  {
-    "objectID": "slides/week-3/week-3-intro-version-control.html#commit-tips",
-    "href": "slides/week-3/week-3-intro-version-control.html#commit-tips",
-    "title": "Version Control",
-    "section": "Commit Tips",
-    "text": "Commit Tips\n\nUse short, but informative commit messages.\nCommit small blocks of changes – commit every time you accomplish a small task (e.g., one problem in the lab).\n\nYou’ll have a set of bite-sized changes (with description) to serve as a record of what you’ve done.\nWith frequent commits, its easier to find the issue if / when you mess up!"
-  },
-  {
-    "objectID": "slides/week-3/week-3-intro-version-control.html#pushing-changes",
-    "href": "slides/week-3/week-3-intro-version-control.html#pushing-changes",
-    "title": "Version Control",
-    "section": "Pushing Changes",
-    "text": "Pushing Changes\n\n\n\nUpdate the copy of your repo on GitHub so it has the most recent changes you’ve made on your machine."
-  },
-  {
-    "objectID": "slides/week-3/week-3-intro-version-control.html#pulling-changes",
-    "href": "slides/week-3/week-3-intro-version-control.html#pulling-changes",
-    "title": "Version Control",
-    "section": "Pulling Changes",
-    "text": "Pulling Changes\n\n\n\nUpdate the local copy of your repo (the copy on your computer) with the version on GitHub."
-  },
-  {
-    "objectID": "slides/week-3/week-3-intro-version-control.html#workflow",
-    "href": "slides/week-3/week-3-intro-version-control.html#workflow",
-    "title": "Version Control",
-    "section": "Workflow",
-    "text": "Workflow\nWhen you have an existing local repo:\n\n\nPull the repo to make sure you have the most up to date version (especially if you are working on different computers).\nMake some changes locally.\nCommit the changes to git.\nPush your changes to GitHub."
-  },
-  {
-    "objectID": "slides/week-3/week-3-intro-version-control.html#previous-steps",
-    "href": "slides/week-3/week-3-intro-version-control.html#previous-steps",
-    "title": "Version Control",
-    "section": "Previous Steps",
-    "text": "Previous Steps\nYou were asked to complete the following steps before coming to class today:\n\nCreate a GitHub account\nIntroduce yourself to git (in RStudio)\nGenerate a Personal Access Token (PAT)\nStore your PAT in RStudio"
-  },
-  {
-    "objectID": "slides/week-3/week-3-intro-version-control.html#verifying-your-connection",
-    "href": "slides/week-3/week-3-intro-version-control.html#verifying-your-connection",
-    "title": "Version Control",
-    "section": "Verifying Your Connection",
-    "text": "Verifying Your Connection\n\n\nOpen RStudio and run the following code in your console (lower left pane):\n\n\n\n\n\nusethis::git_sitrep()\n\n\n\nYou should see something like:\n\n── GitHub user \n• Default GitHub host: 'https://github.com'\n• Personal access token for 'https://github.com': '&lt;discovered&gt;'\n• GitHub user: 'jcanner'\n• Token scopes: 'admin:org, admin:public_key, delete:packages, delete_repo, gist, notifications, repo, user, workflow, write:packages'\n• Email(s): 'jcanner@csumbedu'\n12439090+jcanner@users.noreply.github.com'\nℹ No active usethis project\n\n\n\nIf that is not the case, Dr. Canner will help you troubleshoot in 5-minutes!"
-  },
-  {
-    "objectID": "weeks/week-10-factors.html",
-    "href": "weeks/week-10-factors.html",
-    "title": "Working with Categorical Variables",
+    "objectID": "weeks/week-4-ggplot.html",
+    "href": "weeks/week-4-ggplot.html",
+    "title": "Introduction to ggplot2",
     "section": "",
-    "text": "The second section of this coursework is focused on working with factor data types. By the end of this week, you should be able to:\n\nUse forcats to reorder and relabel factor variables in data cleaning steps and data visualizations.\n\n\n\n📖 Readings: 15-minutes\n\n\n✅ Check-ins: 1\n\n\n\n1 Factors with forcats\nWe have been floating around the idea of factor data types. In this section, we will formally define factors and why they are needed for data visualization and analysis. We will then learn useful functions for working with factors in our data cleaning steps.\n\n\n\n\n\n\n\n\n\n\n\nIn short, factors are categorical variables with a fixed number of values (think a set number of groups). One of the main features that set factors apart from groups is that you can reorder the groups to be non-alphabetical. In this section we will be using the forcats package (part of the tidyverse!) to create and manipulate factor variables.\n📖 Required Reading: R4DS Chapter 16 (Factors)\n\n✅ Check-in: Functions from forcats\nAnswer the following questions.\n1. Which of the following tasks can fct_recode() accomplish? Select all that apply!\n\nchanges the values of the factor levels\nreorders the levels of a factor\nremove levels of a factor you don’t want\ncollapse levels of a factor into a new level\n\n2. Which of the following tasks can fct_relevel() accomplish?\n\nreorders the levels of a factor\nchanges the values of the factor levels\nremove levels of a factor you don’t want\ncollapse levels of a factor into a new level\n\n3. What is the main difference between fct_collapse() and fct_recode()?\n\nfct_recode() uses strings to create factor levels\nfct_recode() uses groups to create factor levels\nfct_recode() cannot create an “Other” group\n\n4. What ordering do you get with fct_reorder()?\n\nlargest to smallest based on another variable\norder of appearance\nlargest to smallest based on counts\nalphabetical order\n\n5. What ordering do you get with fct_inorder()?\n\norder of appearance\nalphabetical order\nlargest to smallest based on counts\nlargest to smallest based on another variable :::",
+    "text": "The greatest possibilities of visual display lie in vividness and inescapability of the intended message. A visual display can stop your mental flow in its tracks and make you think. A visual display can force you to notice what you never expected to see. (“Why, that scatter diagram has a hole in the middle!”) – John Tukey, Data Based Graphics: Visual Display in the Decades to Come",
     "crumbs": [
       "Weekly materials",
-      "Week 10 - Factors"
+      "Week 4 - Data Visualization"
     ]
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Statistical Computing with R",
-    "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic & Preview Activities\nPractice Activity\n\n\n\n\n1\nFriday, 1/24\nIntro to R & RStudio\nBroken Circles Group Warm-up\nCreating Pair Programming Norms\nData Cleaning, Visualization Puzzle\n\n\n2\nFriday, 1/31\nIntro to Quarto\nPair Activity 1: Secret Code\n\n\n3\nFriday, 2/7\nIntro to Version Control\nExpert Designer\nPair Activity 2: Secret Code Revisited\n\n\n4\nFriday, 2/14\nIntro to Data Visualization\nPair Activity 3: Finding Penguins\n\n\n5\nFriday, 2/21\nImporting Data\nPair Activity 4: Evaluating Youth Risk\n\n\n6-7\n\nTransforming Data\n\n\n\n8\nFriday, 3/14\nPivoting and Joining Data\nPair Activity 5: Military Spending in Eastern Europe\n\n\n9\nFriday, 3/21\nPivoting and Joining Data\nPair Activity 6: UN Voting Records\n\n\n10\nFriday, 3/28\nFactors\n\n\n\n11\nFriday, 4/10\nStrings, Dates, and Times\n\n\n\n12\nFriday 4/17",
-    "crumbs": [
-      "Course information",
-      "Weekly Schedule"
-    ]
-  },
-  {
-    "objectID": "group-activities/week-1/broken-circles.html",
-    "href": "group-activities/week-1/broken-circles.html",
-    "title": "Broken Circles",
-    "section": "",
-    "text": "This activity is designed to explore how working in groups can be more or less successful."
-  },
-  {
-    "objectID": "group-activities/week-1/broken-circles.html#instructions",
-    "href": "group-activities/week-1/broken-circles.html#instructions",
-    "title": "Broken Circles",
-    "section": "Instructions",
-    "text": "Instructions\nThe class will divide into groups of six (6) students. Each of you will be given an envelope with 2-3 pieces of a circle. The goal of this exercise is to put these pieces together in such a way that each member of your group ends up with a complete circle. However, there are a few additional rules to keep things fun:\n\nThis exercise must be done in complete silence. No talking is permitted.\nYou may not point or signal to other players with your hands in any way.\nEach player must put together their own circle. No one else may show a player how to assemble their circle or do it for them.\nThis is an exercise in giving. You may not take a piece from another player, but you may give your pieces—one at a time—to any other member of your group, and members of your group may give pieces to you. As per the previous rule, you may not place a piece in another person’s puzzle; players must complete their own puzzle. Instead, you are expected to hand the piece to the other player."
-  },
-  {
-    "objectID": "group-activities/week-1/broken-circles.html#getting-started",
-    "href": "group-activities/week-1/broken-circles.html#getting-started",
-    "title": "Broken Circles",
-    "section": "Getting Started",
-    "text": "Getting Started\nNow that you know the rules, let’s get started! Take the pieces out of your envelope and place them in front of you. Remember, this is a group task. The activity is not completed until everyone in your group has a completed circle in front of them.\nYou have 10-minutes to make your circles. When your group has finished, raise your hand. If you have time remaining, I may ask you to find another way to put the pieces together to form different circles."
-  },
-  {
-    "objectID": "group-activities/week-1/broken-circles.html#discussion",
-    "href": "group-activities/week-1/broken-circles.html#discussion",
-    "title": "Broken Circles",
-    "section": "Discussion",
-    "text": "Discussion\n\nWhat do you think this game was about? What was its purpose?\nWhat did your group did that made you cooperate more successfully?\nWhat did your group did that made cooperation harder?\nWhat are some behaviors that could be implemented in the future to make cooperation easier?"
-  },
-  {
-    "objectID": "course-materials/course_resources.html",
-    "href": "course-materials/course_resources.html",
-    "title": "R Resources",
-    "section": "",
-    "text": "Tip\n\n\n\nClick on the link to access the R Cheatsheet related to a specific topic / package!\n\n\n\nWeekly R Cheatsheets\nWeek 1\n\nRStudion IDE\nBase R\n\nWeek 2\n\nQuarto\n\nWeek 3\n\nGit & GitHub\n\nWeek 4\n\nData Visualization with ggplot2\n\nWeek 5\n\nData Import with readr\n\nWeek 6-7\n\nData Wrangling with dplyr\n\nWeek 8-9\n\nData Tidying with tidyr\n\nWeek 10\n\nFactors with forcats\n\nWeek 11\n\nDates with lubridate\nStrings with stringr\n(optional) Regular Expressions\n\nWeek 12\n\nTidy Evaluation\n\nWeek 13\n\nIteration with purrr",
-    "crumbs": [
-      "Course information",
-      "R Resources"
-    ]
-  },
-  {
-    "objectID": "group-activities/pair-programming-norms.html",
-    "href": "group-activities/pair-programming-norms.html",
-    "title": "Pair Programming Roles",
-    "section": "",
-    "text": "During our in-class activities, you will be paired with another student. When completing the activity, you will rotate between the following roles every 2-3 minutes:",
-    "crumbs": [
-      "Course information",
-      "Pair Programming Norms"
-    ]
-  },
-  {
-    "objectID": "group-activities/pair-programming-norms.html#group-norms",
-    "href": "group-activities/pair-programming-norms.html#group-norms",
-    "title": "Pair Programming Roles",
-    "section": "Group Norms",
-    "text": "Group Norms\n\nThink and work together. Do not divide the work.\nYou are smarter together.\nBe open minded.\nNo cross-talk with other groups.\nCommunicate with each other!",
-    "crumbs": [
-      "Course information",
-      "Pair Programming Norms"
-    ]
-  },
-  {
-    "objectID": "group-activities/pair-programming-norms.html#completing-the-task",
-    "href": "group-activities/pair-programming-norms.html#completing-the-task",
-    "title": "Pair Programming Roles",
-    "section": "Completing the Task",
-    "text": "Completing the Task\nWorking with your partner, complete the Practice Activity in the Quarto document provided. In your roles—Coder and Developer—use the prompts below to help guide the completion of your activity.\n\n\nCoder\nI am looking for…\nI am confused by…\nI notice…\nWhat might be true is…\nWhat’s important is…\nI predict…\nThis reminds me of…\nWhat if we…\nWe could try…\nI am thinking about…\nA line of code I could write is…\n\n\n\nDeveloper\n\nDo you understand what we need to do?\nWhat’s the question we have for Dr. Canner? Can we answer the question ourselves?\nWhat are you focusing on?\nWhat are you thinking now?\nCould you tell me more?\nWhat are you doing (or writing) now? Please elaborate.\nI can’t follow that, run that by me again.\n What other sources of information do we need?\nWhich words should we look up?\nWhat else do we need to complete this problem?",
-    "crumbs": [
-      "Course information",
-      "Pair Programming Norms"
-    ]
-  },
-  {
-    "objectID": "group-activities/pair-programming-norms.html#once-youre-finished",
-    "href": "group-activities/pair-programming-norms.html#once-youre-finished",
-    "title": "Pair Programming Roles",
-    "section": "Once You’re Finished",
-    "text": "Once You’re Finished\nAt the end of the task, your group will have one completed Quarto document and one rendered HTML, containing your groups’ worked-out solutions and justifications. Everyone must take turns writing the final product (as described above) and everyone must be able to explain every line of code in your final document.",
-    "crumbs": [
-      "Course information",
-      "Pair Programming Norms"
-    ]
-  },
-  {
-    "objectID": "group-activities/week-2/expert-designer.html",
-    "href": "group-activities/week-2/expert-designer.html",
-    "title": "Expert Designer",
-    "section": "",
-    "text": "This activity is designed to simulate the environment in which you will be working for the weekly Practice Activities."
-  },
-  {
-    "objectID": "group-activities/week-2/expert-designer.html#instructions-roles-rules",
-    "href": "group-activities/week-2/expert-designer.html#instructions-roles-rules",
-    "title": "Expert Designer",
-    "section": "Instructions, Roles, & Rules",
-    "text": "Instructions, Roles, & Rules\nGet into groups of four (4) students. Similar to last week’s Broken Circles activity, each of you has an envelope containing different shapes.\n\nDesigner\nIn this activity, one person in your group will take on the role of the “designer,” two members will be the “players,” and one person will be the “observer.” The designer uses every shape in the envelope to create a design that is not shared with anyone else. The designer is then tasked with instructing the players how to replicate the design they created, but there are some rules.\n\nThe designer cannot touch the players shapes.\nThe designer cannot tell the players how to assemble the shapes into the correct design.\nThe designer can respond to questions posed by the players.\n\n\n\nPlayers\n“Players” are tasked with solving the design made by the “designer.” Players can pose questions to the designer to uncover their design. Once an player believes they have figured out the design, the designer should check their solution. If the designer says the solution is correct, then the player can assist the designer in answering questions posed by the other players.\n\n\nObserver\nThe “observer” is tasked with monitoring the interactions between the designer and the players. Specifically, the observer should check off the number of times they see two behaviors occurring, (1) explaining by telling how, and (2) everybody helps. The observer should have a scoring sheet to tally the number of times they see each behavior."
-  },
-  {
-    "objectID": "group-activities/week-2/expert-designer.html#getting-started",
-    "href": "group-activities/week-2/expert-designer.html#getting-started",
-    "title": "Expert Designer",
-    "section": "Getting Started",
-    "text": "Getting Started\nChoose one person in your group to be the first designer. Carry out the process described above until every observer has correctly identified the design. You will have 10-minutes to complete this task.\nOnce you have completed this task, if there is still time remaining your group should choose a new designer and repeat the process."
-  },
-  {
-    "objectID": "group-activities/week-2/expert-designer.html#discussion",
-    "href": "group-activities/week-2/expert-designer.html#discussion",
-    "title": "Expert Designer",
-    "section": "Discussion",
-    "text": "Discussion\n\nWhat do you think this game was about? What was its purpose?\nWhat did your group did that made you cooperate more successfully?\nWhat did your group did that made cooperation harder?\nWhat are some behaviors that could be implemented in the future to make cooperation easier?"
-  },
-  {
-    "objectID": "weeks/week-2-quarto.html",
-    "href": "weeks/week-2-quarto.html",
-    "title": "Week 2: Reproducible Analyses with Quarto",
-    "section": "",
-    "text": "The theme of this lesson is good management of your files and data. In part two of this week’s coursework you will learn how to identify folders and paths, and create Quarto documents.",
+    "objectID": "weeks/week-4-ggplot.html#learning-objectives",
+    "href": "weeks/week-4-ggplot.html#learning-objectives",
+    "title": "Introduction to ggplot2",
+    "section": "0.1 Learning Objectives",
+    "text": "0.1 Learning Objectives\n\nDescribe charts using the grammar of graphics\nCreate layered graphics that highlight multiple aspects of the data\nEvaluate existing charts and develop new versions that improve accessibility and readability",
     "crumbs": [
       "Weekly materials",
-      "Week 2 - Quarto"
+      "Week 4 - Data Visualization"
     ]
   },
   {
-    "objectID": "weeks/week-2-quarto.html#file-management",
-    "href": "weeks/week-2-quarto.html#file-management",
-    "title": "Week 2: Reproducible Analyses with Quarto",
-    "section": "1.1 File Management",
-    "text": "1.1 File Management\nAs boring as it sounds, file management is arguably one of the most important skills a data scientist should have. The reproducibility of a project depends just as much on the way in which the project was stored as the computing tools used. While using R and Quarto make an important step in creating a reproducible analysis, there are other pieces that are arguably just as important—such as file management.\nBelieve it or not, your computer has multiple locations** where files can be stored. There has been a bit of a generational shift as computers have evolved: the “file system” metaphor itself is outdated because no one uses physical files anymore.\n[This article]((https://futurism.com/the-byte/gen-z-kids-file-systems) makes the argument that with modern search capabilities, most people use their computers as a laundry hamper instead of as a nice, organized filing cabinet. However, the laundry hamper approach doesn’t play nicely with working in R and creating Quarto documents.\nIn this class, we will store files according to the Project TIER protocol. More specifically, you will have:\n\na “Stat 210” folder in your Documents folder, containing all your materials associated with STAT 210\na sub-folder for each week (e.g., Week 1, Week 2)\nseparate folders within each week for each assignment (e.g., Practice Activity, Lab)\na separate R Studio Project (and GitHub repository) associated with each assignment\n\nFor example, if you come to my office for help on your lab assignment for Week 2, I would expect your files to look like this:\n\nFile Storage on WindowsFile Storage on a Mac\n\n\n\nThis computer has six total folders in my Documents, one of which is a folder named “STAT 311.” You should have one that is called “STAT 210” or something similar.\n\nInside my STAT course folder is a sub-folder named “Week 1,” which also has a sub-folder (a sub-sub-folder) named “Lab 1.” You can tell what folders Lab 1 lives inside based on the information included at the top of the screen. This is called a “file path,” which tells your computer where a folder / file lives on the computer.\nOn a PC, every file lives on the C Drive, so the “full path” to get to my Lab 1 folder would be:\nC:/Users/jcanner/Documents/STAT 210/Week 1/Lab 1\n\n\n\nOn this Mac, there are six total folders in my Documents, one of which is a folder named “STAT 331.” Inside this folder is a sub-folder named “Week 1,” which also has a sub-folder (a sub-sub-folder) named “Lab 1.”\nOn a Mac, every file lives on the hard drive (it doesn’t have letters like a PC), so the “full path” to get to my Lab 1 folder on a Mac would be:\n/Users/jcanner/Documents/STAT 210/Week 1/Lab 1",
+    "objectID": "weeks/week-4-ggplot.html#loading-in-the-ggplot2-package",
+    "href": "weeks/week-4-ggplot.html#loading-in-the-ggplot2-package",
+    "title": "Introduction to ggplot2",
+    "section": "0.2 Loading in the ggplot2 Package",
+    "text": "0.2 Loading in the ggplot2 Package\nIn this class, we’re going to use the ggplot2 package to create graphics in R. This package is already installed as part of the tidyverse, but can be installed:\n\ninstall.packages(\"ggplot2\") #only needs to happen once - Do not include in Quarto documents!\n\nand/or loaded:\n\nlibrary(\"ggplot2\")\n\n# alternatively\nlibrary(\"tidyverse\") # (my preference!)\n\n\n\n\n\n\nBuilding a masterpiece, by Allison Horst",
     "crumbs": [
       "Weekly materials",
-      "Week 2 - Quarto"
+      "Week 4 - Data Visualization"
     ]
   },
   {
-    "objectID": "weeks/week-2-quarto.html#check-in-stat-210-folder",
-    "href": "weeks/week-2-quarto.html#check-in-stat-210-folder",
-    "title": "Week 2: Reproducible Analyses with Quarto",
-    "section": "1.2 ✅ Check-in: STAT 210 Folder",
-    "text": "1.2 ✅ Check-in: STAT 210 Folder\nCheck that your class directory is set up with:\n\nthe location of your Stat 210 folder\na Week 1 sub-folder\na Lab 1 sub-sub-folder (inside the Week 1 folder)\n\n\n\n\n\n\n\nYour folder cannot sync with anything online!\n\n\n\nYour STAT 210 folder cannot be in a folder stored on GoogleDrive, OneDrive, or iCloud! Storing your folder in this location will cause your code to periodically not run and I cannot help you fix it.",
+    "objectID": "weeks/week-4-ggplot.html#the-grammar-of-graphics",
+    "href": "weeks/week-4-ggplot.html#the-grammar-of-graphics",
+    "title": "Introduction to ggplot2",
+    "section": "1.1 The Grammar of Graphics",
+    "text": "1.1 The Grammar of Graphics\nThe grammar of graphics is an approach first introduced in Leland Wilkinson’s book (Wilkinson 2005). Unlike other graphics classification schemes, the grammar of graphics makes an attempt to describe how the data set itself relates to the components of the chart.\nThis has a few advantages:\n\nIt’s relatively easy to represent the same data set with different types of plots (and to find their strengths and weaknesses)\nGrammar leads to a concise description of the plot and its contents\nWe can add layers to modify the graphics, each with their own basic grammar (just like we combine sentences and clauses to build a rich, descriptive paragraph)\n\n\n\n\nA pyramid view of the major components of the grammar of graphics, with data as the base, aesthetics building on data, scales building on aesthetics, geometric objects, statistics, facets, and the coordinate system at the top of the pyramid. Source: (Sarkar 2018)",
     "crumbs": [
       "Weekly materials",
-      "Week 2 - Quarto"
+      "Week 4 - Data Visualization"
     ]
   },
   {
-    "objectID": "weeks/week-2-quarto.html#downloading-quarto",
-    "href": "weeks/week-2-quarto.html#downloading-quarto",
-    "title": "Week 2: Reproducible Analyses with Quarto",
-    "section": "2.1 Downloading Quarto",
-    "text": "2.1 Downloading Quarto\nThe software associated with Quarto is automatically downloaded with the newest versions of RStudio. So, if you are using the most up to date version of RStudio (as instructed in Part 1 of this week’s coursework), you should already have Quarto installed on your computer. But, let’s test it out.\nTo ensure you have Quarto installed, carry out the following process:\n\nOpen RStudio\nClick on “File” (in the upper navigation bar)\nSelect “New File” (in the dropdown options)\nSelect “Quarto Document…” (in the dropdown option)\n\n \nIf you have Quarto installed, you should be prompted with the following menu:\n\nIf, instead, you receive a message saying Quarto is not installed on your computer, you need to download Quarto: https://quarto.org/docs/download/",
+    "objectID": "weeks/week-4-ggplot.html#making-your-first-ggplot",
+    "href": "weeks/week-4-ggplot.html#making-your-first-ggplot",
+    "title": "Introduction to ggplot2",
+    "section": "1.2 Making Your First ggplot",
+    "text": "1.2 Making Your First ggplot\n\n✅ Check-in\nQuestion 1 – What specifically does the code ggplot(data = mpg) do?\n\nCreates a blank plot\nMakes a scatterplot of the first two variables in the mpg dataset\nCreates a ggplot with the mpg dataset",
     "crumbs": [
       "Weekly materials",
-      "Week 2 - Quarto"
+      "Week 4 - Data Visualization"
     ]
   },
   {
-    "objectID": "weeks/week-2-quarto.html#introduction-to-quarto",
-    "href": "weeks/week-2-quarto.html#introduction-to-quarto",
-    "title": "Week 2: Reproducible Analyses with Quarto",
-    "section": "2.2 Introduction to Quarto",
-    "text": "2.2 Introduction to Quarto\n\n📖 Required Reading: Intro to Quarto\n\n\nHTML Documents\nWe will exclusively use HTML documents in this course. If you are interested in learning more about formatting options for Quarto HTML documents, I would recommend checking out:\n\na discussion of the basics of formatting HTML documents in Quarto\nthe list of all HTML Ffrmatting pptions for Quarto documents",
+    "objectID": "weeks/week-4-ggplot.html#aesthetics",
+    "href": "weeks/week-4-ggplot.html#aesthetics",
+    "title": "Introduction to ggplot2",
+    "section": "1.3 Aesthetics",
+    "text": "1.3 Aesthetics\n📖 Required Reading: Layers - Aesthetic Mappings.\n\n✅ Check-in\n\nggplot(data = mpg) +\n  geom_point(mapping = aes(x = displ, y = hwy), color = \"blue\")\n\nQuestion 2: What aesthetics does this plot contain?\n\nx\ny\ncolor\ndata\n\nQuestion 3: Which of the following changes would set the color of the points to be blue?\n\n## Option A\nggplot(data = mpg) +\ngeom_point(\n  mapping = aes(x = displ, \n                y = hwy, \n                color = blue)\n  )\n\n## Option B\nggplot(data = mpg) +\ngeom_point(\n  mapping = aes(x = displ, \n                y = hwy), \n  color = \"blue\"\n  )\n\n## Option C\nggplot(data = mpg, \n       mapping = aes(color = \"blue\")\n       ) +\ngeom_point(\n  mapping = aes(x = displ, \n                y = hwy)\n  )",
     "crumbs": [
       "Weekly materials",
-      "Week 2 - Quarto"
+      "Week 4 - Data Visualization"
     ]
   },
   {
-    "objectID": "weeks/week-2-quarto.html#check-in-quarto-documents",
-    "href": "weeks/week-2-quarto.html#check-in-quarto-documents",
-    "title": "Week 2: Reproducible Analyses with Quarto",
-    "section": "2.3 ✅ Check-in: Quarto Documents",
-    "text": "2.3 ✅ Check-in: Quarto Documents\nQuestion 1: What are the options at the top of a Quarto document (between the --- and --- symbols) called?\n\nXML\nYAML\nREML\nTOML\n\nQuestion 2: What symbols create an R code chunk?\n\n```\n{r}\n```{r}\n`{r}`\n\nQuestion 3: What symbol defines a heading?\n\n$\n_\n*\n#\n\nQuestion 4: When working in a Quarto document, the [visual / source] editor will display the raw Quarto document, whereas the [visual / source] will display the document as it will appear when it is rendered.\nQuestion 5: To produce an HTML report from your Quarto document, you need to click the ____ button.\n\nVisual\nRender\nRender on Save\nSave",
+    "objectID": "weeks/week-4-ggplot.html#geoms",
+    "href": "weeks/week-4-ggplot.html#geoms",
+    "title": "Introduction to ggplot2",
+    "section": "1.4 geoms",
+    "text": "1.4 geoms\n\nWhat type of chart to use?\nIt can be hard to know what type of chart to use for a particular type of data. I recommend figuring out what you want to show first, and then thinking about how to show that data with an appropriate plot type. Consider the following factors:\n\nWhat type of variable is x? Categorical? Continuous? Discrete?\nWhat type of variable is y?\nHow many observations do I have for each x / y variable?\nAre there any important moderating variables?\nDo I have data that might be best shown in small multiples? E.g. a categorical moderating variable and a lot of data, where the categorical variable might be important for showing different features of the data?\n\nOnce you’ve thought through this, take a look through catalogs like the R Graph Gallery to see what visualizations match your data and use-case.\n📖 Required Reading: Layers - Geometric Objects.\n💻 Required Tutorials\n\nBar Charts\nHistograms\nScatterplots\nLine Plots\n\n\n\n✅ Check-in\nQuestion 4: Match each plot with the geom_XXX() function used to create it!\n\n\n\nLine Chart\nBoxplot\nHistogram\nArea Chart\n\n\n\ngeom_boxplot()\ngeom_point()\ngeom_hist()\ngeom_bar()\ngeom_smooth()\ngeom_point()\ngeom_area()\ngeom_line()\ngeom_histogram()",
     "crumbs": [
       "Weekly materials",
-      "Week 2 - Quarto"
+      "Week 4 - Data Visualization"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-2-instructions.html",
-    "href": "labs/instructions/lab-2-instructions.html",
-    "title": "Lab 2: Getting Started on your Portfolio",
+    "objectID": "weeks/week-4-ggplot.html#getting-a-bit-fancier",
+    "href": "weeks/week-4-ggplot.html#getting-a-bit-fancier",
+    "title": "Introduction to ggplot2",
+    "section": "1.5 Getting a Bit Fancier",
+    "text": "1.5 Getting a Bit Fancier\nIn this section we dig a bit deeper into how we can make our code more efficient and other ways we can add additional variables to our plots.\n\nGlobal vs. local aesthetics\nThe aesthetic mappings that are defined in ggplot() are the global level aesthetics, that is they are inherited by each of the subsequent geom_ layers of the plot. However, each geom_ function in ggplot2 can also take its own mapping arguments, which allows for aesthetic mappings at the local level that are combined with those inherited from the global level.\n\n\n✅ Check-in\nQuestion 5: Match the code to the type of aesthetics that are being used:\n\n\n\nGlobal\n \nLocal\n\n\nggplot(data = mpg, \n       mapping = aes(x = mpg, y = hwy)\n       ) + \n  geom_point()\n\n\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = mpg, y = hwy))",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4-ggplot.html#facets",
+    "href": "weeks/week-4-ggplot.html#facets",
+    "title": "Introduction to ggplot2",
+    "section": "1.6 Facets",
+    "text": "1.6 Facets\n📖 Required Reading: Layers - Facets.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4-ggplot.html#data-transformations",
+    "href": "weeks/week-4-ggplot.html#data-transformations",
+    "title": "Introduction to ggplot2",
+    "section": "1.7 Data transformations",
+    "text": "1.7 Data transformations\n📖 Required Reading: Layers - Statistical Transformations.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4-ggplot.html#changing-the-positions-of-bars",
+    "href": "weeks/week-4-ggplot.html#changing-the-positions-of-bars",
+    "title": "Introduction to ggplot2",
+    "section": "1.8 Changing the positions of bars",
+    "text": "1.8 Changing the positions of bars\n📖 Required Reading: Layers - Position Adjustments.\n\n✅ Check-in\nQuestion 6: What arguments for geom_jitter() control the amount of jittering?\n\nwidth\nheight\nstat\nposition\nna.rm\nshow.legend\ndata\nmapping",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4-ggplot.html#plot-customizations",
+    "href": "weeks/week-4-ggplot.html#plot-customizations",
+    "title": "Introduction to ggplot2",
+    "section": "1.9 Plot Customizations",
+    "text": "1.9 Plot Customizations\n📖 Required Reading: Communication\n\n\n✅ Check-in\nQuestion 7: What can the labs() function do? Select all that apply.\n\nCustomize the x-axis label\nCustomize the y-axis label\nCustomize the legend label\nCustomize the plot title\nAdd a caption to the plot",
+    "crumbs": [
+      "Weekly materials",
+      "Week 4 - Data Visualization"
+    ]
+  },
+  {
+    "objectID": "weeks/week-6-7-dplyr.html",
+    "href": "weeks/week-6-7-dplyr.html",
+    "title": "Data Wrangling with dplyr",
     "section": "",
-    "text": "Either under File, or in the top right corner where the current project name is, select\n\n\n\n\nFor this week, you will create a New Directory.\n\n\n\n\nInstead of New Project, choose Quarto Website\n\nSet up your directory name (it should be your-name-portfolio or something similar) and saved in a location that is NOT on a cloud service (e.g. iCloud or Google Drive). Be sure to check Create a git repositoryand Open in a new session. Create the Project.\n\nNow you have your website!!\n\n\n\nIn the pane at the top right corner there should be a tab that say Build. Under Build there is an option to Render Website, go ahead an click that and it will render the generic website.\n\nHere is roughly what the page will look like.",
+    "text": "When you are finished with the readings and videos, you should be able to…\n\nDescribe to someone what a function conflict is\nDescribe to someone the similarities and differences between a list, a data.frame, and a tibble\nIdentify the structure of an object\nIdentify the data type(s) of an object\nDescribe to someone what the tidyverse is\nUse the six main dplyr verbs:\n\nfilter()\narrange()\nselect()\nmutate()\nsummarize()\n`arrange()\n\nUse group_by() to perform groupwise operations\nUse the pipe operator (|&gt; or %&gt;%) to chain together data wrangling operations",
     "crumbs": [
-      "Labs",
-      "Lab 2 Instructions"
+      "Weekly materials",
+      "Week 6-7 - Transforming Data"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-2-instructions.html#step-1-make-a-new-project-in-rstudio",
-    "href": "labs/instructions/lab-2-instructions.html#step-1-make-a-new-project-in-rstudio",
-    "title": "Lab 2: Getting Started on your Portfolio",
+    "objectID": "weeks/week-6-7-dplyr.html#learning-targets",
+    "href": "weeks/week-6-7-dplyr.html#learning-targets",
+    "title": "Data Wrangling with dplyr",
     "section": "",
-    "text": "Either under File, or in the top right corner where the current project name is, select",
+    "text": "When you are finished with the readings and videos, you should be able to…\n\nDescribe to someone what a function conflict is\nDescribe to someone the similarities and differences between a list, a data.frame, and a tibble\nIdentify the structure of an object\nIdentify the data type(s) of an object\nDescribe to someone what the tidyverse is\nUse the six main dplyr verbs:\n\nfilter()\narrange()\nselect()\nmutate()\nsummarize()\n`arrange()\n\nUse group_by() to perform groupwise operations\nUse the pipe operator (|&gt; or %&gt;%) to chain together data wrangling operations",
     "crumbs": [
-      "Labs",
-      "Lab 2 Instructions"
+      "Weekly materials",
+      "Week 6-7 - Transforming Data"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-2-instructions.html#step-2-choose-a-new-directory",
-    "href": "labs/instructions/lab-2-instructions.html#step-2-choose-a-new-directory",
-    "title": "Lab 2: Getting Started on your Portfolio",
+    "objectID": "weeks/week-6-7-dplyr.html#learning-more-about-data-types-objects-in-r",
+    "href": "weeks/week-6-7-dplyr.html#learning-more-about-data-types-objects-in-r",
+    "title": "Data Wrangling with dplyr",
+    "section": "1.1 Learning More about Data Types & Objects in R",
+    "text": "1.1 Learning More about Data Types & Objects in R\n\n\n\n📖 Read a Textbook: Data Types in R\n\nIn addition, read the following section from the first edition of R for DS:📖 Required Reading: Tibbles\n1.2 ✅ Check-in: Data Structures\nQuestion 1\nIn essence, a data.frame is simply a special list - with a few extra restrictions on the list format.\nThink about the datasets you have already worked with. Which of the following restrictions on a list do you think are needed for the list to be a data.frame? (Select all that apply)\n\nThe elements of the list must all be vectors of the same length.\nThe elements of the list must all be the same data type.\nThe elements of the list must all have no missing values.\nThe elements of the list must all have names.\n\nQuestion 2\nTibbles are described as “opinionated” dataframes. Which of the following are true about a tibble’s behavior? (Select all that apply)\n\ntibbles only print the first 10 rows of a dataset\ntibbles allow for non-syntactic variable names, like :)\ntibbles never convert strings to factors\ntibbles create row names\n\n\n2 Part Two: Wrangling data with dplyr\n\n2.1 Introduction to dplyr\n📖 Required Reading: Data Transformation\n\n\n2.2 dplyr Verbs\n\n\n\n\n\n\n\n\n\n\n\n\n2.3 Practice\n💻 Required Tutorial: Practice with dplyr\n\n\n\n2.4 ✅ Check-in: Data Wrangling\nQuestion 1: Suppose we would like to study how the ratio of penguin body mass to flipper size differs across the species. Arrange the following steps into an order that accomplishes this goal (assuming the steps are connected with a |&gt; or a %&gt;%).\n\n# a\narrange(med_mass_flipper_ratio)\n\n\n# b\ngroup_by(species)\n\n\n# c\npenguins \n  \n\n# d\nsummarize(\n  med_mass_flipper_ratio = median(mass_flipper_ratio)\n)\n\n  \n# e\nmutate(\n  mass_flipper_ratio = body_mass_g / flipper_length_mm\n)\n\n\n\n\n\n\n\nTry running the code!\n\n\n\nYou can check your answers using the penguins data from the palmerpenguins R package!\n\n\nQuestion 2:\nConsider the base R code below.\n\nmean(penguins[penguins$species == \"Adelie\", ]$body_mass_g)\n\nFor each of the following dplyr pipelines, indicate which of the following is true:\n\nIt returns the exact same thing as the (above) base R code\nIt returns the correct information, but the wrong object type\nIt returns incorrect information\nIt returns an error\n\n\n# Part a\npenguins |&gt;\n  filter(\"body_mass_g\") |&gt;\n  pull(\"Adelie\") |&gt;\n  mean()\n\n\n# Part b\npenguins |&gt;\n  filter(species == \"Adelie\") |&gt;\n  select(body_mass_g) |&gt;\n  summarize(mean(body_mass_g))\n\n\n# Part c\npenguins |&gt;\n  pull(body_mass_g) |&gt;\n  filter(species == \"Adelie\") |&gt;\n  mean()\n\n\n# Part d\npenguins |&gt;\n  filter(species == \"Adelie\") |&gt;\n  select(body_mass_g) |&gt;\n  mean()\n\n\n# Part e\npenguins |&gt;\n  filter(species == \"Adelie\") |&gt;\n  pull(body_mass_g) |&gt;\n  mean()\n\n\n# Part f\npenguins |&gt;\n  select(species == \"Adelie\") |&gt;\n  filter(body_mass_g) |&gt;\n  summarize(mean(body_mass_g))\n\n\n\n\n\n\n\nTry running the code!\n\n\n\nYou can check your answers using the penguins data from the palmerpenguins R package!",
+    "crumbs": [
+      "Weekly materials",
+      "Week 6-7 - Transforming Data"
+    ]
+  },
+  {
+    "objectID": "weeks/week-6-7-dplyr.html#check-in-data-structures",
+    "href": "weeks/week-6-7-dplyr.html#check-in-data-structures",
+    "title": "Data Wrangling with dplyr",
+    "section": "1.2 ✅ Check-in: Data Structures",
+    "text": "1.2 ✅ Check-in: Data Structures\nQuestion 1\nIn essence, a data.frame is simply a special list - with a few extra restrictions on the list format.\nThink about the datasets you have already worked with. Which of the following restrictions on a list do you think are needed for the list to be a data.frame? (Select all that apply)\n\nThe elements of the list must all be vectors of the same length.\nThe elements of the list must all be the same data type.\nThe elements of the list must all have no missing values.\nThe elements of the list must all have names.\n\nQuestion 2\nTibbles are described as “opinionated” dataframes. Which of the following are true about a tibble’s behavior? (Select all that apply)\n\ntibbles only print the first 10 rows of a dataset\ntibbles allow for non-syntactic variable names, like :)\ntibbles never convert strings to factors\ntibbles create row names",
+    "crumbs": [
+      "Weekly materials",
+      "Week 6-7 - Transforming Data"
+    ]
+  },
+  {
+    "objectID": "weeks/week-6-7-dplyr.html#introduction-to-dplyr",
+    "href": "weeks/week-6-7-dplyr.html#introduction-to-dplyr",
+    "title": "Data Wrangling with dplyr",
+    "section": "2.1 Introduction to dplyr",
+    "text": "2.1 Introduction to dplyr\n📖 Required Reading: Data Transformation",
+    "crumbs": [
+      "Weekly materials",
+      "Week 6-7 - Transforming Data"
+    ]
+  },
+  {
+    "objectID": "weeks/week-6-7-dplyr.html#dplyr-verbs",
+    "href": "weeks/week-6-7-dplyr.html#dplyr-verbs",
+    "title": "Data Wrangling with dplyr",
+    "section": "2.2 dplyr Verbs",
+    "text": "2.2 dplyr Verbs",
+    "crumbs": [
+      "Weekly materials",
+      "Week 6-7 - Transforming Data"
+    ]
+  },
+  {
+    "objectID": "weeks/week-6-7-dplyr.html#practice",
+    "href": "weeks/week-6-7-dplyr.html#practice",
+    "title": "Data Wrangling with dplyr",
+    "section": "2.3 Practice",
+    "text": "2.3 Practice\n💻 Required Tutorial: Practice with dplyr",
+    "crumbs": [
+      "Weekly materials",
+      "Week 6-7 - Transforming Data"
+    ]
+  },
+  {
+    "objectID": "weeks/week-6-7-dplyr.html#check-in-data-wrangling",
+    "href": "weeks/week-6-7-dplyr.html#check-in-data-wrangling",
+    "title": "Data Wrangling with dplyr",
+    "section": "2.4 ✅ Check-in: Data Wrangling",
+    "text": "2.4 ✅ Check-in: Data Wrangling\nQuestion 1: Suppose we would like to study how the ratio of penguin body mass to flipper size differs across the species. Arrange the following steps into an order that accomplishes this goal (assuming the steps are connected with a |&gt; or a %&gt;%).\n\n# a\narrange(med_mass_flipper_ratio)\n\n\n# b\ngroup_by(species)\n\n\n# c\npenguins \n  \n\n# d\nsummarize(\n  med_mass_flipper_ratio = median(mass_flipper_ratio)\n)\n\n  \n# e\nmutate(\n  mass_flipper_ratio = body_mass_g / flipper_length_mm\n)\n\n\n\n\n\n\n\nTry running the code!\n\n\n\nYou can check your answers using the penguins data from the palmerpenguins R package!\n\n\nQuestion 2:\nConsider the base R code below.\n\nmean(penguins[penguins$species == \"Adelie\", ]$body_mass_g)\n\nFor each of the following dplyr pipelines, indicate which of the following is true:\n\nIt returns the exact same thing as the (above) base R code\nIt returns the correct information, but the wrong object type\nIt returns incorrect information\nIt returns an error\n\n\n# Part a\npenguins |&gt;\n  filter(\"body_mass_g\") |&gt;\n  pull(\"Adelie\") |&gt;\n  mean()\n\n\n# Part b\npenguins |&gt;\n  filter(species == \"Adelie\") |&gt;\n  select(body_mass_g) |&gt;\n  summarize(mean(body_mass_g))\n\n\n# Part c\npenguins |&gt;\n  pull(body_mass_g) |&gt;\n  filter(species == \"Adelie\") |&gt;\n  mean()\n\n\n# Part d\npenguins |&gt;\n  filter(species == \"Adelie\") |&gt;\n  select(body_mass_g) |&gt;\n  mean()\n\n\n# Part e\npenguins |&gt;\n  filter(species == \"Adelie\") |&gt;\n  pull(body_mass_g) |&gt;\n  mean()\n\n\n# Part f\npenguins |&gt;\n  select(species == \"Adelie\") |&gt;\n  filter(body_mass_g) |&gt;\n  summarize(mean(body_mass_g))\n\n\n\n\n\n\n\nTry running the code!\n\n\n\nYou can check your answers using the penguins data from the palmerpenguins R package!",
+    "crumbs": [
+      "Weekly materials",
+      "Week 6-7 - Transforming Data"
+    ]
+  },
+  {
+    "objectID": "weeks/week-1-r-rstudio.html",
+    "href": "weeks/week-1-r-rstudio.html",
+    "title": "Week 1, Part 1: R & RStudio",
     "section": "",
-    "text": "For this week, you will create a New Directory.",
+    "text": "For the first portion of this week’s coursework, we are going to learn about / refresh our memory on R and RStudio. This course is all about you learning skills for working with data in R, so you will need to have local installations of both R and RStudio on your computer.",
     "crumbs": [
-      "Labs",
-      "Lab 2 Instructions"
+      "Weekly materials",
+      "Week 1 - R & RStudio"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-2-instructions.html#step-3-choose-quarto-website",
-    "href": "labs/instructions/lab-2-instructions.html#step-3-choose-quarto-website",
-    "title": "Lab 2: Getting Started on your Portfolio",
-    "section": "",
-    "text": "Instead of New Project, choose Quarto Website\n\nSet up your directory name (it should be your-name-portfolio or something similar) and saved in a location that is NOT on a cloud service (e.g. iCloud or Google Drive). Be sure to check Create a git repositoryand Open in a new session. Create the Project.\n\nNow you have your website!!",
+    "objectID": "weeks/week-1-r-rstudio.html#updating-your-version-of-r",
+    "href": "weeks/week-1-r-rstudio.html#updating-your-version-of-r",
+    "title": "Week 1, Part 1: R & RStudio",
+    "section": "1.1 Updating Your Version of R",
+    "text": "1.1 Updating Your Version of R\nIf you already have R downloaded, you need to confirm that you have the most up to date version of R. Do not ignore these instructions. If you neglect to update your version of R, you may find that updating a package will make it so your code will not run.\n\nStep 1: Open RStudio\nStep 2: At the top of the the Console it will say what version of R you are using\n\n{fig-alt = “A screenshot of what version of R should appear when you open RStudio. The version reads ‘R version 4.4.2 (2024-10-31) – ’Pile of Leaves’.”}\nIf the version is not 4.4.2 (like the image above), you need to update your version of R! The simplest way to do this is to follow the instructions below to install R.",
     "crumbs": [
-      "Labs",
-      "Lab 2 Instructions"
+      "Weekly materials",
+      "Week 1 - R & RStudio"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-2-instructions.html#step-4-render-your-website",
-    "href": "labs/instructions/lab-2-instructions.html#step-4-render-your-website",
-    "title": "Lab 2: Getting Started on your Portfolio",
-    "section": "",
-    "text": "In the pane at the top right corner there should be a tab that say Build. Under Build there is an option to Render Website, go ahead an click that and it will render the generic website.\n\nHere is roughly what the page will look like.",
+    "objectID": "weeks/week-1-r-rstudio.html#installing-r",
+    "href": "weeks/week-1-r-rstudio.html#installing-r",
+    "title": "Week 1, Part 1: R & RStudio",
+    "section": "1.2 Installing R",
+    "text": "1.2 Installing R\nDownload and install R by going to https://cloud.r-project.org/. Here, you will find three options for installing R—click on the option for your computer’s operating system.\n\n📽️ Useful Video: Installing R and RStudio - Windows\n\n\n📽️ Useful Video: Installing R and RStudio - Mac\n\n\nIf you are a Windows user:\n\nClick on “Download R for Windows”\nClick on “base”\nClick on the Download link.\nWhen you open the execution file (.exe) you will be prompted with a variety of questions about installing R. Feel free to use the default features / settings that come with R (continue to click “Ok” until the download starts).\n\n\n\n\n\n\n\nMultiple Versions of R\n\n\n\nBeware that if you had a previous version of R downloaded on your PC, that old version will not be deleted when you download the most recent version of R. We do not want to have two versions of R installed, as your computer can get confused what version of R to use. So, you need to remove the old version of R.\nTo do this you need to:\n\nNavigate to your computer’s settings\nClick on the “Apps” option on the left-hand panel\nSearch for or scroll down to R\nFind the older version of R\n\n\n\nClick on the ... on the right side\nSelect “Uninstall”\n\n\n\n\n\n\nIf you are macOS user:\n\nClick on “Download R for (Mac) OS X”\nUnder “Latest release:” click on R-X.X.X.pkg, where R-X.X.X is the version number. For example, the latest version of R as of October 31, 2024 was R-4.4.2 (Pile of Leaves).\nWhen installing, use the default features / settings that come with R (click Ok until the download starts).\n\n\n\n\n\n\n\nTroubleshooting for Macs\n\n\n\nFirst, identify which version of OSx you are running. How-to\nNext, find out which version of R your computer can run. Link\nIf this version is 3.6 or later, download the latest version that your computer can handle.\nIf this version is 3.4 or earlier, you’re going to run in to some trouble. I recommend updating your version of OSx, if you are willing. If you can’t, then you can use Posit Cloud to run R and RStudio on a free server. However, I recommend strongly against this option; your files will not be saved indefinitely, you will have limited hours to complete your work, your computing power will be limited, and you will need an internet connection at all times to do your work.\n\n\n\n\nIf you are a Linux user:\nClick on “Download R for Linux” and choose your distribution for more information on installing R for your setup.",
     "crumbs": [
-      "Labs",
-      "Lab 2 Instructions"
+      "Weekly materials",
+      "Week 1 - R & RStudio"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-2-instructions.html#about",
-    "href": "labs/instructions/lab-2-instructions.html#about",
-    "title": "Lab 2: Getting Started on your Portfolio",
-    "section": "3.1 About",
-    "text": "3.1 About\nLet’s start easy. Go into your about.qmd and write a short paragraph introducing yourself. Now is a good time to save your changes then Stage, Commit, and Push your changes to GitHub.",
+    "objectID": "weeks/week-1-r-rstudio.html#updating-your-version-of-rstudio",
+    "href": "weeks/week-1-r-rstudio.html#updating-your-version-of-rstudio",
+    "title": "Week 1, Part 1: R & RStudio",
+    "section": "2.1 Updating Your Version of RStudio",
+    "text": "2.1 Updating Your Version of RStudio\nIf you already have RStudio, you need to double check if you have the most recent version. You will not have access to the newest features for Quarto documents unless you have the most recent version of RStudio.\n\nStep 1: Open RStudio\nStep 2: Click on “Help” in the upper menu\nStep 3: Click on “Check for Updates”\n\nIf there are no updates to RStudio since you installed it, you are good to go! If you need to update RStudio, you will be sent to Posit (the parent company) to download the most recent version of RStudio desktop.",
     "crumbs": [
-      "Labs",
-      "Lab 2 Instructions"
+      "Weekly materials",
+      "Week 1 - R & RStudio"
     ]
   },
   {
-    "objectID": "labs/instructions/lab-2-instructions.html#index",
-    "href": "labs/instructions/lab-2-instructions.html#index",
-    "title": "Lab 2: Getting Started on your Portfolio",
-    "section": "3.2 Index",
-    "text": "3.2 Index\nThe index.qmd will serve as your home page for your website, so let’s make it pretty! Update the YAML code with the following and then update title. Move a nice profile image into your project folder and change the file name after image: to match your images name and type (e.g. .jpg, .png). Update the LinkedIn and Github links to match your profile links (if you don’t have LinkedIn make one!).\n---\ntitle: \"Judith Canner\"\nabout:\n  template: jolla\n  image: profile.jpg\n  links:\n    - icon: linkedin\n      text: LinkedIn\n      href: https://linkedin.com\n    - icon: github\n      text: Github\n      href: https://github.com\n---\nGo ahead and save and then under Build, Render the website. How does it look?\nWithin the text/markdown area of the .qmd add some of the following information about yourself:\nJudith Canner is a Professor of Statistics and Chair of the Department of Mathematics and Statistics at [California State University, Monterey Bay](http://csumb.edu/mathstat).\n\n## Education\n\nShippensburg University | Shippensburg, PA  \nB.S. in Applied Mathematics | 2001 - 2004\n\n## Experience\n\nWengo Analytics | Head Data Scientist | April 2018 - present\n\nGeoScynce | Chief Analyst | Sept 2012 - April 2018\nGo ahead and save and then under Build, Render the website. Now is a good time to save your changes then Stage, Commit, and Push your changes to GitHub.\nFeel free to make other changes, add additional text, links, or images.",
+    "objectID": "weeks/week-1-r-rstudio.html#installing-rstudio",
+    "href": "weeks/week-1-r-rstudio.html#installing-rstudio",
+    "title": "Week 1, Part 1: R & RStudio",
+    "section": "2.2 Installing RStudio",
+    "text": "2.2 Installing RStudio\nDownloading the most recent version of RStudio works the same way regardless of whether you’ve never downloaded RStudio before or if you just need to update your version of RStudio.\nWhen you navigate to the RStudio download page (https://rstudio.com/products/rstudio/download/), the website should automatically detect your computer’s operating system. So, you should be able to simply click the blue “Download RStudio Desktop for [insert operating system here]” button.\nClicking the button will begin installing RStudio. Once the download has completed, you will need to open the application file (on a Mac this is a .dmg file, on Windows this is an exe file).",
     "crumbs": [
-      "Labs",
-      "Lab 2 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-2-instructions.html#quarto.yml",
-    "href": "labs/instructions/lab-2-instructions.html#quarto.yml",
-    "title": "Lab 2: Getting Started on your Portfolio",
-    "section": "3.3 _quarto.yml",
-    "text": "3.3 _quarto.yml\nOpen up the _quarto.yml. This document controls the structure of your webpage. You do not put content here, you simply put information about how the website should render. Your text might look something like this (and if it doesn’t, update it to look like this):\nproject:\n  type: website\n\nwebsite:\n  title: \"Your Name's ePortfolio\"\n  navbar:\n    left:\n      - href: index.qmd\n        text: \"Home\"\n      - href: about.qmd\n        text: \"About Me\"\n\nformat:\n  html:\n    theme: cosmo\n    css: styles.css\n    toc: true\n\neditor: visual\nYou can update the theme if you want - Quarto HTML Theming or customize your theme or even create your own css code (if you know how). That is up to you!\nAt minimum, here is the modification you need to make the following modification - add the output-dir: docs at the top under project/type.\nproject:\n  type: website\n  output-dir: docs\nWhat this does is renders the HTML parts of your website directly into a folder called /docs and this locations is what we will use to publish your webpage on GitHub.\nSave your changes. Build your website (notice a docs file is now created. Now is a good time to save your changes then Stage, Commit, and Push your changes to GitHub",
-    "crumbs": [
-      "Labs",
-      "Lab 2 Instructions"
+      "Weekly materials",
+      "Week 1 - R & RStudio"
     ]
   },
   {
@@ -1343,301 +1135,600 @@
     ]
   },
   {
-    "objectID": "weeks/week-1-r-rstudio.html",
-    "href": "weeks/week-1-r-rstudio.html",
-    "title": "Week 1, Part 1: R & RStudio",
+    "objectID": "labs/instructions/lab-2-instructions.html",
+    "href": "labs/instructions/lab-2-instructions.html",
+    "title": "Lab 2: Getting Started on your Portfolio",
     "section": "",
-    "text": "For the first portion of this week’s coursework, we are going to learn about / refresh our memory on R and RStudio. This course is all about you learning skills for working with data in R, so you will need to have local installations of both R and RStudio on your computer.",
+    "text": "Either under File, or in the top right corner where the current project name is, select\n\n\n\n\nFor this week, you will create a New Directory.\n\n\n\n\nInstead of New Project, choose Quarto Website\n\nSet up your directory name (it should be your-name-portfolio or something similar) and saved in a location that is NOT on a cloud service (e.g. iCloud or Google Drive). Be sure to check Create a git repositoryand Open in a new session. Create the Project.\n\nNow you have your website!!\n\n\n\nIn the pane at the top right corner there should be a tab that say Build. Under Build there is an option to Render Website, go ahead an click that and it will render the generic website.\n\nHere is roughly what the page will look like.",
     "crumbs": [
-      "Weekly materials",
-      "Week 1 - R & RStudio"
+      "Labs",
+      "Lab 2 Instructions"
     ]
   },
   {
-    "objectID": "weeks/week-1-r-rstudio.html#updating-your-version-of-r",
-    "href": "weeks/week-1-r-rstudio.html#updating-your-version-of-r",
-    "title": "Week 1, Part 1: R & RStudio",
-    "section": "1.1 Updating Your Version of R",
-    "text": "1.1 Updating Your Version of R\nIf you already have R downloaded, you need to confirm that you have the most up to date version of R. Do not ignore these instructions. If you neglect to update your version of R, you may find that updating a package will make it so your code will not run.\n\nStep 1: Open RStudio\nStep 2: At the top of the the Console it will say what version of R you are using\n\n{fig-alt = “A screenshot of what version of R should appear when you open RStudio. The version reads ‘R version 4.4.2 (2024-10-31) – ’Pile of Leaves’.”}\nIf the version is not 4.4.2 (like the image above), you need to update your version of R! The simplest way to do this is to follow the instructions below to install R.",
-    "crumbs": [
-      "Weekly materials",
-      "Week 1 - R & RStudio"
-    ]
-  },
-  {
-    "objectID": "weeks/week-1-r-rstudio.html#installing-r",
-    "href": "weeks/week-1-r-rstudio.html#installing-r",
-    "title": "Week 1, Part 1: R & RStudio",
-    "section": "1.2 Installing R",
-    "text": "1.2 Installing R\nDownload and install R by going to https://cloud.r-project.org/. Here, you will find three options for installing R—click on the option for your computer’s operating system.\n\n📽️ Useful Video: Installing R and RStudio - Windows\n\n\n📽️ Useful Video: Installing R and RStudio - Mac\n\n\nIf you are a Windows user:\n\nClick on “Download R for Windows”\nClick on “base”\nClick on the Download link.\nWhen you open the execution file (.exe) you will be prompted with a variety of questions about installing R. Feel free to use the default features / settings that come with R (continue to click “Ok” until the download starts).\n\n\n\n\n\n\n\nMultiple Versions of R\n\n\n\nBeware that if you had a previous version of R downloaded on your PC, that old version will not be deleted when you download the most recent version of R. We do not want to have two versions of R installed, as your computer can get confused what version of R to use. So, you need to remove the old version of R.\nTo do this you need to:\n\nNavigate to your computer’s settings\nClick on the “Apps” option on the left-hand panel\nSearch for or scroll down to R\nFind the older version of R\n\n\n\nClick on the ... on the right side\nSelect “Uninstall”\n\n\n\n\n\n\nIf you are macOS user:\n\nClick on “Download R for (Mac) OS X”\nUnder “Latest release:” click on R-X.X.X.pkg, where R-X.X.X is the version number. For example, the latest version of R as of October 31, 2024 was R-4.4.2 (Pile of Leaves).\nWhen installing, use the default features / settings that come with R (click Ok until the download starts).\n\n\n\n\n\n\n\nTroubleshooting for Macs\n\n\n\nFirst, identify which version of OSx you are running. How-to\nNext, find out which version of R your computer can run. Link\nIf this version is 3.6 or later, download the latest version that your computer can handle.\nIf this version is 3.4 or earlier, you’re going to run in to some trouble. I recommend updating your version of OSx, if you are willing. If you can’t, then you can use Posit Cloud to run R and RStudio on a free server. However, I recommend strongly against this option; your files will not be saved indefinitely, you will have limited hours to complete your work, your computing power will be limited, and you will need an internet connection at all times to do your work.\n\n\n\n\nIf you are a Linux user:\nClick on “Download R for Linux” and choose your distribution for more information on installing R for your setup.",
-    "crumbs": [
-      "Weekly materials",
-      "Week 1 - R & RStudio"
-    ]
-  },
-  {
-    "objectID": "weeks/week-1-r-rstudio.html#updating-your-version-of-rstudio",
-    "href": "weeks/week-1-r-rstudio.html#updating-your-version-of-rstudio",
-    "title": "Week 1, Part 1: R & RStudio",
-    "section": "2.1 Updating Your Version of RStudio",
-    "text": "2.1 Updating Your Version of RStudio\nIf you already have RStudio, you need to double check if you have the most recent version. You will not have access to the newest features for Quarto documents unless you have the most recent version of RStudio.\n\nStep 1: Open RStudio\nStep 2: Click on “Help” in the upper menu\nStep 3: Click on “Check for Updates”\n\nIf there are no updates to RStudio since you installed it, you are good to go! If you need to update RStudio, you will be sent to Posit (the parent company) to download the most recent version of RStudio desktop.",
-    "crumbs": [
-      "Weekly materials",
-      "Week 1 - R & RStudio"
-    ]
-  },
-  {
-    "objectID": "weeks/week-1-r-rstudio.html#installing-rstudio",
-    "href": "weeks/week-1-r-rstudio.html#installing-rstudio",
-    "title": "Week 1, Part 1: R & RStudio",
-    "section": "2.2 Installing RStudio",
-    "text": "2.2 Installing RStudio\nDownloading the most recent version of RStudio works the same way regardless of whether you’ve never downloaded RStudio before or if you just need to update your version of RStudio.\nWhen you navigate to the RStudio download page (https://rstudio.com/products/rstudio/download/), the website should automatically detect your computer’s operating system. So, you should be able to simply click the blue “Download RStudio Desktop for [insert operating system here]” button.\nClicking the button will begin installing RStudio. Once the download has completed, you will need to open the application file (on a Mac this is a .dmg file, on Windows this is an exe file).",
-    "crumbs": [
-      "Weekly materials",
-      "Week 1 - R & RStudio"
-    ]
-  },
-  {
-    "objectID": "weeks/week-6-7-dplyr.html",
-    "href": "weeks/week-6-7-dplyr.html",
-    "title": "Data Wrangling with dplyr",
+    "objectID": "labs/instructions/lab-2-instructions.html#step-1-make-a-new-project-in-rstudio",
+    "href": "labs/instructions/lab-2-instructions.html#step-1-make-a-new-project-in-rstudio",
+    "title": "Lab 2: Getting Started on your Portfolio",
     "section": "",
-    "text": "When you are finished with the readings and videos, you should be able to…\n\nDescribe to someone what a function conflict is\nDescribe to someone the similarities and differences between a list, a data.frame, and a tibble\nIdentify the structure of an object\nIdentify the data type(s) of an object\nDescribe to someone what the tidyverse is\nUse the six main dplyr verbs:\n\nfilter()\narrange()\nselect()\nmutate()\nsummarize()\n`arrange()\n\nUse group_by() to perform groupwise operations\nUse the pipe operator (|&gt; or %&gt;%) to chain together data wrangling operations",
+    "text": "Either under File, or in the top right corner where the current project name is, select",
     "crumbs": [
-      "Weekly materials",
-      "Week 6-7 - Transforming Data"
+      "Labs",
+      "Lab 2 Instructions"
     ]
   },
   {
-    "objectID": "weeks/week-6-7-dplyr.html#learning-targets",
-    "href": "weeks/week-6-7-dplyr.html#learning-targets",
-    "title": "Data Wrangling with dplyr",
+    "objectID": "labs/instructions/lab-2-instructions.html#step-2-choose-a-new-directory",
+    "href": "labs/instructions/lab-2-instructions.html#step-2-choose-a-new-directory",
+    "title": "Lab 2: Getting Started on your Portfolio",
     "section": "",
-    "text": "When you are finished with the readings and videos, you should be able to…\n\nDescribe to someone what a function conflict is\nDescribe to someone the similarities and differences between a list, a data.frame, and a tibble\nIdentify the structure of an object\nIdentify the data type(s) of an object\nDescribe to someone what the tidyverse is\nUse the six main dplyr verbs:\n\nfilter()\narrange()\nselect()\nmutate()\nsummarize()\n`arrange()\n\nUse group_by() to perform groupwise operations\nUse the pipe operator (|&gt; or %&gt;%) to chain together data wrangling operations",
+    "text": "For this week, you will create a New Directory.",
     "crumbs": [
-      "Weekly materials",
-      "Week 6-7 - Transforming Data"
+      "Labs",
+      "Lab 2 Instructions"
     ]
   },
   {
-    "objectID": "weeks/week-6-7-dplyr.html#learning-more-about-data-types-objects-in-r",
-    "href": "weeks/week-6-7-dplyr.html#learning-more-about-data-types-objects-in-r",
-    "title": "Data Wrangling with dplyr",
-    "section": "1.1 Learning More about Data Types & Objects in R",
-    "text": "1.1 Learning More about Data Types & Objects in R\n\n\n\n📖 Read a Textbook: Data Types in R\n\nIn addition, read the following section from the first edition of R for DS:📖 Required Reading: Tibbles\n1.2 ✅ Check-in: Data Structures\nQuestion 1\nIn essence, a data.frame is simply a special list - with a few extra restrictions on the list format.\nThink about the datasets you have already worked with. Which of the following restrictions on a list do you think are needed for the list to be a data.frame? (Select all that apply)\n\nThe elements of the list must all be vectors of the same length.\nThe elements of the list must all be the same data type.\nThe elements of the list must all have no missing values.\nThe elements of the list must all have names.\n\nQuestion 2\nTibbles are described as “opinionated” dataframes. Which of the following are true about a tibble’s behavior? (Select all that apply)\n\ntibbles only print the first 10 rows of a dataset\ntibbles allow for non-syntactic variable names, like :)\ntibbles never convert strings to factors\ntibbles create row names\n\n\n2 Part Two: Wrangling data with dplyr\n\n2.1 Introduction to dplyr\n📖 Required Reading: Data Transformation\n\n\n2.2 dplyr Verbs\n\n\n\n\n\n\n\n\n\n\n\n\n2.3 Practice\n💻 Required Tutorial: Practice with dplyr\n\n\n\n2.4 ✅ Check-in: Data Wrangling\nQuestion 1: Suppose we would like to study how the ratio of penguin body mass to flipper size differs across the species. Arrange the following steps into an order that accomplishes this goal (assuming the steps are connected with a |&gt; or a %&gt;%).\n\n# a\narrange(med_mass_flipper_ratio)\n\n\n# b\ngroup_by(species)\n\n\n# c\npenguins \n  \n\n# d\nsummarize(\n  med_mass_flipper_ratio = median(mass_flipper_ratio)\n)\n\n  \n# e\nmutate(\n  mass_flipper_ratio = body_mass_g / flipper_length_mm\n)\n\n\n\n\n\n\n\nTry running the code!\n\n\n\nYou can check your answers using the penguins data from the palmerpenguins R package!\n\n\nQuestion 2:\nConsider the base R code below.\n\nmean(penguins[penguins$species == \"Adelie\", ]$body_mass_g)\n\nFor each of the following dplyr pipelines, indicate which of the following is true:\n\nIt returns the exact same thing as the (above) base R code\nIt returns the correct information, but the wrong object type\nIt returns incorrect information\nIt returns an error\n\n\n# Part a\npenguins |&gt;\n  filter(\"body_mass_g\") |&gt;\n  pull(\"Adelie\") |&gt;\n  mean()\n\n\n# Part b\npenguins |&gt;\n  filter(species == \"Adelie\") |&gt;\n  select(body_mass_g) |&gt;\n  summarize(mean(body_mass_g))\n\n\n# Part c\npenguins |&gt;\n  pull(body_mass_g) |&gt;\n  filter(species == \"Adelie\") |&gt;\n  mean()\n\n\n# Part d\npenguins |&gt;\n  filter(species == \"Adelie\") |&gt;\n  select(body_mass_g) |&gt;\n  mean()\n\n\n# Part e\npenguins |&gt;\n  filter(species == \"Adelie\") |&gt;\n  pull(body_mass_g) |&gt;\n  mean()\n\n\n# Part f\npenguins |&gt;\n  select(species == \"Adelie\") |&gt;\n  filter(body_mass_g) |&gt;\n  summarize(mean(body_mass_g))\n\n\n\n\n\n\n\nTry running the code!\n\n\n\nYou can check your answers using the penguins data from the palmerpenguins R package!",
-    "crumbs": [
-      "Weekly materials",
-      "Week 6-7 - Transforming Data"
-    ]
-  },
-  {
-    "objectID": "weeks/week-6-7-dplyr.html#check-in-data-structures",
-    "href": "weeks/week-6-7-dplyr.html#check-in-data-structures",
-    "title": "Data Wrangling with dplyr",
-    "section": "1.2 ✅ Check-in: Data Structures",
-    "text": "1.2 ✅ Check-in: Data Structures\nQuestion 1\nIn essence, a data.frame is simply a special list - with a few extra restrictions on the list format.\nThink about the datasets you have already worked with. Which of the following restrictions on a list do you think are needed for the list to be a data.frame? (Select all that apply)\n\nThe elements of the list must all be vectors of the same length.\nThe elements of the list must all be the same data type.\nThe elements of the list must all have no missing values.\nThe elements of the list must all have names.\n\nQuestion 2\nTibbles are described as “opinionated” dataframes. Which of the following are true about a tibble’s behavior? (Select all that apply)\n\ntibbles only print the first 10 rows of a dataset\ntibbles allow for non-syntactic variable names, like :)\ntibbles never convert strings to factors\ntibbles create row names",
-    "crumbs": [
-      "Weekly materials",
-      "Week 6-7 - Transforming Data"
-    ]
-  },
-  {
-    "objectID": "weeks/week-6-7-dplyr.html#introduction-to-dplyr",
-    "href": "weeks/week-6-7-dplyr.html#introduction-to-dplyr",
-    "title": "Data Wrangling with dplyr",
-    "section": "2.1 Introduction to dplyr",
-    "text": "2.1 Introduction to dplyr\n📖 Required Reading: Data Transformation",
-    "crumbs": [
-      "Weekly materials",
-      "Week 6-7 - Transforming Data"
-    ]
-  },
-  {
-    "objectID": "weeks/week-6-7-dplyr.html#dplyr-verbs",
-    "href": "weeks/week-6-7-dplyr.html#dplyr-verbs",
-    "title": "Data Wrangling with dplyr",
-    "section": "2.2 dplyr Verbs",
-    "text": "2.2 dplyr Verbs",
-    "crumbs": [
-      "Weekly materials",
-      "Week 6-7 - Transforming Data"
-    ]
-  },
-  {
-    "objectID": "weeks/week-6-7-dplyr.html#practice",
-    "href": "weeks/week-6-7-dplyr.html#practice",
-    "title": "Data Wrangling with dplyr",
-    "section": "2.3 Practice",
-    "text": "2.3 Practice\n💻 Required Tutorial: Practice with dplyr",
-    "crumbs": [
-      "Weekly materials",
-      "Week 6-7 - Transforming Data"
-    ]
-  },
-  {
-    "objectID": "weeks/week-6-7-dplyr.html#check-in-data-wrangling",
-    "href": "weeks/week-6-7-dplyr.html#check-in-data-wrangling",
-    "title": "Data Wrangling with dplyr",
-    "section": "2.4 ✅ Check-in: Data Wrangling",
-    "text": "2.4 ✅ Check-in: Data Wrangling\nQuestion 1: Suppose we would like to study how the ratio of penguin body mass to flipper size differs across the species. Arrange the following steps into an order that accomplishes this goal (assuming the steps are connected with a |&gt; or a %&gt;%).\n\n# a\narrange(med_mass_flipper_ratio)\n\n\n# b\ngroup_by(species)\n\n\n# c\npenguins \n  \n\n# d\nsummarize(\n  med_mass_flipper_ratio = median(mass_flipper_ratio)\n)\n\n  \n# e\nmutate(\n  mass_flipper_ratio = body_mass_g / flipper_length_mm\n)\n\n\n\n\n\n\n\nTry running the code!\n\n\n\nYou can check your answers using the penguins data from the palmerpenguins R package!\n\n\nQuestion 2:\nConsider the base R code below.\n\nmean(penguins[penguins$species == \"Adelie\", ]$body_mass_g)\n\nFor each of the following dplyr pipelines, indicate which of the following is true:\n\nIt returns the exact same thing as the (above) base R code\nIt returns the correct information, but the wrong object type\nIt returns incorrect information\nIt returns an error\n\n\n# Part a\npenguins |&gt;\n  filter(\"body_mass_g\") |&gt;\n  pull(\"Adelie\") |&gt;\n  mean()\n\n\n# Part b\npenguins |&gt;\n  filter(species == \"Adelie\") |&gt;\n  select(body_mass_g) |&gt;\n  summarize(mean(body_mass_g))\n\n\n# Part c\npenguins |&gt;\n  pull(body_mass_g) |&gt;\n  filter(species == \"Adelie\") |&gt;\n  mean()\n\n\n# Part d\npenguins |&gt;\n  filter(species == \"Adelie\") |&gt;\n  select(body_mass_g) |&gt;\n  mean()\n\n\n# Part e\npenguins |&gt;\n  filter(species == \"Adelie\") |&gt;\n  pull(body_mass_g) |&gt;\n  mean()\n\n\n# Part f\npenguins |&gt;\n  select(species == \"Adelie\") |&gt;\n  filter(body_mass_g) |&gt;\n  summarize(mean(body_mass_g))\n\n\n\n\n\n\n\nTry running the code!\n\n\n\nYou can check your answers using the penguins data from the palmerpenguins R package!",
-    "crumbs": [
-      "Weekly materials",
-      "Week 6-7 - Transforming Data"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html",
-    "href": "weeks/week-4-ggplot.html",
-    "title": "Introduction to ggplot2",
+    "objectID": "labs/instructions/lab-2-instructions.html#step-3-choose-quarto-website",
+    "href": "labs/instructions/lab-2-instructions.html#step-3-choose-quarto-website",
+    "title": "Lab 2: Getting Started on your Portfolio",
     "section": "",
-    "text": "The greatest possibilities of visual display lie in vividness and inescapability of the intended message. A visual display can stop your mental flow in its tracks and make you think. A visual display can force you to notice what you never expected to see. (“Why, that scatter diagram has a hole in the middle!”) – John Tukey, Data Based Graphics: Visual Display in the Decades to Come",
+    "text": "Instead of New Project, choose Quarto Website\n\nSet up your directory name (it should be your-name-portfolio or something similar) and saved in a location that is NOT on a cloud service (e.g. iCloud or Google Drive). Be sure to check Create a git repositoryand Open in a new session. Create the Project.\n\nNow you have your website!!",
     "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
+      "Labs",
+      "Lab 2 Instructions"
     ]
   },
   {
-    "objectID": "weeks/week-4-ggplot.html#learning-objectives",
-    "href": "weeks/week-4-ggplot.html#learning-objectives",
-    "title": "Introduction to ggplot2",
-    "section": "0.1 Learning Objectives",
-    "text": "0.1 Learning Objectives\n\nDescribe charts using the grammar of graphics\nCreate layered graphics that highlight multiple aspects of the data\nEvaluate existing charts and develop new versions that improve accessibility and readability",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#loading-in-the-ggplot2-package",
-    "href": "weeks/week-4-ggplot.html#loading-in-the-ggplot2-package",
-    "title": "Introduction to ggplot2",
-    "section": "0.2 Loading in the ggplot2 Package",
-    "text": "0.2 Loading in the ggplot2 Package\nIn this class, we’re going to use the ggplot2 package to create graphics in R. This package is already installed as part of the tidyverse, but can be installed:\n\ninstall.packages(\"ggplot2\") #only needs to happen once - Do not include in Quarto documents!\n\nand/or loaded:\n\nlibrary(\"ggplot2\")\n\n# alternatively\nlibrary(\"tidyverse\") # (my preference!)\n\n\n\n\n\n\nBuilding a masterpiece, by Allison Horst",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#the-grammar-of-graphics",
-    "href": "weeks/week-4-ggplot.html#the-grammar-of-graphics",
-    "title": "Introduction to ggplot2",
-    "section": "1.1 The Grammar of Graphics",
-    "text": "1.1 The Grammar of Graphics\nThe grammar of graphics is an approach first introduced in Leland Wilkinson’s book (Wilkinson 2005). Unlike other graphics classification schemes, the grammar of graphics makes an attempt to describe how the data set itself relates to the components of the chart.\nThis has a few advantages:\n\nIt’s relatively easy to represent the same data set with different types of plots (and to find their strengths and weaknesses)\nGrammar leads to a concise description of the plot and its contents\nWe can add layers to modify the graphics, each with their own basic grammar (just like we combine sentences and clauses to build a rich, descriptive paragraph)\n\n\n\n\nA pyramid view of the major components of the grammar of graphics, with data as the base, aesthetics building on data, scales building on aesthetics, geometric objects, statistics, facets, and the coordinate system at the top of the pyramid. Source: (Sarkar 2018)",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#making-your-first-ggplot",
-    "href": "weeks/week-4-ggplot.html#making-your-first-ggplot",
-    "title": "Introduction to ggplot2",
-    "section": "1.2 Making Your First ggplot",
-    "text": "1.2 Making Your First ggplot\n\n✅ Check-in\nQuestion 1 – What specifically does the code ggplot(data = mpg) do?\n\nCreates a blank plot\nMakes a scatterplot of the first two variables in the mpg dataset\nCreates a ggplot with the mpg dataset",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#aesthetics",
-    "href": "weeks/week-4-ggplot.html#aesthetics",
-    "title": "Introduction to ggplot2",
-    "section": "1.3 Aesthetics",
-    "text": "1.3 Aesthetics\n📖 Required Reading: Layers - Aesthetic Mappings.\n\n✅ Check-in\n\nggplot(data = mpg) +\n  geom_point(mapping = aes(x = displ, y = hwy), color = \"blue\")\n\nQuestion 2: What aesthetics does this plot contain?\n\nx\ny\ncolor\ndata\n\nQuestion 3: Which of the following changes would set the color of the points to be blue?\n\n## Option A\nggplot(data = mpg) +\ngeom_point(\n  mapping = aes(x = displ, \n                y = hwy, \n                color = blue)\n  )\n\n## Option B\nggplot(data = mpg) +\ngeom_point(\n  mapping = aes(x = displ, \n                y = hwy), \n  color = \"blue\"\n  )\n\n## Option C\nggplot(data = mpg, \n       mapping = aes(color = \"blue\")\n       ) +\ngeom_point(\n  mapping = aes(x = displ, \n                y = hwy)\n  )",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#geoms",
-    "href": "weeks/week-4-ggplot.html#geoms",
-    "title": "Introduction to ggplot2",
-    "section": "1.4 geoms",
-    "text": "1.4 geoms\n\nWhat type of chart to use?\nIt can be hard to know what type of chart to use for a particular type of data. I recommend figuring out what you want to show first, and then thinking about how to show that data with an appropriate plot type. Consider the following factors:\n\nWhat type of variable is x? Categorical? Continuous? Discrete?\nWhat type of variable is y?\nHow many observations do I have for each x / y variable?\nAre there any important moderating variables?\nDo I have data that might be best shown in small multiples? E.g. a categorical moderating variable and a lot of data, where the categorical variable might be important for showing different features of the data?\n\nOnce you’ve thought through this, take a look through catalogs like the R Graph Gallery to see what visualizations match your data and use-case.\n📖 Required Reading: Layers - Geometric Objects.\n💻 Required Tutorials\n\nBar Charts\nHistograms\nScatterplots\nLine Plots\n\n\n\n✅ Check-in\nQuestion 4: Match each plot with the geom_XXX() function used to create it!\n\n\n\nLine Chart\nBoxplot\nHistogram\nArea Chart\n\n\n\ngeom_boxplot()\ngeom_point()\ngeom_hist()\ngeom_bar()\ngeom_smooth()\ngeom_point()\ngeom_area()\ngeom_line()\ngeom_histogram()",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#getting-a-bit-fancier",
-    "href": "weeks/week-4-ggplot.html#getting-a-bit-fancier",
-    "title": "Introduction to ggplot2",
-    "section": "1.5 Getting a Bit Fancier",
-    "text": "1.5 Getting a Bit Fancier\nIn this section we dig a bit deeper into how we can make our code more efficient and other ways we can add additional variables to our plots.\n\nGlobal vs. local aesthetics\nThe aesthetic mappings that are defined in ggplot() are the global level aesthetics, that is they are inherited by each of the subsequent geom_ layers of the plot. However, each geom_ function in ggplot2 can also take its own mapping arguments, which allows for aesthetic mappings at the local level that are combined with those inherited from the global level.\n\n\n✅ Check-in\nQuestion 5: Match the code to the type of aesthetics that are being used:\n\n\n\nGlobal\n \nLocal\n\n\nggplot(data = mpg, \n       mapping = aes(x = mpg, y = hwy)\n       ) + \n  geom_point()\n\n\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = mpg, y = hwy))",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#facets",
-    "href": "weeks/week-4-ggplot.html#facets",
-    "title": "Introduction to ggplot2",
-    "section": "1.6 Facets",
-    "text": "1.6 Facets\n📖 Required Reading: Layers - Facets.",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#data-transformations",
-    "href": "weeks/week-4-ggplot.html#data-transformations",
-    "title": "Introduction to ggplot2",
-    "section": "1.7 Data transformations",
-    "text": "1.7 Data transformations\n📖 Required Reading: Layers - Statistical Transformations.",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#changing-the-positions-of-bars",
-    "href": "weeks/week-4-ggplot.html#changing-the-positions-of-bars",
-    "title": "Introduction to ggplot2",
-    "section": "1.8 Changing the positions of bars",
-    "text": "1.8 Changing the positions of bars\n📖 Required Reading: Layers - Position Adjustments.\n\n✅ Check-in\nQuestion 6: What arguments for geom_jitter() control the amount of jittering?\n\nwidth\nheight\nstat\nposition\nna.rm\nshow.legend\ndata\nmapping",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4-ggplot.html#plot-customizations",
-    "href": "weeks/week-4-ggplot.html#plot-customizations",
-    "title": "Introduction to ggplot2",
-    "section": "1.9 Plot Customizations",
-    "text": "1.9 Plot Customizations\n📖 Required Reading: Communication\n\n\n✅ Check-in\nQuestion 7: What can the labs() function do? Select all that apply.\n\nCustomize the x-axis label\nCustomize the y-axis label\nCustomize the legend label\nCustomize the plot title\nAdd a caption to the plot",
-    "crumbs": [
-      "Weekly materials",
-      "Week 4 - Data Visualization"
-    ]
-  },
-  {
-    "objectID": "weeks/week-11-strings-dates.html",
-    "href": "weeks/week-11-strings-dates.html",
-    "title": "Special Data Types",
+    "objectID": "labs/instructions/lab-2-instructions.html#step-4-render-your-website",
+    "href": "labs/instructions/lab-2-instructions.html#step-4-render-your-website",
+    "title": "Lab 2: Getting Started on your Portfolio",
     "section": "",
-    "text": "This week is all about special data types in R. Similar to the tools you learned last week for working with factors, this week you are going to learn about tools for working with strings and dates. By the end of this week you should be able to:",
+    "text": "In the pane at the top right corner there should be a tab that say Build. Under Build there is an option to Render Website, go ahead an click that and it will render the generic website.\n\nHere is roughly what the page will look like.",
     "crumbs": [
-      "Weekly materials",
-      "Week 11 - Strings, Dates, and Times"
+      "Labs",
+      "Lab 2 Instructions"
     ]
   },
   {
-    "objectID": "weeks/week-11-strings-dates.html#regular-expressions",
-    "href": "weeks/week-11-strings-dates.html#regular-expressions",
-    "title": "Special Data Types",
-    "section": "1.1 Regular Expressions",
-    "text": "1.1 Regular Expressions\nMatching exact strings is easy - it’s just like using find and replace.\n\nlibrary(stringr)\n\nhuman_talk &lt;- \"blah, blah, blah. Do you want to go for a walk?\"\ndog_hears &lt;- str_extract(human_talk, \"walk\")\ndog_hears\n\n[1] \"walk\"\n\n\nBut, if you can master even a small amount of regular expression notation, you’ll have exponentially more power to do good (or evil) when working with strings. You can get by without regular expressions if you’re creative, but often they’re much simpler.\n\n📖 Recommended Reading: R4DS Chapter 15 (Regular Expressions)\n\n\n\n\n\n\nRead at least through Section 15.4.1.\n\n\n\n\n\n\n\n\n\n\n\n\nShort Regular Expressions Primer\n\n\n\n\n\nYou may find it helpful to follow along with this section using this web app built to test R regular expressions. The subset of regular expression syntax we’re going to cover here is fairly limited, but you can find regular expressions to do just about anything string-related. As with any tool, there are situations where it’s useful, and situations where you should not use a regular expression, no matter how much you want to.\nHere are the basics of regular expressions:\n\n[] enclose sets of characters\nFor example, [abc] will match any single character a, b, c\n- specifies a range of characters (A-z matches all upper and lower case letters)\n. matches any character (except a newline)\nTo match special characters, escape them using \\ (in most languages) or \\\\ (in R). So \\. or \\\\. will match a literal ., \\$ or \\\\$ will match a literal $.\n\n\nnum_string &lt;- \"phone: 123-456-7890, nuid: 12345678, ssn: 123-45-6789\"\n\nstr_extract(num_string, \"[0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9][0-9][0-9]\")\n\n[1] \"123-45-6789\"\n\n\nRepeating Patterns\nListing out all of those numbers can get repetitive, though. How do we specify repetition?\n\n* means repeat between 0 and inf times\n+ means 1 or more times\n? means 0 or 1 times – most useful when you’re looking for something optional\n{a, b} means repeat between a and b times, where a and b are integers. `\nNote that b can be blank. So [abc]{3,} will match abc, aaaa, cbbaa, but not ab, bb, or a.\nFor a single number of repeated characters, you can use {a}. So {3, } means “3 or more times” and {3} means “exactly 3 times”\n\n\nnum_string &lt;- \"phone: 123-456-7890, nuid: 12345678, ssn: 123-45-6789\"\n\n# Matches a sequence of *three* numbers, followed by a dash, \n# then a sequence of *two* numbers, followed by a dash, \n# then a sequence of *four* numbers, followed by a dash.\nssn &lt;- str_extract(num_string, \"[0-9]{3}-[0-9]{2}-[0-9]{4}\")\nssn\n\n[1] \"123-45-6789\"\n\n# Matches a sequence of *three* numbers, followed by any character, \n# then a sequence of *three* numbers, followed by any character, \n# then a sequence of *four* numbers, followed by any character, \nphone &lt;- str_extract(num_string, \"[0-9]{3}.[0-9]{3}.[0-9]{4}\")\nphone\n\n[1] \"123-456-7890\"\n\n# Matches a sequence of *eight* numbers \nnuid &lt;- str_extract(num_string, \"[0-9]{8}\")\nnuid\n\n[1] \"12345678\"\n\n\nAnchoring\nThere are also ways to “anchor” a pattern to a part of the string (e.g. the beginning or the end)\n\n^ has multiple meanings:\n\nif it’s the first character in a pattern, ^ matches the beginning of a string\nif it follows [, e.g. [^abc], ^ means “not” - for instance, “the collection of all characters that aren’t a, b, or c”.\n\n$ means the end of a string\n\nCombined with pre and post-processing, these let you make sense out of semi-structured string data, such as addresses.\n\naddress &lt;- \"1600 Pennsylvania Ave NW, Washington D.C., 20500\"\n\n# Match a sequence of one or more digits at the beginning of the string\nhouse_num &lt;- str_extract(address, \"^[0-9]{1,}\")\nhouse_num\n\n[1] \"1600\"\n\n# Match everything alphanumeric up to the comma\nstreet &lt;- str_extract(address, \"[A-z0-9 ]{1,}\")\n# Remove house number from street address\nstreet &lt;- str_remove(street, house_num) |&gt; \n  # Trim any leading or trailing whitespace from remaining string\n  str_trim() \nstreet\n\n[1] \"Pennsylvania Ave NW\"\n\n# Match one or more characters between the two commas  \ncity &lt;- str_extract(address, \",.+,\") |&gt; \n  # Remove the leading and trailing commas\n  str_remove_all(\",\") |&gt; \n  # Trim any leading or trailing whitespace from remaining string\n  str_trim()\ncity\n\n[1] \"Washington D.C.\"\n\n# Matches both 5 and 9 digit zip codes found at the end of the string\nzip &lt;- str_extract(address, \"[0-9-]{5,10}$\") \nzip\n\n[1] \"20500\"\n\n\nMaking Groups\n\n() are used to capture information. So ([0-9]{4}) captures any 4-digit number\na|b will select a or b.\n\nIf you’ve captured information using (), you can reference that information using back references. In most languages, those look like this: \\1 for the first reference, \\9 for the ninth. In R, back references are \\\\1 through \\\\9, because the \\ character is special, so you have to escape it.\n\nphone_num_variants &lt;- c(\"(123) 456-7980\", \"123.456.7890\", \"+1 123-456-7890\")\n\nphone_regex &lt;- \"\\\\+?[0-9]{0,3}? ?\\\\(?([0-9]{3})?\\\\)?.?([0-9]{3}).?([0-9]{4})\"\n# \\\\+?[0-9]{0,3} matches the country code, if specified, \n#    but won't take the first 3 digits from the area code \n#    unless a country code is also specified\n# \\\\( and \\\\) match literal parentheses if they exist\n# ([0-9]{3})? captures the area code, if it exists\n# .? matches any character\n# ([0-9]{3}) captures the exchange code\n# ([0-9]{4}) captures the 4-digit individual code\n\nstr_extract(phone_num_variants, phone_regex)\n\n[1] \"(123) 456-7980\"  \"123.456.7890\"    \"+1 123-456-7890\"\n\n# We didn't capture the country code, so it remained in the string\n\nhuman_talk &lt;- \"blah, blah, blah. Do you want to go for a walk? I think I'm going to treat myself to some ice cream for working so hard. \"\ndog_hears &lt;- str_extract_all(human_talk, \"walk|treat\")\ndog_hears\n\n[[1]]\n[1] \"walk\"  \"treat\"\n\n\nPutting it all together, we can test our regular expressions to ensure that they are specific enough to pull out what we want, while not pulling out other similar information:\n\nstrings &lt;- c(\"abcdefghijklmnopqrstuvwxyzABAB\",\n             \"banana orange strawberry apple\",\n             \"ana went to montana to eat a banana\",\n             \"call me at 432-394-2873. Do you want to go for a walk? I'm going to treat myself to some ice cream for working so hard.\",\n             \"phone: (123) 456-7890, nuid: 12345678, bank account balance: $50,000,000.23\",\n             \"1600 Pennsylvania Ave NW, Washington D.C., 20500\")\n\nphone_regex &lt;- \"\\\\+?[0-9]{0,3}? ?\\\\(?([0-9]{3})?\\\\)?.?([0-9]{3}).([0-9]{4})\"\ndog_regex &lt;- \"(walk|treat)\"\naddr_regex &lt;- \"([0-9]*) ([A-z0-9 ]{3,}), ([A-z\\\\. ]{3,}), ([0-9]{5})\"\n# Find patterns where two characters are repeated\nabab_regex &lt;- \"(..)\\\\1\"\n\n# Create a table for whether each regex was detected in each string\ntibble(\n  text = strings,\n  phone = str_detect(strings, phone_regex),\n  dog = str_detect(strings, dog_regex),\n  addr = str_detect(strings, addr_regex),\n  abab = str_detect(strings, abab_regex)\n  )\n\n# A tibble: 6 × 5\n  text                                                   phone dog   addr  abab \n  &lt;chr&gt;                                                  &lt;lgl&gt; &lt;lgl&gt; &lt;lgl&gt; &lt;lgl&gt;\n1 abcdefghijklmnopqrstuvwxyzABAB                         FALSE FALSE FALSE TRUE \n2 banana orange strawberry apple                         FALSE FALSE FALSE TRUE \n3 ana went to montana to eat a banana                    FALSE FALSE FALSE TRUE \n4 call me at 432-394-2873. Do you want to go for a walk… TRUE  TRUE  FALSE FALSE\n5 phone: (123) 456-7890, nuid: 12345678, bank account b… TRUE  FALSE FALSE FALSE\n6 1600 Pennsylvania Ave NW, Washington D.C., 20500       FALSE FALSE TRUE  FALSE\n\n\n\n\n\n\n\n✅ Check-in: Functions from stringr\n1 Which of the follow are differences between length() and str_length()?\n\nlength() gives the number of elements in a vector\nstr_length() gives the number of characters in a string\nstr_length() gives the number of strings in a vector\nlength() gives the dimensions of a dataframe\n\n2 What of the following is true about str_replace()?\n\nstr_replace() replaces the first instance of the pattern\nstr_replace() replaces the last instance of the pattern\nstr_replace() replaces every instance of the pattern\n\n3 str_trim() allows you to remove whitespace on what sides\n\nleft\nright\nboth\n\n4 Which of the following does str_sub() use to create a substring?\n\nstarting position\nending position\npattern to search for\n\n5 Which of the following does str_subset() use to create a substring?\n\nstarting position\nending position\npattern to search for\n\n6 What does the collapse argument do in str_c()?\n\nspecifies a string to be used when combining inputs into a single string\nspecifies whether the string should be collapsed",
+    "objectID": "labs/instructions/lab-2-instructions.html#about",
+    "href": "labs/instructions/lab-2-instructions.html#about",
+    "title": "Lab 2: Getting Started on your Portfolio",
+    "section": "3.1 About",
+    "text": "3.1 About\nLet’s start easy. Go into your about.qmd and write a short paragraph introducing yourself. Now is a good time to save your changes then Stage, Commit, and Push your changes to GitHub.",
+    "crumbs": [
+      "Labs",
+      "Lab 2 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-2-instructions.html#index",
+    "href": "labs/instructions/lab-2-instructions.html#index",
+    "title": "Lab 2: Getting Started on your Portfolio",
+    "section": "3.2 Index",
+    "text": "3.2 Index\nThe index.qmd will serve as your home page for your website, so let’s make it pretty! Update the YAML code with the following and then update title. Move a nice profile image into your project folder and change the file name after image: to match your images name and type (e.g. .jpg, .png). Update the LinkedIn and Github links to match your profile links (if you don’t have LinkedIn make one!).\n---\ntitle: \"Judith Canner\"\nabout:\n  template: jolla\n  image: profile.jpg\n  links:\n    - icon: linkedin\n      text: LinkedIn\n      href: https://linkedin.com\n    - icon: github\n      text: Github\n      href: https://github.com\n---\nGo ahead and save and then under Build, Render the website. How does it look?\nWithin the text/markdown area of the .qmd add some of the following information about yourself:\nJudith Canner is a Professor of Statistics and Chair of the Department of Mathematics and Statistics at [California State University, Monterey Bay](http://csumb.edu/mathstat).\n\n## Education\n\nShippensburg University | Shippensburg, PA  \nB.S. in Applied Mathematics | 2001 - 2004\n\n## Experience\n\nWengo Analytics | Head Data Scientist | April 2018 - present\n\nGeoScynce | Chief Analyst | Sept 2012 - April 2018\nGo ahead and save and then under Build, Render the website. Now is a good time to save your changes then Stage, Commit, and Push your changes to GitHub.\nFeel free to make other changes, add additional text, links, or images.",
+    "crumbs": [
+      "Labs",
+      "Lab 2 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-2-instructions.html#quarto.yml",
+    "href": "labs/instructions/lab-2-instructions.html#quarto.yml",
+    "title": "Lab 2: Getting Started on your Portfolio",
+    "section": "3.3 _quarto.yml",
+    "text": "3.3 _quarto.yml\nOpen up the _quarto.yml. This document controls the structure of your webpage. You do not put content here, you simply put information about how the website should render. Your text might look something like this (and if it doesn’t, update it to look like this):\nproject:\n  type: website\n\nwebsite:\n  title: \"Your Name's ePortfolio\"\n  navbar:\n    left:\n      - href: index.qmd\n        text: \"Home\"\n      - href: about.qmd\n        text: \"About Me\"\n\nformat:\n  html:\n    theme: cosmo\n    css: styles.css\n    toc: true\n\neditor: visual\nYou can update the theme if you want - Quarto HTML Theming or customize your theme or even create your own css code (if you know how). That is up to you!\nAt minimum, here is the modification you need to make the following modification - add the output-dir: docs at the top under project/type.\nproject:\n  type: website\n  output-dir: docs\nWhat this does is renders the HTML parts of your website directly into a folder called /docs and this locations is what we will use to publish your webpage on GitHub.\nSave your changes. Build your website (notice a docs file is now created. Now is a good time to save your changes then Stage, Commit, and Push your changes to GitHub",
+    "crumbs": [
+      "Labs",
+      "Lab 2 Instructions"
+    ]
+  },
+  {
+    "objectID": "weeks/week-2-quarto.html",
+    "href": "weeks/week-2-quarto.html",
+    "title": "Week 2: Reproducible Analyses with Quarto",
+    "section": "",
+    "text": "The theme of this lesson is good management of your files and data. In part two of this week’s coursework you will learn how to identify folders and paths, and create Quarto documents.",
     "crumbs": [
       "Weekly materials",
-      "Week 11 - Strings, Dates, and Times"
+      "Week 2 - Quarto"
     ]
+  },
+  {
+    "objectID": "weeks/week-2-quarto.html#file-management",
+    "href": "weeks/week-2-quarto.html#file-management",
+    "title": "Week 2: Reproducible Analyses with Quarto",
+    "section": "1.1 File Management",
+    "text": "1.1 File Management\nAs boring as it sounds, file management is arguably one of the most important skills a data scientist should have. The reproducibility of a project depends just as much on the way in which the project was stored as the computing tools used. While using R and Quarto make an important step in creating a reproducible analysis, there are other pieces that are arguably just as important—such as file management.\nBelieve it or not, your computer has multiple locations** where files can be stored. There has been a bit of a generational shift as computers have evolved: the “file system” metaphor itself is outdated because no one uses physical files anymore.\n[This article]((https://futurism.com/the-byte/gen-z-kids-file-systems) makes the argument that with modern search capabilities, most people use their computers as a laundry hamper instead of as a nice, organized filing cabinet. However, the laundry hamper approach doesn’t play nicely with working in R and creating Quarto documents.\nIn this class, we will store files according to the Project TIER protocol. More specifically, you will have:\n\na “Stat 210” folder in your Documents folder, containing all your materials associated with STAT 210\na sub-folder for each week (e.g., Week 1, Week 2)\nseparate folders within each week for each assignment (e.g., Practice Activity, Lab)\na separate R Studio Project (and GitHub repository) associated with each assignment\n\nFor example, if you come to my office for help on your lab assignment for Week 2, I would expect your files to look like this:\n\nFile Storage on WindowsFile Storage on a Mac\n\n\n\nThis computer has six total folders in my Documents, one of which is a folder named “STAT 311.” You should have one that is called “STAT 210” or something similar.\n\nInside my STAT course folder is a sub-folder named “Week 1,” which also has a sub-folder (a sub-sub-folder) named “Lab 1.” You can tell what folders Lab 1 lives inside based on the information included at the top of the screen. This is called a “file path,” which tells your computer where a folder / file lives on the computer.\nOn a PC, every file lives on the C Drive, so the “full path” to get to my Lab 1 folder would be:\nC:/Users/jcanner/Documents/STAT 210/Week 1/Lab 1\n\n\n\nOn this Mac, there are six total folders in my Documents, one of which is a folder named “STAT 331.” Inside this folder is a sub-folder named “Week 1,” which also has a sub-folder (a sub-sub-folder) named “Lab 1.”\nOn a Mac, every file lives on the hard drive (it doesn’t have letters like a PC), so the “full path” to get to my Lab 1 folder on a Mac would be:\n/Users/jcanner/Documents/STAT 210/Week 1/Lab 1",
+    "crumbs": [
+      "Weekly materials",
+      "Week 2 - Quarto"
+    ]
+  },
+  {
+    "objectID": "weeks/week-2-quarto.html#check-in-stat-210-folder",
+    "href": "weeks/week-2-quarto.html#check-in-stat-210-folder",
+    "title": "Week 2: Reproducible Analyses with Quarto",
+    "section": "1.2 ✅ Check-in: STAT 210 Folder",
+    "text": "1.2 ✅ Check-in: STAT 210 Folder\nCheck that your class directory is set up with:\n\nthe location of your Stat 210 folder\na Week 1 sub-folder\na Lab 1 sub-sub-folder (inside the Week 1 folder)\n\n\n\n\n\n\n\nYour folder cannot sync with anything online!\n\n\n\nYour STAT 210 folder cannot be in a folder stored on GoogleDrive, OneDrive, or iCloud! Storing your folder in this location will cause your code to periodically not run and I cannot help you fix it.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 2 - Quarto"
+    ]
+  },
+  {
+    "objectID": "weeks/week-2-quarto.html#downloading-quarto",
+    "href": "weeks/week-2-quarto.html#downloading-quarto",
+    "title": "Week 2: Reproducible Analyses with Quarto",
+    "section": "2.1 Downloading Quarto",
+    "text": "2.1 Downloading Quarto\nThe software associated with Quarto is automatically downloaded with the newest versions of RStudio. So, if you are using the most up to date version of RStudio (as instructed in Part 1 of this week’s coursework), you should already have Quarto installed on your computer. But, let’s test it out.\nTo ensure you have Quarto installed, carry out the following process:\n\nOpen RStudio\nClick on “File” (in the upper navigation bar)\nSelect “New File” (in the dropdown options)\nSelect “Quarto Document…” (in the dropdown option)\n\n \nIf you have Quarto installed, you should be prompted with the following menu:\n\nIf, instead, you receive a message saying Quarto is not installed on your computer, you need to download Quarto: https://quarto.org/docs/download/",
+    "crumbs": [
+      "Weekly materials",
+      "Week 2 - Quarto"
+    ]
+  },
+  {
+    "objectID": "weeks/week-2-quarto.html#introduction-to-quarto",
+    "href": "weeks/week-2-quarto.html#introduction-to-quarto",
+    "title": "Week 2: Reproducible Analyses with Quarto",
+    "section": "2.2 Introduction to Quarto",
+    "text": "2.2 Introduction to Quarto\n\n📖 Required Reading: Intro to Quarto\n\n\nHTML Documents\nWe will exclusively use HTML documents in this course. If you are interested in learning more about formatting options for Quarto HTML documents, I would recommend checking out:\n\na discussion of the basics of formatting HTML documents in Quarto\nthe list of all HTML Ffrmatting pptions for Quarto documents",
+    "crumbs": [
+      "Weekly materials",
+      "Week 2 - Quarto"
+    ]
+  },
+  {
+    "objectID": "weeks/week-2-quarto.html#check-in-quarto-documents",
+    "href": "weeks/week-2-quarto.html#check-in-quarto-documents",
+    "title": "Week 2: Reproducible Analyses with Quarto",
+    "section": "2.3 ✅ Check-in: Quarto Documents",
+    "text": "2.3 ✅ Check-in: Quarto Documents\nQuestion 1: What are the options at the top of a Quarto document (between the --- and --- symbols) called?\n\nXML\nYAML\nREML\nTOML\n\nQuestion 2: What symbols create an R code chunk?\n\n```\n{r}\n```{r}\n`{r}`\n\nQuestion 3: What symbol defines a heading?\n\n$\n_\n*\n#\n\nQuestion 4: When working in a Quarto document, the [visual / source] editor will display the raw Quarto document, whereas the [visual / source] will display the document as it will appear when it is rendered.\nQuestion 5: To produce an HTML report from your Quarto document, you need to click the ____ button.\n\nVisual\nRender\nRender on Save\nSave",
+    "crumbs": [
+      "Weekly materials",
+      "Week 2 - Quarto"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Statistical Computing with R",
+    "section": "",
+    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic & Preview Activities\nPractice Activity\n\n\n\n\n1\nFriday, 1/24\nIntro to R & RStudio\nBroken Circles Group Warm-up\nCreating Pair Programming Norms\nData Cleaning, Visualization Puzzle\n\n\n2\nFriday, 1/31\nIntro to Quarto\nPair Activity 1: Secret Code\n\n\n3\nFriday, 2/7\nIntro to Version Control\nExpert Designer\nPair Activity 2: Secret Code Revisited\n\n\n4\nFriday, 2/14\nIntro to Data Visualization\nPair Activity 3: Finding Penguins\n\n\n5\nFriday, 2/21\nImporting Data\nPair Activity 4: Evaluating Youth Risk\n\n\n6-7\n\nTransforming Data\n\n\n\n8\nFriday, 3/14\nPivoting and Joining Data\nPair Activity 5: Military Spending in Eastern Europe\n\n\n9\nFriday, 3/21\nPivoting and Joining Data\nPair Activity 6: UN Voting Records\n\n\n10\nFriday, 3/28\nFactors\nPair Activity 7: COVID-19 Comparisons\n\n\n11\nFriday, 4/10\nStrings, Dates, and Times\n\n\n\n12\nFriday 4/17",
+    "crumbs": [
+      "Course information",
+      "Weekly Schedule"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-1/broken-circles.html",
+    "href": "group-activities/week-1/broken-circles.html",
+    "title": "Broken Circles",
+    "section": "",
+    "text": "This activity is designed to explore how working in groups can be more or less successful."
+  },
+  {
+    "objectID": "group-activities/week-1/broken-circles.html#instructions",
+    "href": "group-activities/week-1/broken-circles.html#instructions",
+    "title": "Broken Circles",
+    "section": "Instructions",
+    "text": "Instructions\nThe class will divide into groups of six (6) students. Each of you will be given an envelope with 2-3 pieces of a circle. The goal of this exercise is to put these pieces together in such a way that each member of your group ends up with a complete circle. However, there are a few additional rules to keep things fun:\n\nThis exercise must be done in complete silence. No talking is permitted.\nYou may not point or signal to other players with your hands in any way.\nEach player must put together their own circle. No one else may show a player how to assemble their circle or do it for them.\nThis is an exercise in giving. You may not take a piece from another player, but you may give your pieces—one at a time—to any other member of your group, and members of your group may give pieces to you. As per the previous rule, you may not place a piece in another person’s puzzle; players must complete their own puzzle. Instead, you are expected to hand the piece to the other player."
+  },
+  {
+    "objectID": "group-activities/week-1/broken-circles.html#getting-started",
+    "href": "group-activities/week-1/broken-circles.html#getting-started",
+    "title": "Broken Circles",
+    "section": "Getting Started",
+    "text": "Getting Started\nNow that you know the rules, let’s get started! Take the pieces out of your envelope and place them in front of you. Remember, this is a group task. The activity is not completed until everyone in your group has a completed circle in front of them.\nYou have 10-minutes to make your circles. When your group has finished, raise your hand. If you have time remaining, I may ask you to find another way to put the pieces together to form different circles."
+  },
+  {
+    "objectID": "group-activities/week-1/broken-circles.html#discussion",
+    "href": "group-activities/week-1/broken-circles.html#discussion",
+    "title": "Broken Circles",
+    "section": "Discussion",
+    "text": "Discussion\n\nWhat do you think this game was about? What was its purpose?\nWhat did your group did that made you cooperate more successfully?\nWhat did your group did that made cooperation harder?\nWhat are some behaviors that could be implemented in the future to make cooperation easier?"
+  },
+  {
+    "objectID": "course-materials/course_resources.html",
+    "href": "course-materials/course_resources.html",
+    "title": "R Resources",
+    "section": "",
+    "text": "Tip\n\n\n\nClick on the link to access the R Cheatsheet related to a specific topic / package!\n\n\n\nWeekly R Cheatsheets\nWeek 1\n\nRStudion IDE\nBase R\n\nWeek 2\n\nQuarto\n\nWeek 3\n\nGit & GitHub\n\nWeek 4\n\nData Visualization with ggplot2\n\nWeek 5\n\nData Import with readr\n\nWeek 6-7\n\nData Wrangling with dplyr\n\nWeek 8-9\n\nData Tidying with tidyr\n\nWeek 10\n\nFactors with forcats\n\nWeek 11\n\nDates with lubridate\nStrings with stringr\n(optional) Regular Expressions\n\nWeek 12\n\nTidy Evaluation\n\nWeek 13\n\nIteration with purrr",
+    "crumbs": [
+      "Course information",
+      "R Resources"
+    ]
+  },
+  {
+    "objectID": "group-activities/pair-programming-norms.html",
+    "href": "group-activities/pair-programming-norms.html",
+    "title": "Pair Programming Roles",
+    "section": "",
+    "text": "During our in-class activities, you will be paired with another student. When completing the activity, you will rotate between the following roles every 2-3 minutes:",
+    "crumbs": [
+      "Course information",
+      "Pair Programming Norms"
+    ]
+  },
+  {
+    "objectID": "group-activities/pair-programming-norms.html#group-norms",
+    "href": "group-activities/pair-programming-norms.html#group-norms",
+    "title": "Pair Programming Roles",
+    "section": "Group Norms",
+    "text": "Group Norms\n\nThink and work together. Do not divide the work.\nYou are smarter together.\nBe open minded.\nNo cross-talk with other groups.\nCommunicate with each other!",
+    "crumbs": [
+      "Course information",
+      "Pair Programming Norms"
+    ]
+  },
+  {
+    "objectID": "group-activities/pair-programming-norms.html#completing-the-task",
+    "href": "group-activities/pair-programming-norms.html#completing-the-task",
+    "title": "Pair Programming Roles",
+    "section": "Completing the Task",
+    "text": "Completing the Task\nWorking with your partner, complete the Practice Activity in the Quarto document provided. In your roles—Coder and Developer—use the prompts below to help guide the completion of your activity.\n\n\nCoder\nI am looking for…\nI am confused by…\nI notice…\nWhat might be true is…\nWhat’s important is…\nI predict…\nThis reminds me of…\nWhat if we…\nWe could try…\nI am thinking about…\nA line of code I could write is…\n\n\n\nDeveloper\n\nDo you understand what we need to do?\nWhat’s the question we have for Dr. Canner? Can we answer the question ourselves?\nWhat are you focusing on?\nWhat are you thinking now?\nCould you tell me more?\nWhat are you doing (or writing) now? Please elaborate.\nI can’t follow that, run that by me again.\n What other sources of information do we need?\nWhich words should we look up?\nWhat else do we need to complete this problem?",
+    "crumbs": [
+      "Course information",
+      "Pair Programming Norms"
+    ]
+  },
+  {
+    "objectID": "group-activities/pair-programming-norms.html#once-youre-finished",
+    "href": "group-activities/pair-programming-norms.html#once-youre-finished",
+    "title": "Pair Programming Roles",
+    "section": "Once You’re Finished",
+    "text": "Once You’re Finished\nAt the end of the task, your group will have one completed Quarto document and one rendered HTML, containing your groups’ worked-out solutions and justifications. Everyone must take turns writing the final product (as described above) and everyone must be able to explain every line of code in your final document.",
+    "crumbs": [
+      "Course information",
+      "Pair Programming Norms"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-2/expert-designer.html",
+    "href": "group-activities/week-2/expert-designer.html",
+    "title": "Expert Designer",
+    "section": "",
+    "text": "This activity is designed to simulate the environment in which you will be working for the weekly Practice Activities."
+  },
+  {
+    "objectID": "group-activities/week-2/expert-designer.html#instructions-roles-rules",
+    "href": "group-activities/week-2/expert-designer.html#instructions-roles-rules",
+    "title": "Expert Designer",
+    "section": "Instructions, Roles, & Rules",
+    "text": "Instructions, Roles, & Rules\nGet into groups of four (4) students. Similar to last week’s Broken Circles activity, each of you has an envelope containing different shapes.\n\nDesigner\nIn this activity, one person in your group will take on the role of the “designer,” two members will be the “players,” and one person will be the “observer.” The designer uses every shape in the envelope to create a design that is not shared with anyone else. The designer is then tasked with instructing the players how to replicate the design they created, but there are some rules.\n\nThe designer cannot touch the players shapes.\nThe designer cannot tell the players how to assemble the shapes into the correct design.\nThe designer can respond to questions posed by the players.\n\n\n\nPlayers\n“Players” are tasked with solving the design made by the “designer.” Players can pose questions to the designer to uncover their design. Once an player believes they have figured out the design, the designer should check their solution. If the designer says the solution is correct, then the player can assist the designer in answering questions posed by the other players.\n\n\nObserver\nThe “observer” is tasked with monitoring the interactions between the designer and the players. Specifically, the observer should check off the number of times they see two behaviors occurring, (1) explaining by telling how, and (2) everybody helps. The observer should have a scoring sheet to tally the number of times they see each behavior."
+  },
+  {
+    "objectID": "group-activities/week-2/expert-designer.html#getting-started",
+    "href": "group-activities/week-2/expert-designer.html#getting-started",
+    "title": "Expert Designer",
+    "section": "Getting Started",
+    "text": "Getting Started\nChoose one person in your group to be the first designer. Carry out the process described above until every observer has correctly identified the design. You will have 10-minutes to complete this task.\nOnce you have completed this task, if there is still time remaining your group should choose a new designer and repeat the process."
+  },
+  {
+    "objectID": "group-activities/week-2/expert-designer.html#discussion",
+    "href": "group-activities/week-2/expert-designer.html#discussion",
+    "title": "Expert Designer",
+    "section": "Discussion",
+    "text": "Discussion\n\nWhat do you think this game was about? What was its purpose?\nWhat did your group did that made you cooperate more successfully?\nWhat did your group did that made cooperation harder?\nWhat are some behaviors that could be implemented in the future to make cooperation easier?"
+  },
+  {
+    "objectID": "labs/instructions/lab-6-instructions.html",
+    "href": "labs/instructions/lab-6-instructions.html",
+    "title": "Lab 6: Starting your Portfolio Project",
+    "section": "",
+    "text": "In this lab, we will be using the dplyr and tidyr package to start to clean and prepare your data for analysis for your portfolio project.\nYou are expected to use functions from the tidyverse packages to do your data manipulation!"
+  },
+  {
+    "objectID": "labs/instructions/lab-6-instructions.html#step-1-make-a-git-hub-repository",
+    "href": "labs/instructions/lab-6-instructions.html#step-1-make-a-git-hub-repository",
+    "title": "Lab 6: Starting your Portfolio Project",
+    "section": "Step 1: Make a Git Hub Repository",
+    "text": "Step 1: Make a Git Hub Repository"
+  },
+  {
+    "objectID": "labs/instructions/lab-6-instructions.html#step-2-making-a-small-change",
+    "href": "labs/instructions/lab-6-instructions.html#step-2-making-a-small-change",
+    "title": "Lab 6: Starting your Portfolio Project",
+    "section": "Step 2: Making a Small Change",
+    "text": "Step 2: Making a Small Change"
+  },
+  {
+    "objectID": "labs/instructions/lab-6-instructions.html#step-3-pushing-your-lab-to-github",
+    "href": "labs/instructions/lab-6-instructions.html#step-3-pushing-your-lab-to-github",
+    "title": "Lab 6: Starting your Portfolio Project",
+    "section": "Step 3: Pushing Your Lab to GitHub",
+    "text": "Step 3: Pushing Your Lab to GitHub"
+  },
+  {
+    "objectID": "labs/instructions/lab-6-instructions.html#step-4-lets-get-started-wrangling-some-data",
+    "href": "labs/instructions/lab-6-instructions.html#step-4-lets-get-started-wrangling-some-data",
+    "title": "Lab 6: Starting your Portfolio Project",
+    "section": "Step 4: Let’s get started wrangling some data!",
+    "text": "Step 4: Let’s get started wrangling some data!"
+  },
+  {
+    "objectID": "labs/instructions/lab-6-instructions.html#setting-up-your-code-chunks",
+    "href": "labs/instructions/lab-6-instructions.html#setting-up-your-code-chunks",
+    "title": "Lab 6: Starting your Portfolio Project",
+    "section": "Setting Up Your Code Chunks",
+    "text": "Setting Up Your Code Chunks\n\nThe first chunk of your Quarto document should be to declare your libraries (probably only tidyverse for now).\nThe second chunk of your Quarto document should be to load in your data."
+  },
+  {
+    "objectID": "labs/instructions/lab-6-instructions.html#save-regularly-render-often",
+    "href": "labs/instructions/lab-6-instructions.html#save-regularly-render-often",
+    "title": "Lab 6: Starting your Portfolio Project",
+    "section": "Save Regularly, Render Often",
+    "text": "Save Regularly, Render Often\n\nBe sure to save your work regularly.\nBe sure to render your file every so often, to check for errors and make sure it looks nice.\n\nMake sure your Quarto document does not contain View(dataset) or install.packages(\"package\"), both of these will prevent rendering.\nCheck your Quarto document for occasions when you looked at the data by typing the name of the data frame. Leaving these in means the whole dataset will print out and this looks unprofessional. Remove these!\nIf all else fails, you can set your execution options to error: true, which will allow the file to render even if errors are present."
+  },
+  {
+    "objectID": "labs/instructions/lab-6-instructions.html#the-data",
+    "href": "labs/instructions/lab-6-instructions.html#the-data",
+    "title": "Lab 6: Starting your Portfolio Project",
+    "section": "The Data",
+    "text": "The Data"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "weeks/week-10-factors.html",
+    "href": "weeks/week-10-factors.html",
+    "title": "Working with Categorical Variables",
+    "section": "",
+    "text": "The second section of this coursework is focused on working with factor data types. By the end of this week, you should be able to:\n\nUse forcats to reorder and relabel factor variables in data cleaning steps and data visualizations.\n\n\n\n📖 Readings: 15-minutes\n\n\n✅ Check-ins: 1\n\n\n\n1 Factors with forcats\nWe have been floating around the idea of factor data types. In this section, we will formally define factors and why they are needed for data visualization and analysis. We will then learn useful functions for working with factors in our data cleaning steps.\n\n\n\n\n\n\n\n\n\n\n\nIn short, factors are categorical variables with a fixed number of values (think a set number of groups). One of the main features that set factors apart from groups is that you can reorder the groups to be non-alphabetical. In this section we will be using the forcats package (part of the tidyverse!) to create and manipulate factor variables.\n📖 Required Reading: R4DS Chapter 16 (Factors)\n\n✅ Check-in: Functions from forcats\nAnswer the following questions.\n1. Which of the following tasks can fct_recode() accomplish? Select all that apply!\n\nchanges the values of the factor levels\nreorders the levels of a factor\nremove levels of a factor you don’t want\ncollapse levels of a factor into a new level\n\n2. Which of the following tasks can fct_relevel() accomplish?\n\nreorders the levels of a factor\nchanges the values of the factor levels\nremove levels of a factor you don’t want\ncollapse levels of a factor into a new level\n\n3. What is the main difference between fct_collapse() and fct_recode()?\n\nfct_recode() uses strings to create factor levels\nfct_recode() uses groups to create factor levels\nfct_recode() cannot create an “Other” group\n\n4. What ordering do you get with fct_reorder()?\n\nlargest to smallest based on another variable\norder of appearance\nlargest to smallest based on counts\nalphabetical order\n\n5. What ordering do you get with fct_inorder()?\n\norder of appearance\nalphabetical order\nlargest to smallest based on counts\nlargest to smallest based on another variable :::",
+    "crumbs": [
+      "Weekly materials",
+      "Week 10 - Factors"
+    ]
+  },
+  {
+    "objectID": "slides/week-3/week-3-intro-version-control.html#git-vs-github",
+    "href": "slides/week-3/week-3-intro-version-control.html#git-vs-github",
+    "title": "Version Control",
+    "section": "Git vs GitHub",
+    "text": "Git vs GitHub\n\n\n\n\n\n\n\n\n\n\n\n\nA system for version control that manages a collection of files in a structured way.\nUses the command line or a GUI.\nGit is local."
+  },
+  {
+    "objectID": "slides/week-3/week-3-intro-version-control.html#git-vs-github-1",
+    "href": "slides/week-3/week-3-intro-version-control.html#git-vs-github-1",
+    "title": "Version Control",
+    "section": "Git vs GitHub",
+    "text": "Git vs GitHub\n\n\n\n\n\n\n\n\nA system for version control that manages a collection of files in a structured way.\nUses the command line or a GUI.\nGit is local.\n\n\n\n\n\n\n\n\nA cloud-based service that lets you use git across many computers.\nBasic services are free, advanced services are paid (like RStudio!).\nGitHub is remote."
+  },
+  {
+    "objectID": "slides/week-3/week-3-intro-version-control.html#why-learn-github",
+    "href": "slides/week-3/week-3-intro-version-control.html#why-learn-github",
+    "title": "Version Control",
+    "section": "Why Learn GitHub?",
+    "text": "Why Learn GitHub?\n\nGitHub provides a structured way for tracking changes to files over the course of a project.\n\n\nThink Google Docs or Dropbox history, but more structured and powerful!\n\n\nGitHub makes it easy to have multiple people working on the same files at the same time.\nYou can host a URL of fun things (like the class text, these slides, the course website, etc.) with GitHub pages."
+  },
+  {
+    "objectID": "slides/week-3/week-3-intro-version-control.html#git-repositories",
+    "href": "slides/week-3/week-3-intro-version-control.html#git-repositories",
+    "title": "Version Control",
+    "section": "Git Repositories",
+    "text": "Git Repositories\nGit is based on repositories.\n\n\n\nThink of a repository (repo) as a directory (folder) for a single project.\n\nThis directory will likely contain code, documentation, data, to do lists, etc. associated with the project.\nYou can link a local repo with a remote copy."
+  },
+  {
+    "objectID": "slides/week-3/week-3-intro-version-control.html#cloning-a-repo",
+    "href": "slides/week-3/week-3-intro-version-control.html#cloning-a-repo",
+    "title": "Version Control",
+    "section": "Cloning a Repo",
+    "text": "Cloning a Repo\n\n\n\nCreate an exact copy of a remote repo on your local machine."
+  },
+  {
+    "objectID": "slides/week-3/week-3-intro-version-control.html#committing-changes",
+    "href": "slides/week-3/week-3-intro-version-control.html#committing-changes",
+    "title": "Version Control",
+    "section": "Committing Changes",
+    "text": "Committing Changes\nTell git you have made changes you want to add to the repo.\n\nAlso provide a commit message – a short label describing what the changes are and why they exist.\n\n\n\nThe red line is a change we commit (add) to the repo.\n\n\n\n\n\n\n\n\nThe log of these changes is called your commit history.\n\nYou can always go back to old copies!"
+  },
+  {
+    "objectID": "slides/week-3/week-3-intro-version-control.html#commit-tips",
+    "href": "slides/week-3/week-3-intro-version-control.html#commit-tips",
+    "title": "Version Control",
+    "section": "Commit Tips",
+    "text": "Commit Tips\n\nUse short, but informative commit messages.\nCommit small blocks of changes – commit every time you accomplish a small task (e.g., one problem in the lab).\n\nYou’ll have a set of bite-sized changes (with description) to serve as a record of what you’ve done.\nWith frequent commits, its easier to find the issue if / when you mess up!"
+  },
+  {
+    "objectID": "slides/week-3/week-3-intro-version-control.html#pushing-changes",
+    "href": "slides/week-3/week-3-intro-version-control.html#pushing-changes",
+    "title": "Version Control",
+    "section": "Pushing Changes",
+    "text": "Pushing Changes\n\n\n\nUpdate the copy of your repo on GitHub so it has the most recent changes you’ve made on your machine."
+  },
+  {
+    "objectID": "slides/week-3/week-3-intro-version-control.html#pulling-changes",
+    "href": "slides/week-3/week-3-intro-version-control.html#pulling-changes",
+    "title": "Version Control",
+    "section": "Pulling Changes",
+    "text": "Pulling Changes\n\n\n\nUpdate the local copy of your repo (the copy on your computer) with the version on GitHub."
+  },
+  {
+    "objectID": "slides/week-3/week-3-intro-version-control.html#workflow",
+    "href": "slides/week-3/week-3-intro-version-control.html#workflow",
+    "title": "Version Control",
+    "section": "Workflow",
+    "text": "Workflow\nWhen you have an existing local repo:\n\n\nPull the repo to make sure you have the most up to date version (especially if you are working on different computers).\nMake some changes locally.\nCommit the changes to git.\nPush your changes to GitHub."
+  },
+  {
+    "objectID": "slides/week-3/week-3-intro-version-control.html#previous-steps",
+    "href": "slides/week-3/week-3-intro-version-control.html#previous-steps",
+    "title": "Version Control",
+    "section": "Previous Steps",
+    "text": "Previous Steps\nYou were asked to complete the following steps before coming to class today:\n\nCreate a GitHub account\nIntroduce yourself to git (in RStudio)\nGenerate a Personal Access Token (PAT)\nStore your PAT in RStudio"
+  },
+  {
+    "objectID": "slides/week-3/week-3-intro-version-control.html#verifying-your-connection",
+    "href": "slides/week-3/week-3-intro-version-control.html#verifying-your-connection",
+    "title": "Version Control",
+    "section": "Verifying Your Connection",
+    "text": "Verifying Your Connection\n\n\nOpen RStudio and run the following code in your console (lower left pane):\n\n\n\n\n\nusethis::git_sitrep()\n\n\n\nYou should see something like:\n\n── GitHub user \n• Default GitHub host: 'https://github.com'\n• Personal access token for 'https://github.com': '&lt;discovered&gt;'\n• GitHub user: 'jcanner'\n• Token scopes: 'admin:org, admin:public_key, delete:packages, delete_repo, gist, notifications, repo, user, workflow, write:packages'\n• Email(s): 'jcanner@csumbedu'\n12439090+jcanner@users.noreply.github.com'\nℹ No active usethis project\n\n\n\nIf that is not the case, Dr. Canner will help you troubleshoot in 5-minutes!"
+  },
+  {
+    "objectID": "weeks/week-3-version-control.html#objectives",
+    "href": "weeks/week-3-version-control.html#objectives",
+    "title": "Week 3: Version Control with Git and GitHub",
+    "section": "0.1 Objectives",
+    "text": "0.1 Objectives\nMost of this section is either heavily inspired by Happy Git and Github for the UseR (Bryan, Hester, and The Stat 545 TAs 2021) or directly links to that book.\n\nRecognize the benefits of using version control to improve your coding practices and workflow.\nIdentify git / GitHub as a version control platform (and helper).\nInstall git onto your computer and register for a GitHub account\nStart applying version control practices to your workflow.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 3 - Version Control"
+    ]
+  },
+  {
+    "objectID": "weeks/week-3-version-control.html#footnotes",
+    "href": "weeks/week-3-version-control.html#footnotes",
+    "title": "Week 3: Version Control with Git and GitHub",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nYes, I’m aware that this sounds paranoid. It’s been a very rare occasion that I’ve needed to restore something from another backup. You don’t want to take chances.↩︎",
+    "crumbs": [
+      "Weekly materials",
+      "Week 3 - Version Control"
+    ]
+  },
+  {
+    "objectID": "group-activities/week-4/pa-3-ggplot.html",
+    "href": "group-activities/week-4/pa-3-ggplot.html",
+    "title": "PA 3: Using Data Visualization to Find the Penguins",
+    "section": "",
+    "text": "Today you will be exploring different types of visualizations to uncover which species of penguins reside on different islands.\nThis task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group.\nSome advice: If you aren’t sure how to make a specific plot or how to customize a look over the class text for this week and make use of the ggplot2 cheatsheet."
+  },
+  {
+    "objectID": "group-activities/week-4/pa-3-ggplot.html#groupwork-protocols",
+    "href": "group-activities/week-4/pa-3-ggplot.html#groupwork-protocols",
+    "title": "PA 3: Using Data Visualization to Find the Penguins",
+    "section": "Groupwork Protocols",
+    "text": "Groupwork Protocols\nDuring the Practice Activity, you and your partner will alternate between two roles—Developer and Coder.\nWhen you are the Developer, you will type into the Quarto document in RStudio. However, you do not type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.\nWhen you are the Coder, you are responsible for reading the instructions / prompts and directing the Developer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Developer to debug the code you specified. Once the code runs, you are expected to collaborate with the Developer to write code comments that describe the actions taken by your code.\n\nGroup Norms\nRemember, your group is expected to adhere to the following norms:\n\nThink and work together. Do not divide the work.\nYou are smarter together.\nNo cross-talk with other groups."
+  },
+  {
+    "objectID": "group-activities/week-4/pa-3-ggplot.html#step-1-install-the-palmerpenguins-package",
+    "href": "group-activities/week-4/pa-3-ggplot.html#step-1-install-the-palmerpenguins-package",
+    "title": "PA 3: Using Data Visualization to Find the Penguins",
+    "section": "Step 1: Install the palmerpenguins Package",
+    "text": "Step 1: Install the palmerpenguins Package\nWe will be creating visualizations using the ggplot2 package.\nFor this activity, we will be exploring the penguins data from the palmerpenguins package, which has fantastic documentation with really awesome artwork. So, you will need to install the palmerpenguins package. Run the following code in your console:\ninstall.packages(\"palmerpenguins\")"
+  },
+  {
+    "objectID": "group-activities/week-4/pa-3-ggplot.html#step-2-create-a-set-up-code-chunk",
+    "href": "group-activities/week-4/pa-3-ggplot.html#step-2-create-a-set-up-code-chunk",
+    "title": "PA 3: Using Data Visualization to Find the Penguins",
+    "section": "Step 2: Create a Set-up Code Chunk",
+    "text": "Step 2: Create a Set-up Code Chunk\n\nLocate the code chunk at the beginning of your document (directly under the YAML).\nName the code chunk setup (with the hashpipe #|)\nSpecify the code chunk options (with the hashpipe #|) that the messages from loading in the packages should not be included.\nLoad in the tidyverse or ggplot2 package.\nLoad in the palmerpenguins package."
+  },
+  {
+    "objectID": "group-activities/week-4/pa-3-ggplot.html#step-3-accessing-the-penguins-dataset",
+    "href": "group-activities/week-4/pa-3-ggplot.html#step-3-accessing-the-penguins-dataset",
+    "title": "PA 3: Using Data Visualization to Find the Penguins",
+    "section": "Step 3: Accessing the penguins Dataset",
+    "text": "Step 3: Accessing the penguins Dataset\nI like to tangibly see the data set I will be working with so let’s pull the penguins data into the R environment. Run the code below and you should see the penguins data appear in the top right Environment tab.\n\ndata(penguins)\n\nWarning in data(penguins): data set 'penguins' not found"
+  },
+  {
+    "objectID": "group-activities/week-4/pa-3-ggplot.html#step-4-get-to-know-the-data",
+    "href": "group-activities/week-4/pa-3-ggplot.html#step-4-get-to-know-the-data",
+    "title": "PA 3: Using Data Visualization to Find the Penguins",
+    "section": "Step 4: Get to Know the Data",
+    "text": "Step 4: Get to Know the Data\nWhat variables are included in these data? What units are the variables measured in? What does each row represent?\n\nInsert Answer Here"
+  },
+  {
+    "objectID": "group-activities/week-4/pa-3-ggplot.html#step-5-barchart",
+    "href": "group-activities/week-4/pa-3-ggplot.html#step-5-barchart",
+    "title": "PA 3: Using Data Visualization to Find the Penguins",
+    "section": "Step 5: Barchart",
+    "text": "Step 5: Barchart\nUse ggplot2 to draw a barchart of different species included in the dataset."
+  },
+  {
+    "objectID": "group-activities/week-4/pa-3-ggplot.html#step-6-scatterplot",
+    "href": "group-activities/week-4/pa-3-ggplot.html#step-6-scatterplot",
+    "title": "PA 3: Using Data Visualization to Find the Penguins",
+    "section": "Step 6: Scatterplot",
+    "text": "Step 6: Scatterplot\nUse ggplot2 to create a scatterplot of the relationship between the bill length (bill_length_mm) and bill depth (bill_depth_mm)."
+  },
+  {
+    "objectID": "group-activities/week-4/pa-3-ggplot.html#step-7-adding-a-categorical-variable",
+    "href": "group-activities/week-4/pa-3-ggplot.html#step-7-adding-a-categorical-variable",
+    "title": "PA 3: Using Data Visualization to Find the Penguins",
+    "section": "Step 7: Adding A Categorical Variable",
+    "text": "Step 7: Adding A Categorical Variable\n\nBuilding off of the plot you made in Step 6, add an aesthetic to differentiate the species of the penguins in the scatterplot by color."
+  },
+  {
+    "objectID": "group-activities/week-4/pa-3-ggplot.html#step-8-adding-another-categorical-variable",
+    "href": "group-activities/week-4/pa-3-ggplot.html#step-8-adding-another-categorical-variable",
+    "title": "PA 3: Using Data Visualization to Find the Penguins",
+    "section": "Step 8: Adding Another Categorical Variable",
+    "text": "Step 8: Adding Another Categorical Variable\nBuilding off of the plot you made in Step 7, add the location of the penguins ( island) to your visualization. There may be more than one method to address this, however, one method will more easily allow you to address the questions below."
+  },
+  {
+    "objectID": "group-activities/week-5/pa-4-import-tidy-data.html",
+    "href": "group-activities/week-5/pa-4-import-tidy-data.html",
+    "title": "PA 4: Preparing the Youth Risk Behavior Analysis",
+    "section": "",
+    "text": "This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to solve this puzzle, you will need to use the skills of each member of your group."
+  },
+  {
+    "objectID": "group-activities/week-5/pa-4-import-tidy-data.html#groupwork-protocols",
+    "href": "group-activities/week-5/pa-4-import-tidy-data.html#groupwork-protocols",
+    "title": "PA 4: Preparing the Youth Risk Behavior Analysis",
+    "section": "Groupwork Protocols",
+    "text": "Groupwork Protocols\nDuring the Practice Activity, you and your partner will alternate between two roles—Developer and Coder.\nWhen you are the Developer, you will type into the Quarto document in RStudio. However, you do not type your own ideas. Instead, you type what the Coder tells you to type. You are permitted to ask the Coder clarifying questions, and, if both of you have a question, you are permitted to ask the professor. You are expected to run the code provided by the Coder and, if necessary, to work with the Coder to debug the code. Once the code runs, you are expected to collaborate with the Coder to write code comments that describe the actions taken by your code.\nWhen you are the Coder, you are responsible for reading the instructions / prompts and directing the Developer what to type in the Quarto document. You are responsible for managing the resources your group has available to you (e.g., cheatsheet, textbook). If necessary, you should work with the Developer to debug the code you specified. Once the code runs, you are expected to collaborate with the Developer to write code comments that describe the actions taken by your code.\n\nGroup Norms\nRemember, your group is expected to adhere to the following norms:\n\nThink and work together. Do not divide the work.\nYou are smarter together.\nNo cross-talk with other groups."
+  },
+  {
+    "objectID": "group-activities/week-5/pa-4-import-tidy-data.html#goals-for-the-activity",
+    "href": "group-activities/week-5/pa-4-import-tidy-data.html#goals-for-the-activity",
+    "title": "PA 4: Preparing the Youth Risk Behavior Analysis",
+    "section": "Goals for the Activity",
+    "text": "Goals for the Activity\n\nSolve issues in your data as you read it in by parsing out text from numbers, specifying NA values, and cleaning up variable names\n\nTHROUGHOUT the Activity be sure to follow the Style Guide by doing the following:\n\nload the appropriate packages at the beginning of the Rmarkdown\n\nuse proper spacing\n\nname all code chunks\n\ncomment at least once in each code chunk to describe why you made your coding decisions\n\nadd appropriate labels to all graphic axes"
+  },
+  {
+    "objectID": "group-activities/week-5/pa-4-import-tidy-data.html#youth-risk-behavior-surveillance-systems-yrbss",
+    "href": "group-activities/week-5/pa-4-import-tidy-data.html#youth-risk-behavior-surveillance-systems-yrbss",
+    "title": "PA 4: Preparing the Youth Risk Behavior Analysis",
+    "section": "Youth Risk Behavior Surveillance Systems (YRBSS)",
+    "text": "Youth Risk Behavior Surveillance Systems (YRBSS)\nThis data is from a survey given every other year called the Youth Risk Behavior Surveillance System administered by the Center for Disease Control and Prevention. The survey monitors health risks among youth, such as violence, sexually transmitted diseases, tobacco, and alcohol use.\nThe data set contains over 100,000 rows from 2023. A code book is also provided that gives extensive information on the survey. The data can be stored in an Excel or spreadsheet program, but it cannot be manipulated in those programs because of its size - this why we need R."
+  },
+  {
+    "objectID": "group-activities/week-5/pa-4-import-tidy-data.html#setting-up-your-project",
+    "href": "group-activities/week-5/pa-4-import-tidy-data.html#setting-up-your-project",
+    "title": "PA 4: Preparing the Youth Risk Behavior Analysis",
+    "section": "Setting up your Project",
+    "text": "Setting up your Project\nYour project should have the following components:\n\ndata-raw folder that contains the provided data set\n\ndata-clean that will eventually hold your cleaned up data\n\ncompleted .qmd and rendered file\n\n\nStep 1: Attempt to Read in the Data\nGo ahead and read in the data, calling it youth. What do you notice?\n\nyouth &lt;- read_csv(\"data-raw/YRBS2015.csv\")\n\nDescribe some of the issues you notice in the data:\n\nInsert answer here\n\n\n\nStep 2: Skip the First Row\nUsing either the help options or the readr add an argument to the code above that will skip the first row of the data file so that the ‘headers’ (column titles) read in correctly.\n\n\nStep 3: Fix the Missing Values\nTake note of how missing values are designated in the data. Add an argument to the code above that identifies and fixes the data so that each missing value type is treated as the same NA.\n\n\n\nStep 4: Clean A few of the Variables\nAdd additional arguments to the code above that does the following:\n\nAgeCat: remove the text “years old” from the numeric values\n\nGrade: remove the text “th grade” from the numeric values\n\nPerception of weight: read as a factor with the following\n\nlevels = c(\"Very underweight\",\"Slightly underweight\", \"About the right weight\", \"Slightly overweight\", \"Very overweight\")\n\nSet the following variables to the right data type:\n\nGender\n\nHeight in meters\n\nWeight in kilograms\n\nBody Mass Index\nBMI percentile\n\nFruit eating\n\nSalad eating\nOther vegetable eating\nSoda drinking\nBreakfast eating\nPhysical activity &gt;= 5 days\nTelevision watching\nSports team participation\n\n\nSkip the rest of the variables (hint set .default = _________)\n\n\n\n\nStep 5: Clean the Variable Names\nUse the janitor package to clean the variable names to snake_case.\n\n\nStep 6: Write the Clean Data\nWrite the clean data to the data-clean folder.\nNow that the data is clean, you can add eval: false to the prior code chunks and read in the clean data below.\n\nyouth_clean &lt;- \n\nWhy do we keep the code for the data cleaning but set the code chunks to eval: false?\n\nInsert Answer Here\n\n\n\n\nStep 7: Explore Missingness\nLook at the following graphs\n\nyouth_clean |&gt; \n  naniar::gg_miss_var()\n\n\nyouth_clean |&gt; \n    naniar::gg_miss_upset()\n\nWhat do the two graphs tell you about the missingness in the data (i.e., which variables are missing the most values and which combinations of variables are missing the most together)?\n\nInsert Answer Here\n\nHow does the missingness of the data impact what variables you might choose to analyze? Why?\n\nInsert Answer Here\n\n\n\n\nStep 8: Make a Visualization\n\nyouth_clean |&gt;  #instead of data = youth_clean in ggplot we can \"pipe\" our data  \n  drop_na() |&gt;  #drops missing values\n  ggplot()\n\nComplete the following steps in your visualization in the code chunk above:\n\nPlot the height on the x-axis\n\nPlot the weight on the y-axis\n\nColor the points based on student perception of weight\n\nAdd a linear model (use method = \"lm\" and geom_smooth())\nMake the points more transparent\n\nFacet by grade and gender\n\nAdd descriptive titles and labels\n\nExport the graph as the file weight-perception.png\n\n\nChallenge Modifications\n\nMake the points a color-blind friendly color scale\n\nChange the general theme of the graph\n\nMove the legend to the bottom of the graph\n\nAdjust the figure height and width to 10x10"
+  },
+  {
+    "objectID": "group-activities/week-10/pa-7-covid.html",
+    "href": "group-activities/week-10/pa-7-covid.html",
+    "title": "PA 7: COVID-19 Infections and Impact on States",
+    "section": "",
+    "text": "This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to produce the best product possible, you will need to use the skills of each member of your group."
+  },
+  {
+    "objectID": "group-activities/week-10/pa-7-covid.html#goals-for-the-activity",
+    "href": "group-activities/week-10/pa-7-covid.html#goals-for-the-activity",
+    "title": "PA 7: COVID-19 Infections and Impact on States",
+    "section": "Goals for the Activity",
+    "text": "Goals for the Activity\n\nUse the dplyr verbs to transform your data\n\nCreate new data sets through the joining of data from various sources\nUse forcats to reorder values on a graph for easier comparison\n\nTHROUGHOUT THE Activity be sure to follow the Style Guide by doing the following:\n\nload the appropriate packages at the beginning of the Quarto document\n\nuse proper spacing\n\nadd labels to all code chunks\n\ncomment at least once in each code chunk to describe why you made your coding decisions\n\nadd appropriate labels to all graphic axes"
+  },
+  {
+    "objectID": "group-activities/week-10/pa-7-covid.html#setup---united-states-covid-19-cases-and-deaths",
+    "href": "group-activities/week-10/pa-7-covid.html#setup---united-states-covid-19-cases-and-deaths",
+    "title": "PA 7: COVID-19 Infections and Impact on States",
+    "section": "Setup - United States COVID-19 Cases and Deaths",
+    "text": "Setup - United States COVID-19 Cases and Deaths\nStarting in January 2020, the New York Times started reporting on COVID-19 infections in the United States and eventually created a Githhub Repository of the data they used and reported on in their stories (a field called “Data Journalism”). They ended their data collection in March 2023 and switched to just using data from national reporting systems.\nWe will use their data to evaluate COVID-19 and how it varied across different states. Here are the NY Times data on cumulative cases by date and states (including territories).\n\n# data comes from NY Times GitHub Repository - ends March 2023\n# not evaluating this code chunk because we will clean the data and use the clean data set\ncases &lt;- read_csv(\"https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv\")\n\nNote that both cases and deaths are cumulative by date and we will want to observe just the unique cases per day so we can get various estimates of totals across the states.\nIf we want to extract the daily cases we can use the following code which will calculate the difference in (cumulative) cases for one day minus the previous day using the diff() function from base R.\n\n# calculates the unique new daily cases and deaths for each state\n# eval is false since we created a new data set we will use going forward\ncases |&gt; \n  group_by(state) |&gt; \n  arrange(state, date) |&gt; \n  mutate(cases_daily = c(cases[1], diff(cases)),\n         deaths_daily = c(deaths[1], diff(deaths))) |&gt; \n  ungroup() |&gt; \n  write_csv(\"covid_cases_us.csv\")\n\nNow that are data is in the format we need (sort of), we will start our analysis."
+  },
+  {
+    "objectID": "group-activities/week-10/pa-7-covid.html#part-1-greatest-number-of-cases",
+    "href": "group-activities/week-10/pa-7-covid.html#part-1-greatest-number-of-cases",
+    "title": "PA 7: COVID-19 Infections and Impact on States",
+    "section": "Part 1: Greatest Number of Cases",
+    "text": "Part 1: Greatest Number of Cases\nFirst, we need to read in our clean data.\n\ncases &lt;- read_csv(\"covid_cases_us.csv\")\n\n\nWhich 10 US States/Territories had the most COVID-19 Cases from January 2020-March 2023\nWe want to identify the states with the most cases (top 10). To do this, we will need to modify our data to find the total number of cases for each state. The code below does this but it has errors!\nCorrect the errors and then assign the resulting data to state_totals.\n\ncases |&gt; \n  groupby(state) |&gt; \n  sum(total = sum(case_daily)) |&gt; \n  ungroup() # this is useful to do after a group_by calculation is complete so you do not continue grouping by those variables \n\nNow use the states_totals and identify the top ten states/territories with the most cases between January 2020 and March 2023. Then make a graph ordered by greatest number of cases to least number of cases (Hint: use forcats functions to help you).\n\nstate_totals |&gt; \n  ## order the data by total cases\n  ## extract just the top ten (Hint - look at the `slice() functions)\n  ## create a bar chart with x as the totals and y as the state names\n  ## order the states by greatest to smallest total on the graph\n  ## label, color, update as necessary to provide all relevant information\n\n\n\nCanvas Quiz Question 1\nWhich state had the most COVID-19 cases between January 2020 and March 2023?\n\nInsert Answer Here\n\n\n\nOther Question\nIs this the best way to look at our data? Is looking at just the total number of cases the best way to compare states?\n\nInsert Answer Here"
+  },
+  {
+    "objectID": "group-activities/week-10/pa-7-covid.html#part-2-updating-our-data-source",
+    "href": "group-activities/week-10/pa-7-covid.html#part-2-updating-our-data-source",
+    "title": "PA 7: COVID-19 Infections and Impact on States",
+    "section": "Part 2: Updating our Data Source",
+    "text": "Part 2: Updating our Data Source\nHopefully you realized that there is a flaw in our comparison. Many of the states with the most cases are also some of the biggest states in terms of population size! So is there a better way to make comparisons between groups with differing group sizes at baseline? YES! Here are a few options:\n\nCalculate the Proportion\n\nCalculate the Percentage\n\nCalculate a Rate, such as Rate per 100,000 people\n\nTo do any of the above calculations, we would need the population sizes for each state. Here is data from the US Census Bureau on the state estimated population size in 2019.\n\nus_pop &lt;- read_csv(\"USpop2019.csv\")\n\n\nCalculate a Relative Rate for Comparison\nChoose one of the above statistics to calculate to make our comparison between states/territories. Then recreate your graph from above\n\nstate_totals |&gt; \n  ## add in column with state population sizes  \n  ## calculate your chosen relative rate (e.g. proportion, percentage, rate)\n  ## order the data by your relative rate\n  ## extract just the top ten (Hint - look at the `slice() functions)\n  ## create a bar chart with x as the relative rate and y as the state names\n  ## order the states by greatest to smallest relative rate on the graph\n  ## label, color, update as necessary to provide all relevant information\n\n\n\nCanvas Quiz Question 2\nWhich state had highest number of COVID-19 cases relative to population size between January 2020 and March 2023?\n\nInsert Answer Here\n\n\n\nOther Questions\nWhat are some possible issues with our analysis? Consider the following:\n\nData sources and reliability of the data\n\nTime scale and impact of time\n\n\n\n\nInsert Answer Here\n\nWhat other questions would you like to try to answer using this data? Would that require other data sources? What information would you need to answer your questions?\n\nInsert Answer Here"
   },
   {
     "objectID": "group-activities/week-8/pa-5-tidyr-dplyr.html",

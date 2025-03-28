@@ -1,9 +1,7 @@
 ---
 title: "PA 7: COVID-19 Infections and Impact on States"
 author: "Instructions"
-format: 
-  html: default
-  gfm: default
+format: html
 embed-resources: true
 code-tools: true
 toc: true
@@ -90,7 +88,9 @@ Now that are data is in the format we need (sort of), we will start our analysis
 
 ## Part 1: Greatest Number of Cases
 
-First, we need to read in our clean data.
+First, we need to read in our clean data.  
+
+Note - there may be an error in the code below.
 
 ```{r}
 #| label: read-clean-covid-cases
@@ -155,6 +155,8 @@ Hopefully you realized that there is a flaw in our comparison. Many of the state
 
 
 To do any of the above calculations, we would need the population sizes for each state. Here is data from the US Census Bureau on the state estimated population size in 2019. 
+
+Note - there may be an error in the code below.
 
 ```{r}
 #| label: us-state-population-data
