@@ -1,5 +1,5 @@
 ---
-title: "Lab 4: Childcare Costs in California"
+title: "Lab 6: Childcare Costs in California"
 author: "Instructions"
 format: 
   html:
@@ -15,26 +15,18 @@ execute:
 
 # Part 1: GitHub Workflow
 
-## Step 1: Making a Copy from GitHub Classroom
+## Step 1: Make a GitHub Repoistory
 
-You can access the Lab 4 materials through the [Lab 4 assignment on GitHub Classroom](https://classroom.github.com/a/o-PfOckY). We're going to follow the same steps as last week to make your own copy of this repository:
+Be sure to set up a GitHub repository and then use Version Control to set up your Lab 6 R Project so it is connected. Then download this week's lab file into the folder and include the following:
 
-<!-- Update link to GH Classroom assignment -->
++ [lab-6-student.qmd](../student/lab-6-student.qmd) 
 
-::: {.callout-tip collapse="true"}
-# Same process as last week!
-
-Use these steps to make a copy of the Lab repository: [List of Steps to Copy the Lab Assignment from GitHub Classroom](https://scribehow.com/shared/Copying_Labs_from_GitHub_into_RStudio__ATprsf2MTYmuPP86Xna1Eg)
-:::
 
 ## Step 2: Making a Small Change
 
-Now, find the `lab-4-student.qmd` file in the "Files" tab in the lower right 
-hand corner. Click on this file to open it. 
+Now, find the `lab-6-student.qmd` file in the "Files" tab in the lower right hand corner. Click on this file to open it. 
 
-At the top of the document (in the YAML) there is an `author` line that says 
-`"Your name here!"`. Change this to be your name and save your file either by
-clicking on the blue floppy disk or with a shortcut (command / control + s). 
+At the top of the document (in the YAML) there is an `author` line that says `"Your name here!"`. Change this to be your name and save your file either by clicking on the blue floppy disk or with a shortcut (command / control + s). 
 
 ## Step 3: Pushing Your Lab to GitHub
 
@@ -64,12 +56,13 @@ To https://github.com/atheobold/introduction-to-quarto-allison-theobold.git
 
 -   Make sure you don't print out more output than you need.
 
--   Make sure you don't assign more objects than necessary---avoid "object junk"
-in your environment.
+-   Make sure you don't assign more objects than necessary---avoid "object junk" in your environment.
 
 -   Make your code readable and nicely formatted.
 
 -   Think through your desired result **before** writing any code.
+
+
 
 # Part 3: Exploring Childcare Costs
 
@@ -99,15 +92,17 @@ counties <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytues
 
 Let's start by focusing only on California. 
 
-**2. Create a `ca_childcare` dataset of childcare costs in California, containing (1) county information and (2) all information from the `childcare_costs` dataset.** 
-*Hint: There are 58 counties in CA and 11 years in the dataset. Therefore, your new dataset should have 53 x 11 = 638 observations.*
+**2. Create a `ca_childcare` dataset of childcare costs in California, containing (1) county information and (2) just the year and childcare cost variable information from the `childcare_costs` dataset.** 
+
+*Hint: There are 58 counties in CA and 11 years in the dataset. Therefore, your new dataset should have 53 x 11 = 638 observations. The final data set should have study year, median household income expressed in 2018 dollars, all the variables associated with full-time median price charged for Center-based Care, and California county names*
 
 ```{r}
 #| label: ca-childcare-costs
 
 ```
 
-**3. Using a function from the `forcats` package, complete the code below to create a new variable where each county is categorized into one of the [ten (10) Census regions](https://census.ca.gov/regions/) in California. Use the Region description (from the plot), not the Region number.**   
+**3. Using a function from the `forcats` package, complete the code below to create a new variable where each county is categorized into one of the [10 Census regions](https://census.ca.gov/regions/) in California. Use the Region description (from the plot), not the Region number. An example region has been started for you.**  
+
 *Hint: This is probably a good place to use ChatGPT to reduce on tedious work. But you do need to know how to prompt ChatGPT to make it useful!*
 
 ::: callout-tip
@@ -143,7 +138,7 @@ This will require transforming your data! Sketch out what you want the data to l
 
 ::: callout-warning
 
-The code should give me the EXACT answer. This means having the code output the exact row(s) and variable(s) necessary for providing the solution.
+The code should give me the EXACT answer. This means having the code output the exact row(s) and variable(s) necessary for providing the solution. Consider using one of the `slice` functions.
 
 :::
 
@@ -172,32 +167,7 @@ Remember to avoid "object junk" in your environment!
 ```
 
 
-## Median Household Income vs. Childcare Costs for Infants
 
-::: callout-tip
-## Refresher on Linear Regression
-
-While a second course in statistics is a pre-requisite for this class, [here](https://moderndive.com/10-inference-for-regression.html) is a refresher on simple linear regression with a single predictor.
-:::
-
-**7. Create a scatterplot showing the relationship between median household income (expressed in 2018 dollars) and the full-time median weekly price charged for center-based childcare for an infant in California. Overlay a linear regression line (lm) to show the trend.**
-
-```{r}
-#| label: scatterplot-median-income-vs-childcare-cost
-
-```
-
-**8. Look up the documentation for `lm()` and fit a linear regression model to the relationship shown in your plot above.**
-
-```{r}
-# complete the code provided
-reg_mod1 <- lm()
-summary(reg_mod1)
-```
-
-**9. Using the output from `summary()`, write out the estimated regression line (recall: $y = mx + b$).**
-
-**10. Do you have evidence to conclude there is a relationship between the median household income and the median weekly cost of center-based childcare for infants in California? Cite values from your `summary()` output to support your claim!**
 
 ## There is no Challenge this week! 
 
@@ -208,19 +178,6 @@ Question 6!
 - Can you get the legend in the same order?
 - Can you get the facet names to match and be in the same order?
 
-Could you even make the plot better? Could you add dollar signs to the y-axis 
-labels? I might suggest you look into the 
+Could you even make the plot better? Could you add dollar signs to the y-axis labels? I might suggest you look into the 
 [scales package](https://scales.r-lib.org/reference/label_currency.html).
-
-<!-- ## Challenge 4: Open-Ended Analysis -->
-
-<!-- **Investigate the full-time median price for childcare in a center-based setting versus the full-time median price for childcare in a family (in-home) setting in California. Pay close attention to the different developmental stages. Support your answer with one table of summary statistics and one visualization.** -->
-
-<!-- ::: callout-tip -->
-<!-- + Aim for about 150-300 words. -->
-<!--   + You should (1) introduce the data and the topic you are investigating,  -->
-<!--   (2) discuss your table and plot, and (3) conclude. -->
-<!-- + This should read like a mini-report!  -->
-<!-- + Don't just have a summary table or plot show up "out of the blue" -- make sure to build up to them with text, describe what they show, and provide captions. -->
-<!-- ::: -->
 
