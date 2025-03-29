@@ -8,7 +8,7 @@
 
 <meta name="author" content="Instructions">
 
-<title>Portfolio Part 1: Development and Planning – Statistical Computing with R</title>
+<title>Lab 6: Childcare Costs in California – Statistical Computing with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,24 +58,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../labs/instructions/lab-6-instructions.html" rel="prev">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../portfolio/portfolio-overview.html" rel="next">
+<link href="../../labs/instructions/lab-5-instructions.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -116,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../portfolio/portfolio-overview.html">Portfolio</a></li><li class="breadcrumb-item"><a href="../portfolio/portfolio-overview.html">Portfolio Part 1</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../labs/instructions/lab-1-instructions.html">Labs</a></li><li class="breadcrumb-item"><a href="../../labs/instructions/lab-6-instructions.html">Lab 6 Instructions</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -130,8 +131,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/r-flowers.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/r-flowers.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
@@ -157,19 +158,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Weekly Schedule</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../course-materials/course_resources.html" class="sidebar-item-text sidebar-link">
+  <a href="../../course-materials/course_resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R Resources</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../group-activities/pair-programming-norms.html" class="sidebar-item-text sidebar-link">
+  <a href="../../group-activities/pair-programming-norms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pair Programming Norms</span></a>
   </div>
 </li>
@@ -186,55 +187,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-1-r-rstudio.html" class="sidebar-item-text sidebar-link">
+  <a href="../../weeks/week-1-r-rstudio.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 1 - R &amp; RStudio</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-2-quarto.html" class="sidebar-item-text sidebar-link">
+  <a href="../../weeks/week-2-quarto.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 2 - Quarto</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-3-version-control.html" class="sidebar-item-text sidebar-link">
+  <a href="../../weeks/week-3-version-control.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 3 - Version Control</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-4-ggplot.html" class="sidebar-item-text sidebar-link">
+  <a href="../../weeks/week-4-ggplot.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 4 - Data Visualization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-5-projects-data-import.html" class="sidebar-item-text sidebar-link">
+  <a href="../../weeks/week-5-projects-data-import.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 5 - Importing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-6-7-dplyr.html" class="sidebar-item-text sidebar-link">
+  <a href="../../weeks/week-6-7-dplyr.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 6-7 - Transforming Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-8-9-reshaping-joining.html" class="sidebar-item-text sidebar-link">
+  <a href="../../weeks/week-8-9-reshaping-joining.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 8-9 - Pivoting and Joining Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-10-factors.html" class="sidebar-item-text sidebar-link">
+  <a href="../../weeks/week-10-factors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 10 - Factors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-11-strings-dates.html" class="sidebar-item-text sidebar-link">
+  <a href="../../weeks/week-11-strings-dates.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 11 - Strings, Dates, and Times</span></a>
   </div>
 </li>
@@ -242,46 +243,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Labs</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/instructions/lab-1-instructions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../labs/instructions/lab-1-instructions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 1 &amp; Challenge 1 Instructions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/instructions/lab-2-instructions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../labs/instructions/lab-2-instructions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 2 Instructions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/instructions/lab-3-instructions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../labs/instructions/lab-3-instructions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 3 and Challenge 3 Instructions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/instructions/lab-4-instructions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../labs/instructions/lab-4-instructions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 4 Instructions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/instructions/lab-5-instructions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../labs/instructions/lab-5-instructions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 5 Instructions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/instructions/lab-6-instructions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../labs/instructions/lab-6-instructions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Lab 6 Instructions</span></a>
   </div>
 </li>
@@ -289,16 +290,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
  <span class="menu-text">Portfolio</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../portfolio/portfolio-overview.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../portfolio/portfolio-overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Portfolio Part 1</span></a>
   </div>
 </li>
@@ -314,18 +315,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#portfolio-overview" id="toc-portfolio-overview" class="nav-link active" data-scroll-target="#portfolio-overview"><span class="header-section-number">1</span> Portfolio Overview</a>
+  <li><a href="#part-1-github-workflow" id="toc-part-1-github-workflow" class="nav-link active" data-scroll-target="#part-1-github-workflow">Part 1: GitHub Workflow</a>
   <ul class="collapse">
-  <li><a href="#portfolio-expectations" id="toc-portfolio-expectations" class="nav-link" data-scroll-target="#portfolio-expectations"><span class="header-section-number">1.1</span> Portfolio Expectations</a></li>
+  <li><a href="#step-1-make-a-github-repoistory" id="toc-step-1-make-a-github-repoistory" class="nav-link" data-scroll-target="#step-1-make-a-github-repoistory">Step 1: Make a GitHub Repoistory</a></li>
+  <li><a href="#step-2-making-a-small-change" id="toc-step-2-making-a-small-change" class="nav-link" data-scroll-target="#step-2-making-a-small-change">Step 2: Making a Small Change</a></li>
+  <li><a href="#step-3-pushing-your-lab-to-github" id="toc-step-3-pushing-your-lab-to-github" class="nav-link" data-scroll-target="#step-3-pushing-your-lab-to-github">Step 3: Pushing Your Lab to GitHub</a></li>
+  <li><a href="#step-4-lets-get-started-tidying-some-data" id="toc-step-4-lets-get-started-tidying-some-data" class="nav-link" data-scroll-target="#step-4-lets-get-started-tidying-some-data">Step 4: Let’s get started tidying some data!</a></li>
   </ul></li>
-  <li><a href="#part-1---describe-your-process" id="toc-part-1---describe-your-process" class="nav-link" data-scroll-target="#part-1---describe-your-process"><span class="header-section-number">2</span> Part 1 - Describe your Process</a>
+  <li><a href="#part-2-some-words-of-advice" id="toc-part-2-some-words-of-advice" class="nav-link" data-scroll-target="#part-2-some-words-of-advice">Part 2: Some Words of Advice</a></li>
+  <li><a href="#part-3-exploring-childcare-costs" id="toc-part-3-exploring-childcare-costs" class="nav-link" data-scroll-target="#part-3-exploring-childcare-costs">Part 3: Exploring Childcare Costs</a>
   <ul class="collapse">
-  <li><a href="#respond-to-the-following-prompts" id="toc-respond-to-the-following-prompts" class="nav-link" data-scroll-target="#respond-to-the-following-prompts"><span class="header-section-number">2.1</span> Respond to the following prompts:</a>
-  <ul class="collapse">
-  <li><a href="#data-description" id="toc-data-description" class="nav-link" data-scroll-target="#data-description">Data Description</a></li>
-  <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization">Data Visualization</a></li>
-  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning">Data Cleaning</a></li>
-  </ul></li>
+  <li><a href="#california-childcare-costs" id="toc-california-childcare-costs" class="nav-link" data-scroll-target="#california-childcare-costs">California Childcare Costs</a></li>
+  <li><a href="#there-is-no-challenge-this-week" id="toc-there-is-no-challenge-this-week" class="nav-link" data-scroll-target="#there-is-no-challenge-this-week">There is no Challenge this week!</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jcanner/stat_210_2025_website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -333,9 +334,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../portfolio/portfolio-overview.html">Portfolio</a></li><li class="breadcrumb-item"><a href="../portfolio/portfolio-overview.html">Portfolio Part 1</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../labs/instructions/lab-1-instructions.html">Labs</a></li><li class="breadcrumb-item"><a href="../../labs/instructions/lab-6-instructions.html">Lab 6 Instructions</a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Portfolio Part 1: Development and Planning</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<h1 class="title">Lab 6: Childcare Costs in California</h1>
 </div>
 
 
@@ -358,83 +359,149 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="portfolio-overview" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Portfolio Overview</h1>
-<p>The Portfolio component is a place for you to put your R skills into action on a problem you are interested in with the goal of have a project you could share with future employers.</p>
-<p>It should have the following qualities:</p>
+<section id="part-1-github-workflow" class="level1">
+<h1>Part 1: GitHub Workflow</h1>
+<section id="step-1-make-a-github-repoistory" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-make-a-github-repoistory">Step 1: Make a GitHub Repoistory</h2>
+<p>Be sure to set up a GitHub repository and then use Version Control to set up your Lab 6 R Project so it is connected. Then download this week’s lab file into the folder and include the following:</p>
 <ul>
-<li>It is a real-world application of R that has not exactly been worked out before (e.g.&nbsp;it isn’t a demo from some package or blog).<br>
-</li>
-<li>It is interesting to you.<br>
-</li>
-<li>It involves data and analyzing or presenting that data. The data may be data you have from a lab, or something you have retrieved from the web, some examples of good sources: FBI database on crime statistics, National Oceanic and Atmospheric Administration, World Health Organization, Twitter, Yahoo finance data, etc. If you are having problems finding a dataset, see the resources at the end of the project description.<br>
-</li>
-<li>The analysis and presentation is useful in the real-world.</li>
+<li><a href="../student/lab-6-student.qmd">lab-6-student.qmd</a></li>
 </ul>
-<p>These are real-world projects, but they are also class projects and there can be unforeseen unknowns, if you find that it is going to be impossible to finish what you set out to accomplish, please contact your instructor to find a solution.</p>
-<section id="portfolio-expectations" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="portfolio-expectations"><span class="header-section-number">1.1</span> Portfolio Expectations</h2>
-<p>The final product will be a website page, hosted on your personal website, the includes the following content:</p>
+</section>
+<section id="step-2-making-a-small-change" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-making-a-small-change">Step 2: Making a Small Change</h2>
+<p>Now, find the <code>lab-6-student.qmd</code> file in the “Files” tab in the lower right hand corner. Click on this file to open it.</p>
+<p>At the top of the document (in the YAML) there is an <code>author</code> line that says <code>"Your name here!"</code>. Change this to be your name and save your file either by clicking on the blue floppy disk or with a shortcut (command / control + s).</p>
+</section>
+<section id="step-3-pushing-your-lab-to-github" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-pushing-your-lab-to-github">Step 3: Pushing Your Lab to GitHub</h2>
+<p>Now for our last step, we need to <a href="https://happygitwithr.com/existing-github-first#stage-and-commit">commit the files to our repo</a>.</p>
 <ul>
-<li>Description of the proposed research questions<br>
-</li>
-<li>Description of the data and data source(s)<br>
-</li>
-<li>Description of data cleaning<br>
-</li>
-<li>2-3 data visualizations with commentary that answer the research questions</li>
+<li>Click the “Git” tab in upper right pane</li>
+<li>Check the “Staged” box for the <code>lab-4-student.qmd</code> file</li>
+<li>Click “Commit”</li>
+<li>In the box that opens, type a message in “Commit message”, such as “Added my name”.</li>
+<li>Click “Commit”.</li>
+<li>Click the green “Push” button to send your local changes to GitHub.</li>
 </ul>
-<p>Though no code should be visible on the website, the quarto document used to create the final product should contain all code for data cleaning and data visualization, commented and following a coding style conventions.</p>
+<p>RStudio will display something like:</p>
+<pre><code>&gt;&gt;&gt; /usr/bin/git push origin HEAD:refs/heads/main
+To https://github.com/atheobold/introduction-to-quarto-allison-theobold.git
+   3a2171f..6d58539  HEAD -&gt; main</code></pre>
+</section>
+<section id="step-4-lets-get-started-tidying-some-data" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-lets-get-started-tidying-some-data">Step 4: Let’s get started tidying some data!</h2>
 </section>
 </section>
-<section id="part-1---describe-your-process" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Part 1 - Describe your Process</h1>
-<p>For the first part of the portfolio process there should be no code! Just a Quarto document discussing your answers to the following questions to help you prepare for the data cleaning and analysis.</p>
-<p>You should submit a link to a github repository containing the Quarto document you write and the data.</p>
-<section id="respond-to-the-following-prompts" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="respond-to-the-following-prompts"><span class="header-section-number">2.1</span> Respond to the following prompts:</h2>
-<p>Provide a complete answer to each of the following questions and prompts.</p>
-<section id="data-description" class="level3">
-<h3 class="anchored" data-anchor-id="data-description">Data Description</h3>
-<ol type="1">
-<li>Identify your data source.</li>
-<li>Describe your data, including variables and data types.<br>
-</li>
-<li>Identify the research questions you want to answer.</li>
-</ol>
+<section id="part-2-some-words-of-advice" class="level1">
+<h1>Part 2: Some Words of Advice</h1>
+<ul>
+<li><p>Set chunk options carefully.</p></li>
+<li><p>Make sure you don’t print out more output than you need.</p></li>
+<li><p>Make sure you don’t assign more objects than necessary—avoid “object junk” in your environment.</p></li>
+<li><p>Make your code readable and nicely formatted.</p></li>
+<li><p>Think through your desired result <strong>before</strong> writing any code.</p></li>
+</ul>
 </section>
-<section id="data-visualization" class="level3">
-<h3 class="anchored" data-anchor-id="data-visualization">Data Visualization</h3>
-<ol type="1">
-<li>What do you want your final visualizations to look like?<br>
-</li>
-<li>What do you want to highlight on your final visualizations in order to answer your research questions? How do you plan to do that?<br>
-</li>
-<li>What is missing from your data or would need to change in your data to create these visualizations?</li>
-</ol>
+<section id="part-3-exploring-childcare-costs" class="level1">
+<h1>Part 3: Exploring Childcare Costs</h1>
+<p>In this lab we’re going look at the median weekly cost of childcare in California. A detailed description of the data can be found <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-05-09/readme.md">here</a>.</p>
+<p>The data come to us from <a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday</a>.</p>
+<p><strong>0. Load the appropriate libraries and the data.</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>childcare_costs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/childcare_costs.csv'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>counties <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/counties.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>1. Briefly describe the dataset (~ 4 sentences). What information does it contain?</strong></p>
+<section id="california-childcare-costs" class="level2">
+<h2 class="anchored" data-anchor-id="california-childcare-costs">California Childcare Costs</h2>
+<p>Let’s start by focusing only on California.</p>
+<p><strong>2. Create a <code>ca_childcare</code> dataset of childcare costs in California, containing (1) county information and (2) just the year and childcare cost variable information from the <code>childcare_costs</code> dataset.</strong></p>
+<p><em>Hint: There are 58 counties in CA and 11 years in the dataset. Therefore, your new dataset should have 53 x 11 = 638 observations. The final data set should have study year, median household income expressed in 2018 dollars, all the variables associated with full-time median price charged for Center-based Care, and California county names</em></p>
+<p><strong>3. Using a function from the <code>forcats</code> package, complete the code below to create a new variable where each county is categorized into one of the <a href="https://census.ca.gov/regions/">10 Census regions</a> in California. Use the Region description (from the plot), not the Region number. An example region has been started for you.</strong></p>
+<p><em>Hint: This is probably a good place to use ChatGPT to reduce on tedious work. But you do need to know how to prompt ChatGPT to make it useful!</em></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I have provided you with code that eliminates the word “County” from each of the county names in your <code>ca_childcare</code> dataset. You should keep this line of code and pipe into the rest of your data manipulations.</p>
+<p>You will learn about the <code>str_remove()</code> function from the <code>stringr</code> package next week!</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ca_childcare <span class="ot">&lt;-</span> ca_childcare <span class="sc">|&gt;</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">county_name =</span> <span class="fu">str_remove</span>(county_name, <span class="st">" County"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>4. Let’s consider the median household income of each region, and how that income has changed over time. Create a table with ten rows, one for each region, and two columns, one for 2008 and one for 2018. The cells should contain the <code>median</code> of the median household income (expressed in 2018 dollars) of the <code>region</code> and the <code>study_year</code>. Arrange the rows by 2018 values.</strong></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This will require transforming your data! Sketch out what you want the data to look like before you begin to code. You should be starting with your California dataset that contains the regions!</p>
+</div>
+</div>
+<p><strong>5. Which California <code>region</code> had the lowest <code>median</code> full-time median weekly price for center-based childcare for infants in 2018? Does this <code>region</code> correspond to the <code>region</code> with the lowest <code>median</code> income in 2018 that you found in Q4?</strong></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The code should give me the EXACT answer. This means having the code output the exact row(s) and variable(s) necessary for providing the solution. Consider using one of the <code>slice</code> functions.</p>
+</div>
+</div>
+<p><strong>6. The following plot shows, for all ten regions, the change over time of the full-time median price for center-based childcare for infants, toddlers, and preschoolers. Recreate the plot. You do not have to replicate the exact colors or theme, but your plot should have the same content, including the order of the facets and legend, reader-friendly labels, axes breaks, and a loess smoother.</strong></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This will require transforming your data! Sketch out what you want the data to look like before you begin to code. You should be starting with your California dataset that contains the regions.</p>
+<p>You will also be required to use functions from <code>forcats</code> to change the labels and the ordering of your factor levels.</p>
+<p>Remember to avoid “object junk” in your environment!</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/lab-4-recreate-plot.png" class="img-fluid figure-img"></p>
+<figcaption>Plot to recreate</figcaption>
+</figure>
+</div>
 </section>
-<section id="data-cleaning" class="level3">
-<h3 class="anchored" data-anchor-id="data-cleaning">Data Cleaning</h3>
-<p>The answer to at least three of these questions should be “YES” for the data to meet the necessary standards to demonstrate your cleaning. Your data source should not be an already perfectly prepared data set.</p>
-<ol type="1">
-<li>Do you need to reformat any variables into different types (e.g.&nbsp;factors, time, dates, strings)? Or remove information from variable values?</li>
-<li>Do you need to deal with any missing data, especially missing data coded other than NA?<br>
-</li>
-<li>Do you need to filter your data? How?</li>
-<li>Do you need to create any new variables? What variables? How?</li>
-<li>Do you need to add new data (join) to your data? What data? How?<br>
-</li>
-<li>Are there any variables you can exclude from your data?<br>
-</li>
-<li>Do you need pivot your data in any way? Why? How?</li>
-<li>Do you need to summarize any of the variables? Which ones? How?</li>
-<li>What other aspects of your data need to be “fixed” in order to make your data visualizations?</li>
-</ol>
+<section id="there-is-no-challenge-this-week" class="level2">
+<h2 class="anchored" data-anchor-id="there-is-no-challenge-this-week">There is no Challenge this week!</h2>
+<p>Please take this time to try your best to recreate the plot I provided in Question 6!</p>
+<ul>
+<li>Can you match my colors?</li>
+<li>Can you get the legend in the same order?</li>
+<li>Can you get the facet names to match and be in the same order?</li>
+</ul>
+<p>Could you even make the plot better? Could you add dollar signs to the y-axis labels? I might suggest you look into the <a href="https://scales.r-lib.org/reference/label_currency.html">scales package</a>.</p>
 
 
-<!-- -->
-
-</section>
 </section>
 </section>
 
@@ -672,57 +739,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
-  }
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -1056,84 +1072,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../labs/instructions/lab-6-instructions.html" class="pagination-link" aria-label="Lab 6 Instructions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 6 Instructions</span>
+      <a href="../../labs/instructions/lab-5-instructions.html" class="pagination-link" aria-label="Lab 5 Instructions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 5 Instructions</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../../portfolio/portfolio-overview.html" class="pagination-link" aria-label="Portfolio Part 1">
+        <span class="nav-page-text">Portfolio Part 1</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
-</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Portfolio Part 1: Development and Planning"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Instructions"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">number-sections:</span><span class="co"> true</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="an">number-depth:</span><span class="co"> 2</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="an">toc:</span><span class="co"> true</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="an">code-tools:</span><span class="co"> true</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu"># Portfolio Overview</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>The Portfolio component is a place for you to put your R skills into action on a problem you are interested in with the goal of have a project you could share with future employers. </span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>It should have the following qualities: </span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>It is a real-world application of R that has not exactly been worked out before (e.g. it isn't a demo from some package or blog).  </span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>It is interesting to you.  </span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">-  </span>It involves data and analyzing or presenting that data.  The data may be data you have from a lab, or something you have retrieved from the web, some examples of good sources:  FBI database on crime statistics, National Oceanic and Atmospheric Administration, World Health Organization, Twitter, Yahoo finance data, etc.  If you are having problems finding a dataset, see the resources at the end of the project description.  </span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The analysis and presentation is useful in the real-world. </span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>These are real-world projects, but they are also class projects and there can be unforeseen unknowns, if you find that it is going to be impossible to finish what you set out to accomplish, please contact your instructor to find a solution.  </span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Portfolio Expectations  </span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>The final product will be a website page, hosted on your personal website, the includes the following content:  </span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Description of the proposed research questions  </span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Description of the data and data source(s)  </span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Description of data cleaning  </span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>2-3 data visualizations with commentary that answer the research questions  </span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>Though no code should be visible on the website, the quarto document used to create the final product should contain all code for data cleaning and data visualization, commented and following a coding style conventions.  </span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu"># Part 1 - Describe your Process</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>For the first part of the portfolio process there should be no code! Just a Quarto document discussing your answers to the following questions to help you prepare for the data cleaning and analysis.  </span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>You should submit a link to a github repository containing the Quarto document you write and the data.  </span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Respond to the following prompts:  </span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>Provide a complete answer to each of the following questions and prompts.</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Description</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Identify your data source. </span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Describe your data, including variables and data types.  </span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Identify the research questions you want to answer.</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Visualization  </span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>What do you want your final visualizations to look like?  </span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>What do you want to highlight on your final visualizations in order to answer your research questions? How do you plan to do that?  </span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>What is missing from your data or would need to change in your data to create these visualizations?  </span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Cleaning  </span></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>The answer to at least three of these questions should be "YES" for the data to meet the necessary standards to demonstrate your cleaning. Your data source should not be an already perfectly prepared data set.  </span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Do you need to reformat any variables into different types (e.g. factors, time, dates, strings)? Or remove information from variable values? </span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Do you need to deal with any missing data, especially missing data coded other than NA?  </span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Do you need to filter your data? How? </span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Do you need to create any new variables? What variables? How? </span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Do you need to add new data (join) to your data? What data? How?  </span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Are there any variables you can exclude from your data?  </span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Do you need pivot your data in any way? Why? How?</span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>Do you need to summarize any of the variables? Which ones? How?</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>What other aspects of your data need to be "fixed" in order to make your data visualizations?  </span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
