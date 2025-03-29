@@ -1,0 +1,102 @@
+---
+title: "Lab 4: Childcare Costs in California"
+author: "Your name here!"
+format: html
+editor: source
+embed-resources: true
+---
+
+## The Data
+
+In this lab we're going look at the median weekly cost of childcare in
+California. A detailed description of the data can be found [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-05-09/readme.md).
+
+The data come to us from [TidyTuesday](https://github.com/rfordatascience/tidytuesday).
+
+**0. Load the appropriate libraries and the data.**
+
+```{r}
+#| label: setup
+
+```
+
+```{r}
+#| label: load-data
+
+childcare_costs <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/childcare_costs.csv')
+
+counties <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/counties.csv')
+```
+
+**1. Briefly describe the dataset (~ 4 sentences). What information does it contain?**
+
+## California Childcare Costs
+
+Let's start by focusing only on California. 
+
+**2. Create a `ca_childcare` dataset of childcare costs in California, containing (1) county information and (2) all information from the `childcare_costs` dataset.** 
+*Hint: There are 58 counties in CA and 11 years in the dataset. Therefore, your new dataset should have 53 x 11 = 638 observations.*
+
+```{r}
+#| label: ca-childcare-costs
+
+```
+
+**3. Using a function from the `forcats` package, complete the code below to create a new variable where each county is categorized into one of the [10 Census regions](https://census.ca.gov/regions/) in California. Use the Region description (from the plot), not the Region number.**  
+*Hint: This is probably a good place to use ChatGPT to reduce on tedious work. But you do need to know how to prompt ChatGPT to make it useful!*
+
+```{r}
+#| label: recoding-county-to-census-regions
+
+ca_childcare <- ca_childcare |> 
+  mutate(county_name = str_remove(county_name, " County")) |>
+  ...
+```
+
+
+**4. Let's consider the median household income of each region, and how that income has changed over time. Create a table with ten rows, one for each region, and two columns, one for 2008 and one for 2018. The cells should contain the `median` of the median household income (expressed in 2018 dollars) of the `region` and the `study_year`. Arrange the rows by 2018 values.**
+
+```{r}
+#| label: median-income-by-region-over-time
+
+```
+
+
+**5. Which California `region` had the lowest `median` full-time median weekly price for center-based childcare for infants in 2018? Does this `region` correspond to the `region` with the lowest `median` income in 2018 that you found in Q4?**  
+*Hint: The code should give me the EXACT answer. This means having the code output the exact row(s) and variable(s) necessary for providing the solution.*
+
+```{r}
+#| label: lowest-median-weekly-price-2018
+
+```
+
+**6. The following plot shows, for all ten regions, the change over time of the full-time median price for center-based childcare for infants, toddlers, and preschoolers. Recreate the plot. You do not have to replicate the exact colors or theme, but your plot should have the same content, including the order of the facets and legend, reader-friendly labels, axes breaks, and a loess smoother.**
+
+![Plot to recreate](https://atheobold.github.io/groupworthy-data-science/labs/instructions/images/lab-4-recreate-plot.png)
+
+```{r}
+#| label: recreate-plot
+
+```
+
+
+## Median Household Income vs. Childcare Costs for Infants
+
+**7. Create a scatterplot showing the relationship between median household income (expressed in 2018 dollars) and the full-time median weekly price charged for center-based childcare for an infant in California. Overlay a linear regression line (lm) to show the trend.**
+
+```{r}
+#| label: scatterplot-median-income-vs-childcare-cost
+
+```
+
+**8. Look up the documentation for `lm()` and fit a linear regression model to the relationship shown in your plot above.**
+
+```{r}
+# complete the code provided
+reg_mod1 <- lm()
+summary(reg_mod1)
+```
+
+**9. Using the output from `summary()`, write out the estimated regression line (recall: $y = mx + b$).**
+
+**10. Do you have evidence to conclude there is a relationship between the median household income and the median weekly cost of center-based childcare for infants in California? Cite values from your `summary()` output to support your claim!**
