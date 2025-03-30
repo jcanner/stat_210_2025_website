@@ -1,7 +1,9 @@
 ---
 title: "Lab 6: Childcare Costs in California"
 author: "Your name here!"
-format: gfm
+format: 
+  html: default
+  gfm: default
 editor: source
 embed-resources: true
 ---

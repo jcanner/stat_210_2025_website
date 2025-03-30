@@ -33,7 +33,7 @@ At the top of the document (in the YAML) there is an `author` line that says `"Y
 Now for our last step, we need to [commit the files to our repo](https://happygitwithr.com/existing-github-first#stage-and-commit). 
 
 -   Click the "Git" tab in upper right pane
--   Check the "Staged" box for the `lab-4-student.qmd` file 
+-   Check the "Staged" box for the `lab-6-student.qmd` file 
 -   Click "Commit"
 -   In the box that opens, type a message in "Commit message", such as
 "Added my name".
