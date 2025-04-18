@@ -1,0 +1,202 @@
+---
+title: "PA 9: Writing Functions"
+author: "INSERT NAMES HERE"
+format: 
+  html:
+    embed-resources: true
+    code-tools: true
+    toc: true
+editor: source
+execute: 
+  error: true
+  echo: true
+---
+
+You will write several small functions, then use them to unscramble a message. Many of the functions have been started for you below, but **none** of them are complete as is.
+
+***This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to produce the best product possible, you will need to use the skills of each member of your group.***
+
+<!-- The person who who lives the furthest from CSUMB starts as the Developer (typing and listening to instructions from the Coder)!  Be sure to update your names above -->
+
+**1. Write code to manipulate the vector of numbers `nums`. Your code should divide each element in the vector by the smallest element and round the results to the nearest whole number.** Hint: This code should not be a function. Consider using the existing functions `round()` and `min()` and don't forget to account for `NA` values.  
+
+```{r}
+#| label: q1
+
+nums <- 3:12
+
+```
+
+
+**2. Turn your code from Q1 into a function called `divide_and_round()`.** Fill in the skeleton code below.
+
+```{r}
+#| label: q2
+
+divide_and_round <- function(vec){
+
+}
+```
+
+**3. Test your function by running the code below.**
+
+```{r}
+#| label: q3
+
+test <- c(5:10, NA)
+divide_and_round(test)  #you should see mostly values of 1 and 2, plus an NA
+```
+
+<!-- Swap roles -- Developer becomes Coder, Coder becomes Developer! -->
+
+**4. Write code to manipulate the vector of numbers `nums`. Your code should, for each element, return `TRUE` if the number is NOT divisible by 9 OR 12, and return `FALSE` otherwise.** Hint: This code should not be a function.  Note - the function `%%` is handy here - look it up if you do not know what it does.
+
+```{r}
+#| label: q4
+
+ifelse(nums %% 9 == 0 ___ nums %% 12 == 0, ____ , ____)  #it should say FALSE for 9 and 12 positions
+ 
+```
+
+**5. Turn your code from Q4 into a function called `no_nines_or_twelves()`.**
+
+```{r}
+#| label: q5
+
+no_nines_or_twelves <- function(vec) {
+
+}
+
+```
+
+**6. Test your function by running the code below.**
+
+```{r}
+#| label: q6
+
+test <- c(seq(from = 15, to = 60, by = 5), NA)
+test
+no_nines_or_twelves(test)  #45 and 60 should have FALSE in their positions and NA in the last
+```
+
+<!-- Swap roles -- Developer becomes Coder, Coder becomes Developer! -->
+
+**7. Write a function called `every_other()`. This function should take in a vector and return every other value in the vector. Include an optional argument called `start` which lets you choose where to start skipping; that is, if `start = 1`, the function returns the 1st, 3rd, 5th, etc. values and if `start = 2`, the function returns the 2nd, 4th, 6th, etc. values.** 
+
+Hint: **Do not** use a `for()` loop to do this! Accomplish this with the `seq_along()` function, bracket subsetting (`[]`), and modulus arithmetic (`%%`).
+
+```{r}
+#| label: help-code-q7
+# the following identify if a value is even or odd
+(seq_along(nums)) %% 2 == 0
+
+(seq_along(nums)) %% 2 > 0
+
+# using [] to subset will keep values with TRUE in that element's position
+
+nums[(seq_along(nums)) %% 2 == 0]  #should return even numbers
+nums[(seq_along(nums)) %% 2 > 0]  #should return odd numbers
+```
+
+Fill in the skeleton below. Remember the default should be `start` as 1.
+```{r}
+#| label: q7
+
+every_other <- function(vec, _________){
+  
+  if (start == 2) {
+    vec[]
+  } 
+  
+  else if (start == 1) {
+    vec[]
+  }
+
+}
+```
+
+**8. Test your function by running the code below.**
+
+```{r}
+#| label: q8
+
+test <- c(1:10)
+
+every_other(test, start = 1) #return odds
+every_other(test, start = 2) #return evens
+```
+
+<!-- Swap roles -- Developer becomes Coder, Coder becomes Developer! -->
+
+**9. Write a function called `shorten()`. This function should take in a vector, drop all values BEFORE the cumulative sum is greater than a provided number, and return the remaining values from the original vector.**
+
+Hint: **Do not** use a `while()` loop to do this! Accomplish this with the `cumsum()` function and bracketing.
+
+Here is an example of testing if the cumulative sum is greater than or equal to 30.
+```{r}
+#| label: help-q9
+# look at the following - which completes the task needed
+cumsum(nums)
+cumsum(nums) >= 30
+nums[cumsum(nums) >= 30]  #returns only numbers 8+
+```
+
+
+```{r}
+#| label: q9
+
+shorten <- function(x, sum){
+
+}
+
+```
+
+**10. Test your function by running the code below.**
+
+```{r}
+#| label: q10
+test <- 20:50 
+shorten(test, 350) #should be 33+
+```
+
+**11. Once you have written your four functions correctly, run the following code:**
+
+```{r}
+#| label: q11
+#remember to use the green arrow to run the whole code chunk
+my_vec <- c(39, 1.87, 48, 11, 8, 45, 21, 5, 12, 33, 9, 11, 108,
+            4, 18, 5, 16, 17, 8, 48, 27, 24, 4, 22, 12, 27, 23,
+            46, 42, 35, 15, 34, 36, 26, 18, 10, 18.21, 72.04,
+            36.9, 41.81, 29, 89.75, 34.03, 20.18, 48.74, 15.76,
+            31.86, 83.6, 43.55, 39.99, 23.55, 8.54, 24.71, 22.02,
+            9.71, 62.14, 35.46, 16.61, 15.66, 21.29, 30.52,
+            201.07, 45.81, 7.85, 30.13, 34.14, 22.62, 10.2, 6.02,
+            30.12, 10.64, 31.72, 24.57, 14.43, 43.37, 89.93,
+            44.72, 51.32, 13.62, 45.56, 22.96, 7.05, 29.99, 41.38,
+            26.59, 23.04, 19.82, 50.73, 39.56, 43.79, 30.22, 85.85,
+            5.78, 78.85, 29.52, 66.27, 44.06, 27.28, 24.43, 64.32,
+            3.35, 67.45, 46.72, 48.44, 48.65, 33.3, 40.28, 19.04)
+
+my_vec <- every_other(my_vec, start = 2)
+# Should have 54 elements! 
+
+my_vec <- divide_and_round(my_vec)
+
+my_vec <- every_other(my_vec, start = 1)
+# Should have 27 elements!
+
+my_vec <- shorten(my_vec, 350)
+# Should have 12 elements!
+
+my_vec <- my_vec[no_nines_or_twelves(my_vec)]
+# Should have 6 elements! 
+
+my_vec <- sort(my_vec)
+
+my_vec
+```
+
+
+### Canvas Submission
+
+If you have done everything correctly, your final vector will be six numbers long. Google these six numbers to find a TV show they are famously associated with as your final answer and submit to Canvas.
