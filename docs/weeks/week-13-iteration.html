@@ -1,0 +1,1854 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Loops and Iteration – Statistical Computing with R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../labs/instructions/lab-1-instructions.html" rel="next">
+<link href="../weeks/week-12-functions.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week-1-r-rstudio.html">Weekly materials</a></li><li class="breadcrumb-item"><a href="../weeks/week-13-iteration.html">Week 13 - Iteration</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/r-flowers.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+    <a href="https://csumb.instructure.com/courses/27314" title="Course Canvas Site" class="quarto-navigation-tool px-1" aria-label="Course Canvas Site"><i class="bi bi-person-fill"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Course information</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weekly Schedule</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../course-materials/course_resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R Resources</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../group-activities/pair-programming-norms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pair Programming Norms</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Weekly materials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-1-r-rstudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1 - R &amp; RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-2-quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2 - Quarto</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-3-version-control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3 - Version Control</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-4-ggplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4 - Data Visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-5-projects-data-import.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 5 - Importing Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-6-7-dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6-7 - Transforming Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-8-9-reshaping-joining.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8-9 - Pivoting and Joining Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-10-factors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10 - Factors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-11-strings-dates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11 - Strings, Dates, and Times</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-12-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 12 - Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-13-iteration.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 13 - Iteration</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Labs</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/instructions/lab-1-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 1 &amp; Challenge 1 Instructions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/instructions/lab-2-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 2 Instructions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/instructions/lab-3-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 3 and Challenge 3 Instructions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/instructions/lab-4-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 4 Instructions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/instructions/lab-5-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 5 Instructions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/instructions/lab-6-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 6 Instructions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/instructions/lab-7-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 7 Instructions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/instructions/lab-8-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 8 Instructions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Portfolio</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../portfolio/portfolio-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Portfolio Part 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../portfolio/portfolio-part-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Portfolio Part 2</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#iteration-across-data-frame-columns-with-across" id="toc-iteration-across-data-frame-columns-with-across" class="nav-link active" data-scroll-target="#iteration-across-data-frame-columns-with-across"><span class="header-section-number">1</span> Iteration across data frame columns with <code>across()</code></a>
+  <ul class="collapse">
+  <li><a href="#check-in-8.1-connecting-across-with" id="toc-check-in-8.1-connecting-across-with" class="nav-link" data-scroll-target="#check-in-8.1-connecting-across-with">✅: Check-in 8.1: Connecting <code>across()</code> with</a></li>
+  <li><a href="#performing-multiple-operations" id="toc-performing-multiple-operations" class="nav-link" data-scroll-target="#performing-multiple-operations"><span class="header-section-number">1.1</span> Performing Multiple Operations</a></li>
+  </ul></li>
+  <li><a href="#vectorized-functions" id="toc-vectorized-functions" class="nav-link" data-scroll-target="#vectorized-functions"><span class="header-section-number">2</span> Vectorized Functions</a>
+  <ul class="collapse">
+  <li><a href="#is-every-function-vectorized" id="toc-is-every-function-vectorized" class="nav-link" data-scroll-target="#is-every-function-vectorized"><span class="header-section-number">2.1</span> Is every function vectorized?</a></li>
+  <li><a href="#when-cant-you-vectorize-your-function" id="toc-when-cant-you-vectorize-your-function" class="nav-link" data-scroll-target="#when-cant-you-vectorize-your-function"><span class="header-section-number">2.2</span> When can’t you vectorize your function?</a></li>
+  </ul></li>
+  <li><a href="#functional-programming" id="toc-functional-programming" class="nav-link" data-scroll-target="#functional-programming"><span class="header-section-number">3</span> Functional Programming</a>
+  <ul class="collapse">
+  <li><a href="#reading-videos-tutorial" id="toc-reading-videos-tutorial" class="nav-link" data-scroll-target="#reading-videos-tutorial"><span class="header-section-number">3.1</span> Reading, Videos &amp; Tutorial</a>
+  <ul class="collapse">
+  <li><a href="#required-reading-r4ds-the-map-functions" id="toc-required-reading-r4ds-the-map-functions" class="nav-link" data-scroll-target="#required-reading-r4ds-the-map-functions">📖 Required Reading: <em>R4DS</em> – The <code>map()</code> Functions</a></li>
+  <li><a href="#optional-reading-advanced-r---functionals" id="toc-optional-reading-advanced-r---functionals" class="nav-link" data-scroll-target="#optional-reading-advanced-r---functionals">📖 Optional Reading: <em>Advanced R</em> - Functionals</a></li>
+  <li><a href="#required-video-iteration-with-the-map-family-6-minutes" id="toc-required-video-iteration-with-the-map-family-6-minutes" class="nav-link" data-scroll-target="#required-video-iteration-with-the-map-family-6-minutes">▶️ Required Video: Iteration with the <code>map()</code> family (6 minutes)</a></li>
+  <li><a href="#check-in-8.2-working-with-the-map-functions" id="toc-check-in-8.2-working-with-the-map-functions" class="nav-link" data-scroll-target="#check-in-8.2-working-with-the-map-functions">✅: Check-in 8.2: Working with the <code>map()</code> Functions</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/jcanner/stat_210_2025_website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week-1-r-rstudio.html">Weekly materials</a></li><li class="breadcrumb-item"><a href="../weeks/week-13-iteration.html">Week 13 - Iteration</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Loops and Iteration</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>After this lesson, you should be able to:</p>
+<ul>
+<li>Use the <code>across()</code> function</li>
+<li>Compare <code>across()</code> to an approach with <code>pivot_longer()</code> and <code>pivot_wider()</code></li>
+<li>Write a <code>for()</code> loop in R to handle repeated tasks</li>
+<li>Use the <code>map()</code> family of functions in the <code>purrr</code> package to handle repeated tasks</li>
+</ul>
+<hr>
+<section id="watch-videos-10-minutes" class="level4">
+<h4 class="anchored" data-anchor-id="watch-videos-10-minutes">▶️ Watch Videos: 10 minutes</h4>
+</section>
+<section id="readings-45-60-minutes" class="level4">
+<h4 class="anchored" data-anchor-id="readings-45-60-minutes">📖 Readings: 45-60 minutes</h4>
+</section>
+<section id="check-ins-2" class="level4">
+<h4 class="anchored" data-anchor-id="check-ins-2">✅ Check-ins: 2</h4>
+<hr>
+</section>
+<section id="iteration-across-data-frame-columns-with-across" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Iteration across data frame columns with <code>across()</code></h1>
+<p>Often we will have to perform the same data wrangling on many variables (e.g., rounding numbers)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">carat =</span> <span class="fu">round</span>(carat, <span class="dv">1</span>),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="fu">round</span>(x, <span class="dv">1</span>),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="fu">round</span>(y, <span class="dv">1</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">z =</span> <span class="fu">round</span>(z, <span class="dv">1</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 53,940 × 10
+   carat cut       color clarity depth table price     x     y     z
+   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1   0.2 Ideal     E     SI2      61.5    55   326   4     4     2.4
+ 2   0.2 Premium   E     SI1      59.8    61   326   3.9   3.8   2.3
+ 3   0.2 Good      E     VS1      56.9    65   327   4     4.1   2.3
+ 4   0.3 Premium   I     VS2      62.4    58   334   4.2   4.2   2.6
+ 5   0.3 Good      J     SI2      63.3    58   335   4.3   4.3   2.8
+ 6   0.2 Very Good J     VVS2     62.8    57   336   3.9   4     2.5
+ 7   0.2 Very Good I     VVS1     62.3    57   336   4     4     2.5
+ 8   0.3 Very Good H     SI1      61.9    55   337   4.1   4.1   2.5
+ 9   0.2 Fair      E     VS2      65.1    61   337   3.9   3.8   2.5
+10   0.2 Very Good H     VS1      59.4    61   338   4     4     2.4
+# ℹ 53,930 more rows</code></pre>
+</div>
+</div>
+<p><code>dplyr</code> provides the <code>across()</code> function for performing these repeated function calls:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 1: Create our own named function</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>round_to_one <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(x, <span class="at">digits =</span> <span class="dv">1</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">c</span>(carat, x, y, z), </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">.fns =</span> round_to_one</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                  )</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>           )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 53,940 × 10
+   carat cut       color clarity depth table price     x     y     z
+   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1   0.2 Ideal     E     SI2      61.5    55   326   4     4     2.4
+ 2   0.2 Premium   E     SI1      59.8    61   326   3.9   3.8   2.3
+ 3   0.2 Good      E     VS1      56.9    65   327   4     4.1   2.3
+ 4   0.3 Premium   I     VS2      62.4    58   334   4.2   4.2   2.6
+ 5   0.3 Good      J     SI2      63.3    58   335   4.3   4.3   2.8
+ 6   0.2 Very Good J     VVS2     62.8    57   336   3.9   4     2.5
+ 7   0.2 Very Good I     VVS1     62.3    57   336   4     4     2.5
+ 8   0.3 Very Good H     SI1      61.9    55   337   4.1   4.1   2.5
+ 9   0.2 Fair      E     VS2      65.1    61   337   3.9   3.8   2.5
+10   0.2 Very Good H     VS1      59.4    61   338   4     4     2.4
+# ℹ 53,930 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 2: Use an "anonymous" or "lambda" function that isn't named</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">c</span>(carat, x, y, z), </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">.fns =</span> <span class="cf">function</span>(x) {<span class="fu">round</span>(x, <span class="at">digits =</span> <span class="dv">1</span>)} </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                  )</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>           )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 53,940 × 10
+   carat cut       color clarity depth table price     x     y     z
+   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1   0.2 Ideal     E     SI2      61.5    55   326   4     4     2.4
+ 2   0.2 Premium   E     SI1      59.8    61   326   3.9   3.8   2.3
+ 3   0.2 Good      E     VS1      56.9    65   327   4     4.1   2.3
+ 4   0.3 Premium   I     VS2      62.4    58   334   4.2   4.2   2.6
+ 5   0.3 Good      J     SI2      63.3    58   335   4.3   4.3   2.8
+ 6   0.2 Very Good J     VVS2     62.8    57   336   3.9   4     2.5
+ 7   0.2 Very Good I     VVS1     62.3    57   336   4     4     2.5
+ 8   0.3 Very Good H     SI1      61.9    55   337   4.1   4.1   2.5
+ 9   0.2 Fair      E     VS2      65.1    61   337   3.9   3.8   2.5
+10   0.2 Very Good H     VS1      59.4    61   338   4     4     2.4
+# ℹ 53,930 more rows</code></pre>
+</div>
+</div>
+<p>When we look at the documentation for <code>across()</code>, we see that the <code>.cols</code> argument specifies which variables we want to transform, and it has a <code>&lt;tidy-select&gt;</code> tag. This means that the syntax we use for <code>.cols</code> follows the rules we learned about last week!</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Learn More
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you are interested in seeing more examples of the <code>across()</code> function, navigate back to the <code>across()</code> documentation and read through the Examples section at the bottom. Click the “Run examples” link to view the output for all the examples.</p>
+</div>
+</div>
+<section id="check-in-8.1-connecting-across-with" class="level3">
+<h3 class="anchored" data-anchor-id="check-in-8.1-connecting-across-with">✅: Check-in 8.1: Connecting <code>across()</code> with</h3>
+<p><code>pivot_wider()</code> and <code>pivot_longer()</code></p>
+<ol type="1">
+<li>Fill in the code below to convert all numeric columns in the <code>diamonds</code> dataset into character columns.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> ____, </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">.fns =</span> ____)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>         )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Fill in the code below to transform the <code>x</code>, <code>y</code>, and <code>z</code> columns so that the units of millimeters are displayed (e.g., “4.0 mm”).</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">across</span>(<span class="at">.cols =</span> ____, </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">.fns =</span> <span class="sc">~</span> <span class="fu">str_c</span>(____, <span class="st">"mm"</span>, <span class="at">sep =</span> <span class="st">" "</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>             )</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>      )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Fill in the code below that accomplishes #2 using a <code>pivot_longer()</code> followed by a <code>pivot_wider()</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add a unique identifier for each row</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Needed because there is an x, y, z for each combination of carat, cut, color, clarity</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">row_id =</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span>  </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> ____, </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"dimension"</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"value"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">____ =</span> <span class="fu">str_c</span>(____, <span class="st">"mm"</span>, <span class="at">sep =</span> <span class="st">" "</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">____ =</span> <span class="st">"dimension"</span>, </span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> <span class="st">"value"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>row_id) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li><p>Grouping diamonds by cut, clarity, and color then counting the number of observations and computing the mean of each numeric column.</p></li>
+<li><p>What happens if you use a list of functions in across(), but don’t name them? How is the output named?</p></li>
+</ol>
+</section>
+<section id="performing-multiple-operations" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="performing-multiple-operations"><span class="header-section-number">1.1</span> Performing Multiple Operations</h2>
+<p>What if we wanted to perform multiple transformations on each of many variables?</p>
+<p>Within the different values of diamond <code>cut</code>, let’s summarize the mean, median, and standard deviation of the numeric variables. When we look at the <code>.fns</code> argument in the <code>across()</code> documentation, we see that we can provide a <strong>list</strong> of functions:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(cut) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">where</span>(is.numeric), </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">.fns =</span> <span class="fu">list</span>(<span class="at">mean =</span> mean, </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">med =</span> median, </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">sd =</span> sd)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>                     )</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>              )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 22
+  cut     carat_mean carat_med carat_sd depth_mean depth_med depth_sd table_mean
+  &lt;ord&gt;        &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
+1 Fair         1.05       1       0.516       64.0      65      3.64        59.1
+2 Good         0.849      0.82    0.454       62.4      63.4    2.17        58.7
+3 Very G…      0.806      0.71    0.459       61.8      62.1    1.38        58.0
+4 Premium      0.892      0.86    0.515       61.3      61.4    1.16        58.7
+5 Ideal        0.703      0.54    0.433       61.7      61.8    0.719       56.0
+# ℹ 14 more variables: table_med &lt;dbl&gt;, table_sd &lt;dbl&gt;, price_mean &lt;dbl&gt;,
+#   price_med &lt;dbl&gt;, price_sd &lt;dbl&gt;, x_mean &lt;dbl&gt;, x_med &lt;dbl&gt;, x_sd &lt;dbl&gt;,
+#   y_mean &lt;dbl&gt;, y_med &lt;dbl&gt;, y_sd &lt;dbl&gt;, z_mean &lt;dbl&gt;, z_med &lt;dbl&gt;,
+#   z_sd &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>What does the list of functions look like? What is the structure of this list object?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>list_of_fcts <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">mean =</span> mean, </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">med =</span> median, </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sd =</span> sd)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>list_of_fcts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$mean
+function (x, ...) 
+UseMethod("mean")
+&lt;bytecode: 0x000001d1c47331b0&gt;
+&lt;environment: namespace:base&gt;
+
+$med
+function (x, na.rm = FALSE, ...) 
+UseMethod("median")
+&lt;bytecode: 0x000001d1c3852798&gt;
+&lt;environment: namespace:stats&gt;
+
+$sd
+function (x, na.rm = FALSE) 
+sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), 
+    na.rm = na.rm))
+&lt;bytecode: 0x000001d1c448aff0&gt;
+&lt;environment: namespace:stats&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(list_of_fcts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 3
+ $ mean:function (x, ...)  
+ $ med :function (x, na.rm = FALSE, ...)  
+ $ sd  :function (x, na.rm = FALSE)  </code></pre>
+</div>
+</div>
+<p>Let’s explore lists a bit more…</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Review of Lists
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>A <strong>list</strong> is a 1-dimensional data structure that has no restrictions on what type of content is stored within it. A list is a “vector”, but it is not an atomic vector - that is, it does not necessarily contain things that are all the same type.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>mylist <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">logicals =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>), </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">numeric_vec =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">third_thing =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>mylist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$logicals
+[1]  TRUE  TRUE FALSE FALSE  TRUE
+
+$numeric_vec
+ [1]  1  2  3  4  5  6  7  8  9 10 11 12
+
+$third_thing
+[1] "a" "b"</code></pre>
+</div>
+</div>
+<p>List components may have names (or not), be homogeneous (or not), have the same length (or not).</p>
+<section id="indexing" class="level3">
+<h3 class="anchored" data-anchor-id="indexing">Indexing</h3>
+<p>Indexing necessarily differs between R and Python, and since the list types are also somewhat different (e.g.&nbsp;lists cannot be named in python), we will treat list indexing in the two languages separately.</p>
+<div id="fig-pepper" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pepper-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/week-8/pepper.jpg" class="img-fluid figure-img" alt="A pepper shaker containing several individual paper packets of pepper"></p>
+<figcaption>An unusual pepper shaker which we’ll call <code>pepper</code></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/week-8/pepper-1.jpg" class="img-fluid figure-img" alt="A pepper shaker containing a single individual paper packet of pepper."></p>
+<figcaption>When a list is indexed with single brackets, <code>pepper[1]</code>, the return value is always a list containing the selected element(s).</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/week-8/pepper-2.jpg" class="img-fluid figure-img" alt="A single individual paper packet of pepper, no longer contained within a pepper shaker."></p>
+<figcaption>When a list is indexed with double brackets, <code>pepper[[1]]</code>, the return value is the selected element.</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/week-8/pepper-3.jpg" class="img-fluid figure-img" alt="A pile of pepper, free from any containment structures."></p>
+<figcaption>To actually access the pepper, we have to use double indexing and index both the list object and the sub-object, as in <code>pepper[[1]][[1]]</code>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pepper-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The types of indexing are made most memorable with a fantastic visual example from <span class="citation" data-cites="r4ds">Grolemund and Wickham (<a href="#ref-r4ds" role="doc-biblioref">2017</a>)</span>, which I have repeated here.
+</figcaption>
+</figure>
+</div>
+<p><strong>There are 3 ways to index a list:</strong></p>
+<ul>
+<li>With single square brackets, just like we index atomic vectors. In this case, the return value is always a list.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>mylist[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$logicals
+[1]  TRUE  TRUE FALSE FALSE  TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>mylist[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$numeric_vec
+ [1]  1  2  3  4  5  6  7  8  9 10 11 12</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>mylist[<span class="fu">c</span>(T, F, T)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$logicals
+[1]  TRUE  TRUE FALSE FALSE  TRUE
+
+$third_thing
+[1] "a" "b"</code></pre>
+</div>
+</div>
+<ul>
+<li>With double square brackets. In this case, the return value is the thing inside the specified position in the list, but you also can only get one entry in the main list at a time. You can also get things by name.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>mylist[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  TRUE  TRUE FALSE FALSE  TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>mylist[[<span class="st">"third_thing"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a" "b"</code></pre>
+</div>
+</div>
+<ul>
+<li>Using <code>x$name</code>. This is equivalent to using <code>x[["name"]]</code>. Note that this does not work on unnamed entries in the list.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>mylist<span class="sc">$</span>third_thing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a" "b"</code></pre>
+</div>
+</div>
+<p>To access the contents of a list object, we have to use double-indexing:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>mylist[[<span class="st">"third_thing"</span>]][[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a"</code></pre>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+<!-- You can get a more thorough review of vectors and lists [from Jenny Bryan's purrr tutorial introduction](https://jennybc.github.io/purrr-tutorial/bk00_vectors-and-lists.html). -->
+</section>
+</section>
+<section id="vectorized-functions" class="level1 page-columns page-full" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Vectorized Functions</h1>
+<p>The functions we’ve used thus far (<code>round_to_one()</code>, <code>mean()</code>, <code>median()</code>, <code>sd()</code>) all have a specific quality—they are <strong>vectorized</strong>. Meaning, by default, these functions operate on <em>vectors</em> of values rather than a single value. This is a feature that applies to atomic vectors (and we don’t even think about it):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="sc">-</span><span class="dv">4</span>, <span class="at">to =</span> <span class="dv">12</span>, <span class="at">by =</span> <span class="fl">0.5</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abs</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  4.0  3.5  3.0  2.5  2.0  1.5  1.0  0.5  0.0  0.5  1.0  1.5  2.0  2.5  3.0
+[16]  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0  8.5  9.0  9.5 10.0 10.5
+[31] 11.0 11.5 12.0</code></pre>
+</div>
+</div>
+<p>Notice how the <code>abs()</code> function found the absolute value of each element of <code>x</code> without having to loop over each element? In programming languages which don’t have implicit support for vectorized computations, this above process might instead look like:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="sc">-</span><span class="dv">4</span>, <span class="at">to =</span> <span class="dv">12</span>, <span class="at">by =</span> <span class="fl">0.5</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)){</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  x[i] <span class="ot">&lt;-</span> <span class="fu">abs</span>(x[i])</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  4.0  3.5  3.0  2.5  2.0  1.5  1.0  0.5  0.0  0.5  1.0  1.5  2.0  2.5  3.0
+[16]  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0  8.5  9.0  9.5 10.0 10.5
+[31] 11.0 11.5 12.0</code></pre>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<code>for()</code>-loop refresher
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you would like a refresher on how for-loops work, I would recommend watching this video: <a href="https://www.youtube.com/watch?v=sxIX9lzPjDQ">iteration with <code>for()</code>-loops (10 minutes)</a> and / or reading the <a href="https://r4ds.had.co.nz/iteration.html#for-loops"><code>for()</code>-loops</a> section of <em>R for Data Science</em>.</p>
+</div>
+</div>
+</div></div><p>For atomic vectors, this process of applying a function to each element is easy to do this by default; with a list, however, we need to be a bit more explicit (because everything that’s passed into the function may not be the same type).</p>
+<section id="is-every-function-vectorized" class="level2 page-columns page-full" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="is-every-function-vectorized"><span class="header-section-number">2.1</span> Is every function vectorized?</h2>
+<p>Short answer, no. There exist occasions where you either can’t or choose not to write a function that is vectorized. For example, if the function you’ve written makes use of <code>if()</code> statements, your function <strong>cannot</strong> operate on vectors. For example, take the <code>pos_neg_zero()</code> function below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>pos_neg_zero <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stopifnot</span>(<span class="fu">is.numeric</span>(x))</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>){</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">"Greater than 0!"</span>)</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (x <span class="sc">&lt;</span> <span class="dv">0</span>){</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">"Less than 0!"</span>)</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">"Equal to 0!"</span>)</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>When I call the <code>pos_neg_zero()</code> function on a vector I receive an error:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="sc">-</span><span class="dv">4</span>, <span class="at">to =</span> <span class="dv">4</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pos_neg_zero</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in if (x &gt; 0) {: the condition has length &gt; 1</code></pre>
+</div>
+</div>
+<p>This error means that the <code>if(x &gt; 0)</code> condition can only be checked for something of length 1. So, to use this function on the vector <code>x</code>, you would need to apply the function individually to each element:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, </span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>              <span class="fu">length</span>(x)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>              )</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)){</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  result[i] <span class="ot">&lt;-</span> <span class="fu">pos_neg_zero</span>(x[i])</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Less than 0!"    "Less than 0!"    "Less than 0!"    "Less than 0!"   
+[5] "Equal to 0!"     "Greater than 0!" "Greater than 0!" "Greater than 0!"
+[9] "Greater than 0!"</code></pre>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Vector initialization
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that I initialized a <code>result</code> vector to store the results of calling the <code>pos_neg_zero()</code> function for the vector <code>x</code>. Similar to C++ and Java, R is an assembly language that requires objects be created <strong>before</strong> they are used, which is why I couldn’t initialize <code>result</code> inside the <code>for()</code>-loop. Second, when I initialized the <code>result</code> vector I made it the size I wanted, rather than iteratively making it larger and larger (which makes operations incredibly slow).</p>
+</div>
+</div>
+</div></div><p>Yes, I could have written a “better” function which used a vectorized function (e.g., <code>case-when()</code>) instead of a non-vectorized function (e.g., <code>if()</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>pos_neg_zero <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stopifnot</span>(<span class="fu">is.numeric</span>(x))</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  state <span class="ot">&lt;-</span> <span class="fu">case_when</span>(x <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"Greater than 0!"</span>, </span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>                     x <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"Less than 0!"</span>, </span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">.default =</span> <span class="st">"Equal to 0!"</span>)</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(state)</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>When I call this function on the vector <code>x</code>, I no longer receive an error:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pos_neg_zero</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Less than 0!"    "Less than 0!"    "Less than 0!"    "Less than 0!"   
+[5] "Equal to 0!"     "Greater than 0!" "Greater than 0!" "Greater than 0!"
+[9] "Greater than 0!"</code></pre>
+</div>
+</div>
+<p>That’s because the <code>case_when()</code> is <strong>vectorized</strong>!</p>
+</section>
+<section id="when-cant-you-vectorize-your-function" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="when-cant-you-vectorize-your-function"><span class="header-section-number">2.2</span> When can’t you vectorize your function?</h2>
+<p>It is not always the case that we can write a “better” vectorized function. For example, let’s suppose we are interested in finding the datatype of each column in a data frame. The <code>typeof()</code> function can tell us the datatype of a specific column in the <code>penguins</code> data frame:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(penguins<span class="sc">$</span>species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "integer"</code></pre>
+</div>
+</div>
+<p>But, I want the datatype of <strong>every</strong> column in the <code>penguins</code> data frame! But applying the <code>typeof()</code> function to <code>penguins</code> returns the object structure of the <code>penguins</code> data frame, not the datatype of its columns.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "list"</code></pre>
+</div>
+</div>
+<p><strong>What can you do?</strong> Well, we could rely on our old CS 101 friend, the <code>for()</code>-loop:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>data_type <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, </span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">length =</span> <span class="fu">ncol</span>(penguins)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>                 )</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(penguins)){</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>  data_type[i] <span class="ot">&lt;-</span> <span class="fu">typeof</span>(penguins[[i]])</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Getting a nicely formatted table!</span></span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">column =</span> <span class="fu">names</span>(penguins), </span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">type =</span> data_type) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> column, </span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> type) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 16%">
+<col style="width: 15%">
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 8%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">species</th>
+<th style="text-align: left;">island</th>
+<th style="text-align: left;">bill_length_mm</th>
+<th style="text-align: left;">bill_depth_mm</th>
+<th style="text-align: left;">flipper_length_mm</th>
+<th style="text-align: left;">body_mass_g</th>
+<th style="text-align: left;">sex</th>
+<th style="text-align: left;">year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">integer</td>
+<td style="text-align: left;">integer</td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">integer</td>
+<td style="text-align: left;">integer</td>
+<td style="text-align: left;">integer</td>
+<td style="text-align: left;">integer</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>In R, <code>for()</code>-loops are not as important as they are in other languages because R is a functional programming language. In fact, we would prefer not to use <code>for()</code>-loops as they do not take advantage of R’s functional programming. Take for example, our friend <code>across()</code> that we talked about at the beginning of this reading:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">.cols =</span> <span class="fu">everything</span>(), </span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">.fns =</span> <span class="sc">~</span><span class="fu">sum</span>(<span class="fu">is.na</span>(.x))</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 8%">
+<col style="width: 18%">
+<col style="width: 16%">
+<col style="width: 21%">
+<col style="width: 14%">
+<col style="width: 4%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">species</th>
+<th style="text-align: right;">island</th>
+<th style="text-align: right;">bill_length_mm</th>
+<th style="text-align: right;">bill_depth_mm</th>
+<th style="text-align: right;">flipper_length_mm</th>
+<th style="text-align: right;">body_mass_g</th>
+<th style="text-align: right;">sex</th>
+<th style="text-align: right;">year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The <code>across()</code> function looks like an “ordinary” function, it applies a specified function / functions to the columns specified. However, when you look at the source code for <code>across()</code> you will find a <code>for()</code>-loop:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (j <span class="cf">in</span> seq_fns) {</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  fn <span class="ot">&lt;-</span> fns[[j]]</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  out[[k]] <span class="ot">&lt;-</span> <span class="fu">fn</span>(col, ...)</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  k <span class="ot">&lt;-</span> k <span class="sc">+</span> <span class="dv">1</span>L</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>  }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This shows you that it is possible to include <code>for()</code>-loops in a function, and call that function instead of using the <code>for()</code>-loop directly.</p>
+</section>
+</section>
+<section id="functional-programming" class="level1 page-columns page-full" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Functional Programming</h1>
+<p>Yes, it might take some time to get used to the idea of having a <code>for()</code>-loop built into a function, but it’s worth the investment. In the rest of this coursework, you’ll learn about and use the <strong>purrr</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> package, which houses functions that eliminate the need for many common <code>for()</code>-loops.</p>
+<p>The apply family of functions in base R (<code>apply()</code>, <code>lapply()</code>, <code>tapply()</code>, etc.) solve a similar problem, but <strong>purrr</strong> has more consistent behavior, which makes it easier to learn. We <strong>will not</strong> be working with the base functions in this course.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Comparison of base R and purrr
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you are interested, you can find a <a href="https://jennybc.github.io/purrr-tutorial/bk01_base-functions.html">side-by-side comparison in this lesson comparing base and purrr functions</a>.</p>
+<!-- ![](images/week-8/jenny_bryan.png){fig-alt="Hexagonal logo featuring the text 'EIKIFJB' in bold blue letters at the top. Below the text is an icon of a dishwasher with a wine glass and plate inside. A small red text in the lower right corner reads, 'Everything I know is from Jenny Bryan @sharlagelfand." fig-width=20%} -->
+<p>You can find a video on <a href="https://www.youtube.com/watch?v=NadUAnlrh-M">iteration with the <code>apply()</code> family (7 minutes) here</a>.</p>
+</div>
+</div>
+</div></div><p>The goal of using purrr functions instead of <code>for()</code> loops is to allow you to break common list manipulation challenges into independent pieces:</p>
+<ul>
+<li><p>How can you solve the problem for a single element of your object (e.g., vector, data frame, list)?</p></li>
+<li><p>Once you’ve solved that problem, <strong>purrr</strong> takes care of generalizing your solution to every element in the object.</p></li>
+<li><p>If you’re working on a complex problem, how can you break the problem down into bite-sized pieces that each take one step closer to a solution? With purrr, you get lots of small pieces that you can compose together with the pipe.</p></li>
+</ul>
+<p>I believe this structure makes it easier to solve complex problems, while also making your code easier to understand.</p>
+<section id="reading-videos-tutorial" class="level2 page-columns page-full" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="reading-videos-tutorial"><span class="header-section-number">3.1</span> Reading, Videos &amp; Tutorial</h2>
+<section id="required-reading-r4ds-the-map-functions" class="level3">
+<h3 class="anchored" data-anchor-id="required-reading-r4ds-the-map-functions">📖 <a href="https://r4ds.had.co.nz/iteration.html#the-map-functions">Required Reading: <em>R4DS</em> – The <code>map()</code> Functions</a></h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Yes, you should be reading the first edition of R4DS, not the second edition.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</section>
+<section id="optional-reading-advanced-r---functionals" class="level3">
+<h3 class="anchored" data-anchor-id="optional-reading-advanced-r---functionals">📖 <a href="https://adv-r.hadley.nz/functionals.html">Optional Reading: <em>Advanced R</em> - Functionals</a></h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+If you want to learn more about the concept of functionals!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</section>
+<section id="required-video-iteration-with-the-map-family-6-minutes" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="required-video-iteration-with-the-map-family-6-minutes">▶️ <a href="https://www.youtube.com/watch?v=FPD3a6IHO6w">Required Video: Iteration with the <code>map()</code> family (6 minutes)</a></h3>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+purr cheatsheet
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Cheatsheet for purrr functions can be found <a href="https://github.com/rstudio/cheatsheets/blob/master/purrr.pdf">here</a>.</p>
+</div>
+</div>
+</div></div></section>
+<section id="check-in-8.2-working-with-the-map-functions" class="level3">
+<h3 class="anchored" data-anchor-id="check-in-8.2-working-with-the-map-functions">✅: Check-in 8.2: Working with the <code>map()</code> Functions</h3>
+<ol type="1">
+<li>Fill in the correct map functions to:</li>
+</ol>
+<ul>
+<li>Compute the mean of every column in mtcars.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">____</span>(<span class="at">.x =</span> mtcars, <span class="at">.f =</span> mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Determine the type of each column in the <code>nycflights</code> dataset (from the <strong>openintro</strong> package).</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">____</span>(<span class="at">.x =</span> flights, <span class="at">.f =</span> typeof)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Compute the number of unique values in each column of the <code>penguins</code> dataset (from the <strong>palmerpenguins</strong> package).</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">____</span>(<span class="at">.x =</span> penguins, <span class="at">.f =</span> n_distinct)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Determine whether or not each column in the <code>penguins</code> dataset is a factor.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">____</span>(<span class="at">.x =</span> penguins, <span class="at">.f =</span> is.factor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Last week we discussed the challenge of standardizing many columns in a data frame. For example, If we wanted to standardize a numeric variable to be centered at the mean and scaled by the standard deviation, we could use the following function:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>standardize <span class="ot">&lt;-</span> <span class="cf">function</span>(vec) {</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stopifnot</span>(<span class="fu">is.numeric</span>(vec))</span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Center with mean</span></span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>  deviations <span class="ot">&lt;-</span> vec <span class="sc">-</span> <span class="fu">mean</span>(vec, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Scale with standard deviation</span></span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>  newdata <span class="ot">&lt;-</span> deviations <span class="sc">/</span> <span class="fu">sd</span>(vec, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(newdata)</span>
+<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Why does the following return a vector of <code>NA</code>s?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">body_mass_g =</span> <span class="fu">map_dbl</span>(body_mass_g, standardize)</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="a">
+<li>Because <code>body_mass_g</code> needs to be passed to <code>standardize()</code> as an argument</li>
+<li>Because <code>mutate()</code> operates on rows, so <code>map_dbl()</code> is supplying <code>standardize()</code> with one row of <code>body_mass_g</code> at a time</li>
+<li>Because <code>map_dbl()</code> only takes one input, so you need to use <code>map2_dbl()</code> instead</li>
+<li>Because there is no function named <code>standardize()</code>, so it cannot be applied to the <code>body_mass_g</code> column</li>
+<li><code>body_mass_g</code> is not a data frame so it is not a valid argument for <code>map_dbl()</code></li>
+</ol>
+<ol start="3" type="1">
+<li>Thus far in the course, we have used the <code>across()</code> function to apply the same function to multiple columns. For example, if we wanted to apply the <code>standardize()</code> function from above to every numeric column, we could use the following code:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">where</span>(is.numeric), </span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">.fns =</span> standardize)</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>         )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 8
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+ 1 Adelie  Torgersen         -0.883         0.784            -1.42      -0.563 
+ 2 Adelie  Torgersen         -0.810         0.126            -1.06      -0.501 
+ 3 Adelie  Torgersen         -0.663         0.430            -0.421     -1.19  
+ 4 Adelie  Torgersen         NA            NA                NA         NA     
+ 5 Adelie  Torgersen         -1.32          1.09             -0.563     -0.937 
+ 6 Adelie  Torgersen         -0.847         1.75             -0.776     -0.688 
+ 7 Adelie  Torgersen         -0.920         0.329            -1.42      -0.719 
+ 8 Adelie  Torgersen         -0.865         1.24             -0.421      0.590 
+ 9 Adelie  Torgersen         -1.80          0.480            -0.563     -0.906 
+10 Adelie  Torgersen         -0.352         1.54             -0.776      0.0602
+# ℹ 334 more rows
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p><strong>Which of the following map functions would return the <u>same</u> output?</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Option (a)</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_at</span>(<span class="at">.at =</span> <span class="fu">c</span>(<span class="st">"bill_length_mm"</span>, </span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"bill_depth_mm"</span>, </span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"flipper_length_mm"</span>, </span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"body_mass_g"</span>), </span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">.f =</span> standardize)</span>
+<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Option (b)</span></span>
+<span id="cb59-10"><a href="#cb59-10" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb59-11"><a href="#cb59-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_at</span>(<span class="at">.at =</span> <span class="fu">c</span>(<span class="st">"bill_length_mm"</span>, </span>
+<span id="cb59-12"><a href="#cb59-12" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"bill_depth_mm"</span>, </span>
+<span id="cb59-13"><a href="#cb59-13" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"flipper_length_mm"</span>, </span>
+<span id="cb59-14"><a href="#cb59-14" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"body_mass_g"</span>), </span>
+<span id="cb59-15"><a href="#cb59-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">.f =</span> standardize) <span class="sc">%&gt;%</span> </span>
+<span id="cb59-16"><a href="#cb59-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>()</span>
+<span id="cb59-17"><a href="#cb59-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-18"><a href="#cb59-18" aria-hidden="true" tabindex="-1"></a><span class="do">## Option (c)</span></span>
+<span id="cb59-19"><a href="#cb59-19" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb59-20"><a href="#cb59-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_if</span>(<span class="at">.p =</span> is.numeric, <span class="at">.f =</span> standardize) </span>
+<span id="cb59-21"><a href="#cb59-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-22"><a href="#cb59-22" aria-hidden="true" tabindex="-1"></a><span class="do">## Option (d)</span></span>
+<span id="cb59-23"><a href="#cb59-23" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb59-24"><a href="#cb59-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_if</span>(<span class="at">.p =</span> is.numeric, <span class="at">.f =</span> standardize) <span class="sc">%&gt;%</span> </span>
+<span id="cb59-25"><a href="#cb59-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<!-- Suppose we would like to find the median of the measurement variables (`bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`, `body_mass_g`) from the `penguins` dataset (from the **palmerpenguins** package). -->
+<!-- Which of the following will produce a [**vector**]{.underline} of the median of every measurement variable? *Select all that apply!* -->
+<!-- *(a)* -->
+<!-- ```{r, eval = FALSE} -->
+<!-- penguins |>  -->
+<!--   select(bill_length_mm:body_mass_g) |>  -->
+<!--   map(median, na.rm = TRUE) -->
+<!-- ``` -->
+<!-- *(b)* -->
+<!-- ```{r, eval = FALSE} -->
+<!-- penguins |>  -->
+<!--   select(bill_length_mm:body_mass_g) |>  -->
+<!--   map_dbl(median, na.rm = TRUE) -->
+<!-- ``` -->
+<!-- *(c)* -->
+<!-- ```{r, eval = FALSE} -->
+<!-- penguins |>  -->
+<!--   select(bill_length_mm:body_mass_g) |>  -->
+<!--   sapply(., median, na.rm = TRUE) -->
+<!-- ``` -->
+<!-- *(d)* -->
+<!-- ```{r, eval = FALSE} -->
+<!-- penguins |>  -->
+<!--   select(bill_length_mm:body_mass_g) |>  -->
+<!--   lapply(., function(x) median(x, na.rm = TRUE)) -->
+<!-- ``` -->
+
+
+
+</section>
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-r4ds" class="csl-entry" role="listitem">
+Grolemund, Garrett, and Hadley Wickham. 2017. <em>R for <span>Data</span> <span>Science</span></em>. 1st ed. O’Reilly Media. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>I fully support more R packages being cat themed.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/github\.com\/jcanner\/stat_210_2025_website\/docs\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../weeks/week-12-functions.html" class="pagination-link" aria-label="Week 12 - Functions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 12 - Functions</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../labs/instructions/lab-1-instructions.html" class="pagination-link" aria-label="Lab 1 &amp; Challenge 1 Instructions">
+        <span class="nav-page-text">Lab 1 &amp; Challenge 1 Instructions</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Copyright 2024, Allison Theobold &amp; Judith Canner</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jcanner/stat_210_2025_website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

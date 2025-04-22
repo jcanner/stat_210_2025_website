@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to ggplot2 – Statistical Computing with R</title>
+<title>Writing Data Frame &amp; Plot Functions in R – Statistical Computing with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,27 +54,7 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -83,8 +63,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../weeks/week-5-projects-data-import.html" rel="next">
-<link href="../weeks/week-3-version-control.html" rel="prev">
+<link href="../weeks/week-13-iteration.html" rel="next">
+<link href="../weeks/week-11-strings-dates.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -127,7 +107,7 @@ div.csl-indent {
 
 </head>
 
-<body class="nav-sidebar docked slimcontent">
+<body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -136,7 +116,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week-1-r-rstudio.html">Weekly materials</a></li><li class="breadcrumb-item"><a href="../weeks/week-4-ggplot.html">Week 4 - Data Visualization</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week-1-r-rstudio.html">Weekly materials</a></li><li class="breadcrumb-item"><a href="../weeks/week-12-functions.html">Week 12 - Functions</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -224,7 +204,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-4-ggplot.html" class="sidebar-item-text sidebar-link active">
+  <a href="../weeks/week-4-ggplot.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 4 - Data Visualization</span></a>
   </div>
 </li>
@@ -260,7 +240,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-12-functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../weeks/week-12-functions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Week 12 - Functions</span></a>
   </div>
 </li>
@@ -364,49 +344,28 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives"><span class="header-section-number">0.1</span> Learning Objectives</a></li>
-  <li><a href="#loading-in-the-ggplot2-package" id="toc-loading-in-the-ggplot2-package" class="nav-link" data-scroll-target="#loading-in-the-ggplot2-package"><span class="header-section-number">0.2</span> Loading in the <strong>ggplot2</strong> Package</a></li>
-  <li><a href="#data-visualization-with-ggplot2" id="toc-data-visualization-with-ggplot2" class="nav-link" data-scroll-target="#data-visualization-with-ggplot2"><span class="header-section-number">1</span> Data Visualization with <strong>ggplot2</strong></a>
+  <li><a href="#writing-data-frame-functions-in-r" id="toc-writing-data-frame-functions-in-r" class="nav-link active" data-scroll-target="#writing-data-frame-functions-in-r"><span class="header-section-number">1</span> Writing Data Frame Functions in R</a>
   <ul class="collapse">
-  <li><a href="#the-grammar-of-graphics" id="toc-the-grammar-of-graphics" class="nav-link" data-scroll-target="#the-grammar-of-graphics"><span class="header-section-number">1.1</span> The Grammar of Graphics</a></li>
-  <li><a href="#making-your-first-ggplot" id="toc-making-your-first-ggplot" class="nav-link" data-scroll-target="#making-your-first-ggplot"><span class="header-section-number">1.2</span> Making Your First ggplot</a>
+  <li><a href="#required-reading-r4ds-functions" id="toc-required-reading-r4ds-functions" class="nav-link" data-scroll-target="#required-reading-r4ds-functions">📖 Required Reading: <em>R4DS</em> – Functions</a></li>
+  <li><a href="#tidy-evaluation" id="toc-tidy-evaluation" class="nav-link" data-scroll-target="#tidy-evaluation"><span class="header-section-number">1.1</span> Tidy Evaluation</a>
   <ul class="collapse">
-  <li><a href="#check-in" id="toc-check-in" class="nav-link" data-scroll-target="#check-in">✅ Check-in</a></li>
+  <li><a href="#check-in-7.2-writing-data-frame-functions" id="toc-check-in-7.2-writing-data-frame-functions" class="nav-link" data-scroll-target="#check-in-7.2-writing-data-frame-functions">✅ <strong>Check-in 7.2: Writing Data Frame Functions</strong></a></li>
   </ul></li>
-  <li><a href="#aesthetics" id="toc-aesthetics" class="nav-link" data-scroll-target="#aesthetics"><span class="header-section-number">1.3</span> Aesthetics</a>
-  <ul class="collapse">
-  <li><a href="#check-in-1" id="toc-check-in-1" class="nav-link" data-scroll-target="#check-in-1">✅ Check-in</a></li>
   </ul></li>
-  <li><a href="#geoms" id="toc-geoms" class="nav-link" data-scroll-target="#geoms"><span class="header-section-number">1.4</span> geoms</a>
+  <li><a href="#writing-plotting-functions-in-r" id="toc-writing-plotting-functions-in-r" class="nav-link" data-scroll-target="#writing-plotting-functions-in-r"><span class="header-section-number">2</span> Writing Plotting Functions in R</a>
   <ul class="collapse">
-  <li><a href="#what-type-of-chart-to-use" id="toc-what-type-of-chart-to-use" class="nav-link" data-scroll-target="#what-type-of-chart-to-use">What type of chart to use?</a></li>
-  <li><a href="#check-in-2" id="toc-check-in-2" class="nav-link" data-scroll-target="#check-in-2">✅ Check-in</a></li>
-  </ul></li>
-  <li><a href="#getting-a-bit-fancier" id="toc-getting-a-bit-fancier" class="nav-link" data-scroll-target="#getting-a-bit-fancier"><span class="header-section-number">1.5</span> Getting a Bit Fancier</a>
-  <ul class="collapse">
-  <li><a href="#global-vs.-local-aesthetics" id="toc-global-vs.-local-aesthetics" class="nav-link" data-scroll-target="#global-vs.-local-aesthetics">Global vs.&nbsp;local aesthetics</a></li>
-  <li><a href="#check-in-3" id="toc-check-in-3" class="nav-link" data-scroll-target="#check-in-3">✅ Check-in</a></li>
-  </ul></li>
-  <li><a href="#facets" id="toc-facets" class="nav-link" data-scroll-target="#facets"><span class="header-section-number">1.6</span> Facets</a></li>
-  <li><a href="#data-transformations" id="toc-data-transformations" class="nav-link" data-scroll-target="#data-transformations"><span class="header-section-number">1.7</span> Data transformations</a></li>
-  <li><a href="#changing-the-positions-of-bars" id="toc-changing-the-positions-of-bars" class="nav-link" data-scroll-target="#changing-the-positions-of-bars"><span class="header-section-number">1.8</span> Changing the positions of bars</a>
-  <ul class="collapse">
-  <li><a href="#check-in-4" id="toc-check-in-4" class="nav-link" data-scroll-target="#check-in-4">✅ Check-in</a></li>
-  </ul></li>
-  <li><a href="#plot-customizations" id="toc-plot-customizations" class="nav-link" data-scroll-target="#plot-customizations"><span class="header-section-number">1.9</span> Plot Customizations</a>
-  <ul class="collapse">
-  <li><a href="#check-in-5" id="toc-check-in-5" class="nav-link" data-scroll-target="#check-in-5">✅ Check-in</a></li>
-  </ul></li>
+  <li><a href="#required-reading-r4ds-functions-1" id="toc-required-reading-r4ds-functions-1" class="nav-link" data-scroll-target="#required-reading-r4ds-functions-1">📖 Required Reading: <em>R4DS</em> – Functions</a></li>
+  <li><a href="#check-in-7.2-writing-data-frame-functions-1" id="toc-check-in-7.2-writing-data-frame-functions-1" class="nav-link" data-scroll-target="#check-in-7.2-writing-data-frame-functions-1">✅ <strong>Check-in 7.2: Writing Data Frame Functions</strong></a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jcanner/stat_210_2025_website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week-1-r-rstudio.html">Weekly materials</a></li><li class="breadcrumb-item"><a href="../weeks/week-4-ggplot.html">Week 4 - Data Visualization</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week-1-r-rstudio.html">Weekly materials</a></li><li class="breadcrumb-item"><a href="../weeks/week-12-functions.html">Week 12 - Functions</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Introduction to ggplot2</h1>
+<h1 class="title">Writing Data Frame &amp; Plot Functions in R</h1>
 </div>
 
 
@@ -423,264 +382,183 @@ div.csl-indent {
 </header>
 
 
-<blockquote class="blockquote">
-<p>The greatest possibilities of visual display lie in vividness and inescapability of the intended message. A visual display can stop your mental flow in its tracks and make you think. A visual display can force you to notice what you never expected to see. (“Why, that scatter diagram has a hole in the middle!”) – John Tukey, <a href="https://projecteuclid.org/euclid.ss/1177012101">Data Based Graphics: Visual Display in the Decades to Come</a></p>
-</blockquote>
-<section id="readings-45-minutes" class="level4">
-<h4 class="anchored" data-anchor-id="readings-45-minutes">📖 Readings: 45 minutes</h4>
-</section>
-<section id="activities-45-60-minutes" class="level4">
-<h4 class="anchored" data-anchor-id="activities-45-60-minutes">💻 Activities: 45-60 minutes</h4>
+<p>The second half of this week’s coursework focuses on writing functions that work with <em>data frames</em>.</p>
+<p>By the end of the week you should have a grasp of:</p>
 <ul>
-<li>You’ll be working through a series of tutorials helping you practice making plots with ggplot.</li>
+<li><p>What the “embracing” (<code>{{ }}</code>) operator is</p></li>
+<li><p>How to use the <code>{{ }}</code> operator in data frame functions</p></li>
+<li><p>Why we need to use the <code>{{ }}</code> operator when writing data frame functions</p></li>
 </ul>
+<hr>
+<section id="watch-videos-20-minutes" class="level4">
+<h4 class="anchored" data-anchor-id="watch-videos-20-minutes">▶️ Watch Videos: 20 minutes</h4>
 </section>
-<section id="check-ins-8-questions-broken-out-by-sections" class="level4">
-<h4 class="anchored" data-anchor-id="check-ins-8-questions-broken-out-by-sections">✅ Check-ins: 8 questions broken out by sections</h4>
+<section id="readings-60-75-minutes" class="level4">
+<h4 class="anchored" data-anchor-id="readings-60-75-minutes">📖 Readings: 60-75 minutes</h4>
 </section>
-<section id="learning-objectives" class="level2" data-number="0.1">
-<h2 data-number="0.1" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">0.1</span> Learning Objectives</h2>
-<ul>
-<li>Describe charts using the grammar of graphics</li>
-<li>Create layered graphics that highlight multiple aspects of the data</li>
-<li>Evaluate existing charts and develop new versions that improve accessibility and readability</li>
-</ul>
+<section id="preview-activities-1-broken-into-two-parts" class="level4">
+<h4 class="anchored" data-anchor-id="preview-activities-1-broken-into-two-parts">✅ Preview Activities: 1 (broken into two parts)</h4>
+<hr>
 </section>
-<section id="loading-in-the-ggplot2-package" class="level2 page-columns page-full" data-number="0.2">
-<h2 data-number="0.2" class="anchored" data-anchor-id="loading-in-the-ggplot2-package"><span class="header-section-number">0.2</span> Loading in the <strong>ggplot2</strong> Package</h2>
-<p>In this class, we’re going to use the <code>ggplot2</code> package to create graphics in R. This package is already installed as part of the <code>tidyverse</code>, but can be installed:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>) <span class="co">#only needs to happen once - Do not include in Quarto documents!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="writing-data-frame-functions-in-r" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Writing Data Frame Functions in R</h1>
+<section id="required-reading-r4ds-functions" class="level3">
+<h3 class="anchored" data-anchor-id="required-reading-r4ds-functions">📖 <a href="https://r4ds.hadley.nz/functions#data-frame-functions">Required Reading: <em>R4DS</em> – Functions</a></h3>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>and/or loaded:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggplot2"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># alternatively</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>) <span class="co"># (my preference!)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-title-container flex-fill">
+Read only Section 3 (Data frame functions)!
 </div>
+</div>
+<div class="callout-body-container callout-body">
 
-<div class="no-row-height column-margin column-container"><div class="">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/ggplot2_masterpiece.png" class="img-fluid figure-img"></p>
-<figcaption>Building a masterpiece, by Allison Horst</figcaption>
-</figure>
 </div>
-</div></div></section>
-<section id="data-visualization-with-ggplot2" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Data Visualization with <strong>ggplot2</strong></h1>
-<p>This coursework will walk you through the different sections of Chapter One and Nine in <em>R for Data Science</em>.</p>
-<p>📖 <a href="https://r4ds.hadley.nz/data-visualize">Required Reading: Data Visualization</a>.</p>
-<section id="the-grammar-of-graphics" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="the-grammar-of-graphics"><span class="header-section-number">1.1</span> The Grammar of Graphics</h2>
-<p>The grammar of graphics is an approach first introduced in Leland Wilkinson’s book <span class="citation" data-cites="grammar">(<a href="#ref-grammar" role="doc-biblioref">Wilkinson 2005</a>)</span>. Unlike other graphics classification schemes, the grammar of graphics makes an attempt to describe how the data set itself relates to the components of the chart.</p>
-<p>This has a few advantages:</p>
-<ol type="1">
-<li>It’s relatively easy to represent the same data set with different types of plots (and to find their strengths and weaknesses)</li>
-<li>Grammar leads to a concise description of the plot and its contents</li>
-<li>We can add layers to modify the graphics, each with their own basic grammar (just like we combine sentences and clauses to build a rich, descriptive paragraph)</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/week-2/grammar-pyramid.png" class="img-fluid figure-img" alt="A pyramid view of the major components of the grammar of graphics, with data as the base, aesthetics building on data, scales building on aesthetics, geometric objects, statistics, facets, and the coordinate system at the top of the pyramid."></p>
-<figcaption>A pyramid view of the major components of the grammar of graphics, with data as the base, aesthetics building on data, scales building on aesthetics, geometric objects, statistics, facets, and the coordinate system at the top of the pyramid. Source: <span class="citation" data-cites="sarkarComprehensiveGuideGrammar2018">(<a href="#ref-sarkarComprehensiveGuideGrammar2018" role="doc-biblioref">Sarkar 2018</a>)</span></figcaption>
-</figure>
 </div>
 </section>
-<section id="making-your-first-ggplot" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="making-your-first-ggplot"><span class="header-section-number">1.2</span> Making Your First ggplot</h2>
-<section id="check-in" class="level3">
-<h3 class="anchored" data-anchor-id="check-in">✅ Check-in</h3>
-<p><strong>Question 1</strong> – What specifically does the code <code>ggplot(data = mpg)</code> do?</p>
+<section id="tidy-evaluation" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="tidy-evaluation"><span class="header-section-number">1.1</span> Tidy Evaluation</h2>
+<p>Writing functions that work with data frames <strong>and</strong> call on the functions we’ve become used to (e.g., <code>filter()</code>, <code>select()</code>, <code>summarise()</code>) requires we learn about tidy evaluation. To write these functions you will need to know, at a high level, whether the function you are trying to incorporate uses data masking or tidy selection.</p>
+<p>At a high level, data masking is used in functions like <code>arrange()</code>, <code>filter()</code>, and <code>summarize()</code> that compute with variables. Whereas, tidy selection is used for functions like <code>select()</code> and <code>rename()</code> that select variables.</p>
+<p>Your intuition about which functions use tidy evaluation should be good for many of these functions. If you can input <code>c(var1, var2, var3)</code> into the function (e.g., <code>select(mtcars, c(vs, am, gear))</code>), then the function uses tidy selection! If you <strong>cannot</strong> input <code>c(var1, var2, var3)</code> into the function, then the function is performing computations on the data and uses data masking.</p>
+<p>If you are interested in learning more about tidy evaluation, I would highly recommend:</p>
 <ul>
-<li>Creates a blank plot</li>
-<li>Makes a scatterplot of the first two variables in the <code>mpg</code> dataset</li>
-<li>Creates a ggplot with the <code>mpg</code> dataset</li>
+<li>this <a href="https://youtu.be/2BXPLnLMTYo?si=ry4tHOD77DWagvxn">video by Jenny Bryan</a>
+<ul>
+<li>I do want to note that this video is from 2019 and some things have changed since then. Namely, we used to need to use the <code>enquo()</code> function to inject<br>
+variable names into <code>dplyr</code> functions, whereas we now use embracing <code>{{}}</code>. 🤗</li>
+</ul></li>
+<li>this <a href="https://dplyr.tidyverse.org/articles/programming.html#:~:text=arrange()%20%2C%20count()%20%2C%20filter,my_variable%20not%20df%24my_variable%20">vignette for tidy evaluation with <code>dplyr</code></a></li>
 </ul>
-</section>
-</section>
-<section id="aesthetics" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="aesthetics"><span class="header-section-number">1.3</span> Aesthetics</h2>
-<p>📖 <a href="https://r4ds.hadley.nz/layers#aesthetic-mappings">Required Reading: Layers - Aesthetic Mappings</a>.</p>
-<section id="check-in-1" class="level3">
-<h3 class="anchored" data-anchor-id="check-in-1">✅ Check-in</h3>
+<section id="check-in-7.2-writing-data-frame-functions" class="level3">
+<h3 class="anchored" data-anchor-id="check-in-7.2-writing-data-frame-functions">✅ <strong>Check-in 7.2: Writing Data Frame Functions</strong></h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Data Structure
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note for Questions 1 &amp; 2, I am assuming the <code>flight</code> data has a similar structure to the <code>nycflights</code> data from the openintro R package.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy), <span class="at">color =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(openintro<span class="sc">::</span>nycflights)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 16
+   year month   day dep_time dep_delay arr_time arr_delay carrier tailnum flight
+  &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;    &lt;int&gt;
+1  2013     6    30      940        15     1216        -4 VX      N626VA     407
+2  2013     5     7     1657        -3     2104        10 DL      N3760C     329
+3  2013    12     8      859        -1     1238        11 DL      N712TW     422
+4  2013     5    14     1841        -4     2122       -34 DL      N914DL    2391
+5  2013     7    21     1102        -3     1230        -8 9E      N823AY    3652
+6  2013     1     1     1817        -3     2008         3 AA      N3AXAA     353
+# ℹ 6 more variables: origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
+#   hour &lt;dbl&gt;, minute &lt;dbl&gt;</code></pre>
 </div>
-<p><strong>Question 2:</strong> What aesthetics does this plot contain?</p>
-<ul>
-<li>x</li>
-<li>y</li>
-<li>color</li>
-<li>data</li>
-</ul>
-<p><strong>Question 3:</strong> Which of the following changes would set the color of the points to be blue?</p>
+</div>
+</div>
+</div>
+<p><strong>Question 1</strong>: Fill in the code below to write a function that finds all flights that were cancelled or delayed by more than a user supplied number of hours:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Option A</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>(</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">y =</span> hwy, </span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">color =</span> blue)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Option B</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>(</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, </span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                <span class="at">y =</span> hwy), </span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"blue"</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="do">## Option C</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, </span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"blue"</span>)</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>(</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, </span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>                <span class="at">y =</span> hwy)</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>filter_severe <span class="ot">&lt;-</span> <span class="cf">function</span>(df, hours) { </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(dep_delay _____)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>nycflights <span class="sc">|&gt;</span> </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter_severe</span>(<span class="at">hours =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-</section>
-<section id="geoms" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="geoms"><span class="header-section-number">1.4</span> geoms</h2>
-<section id="what-type-of-chart-to-use" class="level3">
-<h3 class="anchored" data-anchor-id="what-type-of-chart-to-use">What type of chart to use?</h3>
-<p>It can be hard to know what type of chart to use for a particular type of data. I recommend figuring out what you want to show first, and then thinking about how to show that data with an appropriate plot type. Consider the following factors:</p>
-<ul>
-<li><p>What type of variable is <code>x</code>? Categorical? Continuous? Discrete?</p></li>
-<li><p>What type of variable is <code>y</code>?</p></li>
-<li><p>How many observations do I have for each <code>x</code> / <code>y</code> variable?</p></li>
-<li><p>Are there any important moderating variables?</p></li>
-<li><p>Do I have data that might be best shown in small multiples? E.g. a categorical moderating variable and a lot of data, where the categorical variable might be important for showing different features of the data?</p></li>
-</ul>
-<p>Once you’ve thought through this, take a look through catalogs like the <a href="https://r-graph-gallery.com/">R Graph Gallery</a> to see what visualizations match your data and use-case.</p>
-<p>📖 <a href="https://r4ds.hadley.nz/layers#sec-geometric-objects">Required Reading: Layers - Geometric Objects</a>.</p>
-<p>💻 Required Tutorials</p>
-<ul>
-<li><a href="https://r-primers.andrewheiss.com/visualize-data/02-bar-charts/">Bar Charts</a></li>
-<li><a href="https://r-primers.andrewheiss.com/visualize-data/03-histograms/">Histograms</a></li>
-<li><a href="https://r-primers.andrewheiss.com/visualize-data/03-histograms/">Scatterplots</a></li>
-<li><a href="https://r-primers.andrewheiss.com/visualize-data/06-line-graphs/">Line Plots</a></li>
-</ul>
-</section>
-<section id="check-in-2" class="level3">
-<h3 class="anchored" data-anchor-id="check-in-2">✅ Check-in</h3>
-<p><strong>Question 4:</strong> Match each plot with the <code>geom_XXX()</code> function used to create it!</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>Line Chart</li>
-<li>Boxplot</li>
-<li>Histogram</li>
-<li>Area Chart</li>
-</ul>
-</div><div class="column" style="width:50;">
-<ul>
-<li><code>geom_boxplot()</code></li>
-<li><code>geom_point()</code></li>
-<li><code>geom_hist()</code></li>
-<li><code>geom_bar()</code></li>
-<li><code>geom_smooth()</code></li>
-<li><code>geom_point()</code></li>
-<li><code>geom_area()</code></li>
-<li><code>geom_line()</code></li>
-<li><code>geom_histogram()</code></li>
-</ul>
-</div>
-</div>
-</section>
-</section>
-<section id="getting-a-bit-fancier" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="getting-a-bit-fancier"><span class="header-section-number">1.5</span> Getting a Bit Fancier</h2>
-<p>In this section we dig a bit deeper into how we can make our code more efficient and other ways we can add additional variables to our plots.</p>
-<section id="global-vs.-local-aesthetics" class="level3">
-<h3 class="anchored" data-anchor-id="global-vs.-local-aesthetics">Global vs.&nbsp;local aesthetics</h3>
-<p>The aesthetic mappings that are defined in <code>ggplot()</code> are the <em>global level</em> aesthetics, that is they are inherited by each of the subsequent <code>geom_</code> layers of the plot. However, each <code>geom_</code> function in <code>ggplot2</code> can also take its own mapping arguments, which allows for aesthetic mappings at the <em>local level</em> that are combined with those inherited from the global level.</p>
-</section>
-<section id="check-in-3" class="level3">
-<h3 class="anchored" data-anchor-id="check-in-3">✅ Check-in</h3>
-<p><strong>Question 5:</strong> Match the code to the type of aesthetics that are being used:</p>
-<div class="columns">
-<div class="column" style="width:20%;">
-<p><br></p>
-<p><strong>Global</strong></p>
-<p><br> <br></p>
-<p><strong>Local</strong></p>
-</div><div class="column" style="width:80%;">
+<p><strong>Question 2</strong>: Fill in the code below to write a function that converts the user supplied variable that uses clock time (e.g., <code>dep_time</code>, <code>arr_time</code>, etc.) into a decimal time (i.e.&nbsp;hours + (minutes / 60)).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> hwy)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span> </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>standardize_time <span class="ot">&lt;-</span> <span class="cf">function</span>(df, time_var) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Times are stored as 2008 for 8</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>( {{ time_var }} <span class="sc">:</span><span class="er">=</span> </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>              <span class="fu">as.numeric</span>(</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                <span class="do">## Grab first two numbers for hour</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                <span class="fu">str_sub</span>(</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                  {{ time_var }}, </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                  <span class="at">start =</span> <span class="dv">1</span>, </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                  <span class="at">end =</span> <span class="dv">2</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                ) <span class="sc">+</span>  </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>              <span class="fu">as.numeric</span>(</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                <span class="do">## Grab second two numbers for minutes</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                <span class="fu">str_sub</span>(</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                  {{ time_var }}, </span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                  <span class="at">start =</span> <span class="dv">3</span>, </span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>                  <span class="at">end =</span> <span class="dv">4</span>)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>                ) <span class="sc">/</span> <span class="dv">60</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>nycflights <span class="sc">|&gt;</span> </span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">standardize_time</span>(arr_time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> hwy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="facets" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="facets"><span class="header-section-number">1.6</span> Facets</h2>
-<p>📖 <a href="https://r4ds.hadley.nz/layers#facets">Required Reading: Layers - Facets</a>.</p>
-</section>
-<section id="data-transformations" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="data-transformations"><span class="header-section-number">1.7</span> Data transformations</h2>
-<p>📖 <a href="https://r4ds.hadley.nz/layers#statistical-transformations">Required Reading: Layers - Statistical Transformations</a>.</p>
-</section>
-<section id="changing-the-positions-of-bars" class="level2" data-number="1.8">
-<h2 data-number="1.8" class="anchored" data-anchor-id="changing-the-positions-of-bars"><span class="header-section-number">1.8</span> Changing the positions of bars</h2>
-<p>📖 <a href="https://r4ds.hadley.nz/layers#position-adjustments">Required Reading: Layers - Position Adjustments</a>.</p>
-<section id="check-in-4" class="level3">
-<h3 class="anchored" data-anchor-id="check-in-4">✅ Check-in</h3>
-<p><strong>Question 6:</strong> What arguments for <code>geom_jitter()</code> control the amount of jittering?</p>
+<p><strong>Question 3</strong>: For each of the following functions determine if the function uses data-masking or tidy-selection:</p>
 <ul>
-<li>width</li>
-<li>height</li>
-<li>stat</li>
-<li>position</li>
-<li>na.rm</li>
-<li>show.legend</li>
-<li>data</li>
-<li>mapping</li>
+<li><code>distinct()</code></li>
+<li><code>count()</code></li>
+<li><code>group_by()</code></li>
+<li><code>select()</code></li>
+<li><code>rename_with()</code></li>
+<li><code>across()</code></li>
 </ul>
-<p><br></p>
 </section>
 </section>
-<section id="plot-customizations" class="level2" data-number="1.9">
-<h2 data-number="1.9" class="anchored" data-anchor-id="plot-customizations"><span class="header-section-number">1.9</span> Plot Customizations</h2>
-<p>📖 <a href="https://r4ds.hadley.nz/communication">Required Reading: Communication</a></p>
-<!-- ▶️ [Required Video: Axis labels, color themes, and legends, oh my! (7 minutes)](http://somup.com/crffFDbHiU) -->
-<section id="check-in-5" class="level3">
-<h3 class="anchored" data-anchor-id="check-in-5">✅ Check-in</h3>
-<p><strong>Question 7:</strong> What can the <code>labs()</code> function do? Select all that apply.</p>
-<ul>
-<li>Customize the x-axis label</li>
-<li>Customize the y-axis label</li>
-<li>Customize the legend label</li>
-<li>Customize the plot title</li>
-<li>Add a caption to the plot</li>
-</ul>
+</section>
+<section id="writing-plotting-functions-in-r" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Writing Plotting Functions in R</h1>
+<section id="required-reading-r4ds-functions-1" class="level3">
+<h3 class="anchored" data-anchor-id="required-reading-r4ds-functions-1">📖 <a href="https://r4ds.hadley.nz/functions#plot-functions">Required Reading: <em>R4DS</em> – Functions</a></h3>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Read only Section 4 (Data frame functions)!
+</div>
+</div>
+<div class="callout-body-container callout-body">
 
+</div>
+</div>
+</section>
+<section id="check-in-7.2-writing-data-frame-functions-1" class="level3">
+<h3 class="anchored" data-anchor-id="check-in-7.2-writing-data-frame-functions-1">✅ <strong>Check-in 7.2: Writing Data Frame Functions</strong></h3>
+<p><strong>Question 4</strong>: Fill in the code below to build a rich plotting function which:</p>
+<ul>
+<li>draws a scatterplot given dataset and x and y variables,</li>
+<li>adds a line of best fit (i.e.&nbsp;a linear model with no standard errors)</li>
+<li>add a title.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>scatterplot <span class="ot">&lt;-</span> <span class="cf">function</span>(df, x_var, y_var) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  label <span class="ot">&lt;-</span> rlang<span class="sc">::</span><span class="fu">englue</span>(<span class="st">"A scatterplot of _____ and _____, including a line of best fit."</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> _____, </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                         <span class="at">y =</span> _____</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                         )</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>           ) <span class="sc">+</span> </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, _____) <span class="sc">+</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> _____)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
 </section>
-</section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-sarkarComprehensiveGuideGrammar2018" class="csl-entry" role="listitem">
-Sarkar, Dipanjan (DJ). 2018. <span>“A <span>Comprehensive</span> <span>Guide</span> to the <span>Grammar</span> of <span>Graphics</span> for <span>Effective</span> <span>Visualization</span> of <span>Multi</span>-Dimensional….”</span> <em>Medium</em>. <a href="https://towardsdatascience.com/a-comprehensive-guide-to-the-grammar-of-graphics-for-effective-visualization-of-multi-dimensional-1f92b4ed4149">https://towardsdatascience.com/a-comprehensive-guide-to-the-grammar-of-graphics-for-effective-visualization-of-multi-dimensional-1f92b4ed4149</a>.
-</div>
-<div id="ref-grammar" class="csl-entry" role="listitem">
-Wilkinson, Leland. 2005. <em>The Grammar of Graphics</em>. 2nd ed. Statistics and Computing. New York: Springer Science.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1247,13 +1125,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../weeks/week-3-version-control.html" class="pagination-link" aria-label="Week 3 - Version Control">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 3 - Version Control</span>
+      <a href="../weeks/week-11-strings-dates.html" class="pagination-link" aria-label="Week 11 - Strings, Dates, and Times">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 11 - Strings, Dates, and Times</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../weeks/week-5-projects-data-import.html" class="pagination-link" aria-label="Week 5 - Importing Data">
-        <span class="nav-page-text">Week 5 - Importing Data</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../weeks/week-13-iteration.html" class="pagination-link" aria-label="Week 13 - Iteration">
+        <span class="nav-page-text">Week 13 - Iteration</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
