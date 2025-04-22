@@ -14,29 +14,18 @@ execute:
   warning: false
 ---
 
-For this lab, you will be joining and filtering related datasets to solve a murder mystery!
+For this lab, you will be joining and filtering related data sets to solve a murder mystery!
 
 # Part 1: GitHub Workflow
-
-## Step 1: Accessing the Lab
-
-Here is the Quarto document. Data will be imported from an external site.
-
-+ [lab-7-student.qmd](../student/lab-7-student.qmd)
-
-
-
-## Step 2: Making a Small Change
 
 At the top of the document (in the YAML) there is an `author` line that says 
 `"Your name here!"`. Change this to be your name and save your file either by
 clicking on the blue floppy disk or with a shortcut (command / control + s). 
 
-## Step 3: Pushing Your Lab to GitHub
+Be sure to [commit the files to your repo](https://happygitwithr.com/existing-github-first#stage-and-commit). 
 
-Now for our last step, we need to [commit the files to our repo](https://happygitwithr.com/existing-github-first#stage-and-commit). 
+Let's get started!
 
-## Step 4: Let's get started!
 
 # Part 2: Some Words of Advice
 
@@ -60,15 +49,6 @@ The relational data you will be working with contains tables with different
 pieces of information pertinent to the crime - people, social media check-ins,
 driver's licenses, crime scene reports, police interviews, and more!
 
-![Database schema](https://mystery.knightlab.com/schema.png){fig-alt="This is an entity-relationship diagram that showcases multiple interconnected tables. The central table is labeled 'person' with attributes including id, name, license_id, address_number, address_street_name, and ssn. It connects to various other tables. One connection leads to 'drivers_license,' which contains id, age, height, eye_color, hair_color, gender, plate_number, car_make, and car_model. Another connection leads to the 'income' table, which includes ssn and annual_income. Additionally, the 'person' table is linked to 'get_fit_now_member,' which has id, person_id, name, membership_start_date, and membership_status attributes. The 'get_fit_now_member' table connects to 'get_fit_now_check_in,' which lists membership_id, check_in_date, check_in_time, and check_out_time. Another linked table is 'facebook_event_checkin,' containing person_id, event_id, event_name, and date. The diagram also includes an 'interview' table with person_id and transcript, a 'crime_scene_report' table with date, type, description, and city, and a small table labeled 'solution' with user and value attributes. The diagram visualizes relationships and interactions across these entities."}
-
-
-::: callout-tip
-
-You may find the `pull()` function handy for displaying each clue as you go
-along.
-
-:::
 
 ## Access the Data
 
@@ -109,6 +89,8 @@ Detective Wickham reaches out to you...
 
 
 **Next Steps: Follow the evidence to the person responsible for the murder, building a report as you go.**
+There are accomplices, some knowingly and some unknowingly, but there is only one mastermind.
+
 
 Solve the murder mystery, showing **all of your work in this document**. Your
 document and code must be well organized, easy to follow, and reproducible.
@@ -121,10 +103,6 @@ tables manually. Functions from `stringr` and `lubridate` will also be useful.
 + Cite any external sources you use to solve the mystery.
 
 
-
-::: callout-caution
-Make sure you check for interviews with any suspects!
-:::
 
 ::: callout-note
 ## And the final suspect is...
