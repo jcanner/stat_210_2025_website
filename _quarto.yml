@@ -63,7 +63,12 @@ website:
           - href: weeks/week-10-factors.qmd
             text: "Week 10 - Factors"
           - href: weeks/week-11-strings-dates.qmd
-            text: "Week 11 - Strings, Dates, and Times"  
+            text: "Week 11 - Strings, Dates, and Times" 
+          - href: weeks/week-12-functions.qmd
+            text: "Week 12 - Functions"
+          - href: weeks/week-13-iteration.qmd
+            text: "Week 13 - Iteration"           
+            
           
       - section: "Labs" 
         contents:

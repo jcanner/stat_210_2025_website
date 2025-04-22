@@ -1,5 +1,5 @@
 ---
-title: "Lab 7: Functions + Fish"
+title: "Lab 8: Functions + Fish"
 format: 
   html:
     code-tools: true

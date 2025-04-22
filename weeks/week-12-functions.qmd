@@ -1,0 +1,163 @@
+---
+title: "Writing Data Frame & Plot Functions in R"
+format: html
+number-sections: true
+number-depth: 2
+bibliography: references.bib
+editor: source
+execute: 
+  echo: true
+  include: true
+---
+
+```{r}
+#| include: false
+#| echo: false
+
+library(tidyverse)
+library(lubridate)
+
+```
+
+The second half of this week's coursework focuses on writing functions that work with *data frames*.
+
+By the end of the week you should have a grasp of:
+
+-   What the "embracing" (`{{{ }}}`) operator is
+
+-   How to use the `{{{ }}}` operator in data frame functions
+
+-   Why we need to use the `{{{ }}}` operator when writing data frame functions
+
+------------------------------------------------------------------------
+
+#### `r emo::ji("play button")` Watch Videos: 20 minutes
+
+#### `r emo::ji("book")` Readings: 60-75 minutes
+
+#### `r emo::ji("check")` Preview Activities: 1 (broken into two parts)
+
+------------------------------------------------------------------------
+
+# Writing Data Frame Functions in R
+
+### `r emo::ji("book")` [Required Reading: *R4DS* -- Functions](https://r4ds.hadley.nz/functions#data-frame-functions)
+
+::: callout-caution
+# Read only Section 3 (Data frame functions)!
+:::
+
+## Tidy Evaluation
+
+Writing functions that work with data frames **and** call on the functions we've become used to (e.g., `filter()`, `select()`, `summarise()`) requires we learn about tidy evaluation. To write these functions you will need to know, at a high level, whether the function you are trying to incorporate uses data masking or tidy selection.
+
+At a high level, data masking is used in functions like `arrange()`, `filter()`, and `summarize()` that compute with variables. Whereas, tidy selection is used for functions like `select()` and `rename()` that select variables.
+
+Your intuition about which functions use tidy evaluation should be good for many of these functions. If you can input `c(var1, var2, var3)` into the function (e.g., `select(mtcars, c(vs, am, gear))`), then the function uses tidy selection! If you **cannot** input `c(var1, var2, var3)` into the function, then the function is performing computations on the data and uses data masking.
+
+If you are interested in learning more about tidy evaluation, I would highly recommend:
+
+-   this [video by Jenny Bryan](https://youtu.be/2BXPLnLMTYo?si=ry4tHOD77DWagvxn)
+    -   I do want to note that this video is from 2019 and some things have changed since then. Namely, we used to need to use the `enquo()` function to inject\
+        variable names into `dplyr` functions, whereas we now use embracing `{{}}`. 🤗
+-   this [vignette for tidy evaluation with `dplyr`](https://dplyr.tidyverse.org/articles/programming.html#:~:text=arrange()%20%2C%20count()%20%2C%20filter,my_variable%20not%20df%24my_variable%20)
+
+### `r emo::ji("check")` **Check-in 7.2: Writing Data Frame Functions**
+
+::: callout-note
+# Data Structure
+
+Note for Questions 1 & 2, I am assuming the `flight` data has a similar structure to the `nycflights` data from the openintro R package.
+
+```{r}
+head(openintro::nycflights)
+```
+:::
+
+**Question 1**: Fill in the code below to write a function that finds all flights that were cancelled or delayed by more than a user supplied number of hours:
+
+```{r}
+#| eval: false
+
+filter_severe <- function(df, hours) { 
+  df |> 
+    filter(dep_delay _____)
+}
+
+
+nycflights |> 
+  filter_severe(hours = 2)
+```
+
+**Question 2**: Fill in the code below to write a function that converts the user supplied variable that uses clock time (e.g., `dep_time`, `arr_time`, etc.) into a decimal time (i.e. hours + (minutes / 60)).
+
+```{r}
+#| eval: false
+
+standardize_time <- function(df, time_var) {
+  df |> 
+    # Times are stored as 2008 for 8
+    mutate( {{ time_var }} := 
+              as.numeric(
+                ## Grab first two numbers for hour
+                str_sub(
+                  {{ time_var }}, 
+                  start = 1, 
+                  end = 2)
+                ) +  
+              as.numeric(
+                ## Grab second two numbers for minutes
+                str_sub(
+                  {{ time_var }}, 
+                  start = 3, 
+                  end = 4)
+                ) / 60
+            )
+  
+}
+
+nycflights |> 
+  standardize_time(arr_time)
+```
+
+**Question 3**: For each of the following functions determine if the function uses data-masking or tidy-selection:
+
+-   `distinct()`
+-   `count()`
+-   `group_by()`
+-   `select()`
+-   `rename_with()`
+-   `across()`
+
+# Writing Plotting Functions in R
+
+### `r emo::ji("book")` [Required Reading: *R4DS* -- Functions](https://r4ds.hadley.nz/functions#plot-functions)
+
+::: callout-caution
+# Read only Section 4 (Data frame functions)!
+:::
+
+### `r emo::ji("check")` **Check-in 7.2: Writing Data Frame Functions**
+
+**Question 4**: Fill in the code below to build a rich plotting function which:
+
+-   draws a scatterplot given dataset and x and y variables,
+-   adds a line of best fit (i.e. a linear model with no standard errors)
+-   add a title.
+
+```{r}
+#| eval: false
+
+scatterplot <- function(df, x_var, y_var) {
+  label <- rlang::englue("A scatterplot of _____ and _____, including a line of best fit.")
+  
+  df |> 
+    ggplot(mapping = aes(x = _____, 
+                         y = _____
+                         )
+           ) + 
+    geom_point() + 
+    geom_smooth(method = "lm", _____) +
+    labs(title = _____)
+}
+```
