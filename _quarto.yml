@@ -79,10 +79,16 @@ website:
             text: "Lab 5 Instructions"   
           - href: labs/instructions/lab-6-instructions.qmd
             text: "Lab 6 Instructions" 
+          - href: labs/instructions/lab-7-instructions.qmd
+            text: "Lab 7 Instructions" 
+          - href: labs/instructions/lab-8-instructions.qmd
+            text: "Lab 8 Instructions" 
       - section: "Portfolio" 
         contents:
           - href: portfolio/portfolio-overview.qmd
             text: "Portfolio Part 1"
+          - href: portfolio/portfolio-part-2.qmd
+            text: "Portfolio Part 2"
 
 
 format:
