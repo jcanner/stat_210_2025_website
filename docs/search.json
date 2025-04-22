@@ -15,7 +15,7 @@
     "href": "weeks/week-13-iteration.html#performing-multiple-operations",
     "title": "Loops and Iteration",
     "section": "1.1 Performing Multiple Operations",
-    "text": "1.1 Performing Multiple Operations\nWhat if we wanted to perform multiple transformations on each of many variables?\nWithin the different values of diamond cut, let’s summarize the mean, median, and standard deviation of the numeric variables. When we look at the .fns argument in the across() documentation, we see that we can provide a list of functions:\n\ndiamonds %&gt;%\n    group_by(cut) %&gt;% \n    summarize(across(.cols = where(is.numeric), \n                     .fns = list(mean = mean, \n                                 med = median, \n                                 sd = sd)\n                     )\n              )\n\n# A tibble: 5 × 22\n  cut     carat_mean carat_med carat_sd depth_mean depth_med depth_sd table_mean\n  &lt;ord&gt;        &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;\n1 Fair         1.05       1       0.516       64.0      65      3.64        59.1\n2 Good         0.849      0.82    0.454       62.4      63.4    2.17        58.7\n3 Very G…      0.806      0.71    0.459       61.8      62.1    1.38        58.0\n4 Premium      0.892      0.86    0.515       61.3      61.4    1.16        58.7\n5 Ideal        0.703      0.54    0.433       61.7      61.8    0.719       56.0\n# ℹ 14 more variables: table_med &lt;dbl&gt;, table_sd &lt;dbl&gt;, price_mean &lt;dbl&gt;,\n#   price_med &lt;dbl&gt;, price_sd &lt;dbl&gt;, x_mean &lt;dbl&gt;, x_med &lt;dbl&gt;, x_sd &lt;dbl&gt;,\n#   y_mean &lt;dbl&gt;, y_med &lt;dbl&gt;, y_sd &lt;dbl&gt;, z_mean &lt;dbl&gt;, z_med &lt;dbl&gt;,\n#   z_sd &lt;dbl&gt;\n\n\nWhat does the list of functions look like? What is the structure of this list object?\n\nlist_of_fcts &lt;- list(mean = mean, \n                     med = median, \n                     sd = sd)\nlist_of_fcts\n\n$mean\nfunction (x, ...) \nUseMethod(\"mean\")\n&lt;bytecode: 0x000001d1c47331b0&gt;\n&lt;environment: namespace:base&gt;\n\n$med\nfunction (x, na.rm = FALSE, ...) \nUseMethod(\"median\")\n&lt;bytecode: 0x000001d1c3852798&gt;\n&lt;environment: namespace:stats&gt;\n\n$sd\nfunction (x, na.rm = FALSE) \nsqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), \n    na.rm = na.rm))\n&lt;bytecode: 0x000001d1c448aff0&gt;\n&lt;environment: namespace:stats&gt;\n\nstr(list_of_fcts)\n\nList of 3\n $ mean:function (x, ...)  \n $ med :function (x, na.rm = FALSE, ...)  \n $ sd  :function (x, na.rm = FALSE)  \n\n\nLet’s explore lists a bit more…\n\n\n\n\n\n\nReview of Lists\n\n\n\n\n\nA list is a 1-dimensional data structure that has no restrictions on what type of content is stored within it. A list is a “vector”, but it is not an atomic vector - that is, it does not necessarily contain things that are all the same type.\n\nmylist &lt;- list(\n    logicals = c(TRUE, TRUE, FALSE, FALSE, TRUE), \n    numeric_vec = 1:12, \n    third_thing = letters[1:2]\n    )\n\nmylist\n\n$logicals\n[1]  TRUE  TRUE FALSE FALSE  TRUE\n\n$numeric_vec\n [1]  1  2  3  4  5  6  7  8  9 10 11 12\n\n$third_thing\n[1] \"a\" \"b\"\n\n\nList components may have names (or not), be homogeneous (or not), have the same length (or not).\n\nIndexing\nIndexing necessarily differs between R and Python, and since the list types are also somewhat different (e.g. lists cannot be named in python), we will treat list indexing in the two languages separately.\n\n\n\n\n\n\n\n\nAn unusual pepper shaker which we’ll call pepper\n\n\n\n\n\n\n\nWhen a list is indexed with single brackets, pepper[1], the return value is always a list containing the selected element(s).\n\n\n\n\n\n\n\nWhen a list is indexed with double brackets, pepper[[1]], the return value is the selected element.\n\n\n\n\n\n\n\nTo actually access the pepper, we have to use double indexing and index both the list object and the sub-object, as in pepper[[1]][[1]].\n\n\n\n\n\n\nFigure 1: The types of indexing are made most memorable with a fantastic visual example from Grolemund and Wickham (2017), which I have repeated here.\n\n\n\nThere are 3 ways to index a list:\n\nWith single square brackets, just like we index atomic vectors. In this case, the return value is always a list.\n\n\nmylist[1]\n\n$logicals\n[1]  TRUE  TRUE FALSE FALSE  TRUE\n\nmylist[2]\n\n$numeric_vec\n [1]  1  2  3  4  5  6  7  8  9 10 11 12\n\nmylist[c(T, F, T)]\n\n$logicals\n[1]  TRUE  TRUE FALSE FALSE  TRUE\n\n$third_thing\n[1] \"a\" \"b\"\n\n\n\nWith double square brackets. In this case, the return value is the thing inside the specified position in the list, but you also can only get one entry in the main list at a time. You can also get things by name.\n\n\nmylist[[1]]\n\n[1]  TRUE  TRUE FALSE FALSE  TRUE\n\nmylist[[\"third_thing\"]]\n\n[1] \"a\" \"b\"\n\n\n\nUsing x$name. This is equivalent to using x[[\"name\"]]. Note that this does not work on unnamed entries in the list.\n\n\nmylist$third_thing\n\n[1] \"a\" \"b\"\n\n\nTo access the contents of a list object, we have to use double-indexing:\n\nmylist[[\"third_thing\"]][[1]]\n\n[1] \"a\"",
+    "text": "1.1 Performing Multiple Operations\nWhat if we wanted to perform multiple transformations on each of many variables?\nWithin the different values of diamond cut, let’s summarize the mean, median, and standard deviation of the numeric variables. When we look at the .fns argument in the across() documentation, we see that we can provide a list of functions:\n\ndiamonds %&gt;%\n    group_by(cut) %&gt;% \n    summarize(across(.cols = where(is.numeric), \n                     .fns = list(mean = mean, \n                                 med = median, \n                                 sd = sd)\n                     )\n              )\n\n# A tibble: 5 × 22\n  cut     carat_mean carat_med carat_sd depth_mean depth_med depth_sd table_mean\n  &lt;ord&gt;        &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;\n1 Fair         1.05       1       0.516       64.0      65      3.64        59.1\n2 Good         0.849      0.82    0.454       62.4      63.4    2.17        58.7\n3 Very G…      0.806      0.71    0.459       61.8      62.1    1.38        58.0\n4 Premium      0.892      0.86    0.515       61.3      61.4    1.16        58.7\n5 Ideal        0.703      0.54    0.433       61.7      61.8    0.719       56.0\n# ℹ 14 more variables: table_med &lt;dbl&gt;, table_sd &lt;dbl&gt;, price_mean &lt;dbl&gt;,\n#   price_med &lt;dbl&gt;, price_sd &lt;dbl&gt;, x_mean &lt;dbl&gt;, x_med &lt;dbl&gt;, x_sd &lt;dbl&gt;,\n#   y_mean &lt;dbl&gt;, y_med &lt;dbl&gt;, y_sd &lt;dbl&gt;, z_mean &lt;dbl&gt;, z_med &lt;dbl&gt;,\n#   z_sd &lt;dbl&gt;\n\n\nWhat does the list of functions look like? What is the structure of this list object?\n\nlist_of_fcts &lt;- list(mean = mean, \n                     med = median, \n                     sd = sd)\nlist_of_fcts\n\n$mean\nfunction (x, ...) \nUseMethod(\"mean\")\n&lt;bytecode: 0x00000237a75331b0&gt;\n&lt;environment: namespace:base&gt;\n\n$med\nfunction (x, na.rm = FALSE, ...) \nUseMethod(\"median\")\n&lt;bytecode: 0x00000237a6650798&gt;\n&lt;environment: namespace:stats&gt;\n\n$sd\nfunction (x, na.rm = FALSE) \nsqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), \n    na.rm = na.rm))\n&lt;bytecode: 0x00000237a7269730&gt;\n&lt;environment: namespace:stats&gt;\n\nstr(list_of_fcts)\n\nList of 3\n $ mean:function (x, ...)  \n $ med :function (x, na.rm = FALSE, ...)  \n $ sd  :function (x, na.rm = FALSE)  \n\n\nLet’s explore lists a bit more…\n\n\n\n\n\n\nReview of Lists\n\n\n\n\n\nA list is a 1-dimensional data structure that has no restrictions on what type of content is stored within it. A list is a “vector”, but it is not an atomic vector - that is, it does not necessarily contain things that are all the same type.\n\nmylist &lt;- list(\n    logicals = c(TRUE, TRUE, FALSE, FALSE, TRUE), \n    numeric_vec = 1:12, \n    third_thing = letters[1:2]\n    )\n\nmylist\n\n$logicals\n[1]  TRUE  TRUE FALSE FALSE  TRUE\n\n$numeric_vec\n [1]  1  2  3  4  5  6  7  8  9 10 11 12\n\n$third_thing\n[1] \"a\" \"b\"\n\n\nList components may have names (or not), be homogeneous (or not), have the same length (or not).\n\nIndexing\nIndexing necessarily differs between R and Python, and since the list types are also somewhat different (e.g. lists cannot be named in python), we will treat list indexing in the two languages separately.\n\n\n\n\n\n\n\n\nAn unusual pepper shaker which we’ll call pepper\n\n\n\n\n\n\n\nWhen a list is indexed with single brackets, pepper[1], the return value is always a list containing the selected element(s).\n\n\n\n\n\n\n\nWhen a list is indexed with double brackets, pepper[[1]], the return value is the selected element.\n\n\n\n\n\n\n\nTo actually access the pepper, we have to use double indexing and index both the list object and the sub-object, as in pepper[[1]][[1]].\n\n\n\n\n\n\nFigure 1: The types of indexing are made most memorable with a fantastic visual example from Grolemund and Wickham (2017), which I have repeated here.\n\n\n\nThere are 3 ways to index a list:\n\nWith single square brackets, just like we index atomic vectors. In this case, the return value is always a list.\n\n\nmylist[1]\n\n$logicals\n[1]  TRUE  TRUE FALSE FALSE  TRUE\n\nmylist[2]\n\n$numeric_vec\n [1]  1  2  3  4  5  6  7  8  9 10 11 12\n\nmylist[c(T, F, T)]\n\n$logicals\n[1]  TRUE  TRUE FALSE FALSE  TRUE\n\n$third_thing\n[1] \"a\" \"b\"\n\n\n\nWith double square brackets. In this case, the return value is the thing inside the specified position in the list, but you also can only get one entry in the main list at a time. You can also get things by name.\n\n\nmylist[[1]]\n\n[1]  TRUE  TRUE FALSE FALSE  TRUE\n\nmylist[[\"third_thing\"]]\n\n[1] \"a\" \"b\"\n\n\n\nUsing x$name. This is equivalent to using x[[\"name\"]]. Note that this does not work on unnamed entries in the list.\n\n\nmylist$third_thing\n\n[1] \"a\" \"b\"\n\n\nTo access the contents of a list object, we have to use double-indexing:\n\nmylist[[\"third_thing\"]][[1]]\n\n[1] \"a\"",
     "crumbs": [
       "Weekly materials",
       "Week 13 - Iteration"
@@ -449,132 +449,22 @@
     "text": "Group and Calculate Average Salary by year"
   },
   {
-    "objectID": "labs/instructions/lab-3-instructions.html",
-    "href": "labs/instructions/lab-3-instructions.html",
-    "title": "Lab 3: Exploring Rodents with ggplot2",
-    "section": "",
-    "text": "Set up your GitHub workflow (either using the method of creating a repository and using Version Control to set up your project or vice versa using the usethis package commands we have learned).\nUse appropriate naming conventions for your project (see Code Style Guide), e.g. lab-3-ggplot2.\nYour project folder should contain the following:\n\n.Rproj\n\nlab-3-student.qmd\n“data” folder\n\nsurveys.csv\n\nrendered document\n\nYou will submit a link to your GitHub repository with all content.\n\n\n\nPart of learning to program is learning from a variety of resources. Thus, I expect you will use resources that you find on the internet. There is, however, an important balance between copying someone else’s code and using their code to learn. Therefore, if you use external resources, I want to know about it.\n\nIf you used Google, you are expected to “inform” me of any resources you used by pasting the link to the resource in a code comment next to where you used that resource.\nIf you used ChatGPT, you are expected to “inform” me of the assistance you received by (1) indicating somewhere in the problem that you used ChatGPT (e.g., below the question prompt or as a code comment), and (2) downloading and attaching the .txt file containing your entire conversation with ChatGPT. ChatGPT can we used as a “search engine”, but you should not copy and paste prompts from the lab or the code into your lab.\n\nAdditionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but you are expected to do your own work. Copying from each other is cheating, and letting people copy from you is also cheating. Please don’t do either of those things.\n\n\n\nThe questions in this lab are noted with numbers and boldface. Each question will require you to produce code, whether it is one line or multiple lines.\nThis document is quite plain, meaning it does not have any special formatting. As part of your demonstration of creating professional looking Quarto documents, I would encourage you to spice your documents up (e.g., declaring execution options, specifying how your figures should be output, formatting your code output, etc.).\n\n\n\nIn the code chunk below, load in the packages necessary for your analysis. You should only need the tidyverse package for this analysis.",
-    "crumbs": [
-      "Labs",
-      "Lab 3 and Challenge 3 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-3-instructions.html#github-workflow",
-    "href": "labs/instructions/lab-3-instructions.html#github-workflow",
-    "title": "Lab 3: Exploring Rodents with ggplot2",
-    "section": "",
-    "text": "Set up your GitHub workflow (either using the method of creating a repository and using Version Control to set up your project or vice versa using the usethis package commands we have learned).\nUse appropriate naming conventions for your project (see Code Style Guide), e.g. lab-3-ggplot2.\nYour project folder should contain the following:\n\n.Rproj\n\nlab-3-student.qmd\n“data” folder\n\nsurveys.csv\n\nrendered document\n\nYou will submit a link to your GitHub repository with all content.",
-    "crumbs": [
-      "Labs",
-      "Lab 3 and Challenge 3 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-3-instructions.html#seeking-help",
-    "href": "labs/instructions/lab-3-instructions.html#seeking-help",
-    "title": "Lab 3: Exploring Rodents with ggplot2",
-    "section": "",
-    "text": "Part of learning to program is learning from a variety of resources. Thus, I expect you will use resources that you find on the internet. There is, however, an important balance between copying someone else’s code and using their code to learn. Therefore, if you use external resources, I want to know about it.\n\nIf you used Google, you are expected to “inform” me of any resources you used by pasting the link to the resource in a code comment next to where you used that resource.\nIf you used ChatGPT, you are expected to “inform” me of the assistance you received by (1) indicating somewhere in the problem that you used ChatGPT (e.g., below the question prompt or as a code comment), and (2) downloading and attaching the .txt file containing your entire conversation with ChatGPT. ChatGPT can we used as a “search engine”, but you should not copy and paste prompts from the lab or the code into your lab.\n\nAdditionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but you are expected to do your own work. Copying from each other is cheating, and letting people copy from you is also cheating. Please don’t do either of those things.",
-    "crumbs": [
-      "Labs",
-      "Lab 3 and Challenge 3 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-3-instructions.html#lab-instructions",
-    "href": "labs/instructions/lab-3-instructions.html#lab-instructions",
-    "title": "Lab 3: Exploring Rodents with ggplot2",
-    "section": "",
-    "text": "The questions in this lab are noted with numbers and boldface. Each question will require you to produce code, whether it is one line or multiple lines.\nThis document is quite plain, meaning it does not have any special formatting. As part of your demonstration of creating professional looking Quarto documents, I would encourage you to spice your documents up (e.g., declaring execution options, specifying how your figures should be output, formatting your code output, etc.).",
-    "crumbs": [
-      "Labs",
-      "Lab 3 and Challenge 3 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-3-instructions.html#setup",
-    "href": "labs/instructions/lab-3-instructions.html#setup",
-    "title": "Lab 3: Exploring Rodents with ggplot2",
-    "section": "",
-    "text": "In the code chunk below, load in the packages necessary for your analysis. You should only need the tidyverse package for this analysis.",
-    "crumbs": [
-      "Labs",
-      "Lab 3 and Challenge 3 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-3-instructions.html#reading-the-data-into-r",
-    "href": "labs/instructions/lab-3-instructions.html#reading-the-data-into-r",
-    "title": "Lab 3: Exploring Rodents with ggplot2",
-    "section": "2.1 Reading the Data into R",
-    "text": "2.1 Reading the Data into R\nWe are going to use the read_csv() function to load in the surveys.csv dataset (stored in the data folder). For simplicity, name the data surveys. We will learn more about this function next week.\n\nsurveys &lt;- read_csv(\"data/surveys.csv\")\n#glimpse(surveys)\n\n1. What are the dimensions (# of rows and columns) of these data?\n\n2. What are the data types of the variables in this dataset?",
-    "crumbs": [
-      "Labs",
-      "Lab 3 and Challenge 3 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-3-instructions.html#scatterplot",
-    "href": "labs/instructions/lab-3-instructions.html#scatterplot",
-    "title": "Lab 3: Exploring Rodents with ggplot2",
-    "section": "3.1 Scatterplot",
-    "text": "3.1 Scatterplot\n3. First, let’s create a scatterplot of the relationship between weight (on the \\(x\\)-axis) and hindfoot_length (on the \\(y\\)-axis).\nWe can see there are a lot of points plotted on top of each other. Let’s try and modify this plot to extract more information from it.\n4. Let’s add transparency (alpha) to the points, to make the points more transparent and (possibly) easier to see.\n\nDespite our best efforts there is still a substantial amount of overplotting occurring in our scatterplot. Let’s try splitting the dataset into smaller subsets and see if that allows for us to see the trends a bit better.\n6. Facet your scatterplot by species.\n\n7. No plot is complete without axis labels and a title. Include reader friendly labels and a title to your plot.\n\nIt takes a larger cognitive load to read text that is rotated. It is common practice in many journals and media outlets to move the \\(y\\)-axis label to the top of the graph under the title.\n8. Specify your \\(y\\)-axis label to be empty and move the \\(y\\)-axis label into the subtitle.",
-    "crumbs": [
-      "Labs",
-      "Lab 3 and Challenge 3 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-3-instructions.html#boxplots",
-    "href": "labs/instructions/lab-3-instructions.html#boxplots",
-    "title": "Lab 3: Exploring Rodents with ggplot2",
-    "section": "3.2 Boxplots",
-    "text": "3.2 Boxplots\n9. Create side-by-side boxplots to visualize the distribution of weight within each species.\nA fundamental complaint of boxplots is that they do not plot the raw data. However, with ggplot we can add the raw points on top of the boxplots!\n10. Add another layer to your previous plot that plots each observation using geom_point().\n\nAlright, this should look less than optimal. Your points should appear rather stacked on top of each other. To make them less stacked, we need to jitter them a bit, using geom_jitter().\n11. Remove the previous layer and include a geom_jitter() layer instead.\n\nThat should look a bit better! But its really hard to see the points when everything is black.\n12. Set the color aesthetic in geom_jitter() to change the color of the points and add set the alpha aesthetic to add transparency. You are welcome to use whatever color you wish! Some of my favorites are “springgreen4” and “steelblue4”. Check them out on R Charts\n\nGreat! Now that you can see the points, you should notice something odd: there are two colors of points still being plotted. Some of the observations are being plotted twice, once from geom_boxplot() as outliers and again from geom_jitter()!\n13. Inspect the help file for geom_boxplot() and see how you can remove the outliers from being plotted by geom_boxplot(). Make this change in your code!\n\nSome small changes can make big differences to plots. One of these changes are better labels for a plot’s axes and legend.\n14. Modify the \\(x\\)-axis and \\(y\\)-axis labels to describe what is being plotted. Be sure to include any necessary units! You might also be getting overlap in the species names – use theme(axis.text.x = ____) or theme(axis.text.y = ____) to turn the species axis labels 45 degrees.\n\nSome people (and journals) prefer for boxplots to be stacked with a specific orientation! Let’s practice changing the orientation of our boxplots.\n15. Now copy-paste your boxplot code you’ve been adding to above. Flip the orientation of your boxplots. If you created horizontally stacked boxplots, your boxplots should now be stacked vertically. If you had vertically stacked boxplots, you should now stack your boxplots horizontally!\nNotice how vertically stacked boxplots make the species labels more readable than horizontally stacked boxplots (even when the axis labels are rotated). This is good practice!",
-    "crumbs": [
-      "Labs",
-      "Lab 3 and Challenge 3 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-3-instructions.html#medium-ridge-plots",
-    "href": "labs/instructions/lab-3-instructions.html#medium-ridge-plots",
-    "title": "Lab 3: Exploring Rodents with ggplot2",
-    "section": "5.1 🌶 Medium: Ridge Plots",
-    "text": "5.1 🌶 Medium: Ridge Plots\nIn Lab 3, you used side-by-side boxplots to visualize the distribution of weight within each species of rodent. Boxplots have substantial flaws, namely that they disguise distributions with multiple modes.\nA “superior” alternative is the density plot. However, ggplot2 does not allow for side-by-side density plots using geom_density(). Instead, we will need to make use of the ggridges package to create side-by-side density (ridge) plots.\n\nFor this challenge you are to change your boxplots to ridge plots. You will need to install the ggridges package and explore the geom_density_ridges() function.",
-    "crumbs": [
-      "Labs",
-      "Lab 3 and Challenge 3 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-3-instructions.html#spicy-exploring-color-themes",
-    "href": "labs/instructions/lab-3-instructions.html#spicy-exploring-color-themes",
-    "title": "Lab 3: Exploring Rodents with ggplot2",
-    "section": "5.2 🌶 🌶 Spicy: Exploring Color Themes",
-    "text": "5.2 🌶 🌶 Spicy: Exploring Color Themes\nThe built-in ggplot() color scheme may not include the colors you were looking for. Don’t worry – there are many other color palettes available to use!\nYou can change the colors used by ggplot() in a few different ways.\n\nManual Specification\nAdd the scale_color_manual() or scale_fill_manual() functions to your plot and directly specify the colors you want to use. You can either:\n\ndefine a vector of colors within the scale functions (e.g. values = c(\"blue\", \"black\", \"red\", \"green\")) OR\ncreate a vector of colors using hex numbers and store that vector as a variable. Then, call that vector in the scale_color_manual() function.\n\nHere are some example hex color schemes:\n\n# A vector of a RG color deficient friendly palette with gray:\ncdPalette_grey &lt;- c(\"#999999\", \"#E69F00\", \"#56B4E9\", \"#009E73\", \"#F0E442\", \"#0072B2\", \"#D55E00\", \"#CC79A7\")\n\n# A vector of a RG color deficient friendly palette with black:\ncdPalette_blk &lt;- c(\"#000000\", \"#E69F00\", \"#56B4E9\", \"#009E73\", \"#F0E442\", \"#0072B2\", \"#D55E00\", \"#CC79A7\")\n\n\n\n\n\n\n\nNote\n\n\n\nIf you are interested in using specific hex colors, I like the image color picker app to find the colors I want.\n\n\n\n\nPackage Specification\nWhile manual specification may be necessary for some contexts, it can be a real pain to handpick 5+ colors. This is where color scales built-in to R packages come in handy! Popular packages for colors include:\n\nRColorBrewer – change colors by using scale_fill_brewer() or scale_colour_brewer().\nviridis – change colors by using scale_colour_viridis_d() for discrete data, scale_colour_viridis_c() for continuous data.\nggsci – change colors by using scale_color_&lt;PALNAME&gt;() or scale_fill_&lt;PALNAME&gt;(), where you specify the name of the palette you wish to use (e.g. scale_color_aaas()).\n\n\n\n\n\n\n\nNote\n\n\n\nThis website provides an exhaustive list of color themes available through various packages.\n\n\n\nIn this challenge you are expected to use this information to modify the boxplots you created Lab 3. First, you are to color the boxplots based on the variable genus. Next, you are to change the colors used for genus using either manual color specification or any of the packages listed here (or others!).",
-    "crumbs": [
-      "Labs",
-      "Lab 3 and Challenge 3 Instructions"
-    ]
-  },
-  {
-    "objectID": "labs/instructions/lab-3-instructions.html#hot-exploring-ggplot2-annotation",
-    "href": "labs/instructions/lab-3-instructions.html#hot-exploring-ggplot2-annotation",
-    "title": "Lab 3: Exploring Rodents with ggplot2",
-    "section": "5.3 🌶 🌶 🌶 Hot: Exploring ggplot2 Annotation",
-    "text": "5.3 🌶 🌶 🌶 Hot: Exploring ggplot2 Annotation\nSome data scientists advocate that we should try to eliminate legends from our plots to make them more clear. Instead of using legends, which cause the reader’s eye to stray from the plot, we should use annotation.\nWe can add annotation(s) to a ggplot() using the annotate() function:\n\nggplot(data = surveys, \n       mapping = aes(x = weight, y = species, color = genus)\n       ) +\n  geom_boxplot() +\n  scale_color_manual(values = cdPalette_grey) + \n  annotate(\"text\", y = 6, x = 200, label = \"Sigmodon\") +\n  annotate(\"text\", y = 4, x = 200, label = \"Perognathus\") +\n  theme(legend.position = \"none\") +\n  labs(x = \"Weight (g)\",\n       y = \"\",\n       subtitle = \"by Species and Genera\",\n       title = \"Rodent Weight\")\n\nNote that I’ve labeled the “Sigmodon” and “Perognathus” genera, so the reader can tell that these boxplots are associated with their respective genus.\n\nIn this challenge you are expected to use this information to modify the boxplots you created in Lab 3. First, you are to color the boxplots based on the variable genus. Next, you are to add annotations for each genus next to the boxplot(s) associated with that genus. Finally, you are expected to use the theme() function to remove the color legend from the plot, since it is no longer needed!",
-    "crumbs": [
-      "Labs",
-      "Lab 3 and Challenge 3 Instructions"
-    ]
-  },
-  {
     "objectID": "labs/instructions/lab-8-instructions.html",
     "href": "labs/instructions/lab-8-instructions.html",
     "title": "Lab 8: Functions + Fish",
     "section": "",
     "text": "The goal of this lab is learn more about exploring missing data and writing modular code.",
+    "crumbs": [
+      "Labs",
+      "Lab 8 Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/instructions/lab-8-instructions.html#setup",
+    "href": "labs/instructions/lab-8-instructions.html#setup",
+    "title": "Lab 8: Functions + Fish",
+    "section": "Setup",
+    "text": "Setup\nSetup of your GitHub repository with the following Quarto document and Data:\n\nQuarto: lab-8-student.qmd\n\nData: BlackfootFish.csv",
     "crumbs": [
       "Labs",
       "Lab 8 Instructions"
@@ -596,7 +486,7 @@
     "href": "labs/instructions/lab-8-instructions.html#data-exploration",
     "title": "Lab 8: Functions + Fish",
     "section": "Data Exploration",
-    "text": "Data Exploration\nThe measurements of each captured fish were taken by a biologist on a raft in the river. The lack of a laboratory setting opens the door to the possibility of measurement errors.\n1. Let’s look for missing values in the dataset. Output ONE table that answers BOTH of the following questions:\n\nHow many observations have missing values?\nWhat variable(s) have missing values present?\n\n\n\n\n\n\n\nYou should use across()!\n\n\n\n\n\n\n2. Create ONE thoughtful visualization that explores the frequency of missing values across the different years, sections, and trips.",
+    "text": "Data Exploration\nThe measurements of each captured fish were taken by a biologist on a raft in the river. The lack of a laboratory setting opens the door to the possibility of measurement errors.\n1a. Let’s look for missing values in the dataset. Output ONE table that answers BOTH of the following questions:\n\nHow many observations have missing values?\nWhat variable(s) have missing values present?\n\n\n\n\n\n\n\nYou should use across()!\n\n\n\n\n\n\n1b. Using map_int(), produce a nicely formatted table of the number of missing values for each variable in the fish data that displays the same information as 1a\n2. Create ONE thoughtful visualization that explores the frequency of missing values across the different years, sections, and trips. Do not use naniar, use ggplot2.",
     "crumbs": [
       "Labs",
       "Lab 8 Instructions"
@@ -607,7 +497,7 @@
     "href": "labs/instructions/lab-8-instructions.html#rescaling-the-data",
     "title": "Lab 8: Functions + Fish",
     "section": "Rescaling the Data",
-    "text": "Rescaling the Data\nIf I wanted to rescale every quantitative variable in my dataset so that they only have values between 0 and 1, I could use this formula:\n\n\\[y_{scaled} = \\frac{y_i - min\\{y_1, y_2,..., y_n\\}}{max\\{y_1, y_2,..., y_n\\}\n- min\\{y_1, y_2,..., y_n\\}}\\]\n\nI might write the following R code to carry out the rescaling procedure for the length and weight columns of the BlackfoorFish data:\n\nfish &lt;- fish |&gt; \n  mutate(length = (length - min(length, na.rm = TRUE)) / \n           (max(length, na.rm = TRUE) - min(length, na.rm = TRUE)), \n         weight = (weight - min(weight, na.rm = TRUE)) / \n           (max(weight, na.rm = TRUE) - min(length, na.rm = TRUE)))\n\nThis process of duplicating an action multiple times can make it difficult to understand the intent of the process. Additionally, it can make it very difficult to spot mistakes.\n3. What is the mistake I made in the above rescaling code?\nWhen you find yourself copy-pasting lines of code, it’s time to write a function, instead!\n4. Transform the repeated process above into a rescale_01() function. Your function should…\n\n… take a single vector as input.\n… return the rescaled vector.\n\n\n\n\n\n\n\nEfficiency\n\n\n\nAre you calling the same function multiple times? You might want to look into the range() function.\n\n\n5. Let’s incorporate some input validation into your function. Modify your previous code so that the function stops if …\n\n… the input vector is not numeric.\n… the length of the input vector is not greater than 1.\n\n\n\n\n\n\n\nModify Previous Code\n\n\n\nDo not create a new code chunk here – simply add these stops to your function above!",
+    "text": "Rescaling the Data\nIf I wanted to rescale every quantitative variable in my dataset so that they only have values between 0 and 1, I could use this formula:\n\n\\[y_{scaled} = \\frac{y_i - min\\{y_1, y_2,..., y_n\\}}{max\\{y_1, y_2,..., y_n\\}\n- min\\{y_1, y_2,..., y_n\\}}\\]\n\nI might write the following R code to carry out the rescaling procedure for the length and weight columns of the BlackfoorFish data:\n\nfish &lt;- fish |&gt; \n  mutate(length = (length - min(length, na.rm = TRUE)) / \n           (max(length, na.rm = TRUE) - min(length, na.rm = TRUE)), \n         weight = (weight - min(weight, na.rm = TRUE)) / \n           (max(weight, na.rm = TRUE) - min(length, na.rm = TRUE)))\n\nThis process of duplicating an action multiple times can make it difficult to understand the intent of the process. Additionally, it can make it very difficult to spot mistakes.\n3. What is the mistake I made in the above rescaling code?\nWhen you find yourself copy-pasting lines of code, it’s time to write a function, instead!\n4. Transform the repeated process above into a rescale_01() function. Your function should…\n\n… take a single vector as input.\n… return the rescaled vector.\n\n\n\n\n\n\n\nEfficiency\n\n\n\nAre you calling the same function multiple times? You might want to look into the range() function. Hint - our preparation for functions covered this!\n\n\n5. Let’s incorporate some input validation into your function. Modify your previous code so that the function stops if …\n\n… the input vector is not numeric.\n… the length of the input vector is not greater than 1.\n\n\n\n\n\n\n\nModify Previous Code\n\n\n\nDo not create a new code chunk here – simply add these stops to your function above!",
     "crumbs": [
       "Labs",
       "Lab 8 Instructions"
@@ -625,14 +515,201 @@
     ]
   },
   {
-    "objectID": "labs/instructions/lab-8-instructions.html#use-variables-within-a-dataset",
-    "href": "labs/instructions/lab-8-instructions.html#use-variables-within-a-dataset",
+    "objectID": "labs/instructions/lab-8-instructions.html#challenge-use-variables-within-a-dataset",
+    "href": "labs/instructions/lab-8-instructions.html#challenge-use-variables-within-a-dataset",
     "title": "Lab 8: Functions + Fish",
-    "section": "Use Variables within a Dataset",
-    "text": "Use Variables within a Dataset\nSuppose you would like for your rescale() function to perform operations on a variable within a dataset. Ideally, your function would take in a data frame and a variable name as inputs and return a data frame where the variable has been rescaled.\n8. Create a rescale_column() function that accepts two arguments:\n\na dataframe\nthe name(s) of the variable(s) to be rescaled\n\nThe body of the function should call the original rescale_01() function you wrote previously. Your solution MUST use one of the rlang options from class.\n\n\n\n\n\n\nTip\n\n\n\nIf you are struggling with this task, I recommend looking back over the data frame functions section of R for Data Science!\n\n\n9. Use your rescale_column() function to rescale both the length and weight columns.\n\n\n\n\n\n\nWarning\n\n\n\nI expect that you carry out this process by calling the rescale_column() function only ONE time!",
+    "section": "Challenge: Use Variables within a Dataset",
+    "text": "Challenge: Use Variables within a Dataset\nSuppose you would like for your rescale() function to perform operations on a variable within a dataset. Ideally, your function would take in a data frame and a variable name as inputs and return a data frame where the variable has been rescaled.\n8. Create a rescale_column() function that accepts two arguments:\n\na dataframe\nthe name(s) of the variable(s) to be rescaled\n\nThe body of the function should call the original rescale_01() function you wrote previously. Your solution MUST use one of the rlang options from class.\n\n\n\n\n\n\nTip\n\n\n\nIf you are struggling with this task, I recommend looking back over the data frame functions section of R for Data Science!\n\n\n9. Use your rescale_column() function to rescale both the length and weight columns.\n\n\n\n\n\n\nWarning\n\n\n\nI expect that you carry out this process by calling the rescale_column() function only ONE time!",
     "crumbs": [
       "Labs",
       "Lab 8 Instructions"
+    ]
+  },
+  {
+    "objectID": "weeks/week-5-projects-data-import.html",
+    "href": "weeks/week-5-projects-data-import.html",
+    "title": "R Projects & Importing Data",
+    "section": "",
+    "text": "Describe what an R Project is\nOutline how an R Project affects the file paths used to read in data\n\nRead in data from common formats into R\nIdentify missing data and type of missingness",
+    "crumbs": [
+      "Weekly materials",
+      "Week 5 - Importing Data"
+    ]
+  },
+  {
+    "objectID": "weeks/week-5-projects-data-import.html#learning-objectives",
+    "href": "weeks/week-5-projects-data-import.html#learning-objectives",
+    "title": "R Projects & Importing Data",
+    "section": "",
+    "text": "Describe what an R Project is\nOutline how an R Project affects the file paths used to read in data\n\nRead in data from common formats into R\nIdentify missing data and type of missingness",
+    "crumbs": [
+      "Weekly materials",
+      "Week 5 - Importing Data"
+    ]
+  },
+  {
+    "objectID": "weeks/week-5-projects-data-import.html#working-directories-in-r",
+    "href": "weeks/week-5-projects-data-import.html#working-directories-in-r",
+    "title": "R Projects & Importing Data",
+    "section": "1.1 Working Directories in R",
+    "text": "1.1 Working Directories in R\nTo find where your working directory is in R, you can either look at the top of your console or type getwd() into your console.\n\ngetwd()\n\nAlthough it is not recommended, you can set your working directory in R with setwd():\n\nsetwd(\"/path/to/my/assignment/folder\")\n\n\n\n\n\n\n\n\n\n\nFile Paths in R\n\n\n\nA quick warning on file paths is that Mac / Linux and Windows differ in the direction of their backslash to separate folder locations. Mac/Linux use / (e.g. STAT210/Week1) while Window’s uses \\ (e.g. STAT210\\Week1).",
+    "crumbs": [
+      "Weekly materials",
+      "Week 5 - Importing Data"
+    ]
+  },
+  {
+    "objectID": "weeks/week-5-projects-data-import.html#r-projects",
+    "href": "weeks/week-5-projects-data-import.html#r-projects",
+    "title": "R Projects & Importing Data",
+    "section": "1.2 R Projects",
+    "text": "1.2 R Projects\n📖 Review Reading: Workflow (R Projects)\n\n\n\n\n\n\nOnly read Section 6.2!\n\n\n\n\n\n\n\nCreate an R Project from an Existing Folder\nSo far, each time we have worked in R we have created an R Project. The R Project lives in the created folder for two reasons, (1) when you copy a GitHub repository you told RStudio you wanted to make a new R Project, and (2) in order for RStudio to talk with GitHub you need to use an R Project.\nHowever, if you look in any other folder on your computer, you should not see a blue cube since you never created an R Project in those folders. Suppose we have a project we’ve been work on and we never created an official R Project for it (perhaps it is a folder filled with data sets or someone sent a zipped filed that didn’t contain an R Project file (.RProj).\nTo add a R Project to an existing folder on your computer (e.g., you already created a folder for the project), first open RStudio on your computer and click File &gt; New Project, then select Existing Directory:\n\n\n\nNavigation prompt for creating a new R Project in an existing directory\n\n\nThen, browse on your computer to where you saved your project folder (it should be on your hard drive and not on iCloud, Google Drive, or One Drive). For example, let’s say you ahd a folder called STAT331 that you wanted to turn into a R Project. Select that folder.\n\n\n\nNavigation prompt for selecting which existing folder in which the R Project should be created.\n\n\nOnce you click “Create Project”, your existing folder, STAT331 should now contain a STAT331.Rproj file. This is your new “home” base for this class - whenever you refer to a file with a relative path it will begin to look for it here.\nIf you would like a list of step-by-step instructions for this process, feel free to look at this file: Creating a Project in an Existing Directory",
+    "crumbs": [
+      "Weekly materials",
+      "Week 5 - Importing Data"
+    ]
+  },
+  {
+    "objectID": "weeks/week-5-projects-data-import.html#how-do-i-load-my-data",
+    "href": "weeks/week-5-projects-data-import.html#how-do-i-load-my-data",
+    "title": "R Projects & Importing Data",
+    "section": "2.1 How do I load my data?",
+    "text": "2.1 How do I load my data?\n📖 Required Reading: Data Import",
+    "crumbs": [
+      "Weekly materials",
+      "Week 5 - Importing Data"
+    ]
+  },
+  {
+    "objectID": "weeks/week-5-projects-data-import.html#where-does-my-data-live",
+    "href": "weeks/week-5-projects-data-import.html#where-does-my-data-live",
+    "title": "R Projects & Importing Data",
+    "section": "2.2 Where does my data live?",
+    "text": "2.2 Where does my data live?\n✅ Check-in: Loading Data\nFor this check-in you are asked to work through reading in different data sets. You are expected to create your own Quarto document to complete this activity.\nThe folder Age_Data contains several data sets with the names and ages of five individuals. The data sets are stored as different file types. Download Ages_Data.zip here, make sure to unzip the folder, save these in a reasonable place (e.g., STAT210 &gt; Week 5 &gt; Checkins or STAT210 &gt; Checkins &gt; Week 5).\n\n\n\n\n\n\nExtracting zip folders\n\n\n\nYou will need to extract the contents of the ages.zip file, that means you will need to uncompress the files from the folder for RStudio to know where to get the data from.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 5 - Importing Data"
+    ]
+  },
+  {
+    "objectID": "weeks/week-5-projects-data-import.html#tidy-data-1",
+    "href": "weeks/week-5-projects-data-import.html#tidy-data-1",
+    "title": "R Projects & Importing Data",
+    "section": "3.1 Tidy Data",
+    "text": "3.1 Tidy Data\n\n\n\nArtwork by Allison Horst",
+    "crumbs": [
+      "Weekly materials",
+      "Week 5 - Importing Data"
+    ]
+  },
+  {
+    "objectID": "weeks/week-5-projects-data-import.html#same-data-different-formats",
+    "href": "weeks/week-5-projects-data-import.html#same-data-different-formats",
+    "title": "R Projects & Importing Data",
+    "section": "3.2 Same Data, Different Formats",
+    "text": "3.2 Same Data, Different Formats\nDifferent formats of the data are tidy in different ways.\n\nOption 1Option 2\n\n\n\n\n\n\n\nTeam\nPoints\nAssists\nRebounds\n\n\n\n\nA\n88\n12\n22\n\n\nB\n91\n17\n28\n\n\nC\n99\n24\n30\n\n\nD\n94\n28\n31\n\n\n\n\n\n\n\n\n\n\n\n\nTeam\nStatistic\nValue\n\n\n\n\nA\nPoints\n88\n\n\nA\nAssists\n12\n\n\nA\nRebounds\n22\n\n\nB\nPoints\n91\n\n\nB\nAssists\n17\n\n\nB\nRebounds\n28\n\n\nC\nPoints\n99\n\n\nC\nAssists\n24\n\n\nC\nRebounds\n30\n\n\nD\nPoints\n94\n\n\nD\nAssists\n28\n\n\nD\nRebounds\n31",
+    "crumbs": [
+      "Weekly materials",
+      "Week 5 - Importing Data"
+    ]
+  },
+  {
+    "objectID": "weeks/week-5-projects-data-import.html#connection-to-ggplot",
+    "href": "weeks/week-5-projects-data-import.html#connection-to-ggplot",
+    "title": "R Projects & Importing Data",
+    "section": "3.3 Connection to ggplot",
+    "text": "3.3 Connection to ggplot\nLet’s make a plot of each team’s statistics!\n\nOption 1 - Wide DataOption 2 - Long Data\n\n\n\n\n\nCode\nggplot(data = bb_wide, \n       mapping = aes(x = Team)) +\n  geom_point(mapping = aes(y = Points, \n                           color = \"Points\"), \n             size = 4) +\n  geom_point(mapping = aes(y = Assists, \n                           color = \"Assists\"), \n             size = 4) +\n  geom_point(mapping = aes(y = Rebounds, \n                           color = \"Rebounds\"), \n             size = 4) + \n  scale_colour_manual(\n    values = c(\"darkred\", \n               \"steelblue\", \n               \"forestgreen\")) +\n  labs(color = \"Statistic\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nggplot(data = bb_long, \n       mapping = aes(x = Team, \n                     y = Value, \n                     color = Statistic)) +\n  geom_point(size = 4) + \n  scale_colour_manual(\n    values = c(\"darkred\", \n               \"steelblue\", \n               \"forestgreen\")) +\n  labs(color = \"Statistic\")",
+    "crumbs": [
+      "Weekly materials",
+      "Week 5 - Importing Data"
+    ]
+  },
+  {
+    "objectID": "weeks/week-5-projects-data-import.html#tidy-data-2",
+    "href": "weeks/week-5-projects-data-import.html#tidy-data-2",
+    "title": "R Projects & Importing Data",
+    "section": "3.4 Tidy Data",
+    "text": "3.4 Tidy Data\n\n\n\nArtwork by Allison Horst",
+    "crumbs": [
+      "Weekly materials",
+      "Week 5 - Importing Data"
+    ]
+  },
+  {
+    "objectID": "weeks/week-5-projects-data-import.html#common-types-of-data-files",
+    "href": "weeks/week-5-projects-data-import.html#common-types-of-data-files",
+    "title": "R Projects & Importing Data",
+    "section": "4.1 Common Types of Data Files",
+    "text": "4.1 Common Types of Data Files\nLook at the file extension for the type of data file.\n. . .\n\n\n.csv : “comma-separated values”\n\nName, Age\nBob, 49\nJoe, 40\n\n\n. . .\n.xls, .xlsx: Microsoft Excel spreadsheet\n\nCommon approach: save as .csv\nNicer approach: use the readxl package\n\n. . .\n.txt: plain text\n\nCould have any sort of delimiter…\nNeed to let R know what to look for!",
+    "crumbs": [
+      "Weekly materials",
+      "Week 5 - Importing Data"
+    ]
+  },
+  {
+    "objectID": "weeks/week-5-projects-data-import.html#common-types-of-data-files-1",
+    "href": "weeks/week-5-projects-data-import.html#common-types-of-data-files-1",
+    "title": "R Projects & Importing Data",
+    "section": "4.2 Common Types of Data Files",
+    "text": "4.2 Common Types of Data Files\nWhat is the delimiter (e.g. comma, tab, space, etc.) for each data file?\n\nFile AFile BFile CSources\n\n\n\n\n\n\n\n\n\n\n\n\nFile A\nFile B\nFile C",
+    "crumbs": [
+      "Weekly materials",
+      "Week 5 - Importing Data"
+    ]
+  },
+  {
+    "objectID": "weeks/week-5-projects-data-import.html#loading-external-data",
+    "href": "weeks/week-5-projects-data-import.html#loading-external-data",
+    "title": "R Projects & Importing Data",
+    "section": "4.3 Loading External Data",
+    "text": "4.3 Loading External Data\nUsing base R functions:\n\nread.csv() is for reading in .csv files.\nread.table() and read.delim() are for any data with “columns” (you specify the separator).",
+    "crumbs": [
+      "Weekly materials",
+      "Week 5 - Importing Data"
+    ]
+  },
+  {
+    "objectID": "weeks/week-5-projects-data-import.html#loading-external-data-1",
+    "href": "weeks/week-5-projects-data-import.html#loading-external-data-1",
+    "title": "R Projects & Importing Data",
+    "section": "4.4 Loading External Data",
+    "text": "4.4 Loading External Data\nThe tidyverse has some cleaned-up versions in the readr and readxl packages:\n\n\nreadr package is loaded with library(tidyverse)\n\nread_csv() is for comma-separated data.\nread_tsv() is for tab-separated data.\nread_table() is for white-space-separated data.\nread_delim() is any data with “columns” (you specify the separator). The above are special cases.\n\nreadxl will need need to be loaded separately with library(readxl)\n\nread_xls() and read_xlsx() are specifically for dealing with Excel files.\n\n\n\nRemember to load the readr and readxl packages first!",
+    "crumbs": [
+      "Weekly materials",
+      "Week 5 - Importing Data"
+    ]
+  },
+  {
+    "objectID": "weeks/week-5-projects-data-import.html#whats-the-difference",
+    "href": "weeks/week-5-projects-data-import.html#whats-the-difference",
+    "title": "R Projects & Importing Data",
+    "section": "4.5 What’s the difference?",
+    "text": "4.5 What’s the difference?\nCompare the two functions read.csv() and read_csv() - what do you notice about the possible arguments you can use in each? Why is read_csv() the better option?",
+    "crumbs": [
+      "Weekly materials",
+      "Week 5 - Importing Data"
+    ]
+  },
+  {
+    "objectID": "weeks/week-5-projects-data-import.html#practice-with-importing-data",
+    "href": "weeks/week-5-projects-data-import.html#practice-with-importing-data",
+    "title": "R Projects & Importing Data",
+    "section": "4.6 Practice with Importing Data",
+    "text": "4.6 Practice with Importing Data\nOnce you have the data saved (and extracted) in your STAT 210 folder, preferably in the Week 5 subfolder, use the readr and readxl packages to complete the following exercises.\n\nLoad the appropriate packages for reading in data.\nRead in the data set ages.csv\nRead in the data set ages_tab.txt\nRead in the data set ages_mystery.txt\nRead in the data set ages.xlsx\nFind a way to use read_csv() to read ages.csv with the variable “Name” as a factor data type and “Age” as a character data type.",
+    "crumbs": [
+      "Weekly materials",
+      "Week 5 - Importing Data"
+    ]
+  },
+  {
+    "objectID": "weeks/week-5-projects-data-import.html#import-multiple-files-at-once",
+    "href": "weeks/week-5-projects-data-import.html#import-multiple-files-at-once",
+    "title": "R Projects & Importing Data",
+    "section": "4.7 Import Multiple Files at Once",
+    "text": "4.7 Import Multiple Files at Once\nIf you have multiple files that are organized the same way (same variables names/columns), you can actually import them all at once and combine into one file. Check out the following tutorial:",
+    "crumbs": [
+      "Weekly materials",
+      "Week 5 - Importing Data"
     ]
   },
   {
@@ -1233,7 +1310,7 @@
     "href": "labs/instructions/lab-7-instructions.html#access-the-data",
     "title": "Lab 7: Murder in SQL City",
     "section": "3.1 Access the Data",
-    "text": "3.1 Access the Data\nThis code chunk will read in all of the tables of data for you. Don’t modify or remove this! Take some time to look at each file type so that\n\nlibrary(tidyverse)\n\n# If purrr is not detected, install the package\nif (!\"purrr\" %in% installed.packages()) install.packages(\"purrr\")\n\nsource(\"https://raw.githubusercontent.com/jcanner/stat_210_2025_website/main/labs/instructions/lab-7-setup.R\")",
+    "text": "3.1 Access the Data\nThis code chunk will read in all of the tables of data for you. Don’t modify or remove this! Take some time to look at each file type so that\n\nlibrary(tidyverse)\n\n# If purrr is not detected, install the package\nif (!\"purrr\" %in% installed.packages()) install.packages(\"purrr\")\n\nsource(\"https://raw.githubusercontent.com/jcanner/stat_210_2025_website/main/labs/instructions/lab-7-setup.R\")\n\nError in file(filename, \"r\", encoding = encoding): cannot open the connection to 'https://raw.githubusercontent.com/jcanner/stat_210_2025_website/main/labs/instructions/lab-7-setup.R'",
     "crumbs": [
       "Labs",
       "Lab 7 Instructions"
@@ -2080,190 +2157,124 @@
     ]
   },
   {
-    "objectID": "weeks/week-5-projects-data-import.html",
-    "href": "weeks/week-5-projects-data-import.html",
-    "title": "R Projects & Importing Data",
+    "objectID": "labs/instructions/lab-3-instructions.html",
+    "href": "labs/instructions/lab-3-instructions.html",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
     "section": "",
-    "text": "Describe what an R Project is\nOutline how an R Project affects the file paths used to read in data\n\nRead in data from common formats into R\nIdentify missing data and type of missingness",
+    "text": "Set up your GitHub workflow (either using the method of creating a repository and using Version Control to set up your project or vice versa using the usethis package commands we have learned).\nUse appropriate naming conventions for your project (see Code Style Guide), e.g. lab-3-ggplot2.\nYour project folder should contain the following:\n\n.Rproj\n\nlab-3-student.qmd\n“data” folder\n\nsurveys.csv\n\nrendered document\n\nYou will submit a link to your GitHub repository with all content.\n\n\n\nPart of learning to program is learning from a variety of resources. Thus, I expect you will use resources that you find on the internet. There is, however, an important balance between copying someone else’s code and using their code to learn. Therefore, if you use external resources, I want to know about it.\n\nIf you used Google, you are expected to “inform” me of any resources you used by pasting the link to the resource in a code comment next to where you used that resource.\nIf you used ChatGPT, you are expected to “inform” me of the assistance you received by (1) indicating somewhere in the problem that you used ChatGPT (e.g., below the question prompt or as a code comment), and (2) downloading and attaching the .txt file containing your entire conversation with ChatGPT. ChatGPT can we used as a “search engine”, but you should not copy and paste prompts from the lab or the code into your lab.\n\nAdditionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but you are expected to do your own work. Copying from each other is cheating, and letting people copy from you is also cheating. Please don’t do either of those things.\n\n\n\nThe questions in this lab are noted with numbers and boldface. Each question will require you to produce code, whether it is one line or multiple lines.\nThis document is quite plain, meaning it does not have any special formatting. As part of your demonstration of creating professional looking Quarto documents, I would encourage you to spice your documents up (e.g., declaring execution options, specifying how your figures should be output, formatting your code output, etc.).\n\n\n\nIn the code chunk below, load in the packages necessary for your analysis. You should only need the tidyverse package for this analysis.",
     "crumbs": [
-      "Weekly materials",
-      "Week 5 - Importing Data"
+      "Labs",
+      "Lab 3 and Challenge 3 Instructions"
     ]
   },
   {
-    "objectID": "weeks/week-5-projects-data-import.html#learning-objectives",
-    "href": "weeks/week-5-projects-data-import.html#learning-objectives",
-    "title": "R Projects & Importing Data",
+    "objectID": "labs/instructions/lab-3-instructions.html#github-workflow",
+    "href": "labs/instructions/lab-3-instructions.html#github-workflow",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
     "section": "",
-    "text": "Describe what an R Project is\nOutline how an R Project affects the file paths used to read in data\n\nRead in data from common formats into R\nIdentify missing data and type of missingness",
+    "text": "Set up your GitHub workflow (either using the method of creating a repository and using Version Control to set up your project or vice versa using the usethis package commands we have learned).\nUse appropriate naming conventions for your project (see Code Style Guide), e.g. lab-3-ggplot2.\nYour project folder should contain the following:\n\n.Rproj\n\nlab-3-student.qmd\n“data” folder\n\nsurveys.csv\n\nrendered document\n\nYou will submit a link to your GitHub repository with all content.",
     "crumbs": [
-      "Weekly materials",
-      "Week 5 - Importing Data"
+      "Labs",
+      "Lab 3 and Challenge 3 Instructions"
     ]
   },
   {
-    "objectID": "weeks/week-5-projects-data-import.html#working-directories-in-r",
-    "href": "weeks/week-5-projects-data-import.html#working-directories-in-r",
-    "title": "R Projects & Importing Data",
-    "section": "1.1 Working Directories in R",
-    "text": "1.1 Working Directories in R\nTo find where your working directory is in R, you can either look at the top of your console or type getwd() into your console.\n\ngetwd()\n\nAlthough it is not recommended, you can set your working directory in R with setwd():\n\nsetwd(\"/path/to/my/assignment/folder\")\n\n\n\n\n\n\n\n\n\n\nFile Paths in R\n\n\n\nA quick warning on file paths is that Mac / Linux and Windows differ in the direction of their backslash to separate folder locations. Mac/Linux use / (e.g. STAT210/Week1) while Window’s uses \\ (e.g. STAT210\\Week1).",
+    "objectID": "labs/instructions/lab-3-instructions.html#seeking-help",
+    "href": "labs/instructions/lab-3-instructions.html#seeking-help",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "section": "",
+    "text": "Part of learning to program is learning from a variety of resources. Thus, I expect you will use resources that you find on the internet. There is, however, an important balance between copying someone else’s code and using their code to learn. Therefore, if you use external resources, I want to know about it.\n\nIf you used Google, you are expected to “inform” me of any resources you used by pasting the link to the resource in a code comment next to where you used that resource.\nIf you used ChatGPT, you are expected to “inform” me of the assistance you received by (1) indicating somewhere in the problem that you used ChatGPT (e.g., below the question prompt or as a code comment), and (2) downloading and attaching the .txt file containing your entire conversation with ChatGPT. ChatGPT can we used as a “search engine”, but you should not copy and paste prompts from the lab or the code into your lab.\n\nAdditionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but you are expected to do your own work. Copying from each other is cheating, and letting people copy from you is also cheating. Please don’t do either of those things.",
     "crumbs": [
-      "Weekly materials",
-      "Week 5 - Importing Data"
+      "Labs",
+      "Lab 3 and Challenge 3 Instructions"
     ]
   },
   {
-    "objectID": "weeks/week-5-projects-data-import.html#r-projects",
-    "href": "weeks/week-5-projects-data-import.html#r-projects",
-    "title": "R Projects & Importing Data",
-    "section": "1.2 R Projects",
-    "text": "1.2 R Projects\n📖 Review Reading: Workflow (R Projects)\n\n\n\n\n\n\nOnly read Section 6.2!\n\n\n\n\n\n\n\nCreate an R Project from an Existing Folder\nSo far, each time we have worked in R we have created an R Project. The R Project lives in the created folder for two reasons, (1) when you copy a GitHub repository you told RStudio you wanted to make a new R Project, and (2) in order for RStudio to talk with GitHub you need to use an R Project.\nHowever, if you look in any other folder on your computer, you should not see a blue cube since you never created an R Project in those folders. Suppose we have a project we’ve been work on and we never created an official R Project for it (perhaps it is a folder filled with data sets or someone sent a zipped filed that didn’t contain an R Project file (.RProj).\nTo add a R Project to an existing folder on your computer (e.g., you already created a folder for the project), first open RStudio on your computer and click File &gt; New Project, then select Existing Directory:\n\n\n\nNavigation prompt for creating a new R Project in an existing directory\n\n\nThen, browse on your computer to where you saved your project folder (it should be on your hard drive and not on iCloud, Google Drive, or One Drive). For example, let’s say you ahd a folder called STAT331 that you wanted to turn into a R Project. Select that folder.\n\n\n\nNavigation prompt for selecting which existing folder in which the R Project should be created.\n\n\nOnce you click “Create Project”, your existing folder, STAT331 should now contain a STAT331.Rproj file. This is your new “home” base for this class - whenever you refer to a file with a relative path it will begin to look for it here.\nIf you would like a list of step-by-step instructions for this process, feel free to look at this file: Creating a Project in an Existing Directory",
+    "objectID": "labs/instructions/lab-3-instructions.html#lab-instructions",
+    "href": "labs/instructions/lab-3-instructions.html#lab-instructions",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "section": "",
+    "text": "The questions in this lab are noted with numbers and boldface. Each question will require you to produce code, whether it is one line or multiple lines.\nThis document is quite plain, meaning it does not have any special formatting. As part of your demonstration of creating professional looking Quarto documents, I would encourage you to spice your documents up (e.g., declaring execution options, specifying how your figures should be output, formatting your code output, etc.).",
     "crumbs": [
-      "Weekly materials",
-      "Week 5 - Importing Data"
+      "Labs",
+      "Lab 3 and Challenge 3 Instructions"
     ]
   },
   {
-    "objectID": "weeks/week-5-projects-data-import.html#how-do-i-load-my-data",
-    "href": "weeks/week-5-projects-data-import.html#how-do-i-load-my-data",
-    "title": "R Projects & Importing Data",
-    "section": "2.1 How do I load my data?",
-    "text": "2.1 How do I load my data?\n📖 Required Reading: Data Import",
+    "objectID": "labs/instructions/lab-3-instructions.html#setup",
+    "href": "labs/instructions/lab-3-instructions.html#setup",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "section": "",
+    "text": "In the code chunk below, load in the packages necessary for your analysis. You should only need the tidyverse package for this analysis.",
     "crumbs": [
-      "Weekly materials",
-      "Week 5 - Importing Data"
+      "Labs",
+      "Lab 3 and Challenge 3 Instructions"
     ]
   },
   {
-    "objectID": "weeks/week-5-projects-data-import.html#where-does-my-data-live",
-    "href": "weeks/week-5-projects-data-import.html#where-does-my-data-live",
-    "title": "R Projects & Importing Data",
-    "section": "2.2 Where does my data live?",
-    "text": "2.2 Where does my data live?\n✅ Check-in: Loading Data\nFor this check-in you are asked to work through reading in different data sets. You are expected to create your own Quarto document to complete this activity.\nThe folder Age_Data contains several data sets with the names and ages of five individuals. The data sets are stored as different file types. Download Ages_Data.zip here, make sure to unzip the folder, save these in a reasonable place (e.g., STAT210 &gt; Week 5 &gt; Checkins or STAT210 &gt; Checkins &gt; Week 5).\n\n\n\n\n\n\nExtracting zip folders\n\n\n\nYou will need to extract the contents of the ages.zip file, that means you will need to uncompress the files from the folder for RStudio to know where to get the data from.",
+    "objectID": "labs/instructions/lab-3-instructions.html#reading-the-data-into-r",
+    "href": "labs/instructions/lab-3-instructions.html#reading-the-data-into-r",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "section": "2.1 Reading the Data into R",
+    "text": "2.1 Reading the Data into R\nWe are going to use the read_csv() function to load in the surveys.csv dataset (stored in the data folder). For simplicity, name the data surveys. We will learn more about this function next week.\n\nsurveys &lt;- read_csv(\"data/surveys.csv\")\n#glimpse(surveys)\n\n1. What are the dimensions (# of rows and columns) of these data?\n\n2. What are the data types of the variables in this dataset?",
     "crumbs": [
-      "Weekly materials",
-      "Week 5 - Importing Data"
+      "Labs",
+      "Lab 3 and Challenge 3 Instructions"
     ]
   },
   {
-    "objectID": "weeks/week-5-projects-data-import.html#tidy-data-1",
-    "href": "weeks/week-5-projects-data-import.html#tidy-data-1",
-    "title": "R Projects & Importing Data",
-    "section": "3.1 Tidy Data",
-    "text": "3.1 Tidy Data\n\n\n\nArtwork by Allison Horst",
+    "objectID": "labs/instructions/lab-3-instructions.html#scatterplot",
+    "href": "labs/instructions/lab-3-instructions.html#scatterplot",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "section": "3.1 Scatterplot",
+    "text": "3.1 Scatterplot\n3. First, let’s create a scatterplot of the relationship between weight (on the \\(x\\)-axis) and hindfoot_length (on the \\(y\\)-axis).\nWe can see there are a lot of points plotted on top of each other. Let’s try and modify this plot to extract more information from it.\n4. Let’s add transparency (alpha) to the points, to make the points more transparent and (possibly) easier to see.\n\nDespite our best efforts there is still a substantial amount of overplotting occurring in our scatterplot. Let’s try splitting the dataset into smaller subsets and see if that allows for us to see the trends a bit better.\n6. Facet your scatterplot by species.\n\n7. No plot is complete without axis labels and a title. Include reader friendly labels and a title to your plot.\n\nIt takes a larger cognitive load to read text that is rotated. It is common practice in many journals and media outlets to move the \\(y\\)-axis label to the top of the graph under the title.\n8. Specify your \\(y\\)-axis label to be empty and move the \\(y\\)-axis label into the subtitle.",
     "crumbs": [
-      "Weekly materials",
-      "Week 5 - Importing Data"
+      "Labs",
+      "Lab 3 and Challenge 3 Instructions"
     ]
   },
   {
-    "objectID": "weeks/week-5-projects-data-import.html#same-data-different-formats",
-    "href": "weeks/week-5-projects-data-import.html#same-data-different-formats",
-    "title": "R Projects & Importing Data",
-    "section": "3.2 Same Data, Different Formats",
-    "text": "3.2 Same Data, Different Formats\nDifferent formats of the data are tidy in different ways.\n\nOption 1Option 2\n\n\n\n\n\n\n\nTeam\nPoints\nAssists\nRebounds\n\n\n\n\nA\n88\n12\n22\n\n\nB\n91\n17\n28\n\n\nC\n99\n24\n30\n\n\nD\n94\n28\n31\n\n\n\n\n\n\n\n\n\n\n\n\nTeam\nStatistic\nValue\n\n\n\n\nA\nPoints\n88\n\n\nA\nAssists\n12\n\n\nA\nRebounds\n22\n\n\nB\nPoints\n91\n\n\nB\nAssists\n17\n\n\nB\nRebounds\n28\n\n\nC\nPoints\n99\n\n\nC\nAssists\n24\n\n\nC\nRebounds\n30\n\n\nD\nPoints\n94\n\n\nD\nAssists\n28\n\n\nD\nRebounds\n31",
+    "objectID": "labs/instructions/lab-3-instructions.html#boxplots",
+    "href": "labs/instructions/lab-3-instructions.html#boxplots",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "section": "3.2 Boxplots",
+    "text": "3.2 Boxplots\n9. Create side-by-side boxplots to visualize the distribution of weight within each species.\nA fundamental complaint of boxplots is that they do not plot the raw data. However, with ggplot we can add the raw points on top of the boxplots!\n10. Add another layer to your previous plot that plots each observation using geom_point().\n\nAlright, this should look less than optimal. Your points should appear rather stacked on top of each other. To make them less stacked, we need to jitter them a bit, using geom_jitter().\n11. Remove the previous layer and include a geom_jitter() layer instead.\n\nThat should look a bit better! But its really hard to see the points when everything is black.\n12. Set the color aesthetic in geom_jitter() to change the color of the points and add set the alpha aesthetic to add transparency. You are welcome to use whatever color you wish! Some of my favorites are “springgreen4” and “steelblue4”. Check them out on R Charts\n\nGreat! Now that you can see the points, you should notice something odd: there are two colors of points still being plotted. Some of the observations are being plotted twice, once from geom_boxplot() as outliers and again from geom_jitter()!\n13. Inspect the help file for geom_boxplot() and see how you can remove the outliers from being plotted by geom_boxplot(). Make this change in your code!\n\nSome small changes can make big differences to plots. One of these changes are better labels for a plot’s axes and legend.\n14. Modify the \\(x\\)-axis and \\(y\\)-axis labels to describe what is being plotted. Be sure to include any necessary units! You might also be getting overlap in the species names – use theme(axis.text.x = ____) or theme(axis.text.y = ____) to turn the species axis labels 45 degrees.\n\nSome people (and journals) prefer for boxplots to be stacked with a specific orientation! Let’s practice changing the orientation of our boxplots.\n15. Now copy-paste your boxplot code you’ve been adding to above. Flip the orientation of your boxplots. If you created horizontally stacked boxplots, your boxplots should now be stacked vertically. If you had vertically stacked boxplots, you should now stack your boxplots horizontally!\nNotice how vertically stacked boxplots make the species labels more readable than horizontally stacked boxplots (even when the axis labels are rotated). This is good practice!",
     "crumbs": [
-      "Weekly materials",
-      "Week 5 - Importing Data"
+      "Labs",
+      "Lab 3 and Challenge 3 Instructions"
     ]
   },
   {
-    "objectID": "weeks/week-5-projects-data-import.html#connection-to-ggplot",
-    "href": "weeks/week-5-projects-data-import.html#connection-to-ggplot",
-    "title": "R Projects & Importing Data",
-    "section": "3.3 Connection to ggplot",
-    "text": "3.3 Connection to ggplot\nLet’s make a plot of each team’s statistics!\n\nOption 1 - Wide DataOption 2 - Long Data\n\n\n\n\n\nCode\nggplot(data = bb_wide, \n       mapping = aes(x = Team)) +\n  geom_point(mapping = aes(y = Points, \n                           color = \"Points\"), \n             size = 4) +\n  geom_point(mapping = aes(y = Assists, \n                           color = \"Assists\"), \n             size = 4) +\n  geom_point(mapping = aes(y = Rebounds, \n                           color = \"Rebounds\"), \n             size = 4) + \n  scale_colour_manual(\n    values = c(\"darkred\", \n               \"steelblue\", \n               \"forestgreen\")) +\n  labs(color = \"Statistic\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nggplot(data = bb_long, \n       mapping = aes(x = Team, \n                     y = Value, \n                     color = Statistic)) +\n  geom_point(size = 4) + \n  scale_colour_manual(\n    values = c(\"darkred\", \n               \"steelblue\", \n               \"forestgreen\")) +\n  labs(color = \"Statistic\")",
+    "objectID": "labs/instructions/lab-3-instructions.html#medium-ridge-plots",
+    "href": "labs/instructions/lab-3-instructions.html#medium-ridge-plots",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "section": "5.1 🌶 Medium: Ridge Plots",
+    "text": "5.1 🌶 Medium: Ridge Plots\nIn Lab 3, you used side-by-side boxplots to visualize the distribution of weight within each species of rodent. Boxplots have substantial flaws, namely that they disguise distributions with multiple modes.\nA “superior” alternative is the density plot. However, ggplot2 does not allow for side-by-side density plots using geom_density(). Instead, we will need to make use of the ggridges package to create side-by-side density (ridge) plots.\n\nFor this challenge you are to change your boxplots to ridge plots. You will need to install the ggridges package and explore the geom_density_ridges() function.",
     "crumbs": [
-      "Weekly materials",
-      "Week 5 - Importing Data"
+      "Labs",
+      "Lab 3 and Challenge 3 Instructions"
     ]
   },
   {
-    "objectID": "weeks/week-5-projects-data-import.html#tidy-data-2",
-    "href": "weeks/week-5-projects-data-import.html#tidy-data-2",
-    "title": "R Projects & Importing Data",
-    "section": "3.4 Tidy Data",
-    "text": "3.4 Tidy Data\n\n\n\nArtwork by Allison Horst",
+    "objectID": "labs/instructions/lab-3-instructions.html#spicy-exploring-color-themes",
+    "href": "labs/instructions/lab-3-instructions.html#spicy-exploring-color-themes",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "section": "5.2 🌶 🌶 Spicy: Exploring Color Themes",
+    "text": "5.2 🌶 🌶 Spicy: Exploring Color Themes\nThe built-in ggplot() color scheme may not include the colors you were looking for. Don’t worry – there are many other color palettes available to use!\nYou can change the colors used by ggplot() in a few different ways.\n\nManual Specification\nAdd the scale_color_manual() or scale_fill_manual() functions to your plot and directly specify the colors you want to use. You can either:\n\ndefine a vector of colors within the scale functions (e.g. values = c(\"blue\", \"black\", \"red\", \"green\")) OR\ncreate a vector of colors using hex numbers and store that vector as a variable. Then, call that vector in the scale_color_manual() function.\n\nHere are some example hex color schemes:\n\n# A vector of a RG color deficient friendly palette with gray:\ncdPalette_grey &lt;- c(\"#999999\", \"#E69F00\", \"#56B4E9\", \"#009E73\", \"#F0E442\", \"#0072B2\", \"#D55E00\", \"#CC79A7\")\n\n# A vector of a RG color deficient friendly palette with black:\ncdPalette_blk &lt;- c(\"#000000\", \"#E69F00\", \"#56B4E9\", \"#009E73\", \"#F0E442\", \"#0072B2\", \"#D55E00\", \"#CC79A7\")\n\n\n\n\n\n\n\nNote\n\n\n\nIf you are interested in using specific hex colors, I like the image color picker app to find the colors I want.\n\n\n\n\nPackage Specification\nWhile manual specification may be necessary for some contexts, it can be a real pain to handpick 5+ colors. This is where color scales built-in to R packages come in handy! Popular packages for colors include:\n\nRColorBrewer – change colors by using scale_fill_brewer() or scale_colour_brewer().\nviridis – change colors by using scale_colour_viridis_d() for discrete data, scale_colour_viridis_c() for continuous data.\nggsci – change colors by using scale_color_&lt;PALNAME&gt;() or scale_fill_&lt;PALNAME&gt;(), where you specify the name of the palette you wish to use (e.g. scale_color_aaas()).\n\n\n\n\n\n\n\nNote\n\n\n\nThis website provides an exhaustive list of color themes available through various packages.\n\n\n\nIn this challenge you are expected to use this information to modify the boxplots you created Lab 3. First, you are to color the boxplots based on the variable genus. Next, you are to change the colors used for genus using either manual color specification or any of the packages listed here (or others!).",
     "crumbs": [
-      "Weekly materials",
-      "Week 5 - Importing Data"
+      "Labs",
+      "Lab 3 and Challenge 3 Instructions"
     ]
   },
   {
-    "objectID": "weeks/week-5-projects-data-import.html#common-types-of-data-files",
-    "href": "weeks/week-5-projects-data-import.html#common-types-of-data-files",
-    "title": "R Projects & Importing Data",
-    "section": "4.1 Common Types of Data Files",
-    "text": "4.1 Common Types of Data Files\nLook at the file extension for the type of data file.\n. . .\n\n\n.csv : “comma-separated values”\n\nName, Age\nBob, 49\nJoe, 40\n\n\n. . .\n.xls, .xlsx: Microsoft Excel spreadsheet\n\nCommon approach: save as .csv\nNicer approach: use the readxl package\n\n. . .\n.txt: plain text\n\nCould have any sort of delimiter…\nNeed to let R know what to look for!",
+    "objectID": "labs/instructions/lab-3-instructions.html#hot-exploring-ggplot2-annotation",
+    "href": "labs/instructions/lab-3-instructions.html#hot-exploring-ggplot2-annotation",
+    "title": "Lab 3: Exploring Rodents with ggplot2",
+    "section": "5.3 🌶 🌶 🌶 Hot: Exploring ggplot2 Annotation",
+    "text": "5.3 🌶 🌶 🌶 Hot: Exploring ggplot2 Annotation\nSome data scientists advocate that we should try to eliminate legends from our plots to make them more clear. Instead of using legends, which cause the reader’s eye to stray from the plot, we should use annotation.\nWe can add annotation(s) to a ggplot() using the annotate() function:\n\nggplot(data = surveys, \n       mapping = aes(x = weight, y = species, color = genus)\n       ) +\n  geom_boxplot() +\n  scale_color_manual(values = cdPalette_grey) + \n  annotate(\"text\", y = 6, x = 200, label = \"Sigmodon\") +\n  annotate(\"text\", y = 4, x = 200, label = \"Perognathus\") +\n  theme(legend.position = \"none\") +\n  labs(x = \"Weight (g)\",\n       y = \"\",\n       subtitle = \"by Species and Genera\",\n       title = \"Rodent Weight\")\n\nNote that I’ve labeled the “Sigmodon” and “Perognathus” genera, so the reader can tell that these boxplots are associated with their respective genus.\n\nIn this challenge you are expected to use this information to modify the boxplots you created in Lab 3. First, you are to color the boxplots based on the variable genus. Next, you are to add annotations for each genus next to the boxplot(s) associated with that genus. Finally, you are expected to use the theme() function to remove the color legend from the plot, since it is no longer needed!",
     "crumbs": [
-      "Weekly materials",
-      "Week 5 - Importing Data"
-    ]
-  },
-  {
-    "objectID": "weeks/week-5-projects-data-import.html#common-types-of-data-files-1",
-    "href": "weeks/week-5-projects-data-import.html#common-types-of-data-files-1",
-    "title": "R Projects & Importing Data",
-    "section": "4.2 Common Types of Data Files",
-    "text": "4.2 Common Types of Data Files\nWhat is the delimiter (e.g. comma, tab, space, etc.) for each data file?\n\nFile AFile BFile CSources\n\n\n\n\n\n\n\n\n\n\n\n\nFile A\nFile B\nFile C",
-    "crumbs": [
-      "Weekly materials",
-      "Week 5 - Importing Data"
-    ]
-  },
-  {
-    "objectID": "weeks/week-5-projects-data-import.html#loading-external-data",
-    "href": "weeks/week-5-projects-data-import.html#loading-external-data",
-    "title": "R Projects & Importing Data",
-    "section": "4.3 Loading External Data",
-    "text": "4.3 Loading External Data\nUsing base R functions:\n\nread.csv() is for reading in .csv files.\nread.table() and read.delim() are for any data with “columns” (you specify the separator).",
-    "crumbs": [
-      "Weekly materials",
-      "Week 5 - Importing Data"
-    ]
-  },
-  {
-    "objectID": "weeks/week-5-projects-data-import.html#loading-external-data-1",
-    "href": "weeks/week-5-projects-data-import.html#loading-external-data-1",
-    "title": "R Projects & Importing Data",
-    "section": "4.4 Loading External Data",
-    "text": "4.4 Loading External Data\nThe tidyverse has some cleaned-up versions in the readr and readxl packages:\n\n\nreadr package is loaded with library(tidyverse)\n\nread_csv() is for comma-separated data.\nread_tsv() is for tab-separated data.\nread_table() is for white-space-separated data.\nread_delim() is any data with “columns” (you specify the separator). The above are special cases.\n\nreadxl will need need to be loaded separately with library(readxl)\n\nread_xls() and read_xlsx() are specifically for dealing with Excel files.\n\n\n\nRemember to load the readr and readxl packages first!",
-    "crumbs": [
-      "Weekly materials",
-      "Week 5 - Importing Data"
-    ]
-  },
-  {
-    "objectID": "weeks/week-5-projects-data-import.html#whats-the-difference",
-    "href": "weeks/week-5-projects-data-import.html#whats-the-difference",
-    "title": "R Projects & Importing Data",
-    "section": "4.5 What’s the difference?",
-    "text": "4.5 What’s the difference?\nCompare the two functions read.csv() and read_csv() - what do you notice about the possible arguments you can use in each? Why is read_csv() the better option?",
-    "crumbs": [
-      "Weekly materials",
-      "Week 5 - Importing Data"
-    ]
-  },
-  {
-    "objectID": "weeks/week-5-projects-data-import.html#practice-with-importing-data",
-    "href": "weeks/week-5-projects-data-import.html#practice-with-importing-data",
-    "title": "R Projects & Importing Data",
-    "section": "4.6 Practice with Importing Data",
-    "text": "4.6 Practice with Importing Data\nOnce you have the data saved (and extracted) in your STAT 210 folder, preferably in the Week 5 subfolder, use the readr and readxl packages to complete the following exercises.\n\nLoad the appropriate packages for reading in data.\nRead in the data set ages.csv\nRead in the data set ages_tab.txt\nRead in the data set ages_mystery.txt\nRead in the data set ages.xlsx\nFind a way to use read_csv() to read ages.csv with the variable “Name” as a factor data type and “Age” as a character data type.",
-    "crumbs": [
-      "Weekly materials",
-      "Week 5 - Importing Data"
-    ]
-  },
-  {
-    "objectID": "weeks/week-5-projects-data-import.html#import-multiple-files-at-once",
-    "href": "weeks/week-5-projects-data-import.html#import-multiple-files-at-once",
-    "title": "R Projects & Importing Data",
-    "section": "4.7 Import Multiple Files at Once",
-    "text": "4.7 Import Multiple Files at Once\nIf you have multiple files that are organized the same way (same variables names/columns), you can actually import them all at once and combine into one file. Check out the following tutorial:",
-    "crumbs": [
-      "Weekly materials",
-      "Week 5 - Importing Data"
+      "Labs",
+      "Lab 3 and Challenge 3 Instructions"
     ]
   },
   {
