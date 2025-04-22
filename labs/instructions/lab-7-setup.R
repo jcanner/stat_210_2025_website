@@ -7,7 +7,7 @@ table_names <- c("crime_scene_report",
                  "interview",
                  "person")
 
-url_base <- "https://raw.githubusercontent.com/atheobold/groupworthy-data-science/refs/heads/main/labs/instructions/data/lab-5-data/"
+url_base <- "https://raw.githubusercontent.com/jcanner/stat_210_2025_website/refs/heads/main/labs/instructions/data/lab-7-data/"
 
 # Function to paste the URL with the name of the table, 
 # Store the resulting table in the Global Environment
