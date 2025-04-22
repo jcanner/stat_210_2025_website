@@ -1,39 +1,18 @@
 ---
-title: "Lab 8: Functions + Fish"
-format: 
-  html:
-    code-tools: true
-    toc: true
+title: "Lab 7: Functions + Fish"
+author: "Your name here!"
+format: html
 editor: source
-execute: 
-  error: true
-  echo: true
-  eval: false
-  message: false
-  warning: false
+embed-resources: true
 ---
 
 The goal of this lab is learn more about exploring missing data and writing
 modular code.
 
-## Setup
-
-Setup of your GitHub repository with the following Quarto document and Data:  
-
-+ Quarto: [lab-8-student.qmd](../student/lab-8-student.qmd)  
-+ Data: [BlackfootFish.csv](../instructions/data/BlackfootFish.csv)
-
 ```{r}
 #| label: setup
-#| echo: false
 
-library(tidyverse)
 
-fish <- read_csv(here::here("labs",
-                            "instructions", 
-                            "data", 
-                            "BlackfootFish.csv")
-                 )
 ```
 
 ## The Data
@@ -43,30 +22,10 @@ Blackfoot River outside of Helena, Montana. These four species are
 **rainbow trout (RBT)**, **westslope cutthroat trout (WCT)**, **bull trout**,
 and **brown trout**.
 
-![](https://github.com/earobinson95/stat331-calpoly/blob/master/lab-assignments/lab7/images/blackfoot_river.jpg?raw=true){fig-alt="A serene scene of the Blackfoot River in Montana, with a small raft carrying two people navigating the gentle current. The river winds through a landscape of rugged, rocky shores and lush, green pine forests. Rolling hills and distant mountains frame the background under a lightly clouded sky."}
-
 Mark-recapture is a common method used by ecologists to estimate a population's
 size when it is impossible to conduct a census (count every animal). This method
 works by *tagging* animals with a tracking device so that scientists can track
 their movement and presence.
-
-<center>
-
-::: columns
-::: {.column width="25%"}
-![](https://github.com/earobinson95/stat331-calpoly/blob/master/lab-assignments/lab7/images/grizzly.jpg?raw=true){fig-alt="These images show three examples of animal tracking methods: On this image, a brown bear walks across a road, tagged with a small radio collar around its neck for monitoring. "}
-:::
-
-::: {.column width="25%"}
-![](https://github.com/earobinson95/stat331-calpoly/blob/master/lab-assignments/lab7/images/condor.jpg?raw=true){fig-alt="In this image, a California condor spreads its wings while perched on a rock, displaying a numbered wing tag and a small transmitter for tracking its movements."}
-:::
-
-::: {.column width="25%"}
-![](https://github.com/earobinson95/stat331-calpoly/blob/master/lab-assignments/lab7/images/fish.PNG?raw=true){fig-alt="In this image, an illustration of a fish, with an inset showing a surgically implanted tracking device that collects data on its location and environment."}
-:::
-:::
-
-</center>
 
 ## Data Exploration
 
@@ -99,15 +58,12 @@ measurement errors.
 ```
 
 
-
-**2. Create ONE thoughtful visualization that explores the frequency of missing values across the different years, sections, and trips. Do not use `naniar`, use `ggplot2`.**
+**2. Create ONE thoughtful visualization that explores the frequency of missing values across the different years, sections, and trips.**
 
 ```{r}
 #| label: visual-of-missing-values-over-time
 
 ```
-
-
 
 ## Rescaling the Data
 
@@ -123,11 +79,10 @@ $$y_{scaled} = \frac{y_i - min\{y_1, y_2,..., y_n\}}{max\{y_1, y_2,..., y_n\}
 
 I might write the following `R` code to carry out the rescaling procedure for the `length` and `weight` columns of the `BlackfoorFish` data:
 
-\vspace{0.25cm}
-
 ```{r}
 #| echo: true
 #| eval: false
+
 fish <- fish |> 
   mutate(length = (length - min(length, na.rm = TRUE)) / 
            (max(length, na.rm = TRUE) - min(length, na.rm = TRUE)), 
@@ -135,7 +90,8 @@ fish <- fish |>
            (max(weight, na.rm = TRUE) - min(length, na.rm = TRUE)))
 ```
 
-This process of duplicating an action multiple times can make it difficult to understand the intent of the process. *Additionally, it can make it very difficult to spot mistakes.*
+This process of duplicating an action multiple times can make it difficult to
+understand the intent of the process. *Additionally, it can make it very difficult to spot mistakes.*
 
 **3. What is the mistake I made in the above rescaling code?**
 
@@ -148,17 +104,18 @@ function, instead!
 + **... take a single vector as input.**
 + **... return the rescaled vector.**
 
-::: callout-tip
-# Efficiency 
-
-Are you calling the **same** function multiple times? You might want to look 
-into the `range()` function. Hint - our preparation for functions covered this!
-:::
-
 ```{r}
 #| label: write-rescale-function
 
 ```
+
+::: callout-tip
+# Efficiency 
+
+Think about the efficiency of the function you wrote. Are you calling the
+**same** function multiple times? You might want to look into the `range()` 
+function. 
+:::
 
 **5. Let's incorporate some input validation into your function. Modify your previous code so that the function stops if ...**
 
@@ -177,6 +134,8 @@ above!
 **6. Run the code below to test your function. Verify that the maximum of your rescaled vector is 1 and the minimum is 0!**
 
 ```{r}
+#| label: verify-rescale-function
+
 x <- c(1:25, NA)
 
 rescaled <- rescale_01(x)
@@ -189,10 +148,13 @@ Next, let's test the function on the `length` column of the `BlackfootFish` data
 **7. The code below makes a histogram of the original values of `length`. Add a plot of the rescaled values of `length`. Output your plots side-by-side, so the reader can confirm the only aspect that has changed is the scale.**
 
 ::: callout-warning
-This will require you to call your `rescale_01()` function within a `mutate()` statement in order to create a `length_scaled` variable.
+This will require you to call your `rescale_01()` function within a `mutate()`
+statement in order to create a `length_scaled` variable.
 :::
 
 ```{r}
+#| label: compare-original-with-rescaled-lengths
+
 fish |>  
   ggplot(aes(x = length)) + 
   geom_histogram(binwidth = 45) +
@@ -200,16 +162,15 @@ fish |>
   scale_y_continuous(limits = c(0,4000))
 
 # Code for Q7 plot.
+
 ```
 
 ::: callout-tip
-
 1. Set the y-axis limits for both plots to go from 0 to 4000 to allow for direct comparison across plots.
 
 2. Pay attention to `binwidth`!
 
 3. Use a Quarto code chunk option to put the plots side-by-side.
-
 :::
 
 ## Challenge: Use Variables within a Dataset
@@ -239,9 +200,7 @@ section of R for Data Science!
 **9. Use your `rescale_column()` function to rescale *both* the `length` and `weight` columns.**
 
 ::: callout-warning
-
 I expect that you carry out this process by calling the `rescale_column()` function only ONE time!
-
 :::
 
 ```{r}
