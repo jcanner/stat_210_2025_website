@@ -11,13 +11,985 @@ execute:
 ---
 
 ```{r}
+#| label: setup
 #| include: false
 #| echo: false
 
 library(tidyverse)
 library(lubridate)
 
+set.seed(1234)
 ```
+
+This week's coursework is broken into two parts. First you will learn how to 
+write functions that work with *vectors*. Then, in the second part, 
+you will take your knowledge of functions and modify your code to work with 
+*data frames*. 
+
+By the end of the week, you should have a grasp of: 
+
+-   Writing your own functions in R
+
+-   Making good decisions about function arguments and returns
+
+-   Including side effects and / or error messages in your functions
+
+-   Good R coding style for functions
+
+------------------------------------------------------------------------
+
+#### `r emo::ji("book")` Readings: 60-75 minutes
+
+#### `r emo::ji("check")` Preview Activities
+
+------------------------------------------------------------------------
+
+# Part 1: Why Write a Function?
+
+You might be coming into this chapter wondering, "Why would I write a function?".
+Especially, if thus far you've been able to do everything with built-in
+functions and / or reusing your code a few times.
+
+The critical motivation behind functions is the "don't repeat yourself" (DRY)
+principle. In general, "you should consider writing a function whenever copied
+and pasted your code **more than twice** (i.e. you now have three copies of the
+same code)" (Wickham & Grolemund, 2020).
+
+One of my favorite papers, *Best Practices for Scientific Computing*, summarizes
+this idea in a slightly different way:
+
+> Anything that is repeated in two or more places is more difficult to maintain.
+> Every time a change or correction is made, multiple locations must be updated, 
+> which increases the chance of errors and inconsistencies. To avoid this, 
+> programmers follow the DRY Principle, which applies to both data and code.
+
+The DRY Principle applies at two scales: small and large. At small scales,
+researchers (**you**) should work to modularize code instead of copying and
+pasting. Modularizing your code helps you remember what the code is doing as a
+single mental chunk. This makes your code easier to understand, since there is
+less to remember! Another perk is that your modularized code can also be more
+easily re-purposed for other projects. At larger scales, it is vital that
+scientific programmers (**you**) re-use code instead of rewriting it (Wilson et
+al., 2014).
+
+::: {.callout-note}
+# Reading more about scientific computing "best practices"
+
+If you are interested in reading more about these "best practices" you can find
+the article here: <https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745>
+:::
+
+# Part 2: How to Write Functions in R
+
+### `r emo::ji("book")` [Required Reading: *R4DS* -- Functions](https://r4ds.hadley.nz/functions#vector-functions)
+
+::: {.callout-caution}
+# Read only Section 2 (Vector functions)! 
+::: 
+
+In R, functions are defined (or assigned names) the same as other variables,
+using `<-`, but we specify the arguments a function takes by using the
+`function()` statement. The contents of the function are contained within
+`{` and `}`. If the function returns a value, a `return()` statement can be
+used; alternately, if there is no return statement, the last computation in the
+function will be returned.
+
+![R syntax for defining functions. Portions of the command that indicate the function name, function scope, and return statement are highlighted.](images/week-7/annotating_function_syntax.png){fig-alt="The image describes the structure of writing functions in R. It explains that functions are defined using the syntax function_name <- function(function_parameter1, function_parameter2), where the word 'function' indicates the definition of a function. The parameters are enclosed within parentheses and listed as function_parameter1 and function_parameter2. The function body, which contains the operations or code the function executes, is enclosed in curly braces. The return(function_value) statement specifies what value the function should return. However, if no return statement is provided, the last line of the function body is returned automatically. The image uses color-coded annotations to explain each part of the function structure."}
+
+## Arguments and Parameters
+
+An **argument** is the name for the object you pass into a function.
+
+A **parameter** is the name for the object once it is inside the function (or
+the name of the thing as defined in the function).
+
+
+### Example 
+
+Let's examine the difference between arguments and parameters by writing a 
+function that takes a puppy's name and returns `"<name> is a good pup!"`.
+
+
+```{r}
+dog <- "Eddie"
+
+goodpup <- function(name) {
+  paste(name, "is a good pup!")
+}
+
+goodpup(dog)
+```
+
+In this example R function, when we call `goodpup(dog)`, `dog` is the argument.
+`name` is the parameter. What is happening inside the computer's memory as
+`goodpup()` runs?
+
+![A sketch of the execution of the program `goodpup`, showing that `name` is only defined within the local environment that is created while `goodpup` is running. We can never access `name` in our global environment.](images/week-7/function_argument_parameters.png){fig-alt="The image illustrates the concept of function environments versus the global environment in R. It starts by showing a variable dog in the global environment, set to 'Eddie', and a function goodpup defined as function(name) { paste(name, 'is a good pup!') }. When res <- goodpup(dog) is called, the function creates a temporary local environment where the variable name is assigned the value 'Eddie'. The paste function combines name with the string 'is a good pup!, returning 'Eddie is a good pup', which is then stored in res in the global environment. The image emphasizes that the local environment of the function only exists during the function call. The variable name is never defined in the global environment, meaning it cannot be accessed outside of the goodpup function. Annotations highlight that variables in the global environment, such as dog and res, are accessible globally, while local variables, like name, are temporary and exist solely within the function’s scope."}
+
+This is why the distinction between **arguments** and **parameters** matters. 
+Parameters are only accessible while inside of the function - and in that local
+environment, we need to call the object by the parameter name, not the name we
+use outside the function (the argument name). 
+
+We can even call a function with an argument that isn't defined outside of the
+function call: `goodpup("Tesla")` produces "`r goodpup("Tesla")`". Here, I do
+not have a variable storing the string `"Tesla"`, but I can make the function
+run anyways. So `"Tesla"` here is an argument to `goodpup` but it is not a
+variable in my environment.
+
+This is a confusing set of concepts and it's ok if you only just sort of get
+what I'm trying to explain here. Hopefully it will become more clear as you
+write more code.
+
+::: {.callout-tip collapse=TRUE}
+# Test it out! 
+
+For each of the following blocks of code, identify the function name, function
+arguments, parameter names, and return statements. When the function is called,
+see if you can predict what the output will be.
+
+::: {.panel-tabset}
+
+### Function 
+
+```{r}
+#| label: function-predict-2
+
+my_mean <- function(x) {
+  censor_x <- sample(x, size = length(x) - 2, replace = F)
+  mean(censor_x)
+}
+
+```
+
+```{r }
+#| label: function-predict-2-call
+#| eval: false
+
+my_mean(1:10)
+```
+
+### Answer
+
+- Function name: `my_mean`
+- Function parameters: x
+- Function arguments: 1:10
+- Function output: an average value for the censor_x numerical vector *(varies
+each time the function is run unless you set the seed)*
+
+```{r}
+#| label: function-predict2-results
+
+my_mean(1:10)
+```
+:::
+:::
+
+### `r emo::ji("check")` **Check-in: Writing Vector Functions**
+
+**Question 1** -- In the second variant of `rescale01()`, infinite values are
+left unchanged. Fill in the code below to rewrite `rescale01()` so `-Inf` is
+mapped to 0, and `Inf` is mapped to 1.
+
+```{r}
+#| eval: false
+
+rescale01 <- function(x) {
+  rng <- range(x, na.rm = TRUE, finite = TRUE)
+  
+  rescale_out <- case_when(
+    is.numeric(x) _____ ~ (x - rng[1] ) / (rng[2] - rng[1]),
+    x _____ ~ 0,
+    x _____ ~ 1)
+  
+  return(rescale_out)
+
+}
+
+```
+
+
+**Question 2** -- Fill in the code below to write a function that accepts a 
+vector of birthdates, and outputs the age in years
+
+```{r}
+#| eval: false
+
+get_age <- function(x) {
+  
+  birthdates <- mdy(x)
+  
+  time_passed <- _____(
+    today() - birthdates
+    ) |> 
+    day()
+  
+  # Getting the age people are, not what age they will turn soon!
+  ages <- _____(time_passed / 365)
+  
+  return(ages)
+}
+```
+
+**Question 3** -- Fill in the code below to write `both_na()`, a summary
+function that takes two vectors of the same length and returns the number of 
+positions that have an `NA` in both vectors.
+
+```{r}
+#| eval: false
+
+both_na <- function(x, y) {
+  
+  na_matches <- which(is.na(x)) %in% which(is.na(y))
+  
+  return(
+    # Find the number (sum) of the positions with matches
+    sum(
+      ## Convert logical values to 0s and 1s
+      _____(na_matches)
+      )
+    )
+}
+```
+
+::: {.callout-caution}
+# Questions 4 through 11 are sprinkled throughout the rest of the coursework! 
+:::
+
+## Named Arguments and Parameter Order
+
+In the examples above, you didn't have to worry about what order parameters were
+passed into the function, because there were 0 and 1 parameters, respectively.
+But what happens when we have a function with multiple parameters?
+
+```{r}
+
+divide <- function(x, y) {
+  x / y
+}
+
+```
+
+In this function, the order of the parameters matters! `divide(3, 6)` does not produce the same result as `divide(6, 3)`. As you might imagine, this can quickly get confusing as the number of parameters in the function increases.
+
+In this case, it can be simpler to use the parameter names when you pass in arguments.
+
+```{r}
+divide(3, 6)
+
+divide(x = 3, y = 6)
+
+divide(y = 6, x = 3)
+
+divide(6, 3)
+
+divide(x = 6, y = 3)
+
+divide(y = 3, x = 6)
+
+```
+
+As you can see, the order of the arguments doesn't much matter, as long as you use named arguments, but if you don't name your arguments, the order very much matters.
+
+## Input Validation
+
+When you write a function, you often assume that your parameters will be of a certain type. But you can't guarantee that the person using your function knows that they need a certain type of input. In these cases, it's best to **validate** your function input.
+
+In R, you can use `stopifnot()` to check for certain essential conditions. If you want to provide a more illuminating error message, you can check your conditions using `if()` or `if(){ } else{ }` and then use `stop("better error message")` in the body of the `if` or `else` statement. 
+
+::: panel-tabset
+
+### `stopifnot()`
+
+```{r}
+#| error: true
+
+add <- function(x, y) {
+  x + y
+}
+
+add("tmp", 3)
+
+add <- function(x, y) {
+  stopifnot(is.numeric(x), 
+            is.numeric(y)
+            )
+  x + y
+}
+
+add("tmp", 3)
+add(3, 4)
+```
+
+### `if(){ } else { }`
+
+```{r}
+#| error: true
+
+add <- function(x, y) {
+  if(is.numeric(x) & is.numeric(y)) {
+    x + y
+  } else {
+    stop("Argument input for x or y is not numeric")
+  }
+}
+
+add("tmp", 3)
+add(3, 4)
+```
+
+### `if(){stop()}`
+
+```{r}
+#| error: true
+
+add <- function(x, y) {
+  if(!is.numeric(x) | !is.numeric(y)) {
+    stop("Argument input for x or y is not numeric")
+  }
+    x + y
+}
+
+add("tmp", 3)
+add(3, 4)
+```
+:::
+
+Input validation is one aspect of **defensive programming** - programming in
+such a way that you try to ensure that your programs don't error out due to
+unexpected bugs by anticipating ways your programs might be misunderstood or
+misused. If you're interested, Wikipedia has [more about defensive programming](https://en.wikipedia.org/wiki/Defensive_programming).
+
+</br>
+
+### `r emo::ji("check")` **Check-in: Writing Vector Functions**
+
+::: {.callout-caution}
+# Questions 4 through 6
+:::
+
+```{r addtwo}
+add_or_subtract <- function(first_num, 
+                            second_num = 2, 
+                            type = "add") {
+  
+  if (type == "add") {
+    first_num + second_num
+  } else if (type == "subtract") {
+    first_num - second_num
+  } else {
+    stop("Please choose `add` or `subtract` as the type.")
+  }
+  
+}
+  
+```
+
+::: columns
+::: {.column width="40%"}
+For the three calls to the `add_or_subtract()` function, which of the following will be output?
+
+- 1
+- -1
+- An error defined by the function `add_or_subtract()`
+- An error defined in a different function, which is called inside the `add_or_subtract()` function
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="55%"}
+```{r}
+#| eval: false
+
+add_or_subtract(5, 6, 
+                type = "subtract")
+
+add_or_subtract("orange")
+
+add_or_subtract(5, 
+                6, 
+                type = "multiply")
+
+```
+:::
+:::
+
+
+## Scope
+
+When talking about functions, for the first time we start to confront a critical
+concept in programming, which is scope. **Scope** is the part of the program 
+where the name you've given a variable is valid - that is, where you can use a
+variable.
+
+> A variable is only available from inside the region it is created.
+
+What do I mean by the part of a program? The **lexical scope** is the portion
+of the code (the set of lines of code) where the name is valid.
+
+The concept of scope is best demonstrated through a series of examples, so in
+the rest of this section, I'll show you some examples of how scope works and the
+concepts that help you figure out what "scope" actually means in practice.
+
+### Name Masking
+
+Scope is most clearly demonstrated when we use the same variable name inside and outside a function. Note that this is 1) bad programming practice, and 2) fairly easily avoided if you can make your names even slightly more creative than `a`, `b`, and so on. But, for the purposes of demonstration, I hope you'll forgive my lack of creativity in this area so that you can see how name masking works.
+
+::: ex
+
+What does this function return, 10 or 20? 
+
+::: panel-tabset
+
+#### Pseudocode 
+
+```
+a <- 10
+
+myfun <- function() {
+  a <- 20
+  a
+}
+
+myfun()
+```
+
+#### Sketch 
+
+![A sketch of the global environment as well as the environment within `myfun()`. Because `a = 20` inside `myfun()`, when we call `myfun()`, we get the value of `a` within that environment, instead of within the global environment.](images/week-7/function-scope.png){fig-alt="The image demonstrates the difference between function environments and the global environment in R. It shows that in the global environment, the variable a is initially set to 10. When a function myfun() is called, it creates a local environment where a is assigned a new value of 20. This local value of a only exists within the scope of the function myfun() and does not affect the global variable a. The image highlights that even though a = 20 inside myfun(), this change does not apply outside the function. The global a remains unchanged at 10 unless explicitly modified in the global environment. The arrows visually represent how myfun() creates and uses a separate local environment where the variable a can be manipulated independently from the global a."}
+
+#### R Function 
+
+```{r}
+#| eval: true
+
+a <- 10
+
+myfun <- function() {
+  a <- 20
+  a
+}
+
+myfun()
+
+a
+```
+
+:::
+
+:::
+
+The lexical scope of the function is the area that is between the braces. 
+Outside the function, `a` has the value of 10, but inside the function, `a` has
+the value of 20. So when we call `myfun()`, we get 20, because the scope of
+`myfun` is the **local context** where `a` is evaluated, and the value of `a` in
+that environment dominates.
+
+This is an example of **name masking**, where names defined inside of a function
+mask names defined outside of a function.
+
+### Environments and Scope
+
+Another principle of scoping is that if you call a function and then call the
+same function again, the function's environment is re-created each time. Each
+function call is unrelated to the next function call when the function is
+defined using local variables.
+
+::: panel-tabset
+
+#### Pseudocode
+
+```
+myfun <- function() {
+  if aa is not defined
+    aa <- 1
+  else
+    aa <- aa + 1
+}
+
+myfun()
+myfun()
+
+```
+
+What does this output?
+
+#### Sketch
+
+![When we define myfun, we create a template for an environment with variables and code to excecute. Each time `myfun()` is called, that template is used to create a new environment. This prevents successive calls to `myfun()` from affecting each other -- which means `a = 1` every time.](images/week-7/function-scope-environment.png){fig-alt="
+The image explains how repeated calls to the myfun() function in R yield the same output because the function does not create or store an object in the global environment. The function myfun() uses an if-else statement: if the variable aa does not exist, it assigns aa the value 1; otherwise, it increments aa by 1. Each time myfun() is called, a new, independent copy of the function’s environment is created. The image depicts two separate calls to myfun(), both initializing aa to 1 because aa is not stored in either the function enviroment (where the function looks first) or in the global environment (where the function looks next) and therefore does not persist between calls. As a result, aa is always reset to 1 during each function invocation, with no accumulation occurring across different calls. The image emphasizes that the local environment created by the function is temporary and does not affect the global environment."}
+
+
+#### R Function
+
+```{r}
+myfun <- function() {
+  if (!exists("aa")) {
+    aa <- 1
+  } else {
+    aa <- aa + 1
+  }
+  return(aa)
+}
+
+myfun()
+myfun()
+```
+
+:::
+
+### Dynamic Lookup
+
+Scoping determines where to look for values -- when, however, is determined by
+the sequence of steps in the code. When a function is called, the
+**calling environment** (the global environment or set of environments at the
+time the function is called) determines what values are used. 
+
+If an object doesn't exist in the function's environment, the global environment
+will be searched next; if there is no object in the global environment, the
+program will error out. This behavior, combined with changes in the calling
+environment over time, can mean that the output of a function can change based
+on objects outside of the function.
+
+::: panel-tabset
+
+#### Pseudocode 
+
+```
+myfun <- function(){
+  x + 1
+}
+
+x <- 14
+
+myfun()
+
+x <- 20
+
+myfun()
+
+```
+
+What will the output be of this code?
+
+#### Sketch 
+
+![The state of the global environment at the time the function is called (that is, the state of the calling environment) can change the results of the function](images/week-7/function-scope-calling-environment.png){fig-alt="The image demonstrates how a function's output can change based on different values of a global variable x in R. At the top, the image shows a simple function myfun() that adds 1 to x. Below, two scenarios illustrate the behavior of myfun(): In Calling Environment 1, x is initially set to 14 in the global environment. When myfun() is called, the function adds 1 to x, resulting in x = 15. In Calling Environment 2, x is set to 20 in the global environment. When myfun() is invoked, the function again adds 1 to x, producing x = 21. Arrows illustrate the flow from the global environment to the function call and back, emphasizing that the function modifies x based on its current global value in each calling environment. The image visually shows how the same function can yield different results depending on the initial value of x. To be clear, the global value of x is never changing, it is only the output of the myfun() function that is changing."}
+
+
+#### R 
+
+```{r}
+myfun <- function() {
+  x + 1
+}
+
+x <- 14
+
+myfun()
+
+x <- 20
+
+myfun()
+```
+
+:::
+
+
+::: {.callout-tip collapse=TRUE}
+# Test it out! 
+
+What does the following function return? Make a prediction, then run the code yourself. 
+(Taken from [@wickham_advanced_2015, Chapter 6])
+
+::: panel-tabset
+
+##### Code 
+
+```{r, eval = F}
+f <- function(x) {
+  f <- function(x) {
+    f <- function() {
+      x ^ 2
+    }
+    f() + 1
+  }
+  f(x) * 2
+}
+f(10)
+```
+
+##### Solution 
+
+```{r}
+f <- function(x) {
+  f <- function(x) {
+    f <- function() {
+      x ^ 2
+    }
+    f() + 1
+  }
+  f(x) * 2
+}
+f(10)
+```
+:::
+:::
+
+### `r emo::ji("check")` **Check-in: Writing Vector Functions**
+
+::: {.callout-caution}
+# Questions 7 through 10
+:::
+
+::: columns
+::: {.column width="65%"}
+Consider the following code:
+
+```{r}
+first_num <- 5
+second_num <- 3
+
+result <- 8
+
+result <- add_or_subtract(first_num, 
+                          second_num = 4)
+
+result_2 <- add_or_subtract(first_num)
+```
+
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="33%"}
+In your Global Environment, what is the value of...
+
+a)  `first_num`
+b)  `second_num`
+c)  `result`
+d)  `result_2`
+
+:::
+:::
+
+## Debugging
+
+Now that you're writing functions, it's time to talk a bit about debugging
+techniques. This is a lifelong topic - as you become a more advanced programmer,
+you will need to develop more advanced debugging skills as well (because you'll
+become more adept at screwing things up). 
+
+![The faces of debugging (by Allison Horst)](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/51084276-ab7f-4c57-a0e7-5cf14a277359_rw_1920.png?h=825c5593149a63edef46664796766751){fig-alt="A cartoon of a fuzzy round monster face showing 10 different emotions experienced during the process of debugging code. The progression goes from (1) 'I got this' - looking determined and optimistic; (2) 'Huh. Really thought that was it.' - looking a bit baffled; (3) '...' - looking up at the ceiling in thought; (4) 'Fine. Restarting.' - looking a bit annoyed; (5) 'OH WTF.' Looking very frazzled and frustrated; (6) 'Zombie meltdown.' - looking like a full meltdown; (7) (blank) - sleeping; (8) 'A NEW HOPE!' - a happy looking monster with a lightbulb above; (9) 'insert awesome theme song' - looking determined and typing away; (10) 'I love coding' - arms raised in victory with a big smile, with confetti falling."}
+
+Let's start with the basics: print debugging.
+
+### Print Debugging
+
+This technique is basically exactly what it sounds like. You insert a ton of 
+print statements to give you an idea of what is happening at each step of the
+function.
+
+Let's try it out on the previous example (see what I did there?)
+
+Note that I've modified the code slightly so that we store the value into
+`returnval` and then return it later - this allows us to see the code execution
+without calling functions twice (which would make the print output a bit more
+confusing). 
+
+```{r}
+f <- function(x) {
+  print ("Entering Outer Function")
+  print (paste("x =", x))
+  f <- function(x) {
+    print ("Entering Middle Function")
+    print (paste("x = ", x))
+    f <- function() {
+      print ("Entering Inner Function")
+      print (paste("x = ", x))
+      print (paste("Inner Function: Returning", x^2))
+      x ^ 2
+    }
+    returnval <- f() + 1
+    print (paste("Middle Function: Returning", returnval))
+    returnval
+  }
+  returnval <- f(x) * 2
+  print (paste("Outer Function: Returning", returnval))
+  returnval
+}
+f(10)
+```
+
+### General Debugging Strategies
+
+> Debugging: Being the detective in a crime movie where you are also the
+> murderer. - some t-shirt I saw once
+
+The overall process is well described in 
+[Advanced R](https://adv-r.hadley.nz/debugging.html) by H. Wickham; I've copied
+it here because it's such a succinct distillation of the process, but I've
+adapted some of the explanations to this class rather than the original context
+of package development. 
+
+0. Realize that you have a bug
+
+1. **Google!** In R you can automate this with the `errorist` and `searcher` 
+packages, but general Googling the error + the programming language + any 
+packages you think are causing the issue is a good strategy.
+
+2. **Make the error repeatable**: This makes it easier to figure out what the
+error is, faster to iterate, and easier to ask for help.
+    - Use binary search (remove 1/2 of the code, see if the error occurs, if
+    not go to the other 1/2 of the code. Repeat until you've isolated the
+    error.)
+    - Generate the error faster - use a minimal test dataset, if possible, so
+    that you can ask for help easily and run code faster. This is worth the
+    investment if you've been debugging the same error for a while. 
+    - Note which inputs *don't* generate the bug -- this negative "data" is
+    helpful when asking for help.
+
+3. **Figure out where it is**. Debuggers may help with this, but you can also
+use the [scientific method](http://web.mit.edu/6.031/www/fa17/classes/13-debugging/#find_the_bug_using_the_scientific_method) to explore the code, or the tried-and-true method of using lots
+of `print()` statements.
+
+4. **Fix it and test it**. The goal with tests is to ensure that the same error
+doesn't pop back up in a future version of your code. Generate an example that
+will test for the error, and add it to your documentation. 
+
+There are several other general strategies for debugging:
+
+- Retype (from scratch) your code    
+    + This works well if it's a short function or a couple of lines of code, but
+    it's less useful if you have a big script full of code to debug. However,
+    it does sometimes fix really silly typos that are hard to spot, like having
+    typed `<--` instead of `<-` in R and then wondering why your answers are
+    negative. 
+
+- Visualize your data as it moves through the program. 
+    + This may be done using `print()` statements, or the debugger, or some
+    other strategy depending on your application.
+
+- Tracing statements. 
+    + Again, this is part of `print()` debugging, but these messages indicate
+    progress - "got into function x", "returning from function y", and so on. 
+
+- Rubber ducking. 
+    + Have you ever tried to explain a problem you're having to someone else,
+    only to have a moment of insight and "oh, never mind"? Hopefully so, 
+    because this is exactly how your pair programming sessions should be going! 
+    Rubber ducking outsources the problem to a nonjudgmental entity, such as a
+    rubber duck. You simply explain, in terms simple enough for your rubber duck
+    to understand, exactly what your code does, line by line, until you've found
+    the problem. [A more thorough explanation can be found at gitduck.com](https://gitduck.com/blog/improve-how-to-code-with-rubber-duck-debugging/). 
+
+![You may find it helpful to procure a rubber duck expert for each language you work in. I use color-your-own rubber ducks to endow my ducks with certain language expertise. Other people use plain rubber ducks and give them capes.](images/week-7/rubber_duck_cape.png){width="50%" fig-alt="An image of a rubber duck with a red cape saying 'java'."}
+
+
+Do not be surprised if, in the process of debugging, you encounter new bugs. 
+This is a problem that's well-known it has an [xkcd comic](https://xkcd.com/1739/). 
+At some point, getting up and going for a walk may help. Redesigning your code
+to be more modular and more organized is also a good idea. 
+
+::: {.callout-note collapse=TRUE}
+# Making Minimal Reproducible Examples 
+
+These section is included as FYI, but you don't have to read it just now. 
+It;s important, but not urgent, if that makes sense.
+
+If all else has failed, and you can't figure out what is causing your error,
+it's probably time to ask for help. If you have a friend or buddy that knows the
+language you're working in, by all means ask for help sooner - use them as a 
+rubber duck if you have to. But when you ask for help online, often you're
+asking people who are much more knowledgeable about the topic - members of R
+core browse StackOverflow and may drop in and help you out. Under those
+circumstances, it's better to make the task of helping you as easy as possible
+because it shows respect for their time. The same thing goes for your
+supervisors and professors. 🙃
+
+![The reprex R package will help you make a reproducible example (drawing by Allison Horst)](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/reprex.png){fig-alt="A side-by-side comparison of a monster providing problematic code to tech support when it is on a bunch of crumpled, disorganized papers, with both monsters looking sad and very stressed (left), compared to victorious looking monsters celebrating when code is provided in a nice box with a bow labeled 'reprex'. Title text reads 'reprex: make reproducible examples. Help them help everyone!'"}
+
+So, with that said, there are numerous resources for writing what's called a
+"minimal working example", "reproducible example" (commonly abbreviated reprex),
+or MCVE (minimal complete verifiable example). Much of this is lifted directly
+from the StackOverflow post describing a [minimal reproducible example](https://stackoverflow.com/help/minimal-reproducible-example).
+
+The goal is to reproduce the error message with information that is 
+
+- **minimal** - as little code as possible to still reproduce the problem
+- **complete** - everything necessary to reproduce the issue is contained in the
+description/question
+- **reproducible** - test the code you provide to reproduce the problem. 
+
+You should format your question to make it as easy as possible to help you. Make
+it so that code can be copied from your post directly and pasted into an R 
+script or notebook (e.g. Quarto document code chunk). Describe what you see and
+what you'd hope to see if the code were working. 
+
+Other resources:
+
+- [reprex package: Do's and Don'ts](https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html)
+- [How to use the reprex package](https://reprex.tidyverse.org/articles/articles/learn-reprex.html) - Vignette with videos from **the** Jenny Bryan
+- [reprex magic - Vignette adapted from a blog post by Nick Tierney](https://reprex.tidyverse.org/articles/articles/magic-reprex.html)
+:::
+
+# Styling Functions
+
+Part of writing reproducible and shareable code is following good
+**style guidelines**. Mostly, this means choosing good object names and using
+white space in a consistent and clear way.
+
+You should have already read the sections of the Tidyverse Style Guide relevant
+to piping, plotting, and naming objects. This week we are extending these style
+guides to functions.
+
+### `r emo::ji("book")` [Required Reading: *R4DS* -- Functions](https://r4ds.hadley.nz/functions#style)
+
+::: {.callout-caution}
+# Read only Section 5 (Style)! 
+::: 
+
+I would also **highly recommend** reading through the style guide for naming
+functions, what to do with long lines, and the use of comments. The guide can be
+found here: <https://style.tidyverse.org/functions.html>
+
+### Summary
+
+Designing functions is somewhat subjective, but there are a few principles that apply:
+
+1.  Choose a good, descriptive **names**
+    -   Your function name should describe what it does, and usually involves a
+    verb.
+    -   Your argument names should be simple and / or descriptive.
+    -   Names of variables in the body of the function should be descriptive.
+2.  Output should be **very predictable**
+    -   Your function should always *return* the same object type, no matter
+    what input it gets.
+    -   Your function should expect certain objects or object types as *input*,
+    and give errors when it does not get them.
+    -   Your function should give errors or warnings for common mistakes.
+    -   Default values of arguments should only be used when there is a clear
+    common choice.
+3.  The body of the function should be **easy to read**.
+    -   Code should use [good style principles](https://style.tidyverse.org/).
+    -   There should be occasional comments to explain the purpose of the steps.
+    -   Complicated steps, or steps that are repeated many times, should be
+    written into **separate functions** (sometimes called *helper functions*).
+4.  Functions should be **self-contained**.
+    -   They should not rely on any information besides what is given as input.
+    -   *(Relying on other functions* is fine, though)
+    -   They should not alter the Global Environment
+    -   *Functions should **never** load or install packages!*
+
+### `r emo::ji("check")` **Check-in 7.1: Writing Vector Functions**
+
+**Question 11** -- Which of the tidyverse style guidelines does this function
+violate?
+
+```{r}
+
+Rectangle <- function(length=5, width=4){
+
+area = length * width
+  return(area)}
+
+```
+
+
+a) Function names should be verbs
+b) Arguments should be nouns
+c) Body of the function should be indented 2 spaces
+d) Closing `}` should be on its own line
+e) Spaces around `=` signs
+
+
+<!-- ### Dividing Problems into Smaller Parts -->
+
+<!-- In programming, as in life, big, general problems are very hard to solve -->
+<!-- effectively. Instead, the goal is to break a problem down into smaller pieces -->
+<!-- that may actually be solveable.  -->
+
+<!-- We'll start with a non-programming example: -->
+
+<!-- 1. **General problem statement** :    -->
+
+<!-- > "I'm exhausted all the time"     -->
+
+<!-- Ok, so this is a problem that many of us have from time to time (or all the -->
+<!-- time). If we get a little bit more specific at outlining the problem, though, -->
+<!-- we can sometimes get a bit more insight into how to solve it. -->
+
+<!-- 2. **Specific problem statement**:  -->
+
+<!-- > "I wake up in the morning and I don't have -->
+<!-- > any energy to do anything. I want to go back to sleep, but I have too much to -->
+<!-- > do to actually give in and sleep. I spend my days worrying about how I'm going -->
+<!-- > to get all of the things on my to-do list done, and then I lie awake at night -->
+<!-- > thinking about how many things there are to do tomorrow. I don't have time for -->
+<!-- > hobbies or exercise, so I drink a lot of coffee instead to make it through the -->
+<!-- > day."     -->
+
+<!-- This is a much more specific list of issues, and some of these issues are actually things we can approach separately. -->
+
+<!-- 3. **Separating things into solvable problems:**     -->
+<!-- Moving through the list above, we can isolate a few issues. Some of these issues -->
+<!-- are undoubtedly related to each other, but we can approach them separately -->
+<!-- (for the most part). -->
+<!--     1. Poor quality sleep (tired in the morning, lying awake at night) -->
+<!--     2. Too many things to do (to-do list) -->
+<!--     3. Chemical solutions to low energy (coffee during the day) -->
+<!--     4. Anxiety about completing tasks (worrying, insomnia) -->
+<!--     5. Lack of personal time for hobbies or exercise -->
+
+<!-- 4. **Brainstorm Solutions:** -->
+<!--     1. Get a check-up to rule out any other issues that could cause sleep -->
+<!--     quality degradation - depression, anxiety, sleep apnea, thyroid conditions,  -->
+<!--     etc. -->
+<!--         - Ask the doctor about taking melatonin supplements for a short time to -->
+<!--         ensure that sleep starts off well (note, don't take medical advice from -->
+<!--         a stats textbook!) -->
+<!--     2. Reformat your to-do list: -->
+<!--         - Set time limits for things on the to-do list  -->
+<!--         - Break the to-do list into smaller, manageable tasks that can be -->
+<!--         accomplished within a relatively short interval - such as an hour -->
+<!--         - Sort the to-do list by priority and level of "fun" so that each day -->
+<!--         has a few hard tasks and a couple of easy/fun tasks. Do the hard tasks -->
+<!--         first, and use the easy/fun tasks as a reward. -->
+<!--     3. Set a time limit for caffeine (e.g. no coffee after noon) so that -->
+<!--     caffeine doesn't contribute to poor quality sleep -->
+<!--     4. Address anxiety with medication (from 1), scheduled time for mindfulness -->
+<!--     meditation, and/or self-care activities -->
+<!--     5. Scheduling time for exercise/hobbies -->
+<!--         - scheduling exercise in the morning to take advantage of the endorphins -->
+<!--         generated by working out -->
+<!--         - scheduling hobbies in the evening to reward yourself for a day's work -->
+<!--         and wind down work well before bedtime -->
+
+<!-- 5. **Approach each sub-problem separately**     -->
+<!-- When the sub-problem has a viable solution, move on to the next sub-problem. -->
+<!-- Don't try to tackle everything at once! Here, that might look like this list, -->
+<!-- where each step is taken separately and you give each thing a few days to see -->
+<!-- how it affects your sleep quality. In programming, of course, this list would -->
+<!-- perhaps be a bit more sequential, but real life is messy and the results take a -->
+<!-- while to populate. -->
+
+<!--   - [1] Make the doctor's appointment. -->
+<!--   - [5] While waiting for the appointment, schedule exercise early in the day and hobbies later in the day to create a "no-work" period before bedtime. -->
+<!--   - [1] Go to the doctor's appointment, follow up with any concerns. -->
+<!--       - [1] If doctor approves, start taking melatonin according to directions -->
+<!--   - [2] Work on reformatting the to-do list into manageable chunks. Schedule time to complete chunks using your favorite planning method. -->
+<!--   - [4] If anxiety is still an issue after following up with the doctor, add some mindfulness meditation or self-care to the schedule in the mornings or evenings. -->
+<!--   - [3] If sleep quality is still an issue, set a time limit for caffeine -->
+<!--   - [2] Revise your to-do list and try a different tactic if what you were trying didn't work. -->
+<!-- ::: -->
+
+<!-- [Here's another example](https://forge.medium.com/the-500-year-old-piece-of-advice-that-will-change-your-life-1e580f115731) of how to break down a real-world personal problem in programming/debugging style. -->
+
+
+
+# Functions with data frames
 
 The second half of this week's coursework focuses on writing functions that work with *data frames*.
 
@@ -30,8 +1002,6 @@ By the end of the week you should have a grasp of:
 -   Why we need to use the `{{{ }}}` operator when writing data frame functions
 
 ------------------------------------------------------------------------
-
-#### `r emo::ji("play button")` Watch Videos: 20 minutes
 
 #### `r emo::ji("book")` Readings: 60-75 minutes
 
@@ -62,7 +1032,7 @@ If you are interested in learning more about tidy evaluation, I would highly rec
         variable names into `dplyr` functions, whereas we now use embracing `{{}}`. 🤗
 -   this [vignette for tidy evaluation with `dplyr`](https://dplyr.tidyverse.org/articles/programming.html#:~:text=arrange()%20%2C%20count()%20%2C%20filter,my_variable%20not%20df%24my_variable%20)
 
-### `r emo::ji("check")` **Check-in 7.2: Writing Data Frame Functions**
+### `r emo::ji("check")` **Check-in: Writing Data Frame Functions**
 
 ::: callout-note
 # Data Structure
@@ -137,7 +1107,7 @@ nycflights |>
 # Read only Section 4 (Data frame functions)!
 :::
 
-### `r emo::ji("check")` **Check-in 7.2: Writing Data Frame Functions**
+### `r emo::ji("check")` **Check-in: Writing Data Frame Functions**
 
 **Question 4**: Fill in the code below to build a rich plotting function which:
 

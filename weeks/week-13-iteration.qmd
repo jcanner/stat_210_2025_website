@@ -33,8 +33,6 @@ tasks
 
 ------------------------------------------------------------------------
 
-#### `r emo::ji("play button")` Watch Videos: 10 minutes
-
 #### `r emo::ji("book")` Readings: 45-60 minutes
 
 #### `r emo::ji("check")` Check-ins: 2 
@@ -512,8 +510,6 @@ I believe this structure makes it easier to solve complex problems, while also m
 # If you want to learn more about the concept of functionals! 
 :::
 
-### `r emo::ji("play button")` [Required Video: Iteration with the `map()` family (6 minutes)](https://www.youtube.com/watch?v=FPD3a6IHO6w)
-
 ::::: column-margin
 ::: callout-tip
 # purr cheatsheet
@@ -522,7 +518,7 @@ Cheatsheet for purrr functions can be found [here](https://github.com/rstudio/ch
 :::
 :::::
 
-### `r emo::ji("check")`: Check-in 8.2: Working with the `map()` Functions
+### `r emo::ji("check")`: Check-in: Working with the `map()` Functions
 
 1. Fill in the correct map functions to:
 
