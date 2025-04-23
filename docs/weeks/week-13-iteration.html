@@ -380,8 +380,7 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#required-reading-r4ds-the-map-functions" id="toc-required-reading-r4ds-the-map-functions" class="nav-link" data-scroll-target="#required-reading-r4ds-the-map-functions">📖 Required Reading: <em>R4DS</em> – The <code>map()</code> Functions</a></li>
   <li><a href="#optional-reading-advanced-r---functionals" id="toc-optional-reading-advanced-r---functionals" class="nav-link" data-scroll-target="#optional-reading-advanced-r---functionals">📖 Optional Reading: <em>Advanced R</em> - Functionals</a></li>
-  <li><a href="#required-video-iteration-with-the-map-family-6-minutes" id="toc-required-video-iteration-with-the-map-family-6-minutes" class="nav-link" data-scroll-target="#required-video-iteration-with-the-map-family-6-minutes">▶️ Required Video: Iteration with the <code>map()</code> family (6 minutes)</a></li>
-  <li><a href="#check-in-8.2-working-with-the-map-functions" id="toc-check-in-8.2-working-with-the-map-functions" class="nav-link" data-scroll-target="#check-in-8.2-working-with-the-map-functions">✅: Check-in 8.2: Working with the <code>map()</code> Functions</a></li>
+  <li><a href="#check-in-working-with-the-map-functions" id="toc-check-in-working-with-the-map-functions" class="nav-link" data-scroll-target="#check-in-working-with-the-map-functions">✅: Check-in: Working with the <code>map()</code> Functions</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -417,9 +416,6 @@ div.csl-indent {
 <li>Use the <code>map()</code> family of functions in the <code>purrr</code> package to handle repeated tasks</li>
 </ul>
 <hr>
-<section id="watch-videos-10-minutes" class="level4">
-<h4 class="anchored" data-anchor-id="watch-videos-10-minutes">▶️ Watch Videos: 10 minutes</h4>
-</section>
 <section id="readings-45-60-minutes" class="level4">
 <h4 class="anchored" data-anchor-id="readings-45-60-minutes">📖 Readings: 45-60 minutes</h4>
 </section>
@@ -603,20 +599,20 @@ Learn More
 <pre><code>$mean
 function (x, ...) 
 UseMethod("mean")
-&lt;bytecode: 0x00000237a75331b0&gt;
+&lt;bytecode: 0x0000021d3192f1b0&gt;
 &lt;environment: namespace:base&gt;
 
 $med
 function (x, na.rm = FALSE, ...) 
 UseMethod("median")
-&lt;bytecode: 0x00000237a6650798&gt;
+&lt;bytecode: 0x0000021d30a52798&gt;
 &lt;environment: namespace:stats&gt;
 
 $sd
 function (x, na.rm = FALSE) 
 sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), 
     na.rm = na.rm))
-&lt;bytecode: 0x00000237a7269730&gt;
+&lt;bytecode: 0x0000021d317a9c30&gt;
 &lt;environment: namespace:stats&gt;</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(list_of_fcts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1067,7 +1063,7 @@ Yes, you should be reading the first edition of R4DS, not the second edition.
 </div>
 </div>
 </section>
-<section id="optional-reading-advanced-r---functionals" class="level3">
+<section id="optional-reading-advanced-r---functionals" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="optional-reading-advanced-r---functionals">📖 <a href="https://adv-r.hadley.nz/functionals.html">Optional Reading: <em>Advanced R</em> - Functionals</a></h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1082,9 +1078,6 @@ If you want to learn more about the concept of functionals!
 
 </div>
 </div>
-</section>
-<section id="required-video-iteration-with-the-map-family-6-minutes" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="required-video-iteration-with-the-map-family-6-minutes">▶️ <a href="https://www.youtube.com/watch?v=FPD3a6IHO6w">Required Video: Iteration with the <code>map()</code> family (6 minutes)</a></h3>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1101,8 +1094,8 @@ purr cheatsheet
 </div>
 </div>
 </div></div></section>
-<section id="check-in-8.2-working-with-the-map-functions" class="level3">
-<h3 class="anchored" data-anchor-id="check-in-8.2-working-with-the-map-functions">✅: Check-in 8.2: Working with the <code>map()</code> Functions</h3>
+<section id="check-in-working-with-the-map-functions" class="level3">
+<h3 class="anchored" data-anchor-id="check-in-working-with-the-map-functions">✅: Check-in: Working with the <code>map()</code> Functions</h3>
 <ol type="1">
 <li>Fill in the correct map functions to:</li>
 </ol>
