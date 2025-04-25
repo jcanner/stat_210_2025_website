@@ -1,17 +1,6 @@
 # PA 10: Exploring the Star Wars Universe
 Instructions
 
-``` r
-#using this later to add a variable to our data
-trilogies <- factor(
-  c("Prequels: Episode I-III", 
-    "Originals: Episode IV-VI", 
-    "Sequels: Episode VII"), 
-  levels = c("Prequels: Episode I-III", 
-             "Originals: Episode IV-VI", 
-             "Sequels: Episode VII"))
-```
-
 ***This task is complex. It requires many different types of abilities.
 Everyone will be good at some of these abilities but nobody will be good
 at all of them. In order to produce the best product possible, you will
@@ -411,7 +400,7 @@ sw_peeps2 %>%
 #### Canvas Quiz Question 3
 
 Write some code to identify who is is the heaviest (look at the graph to
-help guide this) Star Wars characer (excluding Jabba Desilijic Tiure).
+help guide this) Star Wars character (excluding Jabba Desilijic Tiure).
 
 > Insert Answer Here
 

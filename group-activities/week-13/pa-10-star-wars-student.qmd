@@ -22,6 +22,7 @@ library(magrittr)
 
 ```{r}
 #| label: data-prep
+#| include: false
 #using this later to add a variable to our data
 trilogies <- factor(
   c("Prequels: Episode I-III", 
