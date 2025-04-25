@@ -1,5 +1,5 @@
 ---
-title: "Portfolio Part 1: Development and Planning"
+title: "Portfolio Part 2: Data Cleaning and Rough Draft"
 author: "Instructions"
 format: html
 number-sections: true
@@ -8,64 +8,42 @@ toc: true
 code-tools: true
 ---
 
-# Portfolio Overview
+# Portfolio: Data Cleaning and Rough Draft
 
-The Portfolio component is a place for you to put your R skills into action on a problem you are interested in with the goal of have a project you could share with future employers. 
+The Portfolio component is a place for you to put your R skills into action on a problem you are interested in with the goal of have a project you could share with future employers.
 
-It should have the following qualities: 
+It should have the following qualities:
 
-- It is a real-world application of R that has not exactly been worked out before (e.g. it isn't a demo from some package or blog).  
-- It is interesting to you.  
--  It involves data and analyzing or presenting that data.  The data may be data you have from a lab, or something you have retrieved from the web, some examples of good sources:  FBI database on crime statistics, National Oceanic and Atmospheric Administration, World Health Organization, Twitter, Yahoo finance data, etc.  If you are having problems finding a dataset, see the resources at the end of the project description.  
-- The analysis and presentation is useful in the real-world. 
+-   It is a real-world application of R that has not exactly been worked out before (e.g. it isn't a demo from some package or blog).\
+-   It is interesting to you.\
+-   It involves data and analyzing or presenting that data. The data may be data you have from a lab, or something you have retrieved from the web, some examples of good sources: FBI database on crime statistics, National Oceanic and Atmospheric Administration, World Health Organization, Twitter, Yahoo finance data, etc. If you are having problems finding a dataset, see the resources at the end of the project description.\
+-   The analysis and presentation is useful in the real-world.
 
-These are real-world projects, but they are also class projects and there can be unforeseen unknowns, if you find that it is going to be impossible to finish what you set out to accomplish, please contact your instructor to find a solution.  
+These are real-world projects, but they are also class projects and there can be unforeseen unknowns, if you find that it is going to be impossible to finish what you set out to accomplish, please contact your instructor to find a solution.
 
-## Portfolio Expectations  
 
-The final product will be a website page, hosted on your personal website, the includes the following content:  
 
-- Description of the proposed research questions  
-- Description of the data and data source(s)  
-- Description of data cleaning  
-- 2-3 data visualizations with commentary that answer the research questions  
+## Portfolio Expectations
 
-Though no code should be visible on the website, the quarto document used to create the final product should contain all code for data cleaning and data visualization, commented and following a coding style conventions.  
+The final product will be a website page, hosted on your personal website, the includes the following content:
 
-# Part 1 - Describe your Process
+-   Description of the proposed research questions\
+-   Description of the data and data source(s)\
+-   Description of data cleaning\
+-   2-3 data visualizations with commentary that answer the research questions
 
-For the first part of the portfolio process there should be no code! Just a Quarto document discussing your answers to the following questions to help you prepare for the data cleaning and analysis.  
+Though no code should be visible on the website, the quarto document used to create the final product should contain all code for data cleaning and data visualization, commented and following a coding style conventions.
 
-You should submit a link to a github repository containing the Quarto document you write and the data.  
+## Part 1 - Data Cleaning
 
-## Respond to the following prompts:  
+Begin the process of cleaning your data. Be sure to comment on the code with the reason why you are making your modifications. It is possible you will need to transform your data in a few different ways to make the data visualizations you planned to create, so you might have 1-3 different 'final' clean data sets.
 
-Provide a complete answer to each of the following questions and prompts.
+Each clean data set should be exported and saved in a folder within the project.
 
-### Data Description
+Remember there needs to be at minimum 3 data transformations to meet the requirements of the project.
 
-1. Identify your data source. 
-2. Describe your data, including variables and data types.  
-3. Identify the research questions you want to answer.
 
-### Data Visualization  
+## Part 2 - Data Visualization  
 
-1. What do you want your final visualizations to look like?  
-2. What do you want to highlight on your final visualizations in order to answer your research questions? How do you plan to do that?  
-3. What is missing from your data or would need to change in your data to create these visualizations?  
-
-### Data Cleaning  
-
-The answer to at least three of these questions should be "YES" for the data to meet the necessary standards to demonstrate your cleaning. Your data source should not be an already perfectly prepared data set.  
-
-1. Do you need to reformat any variables into different types (e.g. factors, time, dates, strings)? Or remove information from variable values? 
-2. Do you need to deal with any missing data, especially missing data coded other than NA?  
-3. Do you need to filter your data? How? 
-4. Do you need to create any new variables? What variables? How? 
-5. Do you need to add new data (join) to your data? What data? How?  
-6. Are there any variables you can exclude from your data?  
-7. Do you need pivot your data in any way? Why? How?
-8. Do you need to summarize any of the variables? Which ones? How?
-9. What other aspects of your data need to be "fixed" in order to make your data visualizations?  
-
+Attempt to create a rough draft of at least one of your proposed visualizations.  Identify anything you want to modify in your visualization, but do not know how to do.
 
